@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <SoundDef>
+    <defName>USH_SampleDisease</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Misc/SampleDisease</clipPath>
+          </li>
+        </grains>
+        <volumeRange>10</volumeRange>
+        <sustainLoop>False</sustainLoop>
+        <distRange>15~40</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+</Defs>

@@ -37,15 +37,15 @@
       <li Class="CompProperties_Targetable">
         <compClass>CompTargetable_SinglePawn</compClass>
       </li>
-      <li Class="CompProperties_TargetEffectResurrect"> <!-->to build upon in c#<-->
-        <moteDef>Mote_ResurrectFlash</moteDef>
+      <li Class="BiologicalWarfare.CompProperties_TargetEffectSampleDisease">
+        <jobDef>USH_SampleDisease</jobDef>
       </li>
     </comps>
   </ThingDef>
 
   <JobDef>
-    <defName>USH_SampleDesease</defName>
-    <driverClass>JobDriver_Resurrect</driverClass>
+    <defName>USH_SampleDisease</defName>
+    <driverClass>BiologicalWarfare.JobDriver_SampleDisease</driverClass>
     <reportString>sampling disease from TargetA.</reportString>
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>
@@ -58,7 +58,7 @@
     <jobString>Taking a sample of a disease.</jobString>
     <targetsBodyPart>false</targetsBodyPart>
     <anesthetize>false</anesthetize>
-    <workAmount>250</workAmount>
+    <workAmount>120</workAmount>
     <dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
     <surgeryOutcomeEffect IsNull="True" />
     <ingredients>
