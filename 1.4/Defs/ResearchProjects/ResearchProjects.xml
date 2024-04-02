@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ResearchTabDef>
+    <defName>USH_BiologicalWarfare</defName>
+    <label>Biological Warfare</label>
+  </ResearchTabDef>
+
+  <ResearchProjectDef Name="USH_BiologicalProjectBase" Abstract="True">
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+    <tab>USH_BiologicalWarfare</tab>
+    <techLevel>Industrial</techLevel>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="USH_BiologicalProjectBase">
+    <defName>USH_DiseaseSamplingRes</defName>
+    <label>Disease sampling</label>
+    <description>Placeholder.</description>
+    <baseCost>800</baseCost>
+    <prerequisites>
+      <li>MultiAnalyzer</li>
+    </prerequisites>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>2.10</researchViewY>
+  </ResearchProjectDef>
+
+</Defs>
