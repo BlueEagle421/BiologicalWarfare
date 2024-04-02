@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <BiologicalWarfare.CombatDiseaseDef>
+    <defName>USH_Test</defName>
+    <hediffDef>AmbrosiaHigh</hediffDef>
+  </BiologicalWarfare.CombatDiseaseDef>
+
+</Defs>

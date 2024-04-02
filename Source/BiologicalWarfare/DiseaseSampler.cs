@@ -67,5 +67,4 @@ namespace BiologicalWarfare
             Item.SplitOff(1).Destroy(DestroyMode.Vanish);
         }
     }
-
 }
