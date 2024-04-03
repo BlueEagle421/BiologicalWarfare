@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <DamageDef Name="USH_BiologicalDamageBase" Abstract="True">
+        <workerClass>OPToxic.DamageWorker_OPToxic</workerClass>
+        <canInterruptJobs>false</canInterruptJobs>
+        <makesBlood>false</makesBlood>
+        <defaultDamage>0</defaultDamage>
+        <explosionCellFleck>BlastExtinguisher</explosionCellFleck>
+        <explosionColorEdge>(134,144,22,0.05)</explosionColorEdge>
+        <soundExplosion>Explosion_Stun</soundExplosion>
+        <harmsHealth>false</harmsHealth>
+        <combatLogRules>Damage_Extinguish</combatLogRules>
+    </DamageDef>
+
+    <ThingDef Name="USH_BiologicalGasBase" Abstract="True">
+        <category>Gas</category>
+        <altitudeLayer>Gas</altitudeLayer>
+        <useHitPoints>false</useHitPoints>
+        <tickerType>Normal</tickerType>
+        <graphicData>
+            <texPath>Things/Gas/ThickSmoke</texPath>
+            <drawSize>2.6</drawSize>
+            <graphicClass>Graphic_Gas</graphicClass>
+            <shaderType>Transparent</shaderType>
+        </graphicData>
+        <gas>
+            <expireSeconds>
+                <min>20</min>
+                <max>30</max>
+            </expireSeconds>
+            <rotationSpeed>20</rotationSpeed>
+        </gas>
+        <thingClass>OPToxic.OPToxicGas</thingClass>
+        <modExtensions>
+            <li Class="OPToxic.OPToxicDefs">
+                <OPToxicSeverity>1</OPToxicSeverity>
+                <OPSevUpTickPeriod>120</OPSevUpTickPeriod>
+            </li>
+        </modExtensions>
+    </ThingDef>
+
+    <ThingDef ParentName="USH_BiologicalGasBase">
+        <defName>USH_TestGas</defName>
+        <label>test gas</label>
+        <graphicData>
+            <color>(0.96,0.89,0.21,1)</color>
+        </graphicData>
+        <modExtensions>
+            <li Class="OPToxic.OPToxicDefs">
+                <OPToxicHediff>AmbrosiaHigh</OPToxicHediff>
+            </li>
+        </modExtensions>
+    </ThingDef>
+
+</Defs>
