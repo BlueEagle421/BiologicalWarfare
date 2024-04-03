@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef Name="USH_DiseasePathogenBase" Abstract="True" ParentName="ResourceBase">
+    <label>{0} {1} pathogen</label>
+    <description>A {0} {1} pathogen that's a crucial ingredient in producing biological weapons. It must be kept indoors at freezing temperatures to stay fresh and usable.</description>
+    <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    <thingClass>ThingWithComps</thingClass>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <color>(114,92,83)</color>
+    </graphicData>
+    <stackLimit>150</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MaxHitPoints>30</MaxHitPoints>
+      <MarketValue>1</MarketValue>
+      <Mass>0.02</Mass>
+      <Flammability>1.5</Flammability>
+      <DeteriorationRate>2.0</DeteriorationRate>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>0.75</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+  </ThingDef>
+
+  <ThingDef Name="USH_BacteriaPathogenBase" Abstract="True" ParentName="USH_DiseasePathogenBase">
+    <graphicData>
+      <texPath>Things/Item/Resource/ComponentIndustrial</texPath>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef Name="USH_VirusPathogenBase" Abstract="True" ParentName="USH_DiseasePathogenBase">
+    <graphicData>
+      <texPath>Things/Item/Resource/ComponentIndustrial</texPath>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef Name="USH_ParasitePathogenBase" Abstract="True" ParentName="USH_DiseasePathogenBase">
+    <graphicData>
+      <texPath>Things/Item/Resource/ComponentIndustrial</texPath>
+    </graphicData>
+  </ThingDef>
+
+</Defs>
