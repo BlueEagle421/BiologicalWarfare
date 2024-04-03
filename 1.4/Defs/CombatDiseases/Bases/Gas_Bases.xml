@@ -10,7 +10,7 @@
     <defaultDamage>0</defaultDamage>
     <explosionCellFleck>BlastExtinguisher</explosionCellFleck>
     <explosionColorEdge>(134,144,22,0.05)</explosionColorEdge>
-    <soundExplosion>Explosion_Stun</soundExplosion>
+    <soundExplosion>USH_ExplosionBiologicalGas</soundExplosion>
     <harmsHealth>false</harmsHealth>
     <combatLogRules>Damage_Extinguish</combatLogRules>
   </DamageDef>

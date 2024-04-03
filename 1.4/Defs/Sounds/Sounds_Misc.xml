@@ -19,4 +19,21 @@
     </subSounds>
   </SoundDef>
 
+  <SoundDef>
+    <defName>USH_ExplosionBiologicalGas</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Misc/ExplosionBiologicalGas</clipPath>
+          </li>
+        </grains>
+        <volumeRange>80~80</volumeRange>
+        <pitchRange>0.8516304~1.254348</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
 </Defs>
