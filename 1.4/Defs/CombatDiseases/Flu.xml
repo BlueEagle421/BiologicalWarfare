@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <BiologicalWarfare.CombatDiseaseDef>
+    <defName>USH_Flu</defName>
+    <hediffDef>Flu</hediffDef>
+    <diseaseType>Virus</diseaseType>
+    <colorInt>(1, 1, 1, 1)</colorInt>
+
+    <formatLabels>True</formatLabels>
+    <formatDescriptions>True</formatDescriptions>
+    <replaceColors>True</replaceColors>
+
+    <sampleDef>USH_FluSample</sampleDef>
+  </BiologicalWarfare.CombatDiseaseDef>
+
+  <ThingDef ParentName="USH_VirusSampleBase">
+    <defName>USH_FluSample</defName>
+  </ThingDef>
+
+</Defs>
