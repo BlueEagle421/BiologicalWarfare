@@ -13,6 +13,7 @@
     </graphicData>
     <stackLimit>150</stackLimit>
     <healthAffectsPrice>false</healthAffectsPrice>
+    <tickerType>Rare</tickerType>
     <statBases>
       <MaxHitPoints>30</MaxHitPoints>
       <MarketValue>1</MarketValue>
@@ -33,19 +34,19 @@
 
   <ThingDef Name="USH_BacteriaPathogenBase" Abstract="True" ParentName="USH_DiseasePathogenBase">
     <graphicData>
-      <texPath>Things/Item/Resource/ComponentIndustrial</texPath>
+      <texPath>Things/Item/Resource/Wort</texPath>
     </graphicData>
   </ThingDef>
 
   <ThingDef Name="USH_VirusPathogenBase" Abstract="True" ParentName="USH_DiseasePathogenBase">
     <graphicData>
-      <texPath>Things/Item/Resource/ComponentIndustrial</texPath>
+      <texPath>Things/Item/Resource/Wort</texPath>
     </graphicData>
   </ThingDef>
 
   <ThingDef Name="USH_ParasitePathogenBase" Abstract="True" ParentName="USH_DiseasePathogenBase">
     <graphicData>
-      <texPath>Things/Item/Resource/ComponentIndustrial</texPath>
+      <texPath>Things/Item/Resource/Wort</texPath>
     </graphicData>
   </ThingDef>
 

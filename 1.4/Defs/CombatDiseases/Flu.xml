@@ -3,6 +3,7 @@
 
   <BiologicalWarfare.CombatDiseaseDef>
     <defName>USH_Flu</defName>
+    <label>flu</label>
     <hediffDef>Flu</hediffDef>
     <diseaseType>Virus</diseaseType>
     <colorInt>(1, 1, 1, 1)</colorInt>
@@ -12,10 +13,15 @@
     <replaceColors>True</replaceColors>
 
     <sampleDef>USH_FluSample</sampleDef>
+    <pathogenDef>USH_FluPathogen</pathogenDef>
   </BiologicalWarfare.CombatDiseaseDef>
 
   <ThingDef ParentName="USH_VirusSampleBase">
     <defName>USH_FluSample</defName>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_VirusPathogenBase">
+    <defName>USH_FluPathogen</defName>
   </ThingDef>
 
 </Defs>

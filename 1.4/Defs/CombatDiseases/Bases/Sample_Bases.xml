@@ -26,21 +26,21 @@
   <ThingDef Name="USH_BacteriaSampleBase" Abstract="True" ParentName="USH_DiseaseSampleBase">
     <description>A sample of {0} {1}. When placed in a bacteria incubator, it will grow into multiple pathogen colonies that can later be harvested and used in the production of a biological arsenal.</description>
     <graphicData>
-      <texPath>Things/Item/Resource/ComponentIndustrial</texPath>
+      <texPath>Things/Item/Resource/Wort</texPath>
     </graphicData>
   </ThingDef>
 
   <ThingDef Name="USH_VirusSampleBase" Abstract="True" ParentName="USH_DiseaseSampleBase">
     <description>A sample of {0} {1}. Can be used as fuel for virus replicator to produce valuable pathogens.</description>
     <graphicData>
-      <texPath>Things/Item/Resource/ComponentIndustrial</texPath>
+      <texPath>Things/Item/Resource/Wort</texPath>
     </graphicData>
   </ThingDef>
 
   <ThingDef Name="USH_ParasiteSampleBase" Abstract="True" ParentName="USH_DiseaseSampleBase">
     <description>A sample of {0} {1}. Description placeholder.</description>
     <graphicData>
-      <texPath>Things/Item/Resource/ComponentIndustrial</texPath>
+      <texPath>Things/Item/Resource/Wort</texPath>
     </graphicData>
   </ThingDef>
 

@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BiologicalUtils.cs" />
     <Compile Include="CombatDiseaseDef.cs" />
     <Compile Include="DiseaseSampler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
