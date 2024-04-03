@@ -2,6 +2,8 @@
 <Defs>
 
   <DamageDef Name="USH_BiologicalDamageBase" Abstract="True">
+    <label>{0} {1} damage</label>
+    <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     <workerClass>OPToxic.DamageWorker_OPToxic</workerClass>
     <canInterruptJobs>false</canInterruptJobs>
     <makesBlood>false</makesBlood>
@@ -14,6 +16,8 @@
   </DamageDef>
 
   <ThingDef Name="USH_BiologicalGasBase" Abstract="True">
+    <label>{0} {1} gas</label>
+    <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     <category>Gas</category>
     <altitudeLayer>Gas</altitudeLayer>
     <useHitPoints>false</useHitPoints>
@@ -32,25 +36,6 @@
       <rotationSpeed>20</rotationSpeed>
     </gas>
     <thingClass>OPToxic.OPToxicGas</thingClass>
-    <modExtensions>
-      <li Class="OPToxic.OPToxicDefs">
-        <OPToxicSeverity>1</OPToxicSeverity>
-        <OPSevUpTickPeriod>120</OPSevUpTickPeriod>
-      </li>
-    </modExtensions>
-  </ThingDef>
-
-  <ThingDef ParentName="USH_BiologicalGasBase">
-    <defName>USH_TestGas</defName>
-    <label>test gas</label>
-    <graphicData>
-      <color>(0.96,0.89,0.21,1)</color>
-    </graphicData>
-    <modExtensions>
-      <li Class="OPToxic.OPToxicDefs">
-        <OPToxicHediff>AmbrosiaHigh</OPToxicHediff>
-      </li>
-    </modExtensions>
   </ThingDef>
 
 </Defs>
