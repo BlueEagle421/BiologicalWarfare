@@ -51,27 +51,17 @@ namespace BiologicalWarfare
             if (thingDef == null)
                 return;
 
-            FormatLabel(thingDef);
-            FormatDescription(thingDef);
+            if (formatLabels)
+                thingDef.label = Formatted(thingDef.label);
+
+            if (formatDescriptions)
+                thingDef.description = Formatted(thingDef.description);
+
+            //if (replaceColors)
+            //    thingDef.graphicData.color = colorInt.ToColor;
         }
 
-        private void FormatLabel(ThingDef thingDef)
-        {
-            if (!formatLabels)
-                return;
-
-            thingDef.label = Formatted(thingDef.label);
-            Log.Message("New label is: " + thingDef.label);
-        }
-
-        private void FormatDescription(ThingDef thingDef)
-        {
-            if (!formatDescriptions)
-                return;
-
-            thingDef.description = Formatted(thingDef.description);
-        }
-        private string Formatted(string toFormat) => string.Format(toFormat, hediffDef.label, diseaseType.ToString().ToLower()).CapitalizeFirst();
+        private string Formatted(string toFormat) => string.Format(toFormat, hediffDef.label, diseaseType.ToStringUncapitalized()).CapitalizeFirst();
     }
 
     public enum DiseaseType
