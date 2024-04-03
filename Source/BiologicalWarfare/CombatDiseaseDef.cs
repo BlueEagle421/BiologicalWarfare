@@ -37,16 +37,16 @@ namespace BiologicalWarfare
         {
             base.ResolveReferences();
 
-            FormatLabelAndDescription(sampleDef);
-            FormatLabelAndDescription(pathogenDef);
-            FormatLabelAndDescription(shellDef);
-            FormatLabelAndDescription(barrelDef);
-            FormatLabelAndDescription(launcherDef);
+            FormatThingDef(sampleDef);
+            FormatThingDef(pathogenDef);
+            FormatThingDef(shellDef);
+            FormatThingDef(barrelDef);
+            FormatThingDef(launcherDef);
 
             Log.Message(ToString());
         }
 
-        private void FormatLabelAndDescription(ThingDef thingDef)
+        private void FormatThingDef(ThingDef thingDef)
         {
             if (thingDef == null)
                 return;
