@@ -44,4 +44,11 @@
     </graphicData>
   </ThingDef>
 
+  <ThingDef Name="USH_MechanitesSampleBase" Abstract="True" ParentName="USH_DiseaseSampleBase">
+    <description>A sample of {0} {1}. Mechanites can't be reproduced so this item can't be used to create biological arsenal.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/Wort</texPath>
+    </graphicData>
+  </ThingDef>
+
 </Defs>
