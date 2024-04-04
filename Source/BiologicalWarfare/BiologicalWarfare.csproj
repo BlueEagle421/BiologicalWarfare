@@ -36,8 +36,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="OPToxic">
-      <HintPath>..\..\..\..\..\..\..\..\..\Users\joach\Desktop\RimworldDevKit\Dependencies\Vanilla Framework Expanded\1.4\Assemblies\OPToxic.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\..\..\..\..\..\..\Users\Joachim\Desktop\Moje twórczości\Mody\RimworldDevKit\Dependencies\1.4\VanillaFrameworkExpanded\Used\OPToxic.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

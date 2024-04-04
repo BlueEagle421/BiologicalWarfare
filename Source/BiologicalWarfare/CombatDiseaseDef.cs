@@ -11,7 +11,7 @@ namespace BiologicalWarfare
         public ColorInt colorInt;
         public bool autoComplete;
 
-        public List<Def> defsToFormat = new List<Def>();
+        public List<string> defsToFormat = new List<string>();
         public List<ThingDef> thingDefsToColor = new List<ThingDef>();
 
         public ThingDef sampleDef;
@@ -31,11 +31,37 @@ namespace BiologicalWarfare
             foreach (string text in base.ConfigErrors())
                 yield return text;
 
+            foreach (string text in ConfigAutoCompleteErrors())
+                yield return text;
+
             if (hediffDef == null)
                 yield return "hediffDef is null";
 
             if (colorInt.a == 0)
                 yield return "colorInt is fully transparent";
+
+            yield break;
+        }
+
+        private IEnumerable<string> ConfigAutoCompleteErrors()
+        {
+            if (!autoComplete)
+                yield break;
+
+            if (gasDef == null)
+                yield return "autoComplete is True and gasDef is null";
+
+            if (damageDef == null)
+                yield return "autoComplete is True and damageDef is null";
+
+            if (shellDef == null)
+                yield return "autoComplete is True and shellDef is null";
+
+            if (shellBulletDef == null)
+                yield return "autoComplete is True and shellBulletDef is null";
+
+            if (launcherDef == null)
+                yield return "autoComplete is True and launcherDef is null";
 
             yield break;
         }
@@ -46,8 +72,8 @@ namespace BiologicalWarfare
 
             description = hediffDef.description;
 
-            foreach (Def def in defsToFormat)
-                FormatDef(def);
+            foreach (string def in defsToFormat)
+                FormatDef(DefDatabase<Def>.GetNamedSilentFail(def));
 
             foreach (ThingDef thingDef in thingDefsToColor)
                 ColorThingDef(thingDef);
@@ -67,7 +93,10 @@ namespace BiologicalWarfare
                 OPSevUpTickPeriod = 60
             };
 
-            gasDef.modExtensions.Add(toxicExtansion);
+            if (gasDef.modExtensions == null)
+                gasDef.modExtensions = new List<DefModExtension>() { toxicExtansion };
+            else
+                gasDef.modExtensions.Add(toxicExtansion);
 
             CompProperties_Explosive explosive = shellDef.GetCompProperties<CompProperties_Explosive>();
 
