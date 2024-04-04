@@ -25,7 +25,7 @@ namespace BiologicalWarfare
         public ThingDef barrelDef;
         public ThingDef launcherDef;
 
-        public override string ToString() => string.Format("{0} ({1})", defName, hediffDef.ToString());
+        public override string ToString() => string.Format("{0} ({1})", defName, diseaseType.ToStringUncapitalized());
 
         public override IEnumerable<string> ConfigErrors()
         {
