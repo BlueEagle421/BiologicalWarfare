@@ -73,7 +73,7 @@ namespace BiologicalWarfare
             description = hediffDef.description;
 
             foreach (string def in defsToFormat)
-                FormatDef(DefDatabase<Def>.GetNamedSilentFail(def));
+                FormatDef(DefDatabase<ThingDef>.GetNamed(def));
 
             foreach (ThingDef thingDef in thingDefsToColor)
                 ColorThingDef(thingDef);

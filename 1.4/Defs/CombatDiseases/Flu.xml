@@ -6,7 +6,7 @@
     <label>flu</label>
     <hediffDef>Flu</hediffDef>
     <diseaseType>Virus</diseaseType>
-    <colorInt>(1, 1, 1, 1)</colorInt>
+    <colorInt>(242, 200, 25, 255)</colorInt>
     <autoComplete>True</autoComplete>
 
     <defsToFormat>
@@ -17,6 +17,10 @@
       <li>USH_FluShell</li>
       <li>USH_FluShellBullet</li>
     </defsToFormat>
+
+    <thingDefsToColor>
+      <li>USH_FluSample</li>
+    </thingDefsToColor>
 
     <!-- defs below are required for CombatDiseaseDef to work properly -->
     <sampleDef>USH_FluSample</sampleDef>
