@@ -7,14 +7,27 @@
     <hediffDef>Flu</hediffDef>
     <diseaseType>Virus</diseaseType>
     <colorInt>(1, 1, 1, 1)</colorInt>
+    <autoComplete>True</autoComplete>
 
-    <formatLabels>True</formatLabels>
-    <formatDescriptions>True</formatDescriptions>
-    <replaceColors>True</replaceColors>
+    <defsToFormat>
+      <li>USH_FluSample</li>
+      <li>USH_FluPathogen</li>
+      <li>USH_FluGas</li>
+      <li>USH_FluDamage</li>
+      <li>USH_FluShell</li>
+      <li>USH_FluShellBullet</li>
+    </defsToFormat>
 
+    <!-- defs below are required for CombatDiseaseDef to work properly -->
     <sampleDef>USH_FluSample</sampleDef>
     <pathogenDef>USH_FluPathogen</pathogenDef>
+
+    <!-- defs below are used in auto completion -->
+    <gasDef>USH_FluGas</gasDef>
+    <damageDef>USH_FluDamage</damageDef>
     <shellDef>USH_FluShell</shellDef>
+    <shellBulletDef>USH_FluShellBullet</shellBulletDef>
+
   </BiologicalWarfare.CombatDiseaseDef>
 
   <ThingDef ParentName="USH_VirusSampleBase">
@@ -27,13 +40,6 @@
 
   <ThingDef ParentName="USH_BiologicalGasBase">
     <defName>USH_FluGas</defName>
-    <modExtensions>
-      <li Class="OPToxic.OPToxicDefs">
-        <OPToxicHediff>Flu</OPToxicHediff>
-        <OPToxicSeverity>0.15</OPToxicSeverity>
-        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
-      </li>
-    </modExtensions>
   </ThingDef>
 
   <DamageDef ParentName="USH_BiologicalDamageBase">
@@ -42,15 +48,10 @@
 
   <ThingDef ParentName="USH_BiologicalShellBase">
     <defName>USH_FluShell</defName>
-    <projectileWhenLoaded>USH_FluShellBullet</projectileWhenLoaded>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalShellBulletBase">
     <defName>USH_FluShellBullet</defName>
-    <projectile>
-      <damageDef>USH_FluDamage</damageDef>
-      <postExplosionSpawnThingDef>USH_FluGas</postExplosionSpawnThingDef>
-    </projectile>
   </ThingDef>
 
 </Defs>

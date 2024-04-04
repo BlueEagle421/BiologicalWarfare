@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using RimWorld;
+using System.Collections.Generic;
 using Verse;
 
 namespace BiologicalWarfare
@@ -8,12 +9,18 @@ namespace BiologicalWarfare
         public HediffDef hediffDef;
         public DiseaseType diseaseType;
         public ColorInt colorInt;
-        public bool formatLabels;
-        public bool formatDescriptions;
-        public bool replaceColors;
+        public bool autoComplete;
+
+        public List<Def> defsToFormat = new List<Def>();
+        public List<ThingDef> thingDefsToColor = new List<ThingDef>();
+
         public ThingDef sampleDef;
         public ThingDef pathogenDef;
+
+        public ThingDef gasDef;
+        public DamageDef damageDef;
         public ThingDef shellDef;
+        public ThingDef shellBulletDef;
         public ThingDef barrelDef;
         public ThingDef launcherDef;
 
@@ -37,31 +44,66 @@ namespace BiologicalWarfare
         {
             base.ResolveReferences();
 
-            FormatThingDef(sampleDef);
-            FormatThingDef(pathogenDef);
-            FormatThingDef(shellDef);
-            FormatThingDef(barrelDef);
-            FormatThingDef(launcherDef);
+            description = hediffDef.description;
 
-            Log.Message(ToString());
+            foreach (Def def in defsToFormat)
+                FormatDef(def);
+
+            foreach (ThingDef thingDef in thingDefsToColor)
+                ColorThingDef(thingDef);
+
+            AutoCompleteDefs();
         }
 
-        private void FormatThingDef(ThingDef thingDef)
+        private void AutoCompleteDefs()
+        {
+            if (!autoComplete)
+                return;
+
+            OPToxic.OPToxicDefs toxicExtansion = new OPToxic.OPToxicDefs
+            {
+                OPToxicHediff = hediffDef.defName,
+                OPToxicSeverity = 0.15f,
+                OPSevUpTickPeriod = 60
+            };
+
+            gasDef.modExtensions.Add(toxicExtansion);
+
+            CompProperties_Explosive explosive = shellDef.GetCompProperties<CompProperties_Explosive>();
+
+            explosive.explosiveDamageType = damageDef;
+            explosive.postExplosionSpawnThingDef = gasDef;
+            shellDef.projectileWhenLoaded = shellBulletDef;
+
+            shellBulletDef.projectile.damageDef = damageDef;
+            shellBulletDef.projectile.postExplosionSpawnThingDef = gasDef;
+        }
+
+        private void FormatDef(Def def)
+        {
+            if (def == null)
+                return;
+
+            def.label = Formatted(def.label);
+
+            def.description = Formatted(def.description);
+        }
+
+        private void ColorThingDef(ThingDef thingDef)
         {
             if (thingDef == null)
                 return;
 
-            if (formatLabels)
-                thingDef.label = Formatted(thingDef.label);
-
-            if (formatDescriptions)
-                thingDef.description = Formatted(thingDef.description);
-
-            //if (replaceColors)
-            //    thingDef.graphicData.color = colorInt.ToColor;
+            thingDef.graphicData.color = colorInt.ToColor;
         }
 
-        private string Formatted(string toFormat) => string.Format(toFormat, hediffDef.label, diseaseType.ToStringUncapitalized()).CapitalizeFirst();
+        private string Formatted(string toFormat)
+        {
+            string label = hediffDef.label;
+            string type = diseaseType.ToStringUncapitalized();
+
+            return string.Format(toFormat, label, type).CapitalizeFirst();
+        }
     }
 
     public enum DiseaseType

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <ThingDef Name="USH_BiologicalShellBase" ParentName="MakeableShellBase" Abstract="True">
-    <label>{0} pathogen gas shell</label>
+  <ThingDef Name="USH_BiologicalShellBase" ParentName="ShellBase" Abstract="True">
+    <label>{0} gas shell</label>
     <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     <description>A shell filled with {0} {1} pathogen gas. Can be fired from mortars. Explodes when damaged.</description>
     <possessionCount>1</possessionCount>
@@ -12,21 +12,19 @@
     </graphicData>
     <comps>
       <li Class="CompProperties_Explosive">
-        <explosiveRadius>4.9</explosiveRadius>
-        <explosiveDamageType>Bomb</explosiveDamageType>
+        <explosiveRadius>7.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
         <explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>
         <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
         <wickTicks>30~60</wickTicks>
       </li>
     </comps>
     <projectileWhenLoaded>Bullet_Shell_HighExplosive</projectileWhenLoaded>
-    <recipeMaker>
-      <researchPrerequisite>Mortars</researchPrerequisite>
-    </recipeMaker>
   </ThingDef>
 
   <ThingDef Name="USH_BiologicalShellBulletBase" ParentName="BaseBullet" Abstract="True">
-    <label>{0} pathogen gas shell</label>
+    <label>{0} gas shell</label>
     <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     <graphicData>
       <texPath>Things/Projectile/ShellHighExplosive</texPath>
@@ -37,7 +35,7 @@
     <projectile>
       <damageDef>Bomb</damageDef>
       <speed>41</speed>
-      <explosionRadius>6.9</explosionRadius>
+      <explosionRadius>7.9</explosionRadius>
       <postExplosionSpawnChance>1</postExplosionSpawnChance>
       <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
       <flyOverhead>true</flyOverhead>
