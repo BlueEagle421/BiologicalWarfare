@@ -8,7 +8,7 @@
       <texPath>Things/Item/Samples/SampleBasic</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>CutoutComplex</shaderType>
-      <!-- color is replaced by auto completion -->
+      <!-- color is replaced by CombatDiseaseDef -->
     </graphicData>
     <stackLimit>15</stackLimit>
     <healthAffectsPrice>false</healthAffectsPrice>

@@ -9,18 +9,21 @@
     <graphicData>
       <texPath>Things/Item/Resource/Shell/Shell_HighExplosive</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
+      <!-- color is replaced by CombatDiseaseDef -->
     </graphicData>
     <comps>
       <li Class="CompProperties_Explosive">
         <explosiveRadius>7.9</explosiveRadius>
         <postExplosionSpawnChance>1</postExplosionSpawnChance>
         <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <!-- explosiveDamageType is set by auto completion -->
+        <!-- postExplosionSpawnThingDef is set by auto completion -->
         <explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>
         <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
         <wickTicks>30~60</wickTicks>
       </li>
     </comps>
-    <projectileWhenLoaded>Bullet_Shell_HighExplosive</projectileWhenLoaded>
+    <!-- projectileWhenLoaded is set by auto completion -->
   </ThingDef>
 
   <ThingDef Name="USH_BiologicalShellBulletBase" ParentName="BaseBullet" Abstract="True">
@@ -34,9 +37,10 @@
     </graphicData>
     <thingClass>Projectile_Explosive</thingClass>
     <projectile>
-      <damageDef>Bomb</damageDef>
+      <!-- damageDef is set by auto completion -->
       <speed>41</speed>
       <explosionRadius>7.9</explosionRadius>
+      <!-- postExplosionSpawnThingDef is set by auto completion -->
       <postExplosionSpawnChance>1</postExplosionSpawnChance>
       <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
       <flyOverhead>true</flyOverhead>
