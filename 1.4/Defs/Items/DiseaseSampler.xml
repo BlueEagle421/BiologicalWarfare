@@ -19,9 +19,6 @@
       <Flammability>0.2</Flammability>
     </statBases>
     <techLevel>Industrial</techLevel>
-    <tradeTags>
-      <li>ExoticMisc</li>
-    </tradeTags>
     <stackLimit>10</stackLimit>
     <thingCategories>
       <li>ItemsMisc</li>

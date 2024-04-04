@@ -20,7 +20,7 @@
       <DeteriorationRate>2.0</DeteriorationRate>
     </statBases>
     <thingCategories>
-      <li>ItemsMisc</li>
+      <li>USH_Samples</li>
     </thingCategories>
   </ThingDef>
 

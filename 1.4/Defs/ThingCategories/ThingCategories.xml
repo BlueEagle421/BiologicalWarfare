@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingCategoryDef>
+    <defName>USH_Samples</defName>
+    <label>disaese samples</label>
+    <parent>Items</parent>
+  </ThingCategoryDef>
+
+  <ThingCategoryDef>
+    <defName>USH_Pathogens</defName>
+    <label>pathogens</label>
+    <parent>ResourcesRaw</parent>
+  </ThingCategoryDef>
+
+</Defs>
