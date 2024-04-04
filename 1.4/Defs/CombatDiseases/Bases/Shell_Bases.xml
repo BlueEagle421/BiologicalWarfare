@@ -25,6 +25,7 @@
 
   <ThingDef Name="USH_BiologicalShellBulletBase" ParentName="BaseBullet" Abstract="True">
     <label>{0} gas shell</label>
+    <description>A {0} gas shell</description>
     <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     <graphicData>
       <texPath>Things/Projectile/ShellHighExplosive</texPath>

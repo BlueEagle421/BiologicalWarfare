@@ -11,14 +11,15 @@ namespace BiologicalWarfare
         public ColorInt colorInt;
         public bool autoComplete;
 
-        public List<string> defsToFormat = new List<string>();
+        public List<ThingDef> thingDefsToFormat = new List<ThingDef>();
         public List<ThingDef> thingDefsToColor = new List<ThingDef>();
+        public List<ThingDef> thingDefsToFormatAndColor = new List<ThingDef>();
 
         public ThingDef sampleDef;
         public ThingDef pathogenDef;
 
-        public ThingDef gasDef;
         public DamageDef damageDef;
+        public ThingDef gasDef;
         public ThingDef shellDef;
         public ThingDef shellBulletDef;
         public ThingDef barrelDef;
@@ -72,11 +73,17 @@ namespace BiologicalWarfare
 
             description = hediffDef.description;
 
-            foreach (string def in defsToFormat)
-                FormatDef(DefDatabase<ThingDef>.GetNamed(def));
+            foreach (ThingDef thingDef in thingDefsToFormat)
+                FormatDef(thingDef);
 
             foreach (ThingDef thingDef in thingDefsToColor)
                 ColorThingDef(thingDef);
+
+            foreach (ThingDef thingDef in thingDefsToFormatAndColor)
+            {
+                FormatDef(thingDef);
+                ColorThingDef(thingDef);
+            }
 
             AutoCompleteDefs();
         }
@@ -128,7 +135,9 @@ namespace BiologicalWarfare
 
         private string Formatted(string toFormat)
         {
-            string label = hediffDef.label;
+            if (string.IsNullOrEmpty(toFormat))
+                return string.Empty;
+
             string type = diseaseType.ToStringUncapitalized();
 
             return string.Format(toFormat, label, type).CapitalizeFirst();

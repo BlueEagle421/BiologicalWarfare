@@ -9,26 +9,24 @@
     <colorInt>(242, 200, 25, 255)</colorInt>
     <autoComplete>True</autoComplete>
 
-    <defsToFormat>
+    <thingDefsToFormatAndColor>
       <li>USH_FluSample</li>
       <li>USH_FluPathogen</li>
       <li>USH_FluGas</li>
-      <li>USH_FluDamage</li>
       <li>USH_FluShell</li>
-      <li>USH_FluShellBullet</li>
-    </defsToFormat>
+    </thingDefsToFormatAndColor>
 
-    <thingDefsToColor>
-      <li>USH_FluSample</li>
-    </thingDefsToColor>
+    <thingDefsToFormat>
+      <li>USH_FluShellBullet</li>
+    </thingDefsToFormat>
 
     <!-- defs below are required for CombatDiseaseDef to work properly -->
     <sampleDef>USH_FluSample</sampleDef>
     <pathogenDef>USH_FluPathogen</pathogenDef>
 
     <!-- defs below are used in auto completion -->
-    <gasDef>USH_FluGas</gasDef>
     <damageDef>USH_FluDamage</damageDef>
+    <gasDef>USH_FluGas</gasDef>
     <shellDef>USH_FluShell</shellDef>
     <shellBulletDef>USH_FluShellBullet</shellBulletDef>
 
@@ -42,13 +40,13 @@
     <defName>USH_FluPathogen</defName>
   </ThingDef>
 
-  <ThingDef ParentName="USH_BiologicalGasBase">
-    <defName>USH_FluGas</defName>
-  </ThingDef>
-
   <DamageDef ParentName="USH_BiologicalDamageBase">
     <defName>USH_FluDamage</defName>
   </DamageDef>
+
+  <ThingDef ParentName="USH_BiologicalGasBase">
+    <defName>USH_FluGas</defName>
+  </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalShellBase">
     <defName>USH_FluShell</defName>
