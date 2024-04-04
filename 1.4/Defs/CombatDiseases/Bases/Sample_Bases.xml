@@ -16,7 +16,7 @@
       <MaxHitPoints>30</MaxHitPoints>
       <MarketValue>20</MarketValue>
       <Mass>0.3</Mass>
-      <Flammability>1.5</Flammability>
+      <Flammability>1</Flammability>
       <DeteriorationRate>2.0</DeteriorationRate>
     </statBases>
     <thingCategories>
