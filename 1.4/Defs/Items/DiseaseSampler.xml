@@ -4,7 +4,7 @@
   <ThingDef ParentName="ResourceBase">
     <defName>USH_DiseaseSampler</defName>
     <label>disease sampler</label>
-    <description>A medical tool intended for use on sick patients, it creates a sample of the disease that can later be utilized in the production of a deadly biological arsenal.</description>
+    <description>A medical tool intended for use on sick patients. It creates a sample of the disease that can later be utilized in the production of deadly pathogens.</description>
     <thingClass>ThingWithComps</thingClass>
     <graphicData>
       <texPath>Things/Item/DiseaseSampler</texPath>
