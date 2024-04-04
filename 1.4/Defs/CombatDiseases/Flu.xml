@@ -14,6 +14,7 @@
       <li>USH_FluPathogen</li>
       <li>USH_FluGas</li>
       <li>USH_FluShell</li>
+      <li>USH_FluBarrel</li>
     </thingDefsToFormatAndColor>
 
     <thingDefsToFormat>
@@ -29,6 +30,7 @@
     <gasDef>USH_FluGas</gasDef>
     <shellDef>USH_FluShell</shellDef>
     <shellBulletDef>USH_FluShellBullet</shellBulletDef>
+    <barrelDef>USH_FluBarrel</barrelDef>
 
   </BiologicalWarfare.CombatDiseaseDef>
 
@@ -54,6 +56,10 @@
 
   <ThingDef ParentName="USH_BiologicalShellBulletBase">
     <defName>USH_FluShellBullet</defName>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalBarrelBase">
+    <defName>USH_FluBarrel</defName>
   </ThingDef>
 
 </Defs>

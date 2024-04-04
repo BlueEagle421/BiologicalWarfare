@@ -61,6 +61,9 @@ namespace BiologicalWarfare
             if (shellBulletDef == null)
                 yield return "autoComplete is True and shellBulletDef is null";
 
+            if (barrelDef == null)
+                yield return "autoComplete is True and barrelDef is null";
+
             if (launcherDef == null)
                 yield return "autoComplete is True and launcherDef is null";
 
@@ -105,14 +108,19 @@ namespace BiologicalWarfare
             else
                 gasDef.modExtensions.Add(toxicExtansion);
 
-            CompProperties_Explosive explosive = shellDef.GetCompProperties<CompProperties_Explosive>();
+            CompProperties_Explosive explosiveShell = shellDef.GetCompProperties<CompProperties_Explosive>();
 
-            explosive.explosiveDamageType = damageDef;
-            explosive.postExplosionSpawnThingDef = gasDef;
+            explosiveShell.explosiveDamageType = damageDef;
+            explosiveShell.postExplosionSpawnThingDef = gasDef;
             shellDef.projectileWhenLoaded = shellBulletDef;
 
             shellBulletDef.projectile.damageDef = damageDef;
             shellBulletDef.projectile.postExplosionSpawnThingDef = gasDef;
+
+            CompProperties_Explosive explosiveBarrel = barrelDef.GetCompProperties<CompProperties_Explosive>();
+
+            explosiveBarrel.explosiveDamageType = damageDef;
+            explosiveBarrel.postExplosionSpawnThingDef = gasDef;
         }
 
         private void FormatDef(Def def)
