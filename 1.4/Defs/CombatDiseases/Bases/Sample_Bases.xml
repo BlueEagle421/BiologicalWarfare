@@ -5,9 +5,10 @@
     <label>{0} {1} sample</label>
     <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     <graphicData>
+      <texPath>Things/Item/SampleBasic/SampleBasic</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>CutoutComplex</shaderType>
-      <color>(114,92,83)</color>
+      <!-- color is replaced by auto completion -->
     </graphicData>
     <stackLimit>15</stackLimit>
     <healthAffectsPrice>false</healthAffectsPrice>
@@ -25,16 +26,10 @@
 
   <ThingDef Name="USH_BacteriaSampleBase" Abstract="True" ParentName="USH_DiseaseSampleBase">
     <description>A sample of {0} {1}. When placed in a bacteria incubator, it will grow into multiple pathogen colonies that can later be harvested and used in the production of a biological arsenal.</description>
-    <graphicData>
-      <texPath>Things/Item/Resource/Wort</texPath>
-    </graphicData>
   </ThingDef>
 
   <ThingDef Name="USH_VirusSampleBase" Abstract="True" ParentName="USH_DiseaseSampleBase">
     <description>A sample of {0} {1}. Can be used as fuel for virus replicator to produce valuable pathogens.</description>
-    <graphicData>
-      <texPath>Things/Item/Resource/Wort</texPath>
-    </graphicData>
   </ThingDef>
 
   <ThingDef Name="USH_ParasiteSampleBase" Abstract="True" ParentName="USH_DiseaseSampleBase">
@@ -45,10 +40,7 @@
   </ThingDef>
 
   <ThingDef Name="USH_MechanitesSampleBase" Abstract="True" ParentName="USH_DiseaseSampleBase">
-    <description>A sample of {0} {1}. Mechanites can't be reproduced so this item can't be used to create biological arsenal.</description>
-    <graphicData>
-      <texPath>Things/Item/Resource/Wort</texPath>
-    </graphicData>
+    <description>A sample of {0} {1}. Mechanites can't be reproduced so this item can't be used to create pathogens.</description>
   </ThingDef>
 
 </Defs>
