@@ -5,7 +5,7 @@
     <label>{0} {1} sample</label>
     <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     <graphicData>
-      <texPath>Things/Item/SampleBasic/SampleBasic</texPath>
+      <texPath>Things/Item/Samples/SampleBasic</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>CutoutComplex</shaderType>
       <!-- color is replaced by auto completion -->
@@ -35,7 +35,7 @@
   <ThingDef Name="USH_ParasiteSampleBase" Abstract="True" ParentName="USH_DiseaseSampleBase">
     <description>A sample of {0} {1}. Description placeholder.</description>
     <graphicData>
-      <texPath>Things/Item/Resource/Wort</texPath>
+      <texPath>Things/Item/Samples/SampleParasite</texPath>
     </graphicData>
   </ThingDef>
 

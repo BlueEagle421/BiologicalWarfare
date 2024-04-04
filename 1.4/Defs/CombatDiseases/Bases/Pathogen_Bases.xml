@@ -9,7 +9,7 @@
     <graphicData>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>CutoutComplex</shaderType>
-      <color>(114,92,83)</color>
+      <!-- color is replaced by auto completion -->
     </graphicData>
     <stackLimit>150</stackLimit>
     <healthAffectsPrice>false</healthAffectsPrice>
@@ -34,19 +34,19 @@
 
   <ThingDef Name="USH_BacteriaPathogenBase" Abstract="True" ParentName="USH_DiseasePathogenBase">
     <graphicData>
-      <texPath>Things/Item/Resource/Wort</texPath>
+      <texPath>Things/Item/Pathogens/PathogenBacteria</texPath>
     </graphicData>
   </ThingDef>
 
   <ThingDef Name="USH_VirusPathogenBase" Abstract="True" ParentName="USH_DiseasePathogenBase">
     <graphicData>
-      <texPath>Things/Item/Resource/Wort</texPath>
+      <texPath>Things/Item/Pathogens/PathogenVirus</texPath>
     </graphicData>
   </ThingDef>
 
   <ThingDef Name="USH_ParasitePathogenBase" Abstract="True" ParentName="USH_DiseasePathogenBase">
     <graphicData>
-      <texPath>Things/Item/Resource/Wort</texPath>
+      <texPath>Things/Item/Pathogens/PathogenParasite</texPath>
     </graphicData>
   </ThingDef>
 
