@@ -56,17 +56,6 @@
   <ThingDef ParentName="USH_BiologicalShellBase">
     <defName>USH_FluShell</defName>
     <comps>
-      <li Class="CompProperties_Explosive" Inherit="True">
-        <explosiveDamageType>USH_FluDamage</explosiveDamageType>
-        <postExplosionSpawnThingDef>USH_FluGas</postExplosionSpawnThingDef>
-      </li>
-    </comps>
-    <projectileWhenLoaded>USH_FluShellBullet</projectileWhenLoaded>
-  </ThingDef>
-
-  <ThingDef ParentName="USH_BiologicalShellBulletBase">
-    <defName>USH_FluShellBullet</defName>
-    <comps>
       <li Class="CompProperties_Explosive">
         <explosiveRadius>7.9</explosiveRadius>
         <postExplosionSpawnChance>1</postExplosionSpawnChance>
@@ -78,9 +67,15 @@
         <wickTicks>30~60</wickTicks>
       </li>
     </comps>
+    <projectileWhenLoaded>USH_FluShellBullet</projectileWhenLoaded>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalShellBulletBase">
+    <defName>USH_FluShellBullet</defName>
     <projectile>
       <damageDef>USH_FluDamage</damageDef>
       <postExplosionSpawnThingDef>USH_FluGas</postExplosionSpawnThingDef>
+      <explosionRadius>7.9</explosionRadius>
     </projectile>
   </ThingDef>
 
