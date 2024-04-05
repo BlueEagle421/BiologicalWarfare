@@ -1,5 +1,4 @@
-﻿using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Verse;
 
 namespace BiologicalWarfare
@@ -18,13 +17,6 @@ namespace BiologicalWarfare
         public ThingDef sampleDef;
         public ThingDef pathogenDef;
 
-        public DamageDef damageDef;
-        public ThingDef gasDef;
-        public ThingDef shellDef;
-        public ThingDef shellBulletDef;
-        public ThingDef barrelDef;
-        public ThingDef launcherDef;
-
         public override string ToString() => string.Format("{0} ({1})", defName, diseaseType.ToStringUncapitalized());
 
         public override IEnumerable<string> ConfigErrors()
@@ -32,40 +24,11 @@ namespace BiologicalWarfare
             foreach (string text in base.ConfigErrors())
                 yield return text;
 
-            foreach (string text in ConfigAutoCompleteErrors())
-                yield return text;
-
             if (hediffDef == null)
                 yield return "hediffDef is null";
 
             if (colorInt.a == 0)
                 yield return "colorInt is fully transparent";
-
-            yield break;
-        }
-
-        private IEnumerable<string> ConfigAutoCompleteErrors()
-        {
-            if (!autoComplete)
-                yield break;
-
-            if (gasDef == null)
-                yield return "autoComplete is True and gasDef is null";
-
-            if (damageDef == null)
-                yield return "autoComplete is True and damageDef is null";
-
-            if (shellDef == null)
-                yield return "autoComplete is True and shellDef is null";
-
-            if (shellBulletDef == null)
-                yield return "autoComplete is True and shellBulletDef is null";
-
-            if (barrelDef == null)
-                yield return "autoComplete is True and barrelDef is null";
-
-            if (launcherDef == null)
-                yield return "autoComplete is True and launcherDef is null";
 
             yield break;
         }
@@ -87,40 +50,6 @@ namespace BiologicalWarfare
                 FormatDef(thingDef);
                 ColorThingDef(thingDef);
             }
-
-            AutoCompleteDefs();
-        }
-
-        private void AutoCompleteDefs()
-        {
-            if (!autoComplete)
-                return;
-
-            OPToxic.OPToxicDefs toxicExtansion = new OPToxic.OPToxicDefs
-            {
-                OPToxicHediff = hediffDef.defName,
-                OPToxicSeverity = 0.15f,
-                OPSevUpTickPeriod = 60
-            };
-
-            if (gasDef.modExtensions == null)
-                gasDef.modExtensions = new List<DefModExtension>() { toxicExtansion };
-            else
-                gasDef.modExtensions.Add(toxicExtansion);
-
-            CompProperties_Explosive explosiveShell = shellDef.GetCompProperties<CompProperties_Explosive>();
-
-            explosiveShell.explosiveDamageType = damageDef;
-            explosiveShell.postExplosionSpawnThingDef = gasDef;
-            shellDef.projectileWhenLoaded = shellBulletDef;
-
-            shellBulletDef.projectile.damageDef = damageDef;
-            shellBulletDef.projectile.postExplosionSpawnThingDef = gasDef;
-
-            CompProperties_Explosive explosiveBarrel = barrelDef.GetCompProperties<CompProperties_Explosive>();
-
-            explosiveBarrel.explosiveDamageType = damageDef;
-            explosiveBarrel.postExplosionSpawnThingDef = gasDef;
         }
 
         private void FormatDef(ThingDef thingDef)
