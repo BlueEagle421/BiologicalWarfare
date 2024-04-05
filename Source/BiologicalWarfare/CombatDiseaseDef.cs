@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace BiologicalWarfare
@@ -74,6 +75,9 @@ namespace BiologicalWarfare
 
             if (frameDef != null)
                 frameDef.label = Formatted(frameDef.label);
+
+            foreach (RecipeDef recipeDef in DefDatabase<RecipeDef>.AllDefs.Where(x => x.ProducedThingDef == thingDef))
+                recipeDef.label = Formatted(recipeDef.label);
 
             thingDef.label = Formatted(thingDef.label);
 
