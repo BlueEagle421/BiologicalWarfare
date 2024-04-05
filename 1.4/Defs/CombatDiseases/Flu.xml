@@ -9,6 +9,8 @@
     <colorInt>(242, 200, 25, 255)</colorInt>
     <autoComplete>True</autoComplete>
 
+    <!-- formats {0} to label and {1} to disease type -->
+    <!-- also sets color in graphicData -->
     <thingDefsToFormatAndColor>
       <li>USH_FluSample</li>
       <li>USH_FluPathogen</li>
@@ -21,16 +23,10 @@
       <li>USH_FluShellBullet</li>
     </thingDefsToFormat>
 
-    <!-- defs below are required for CombatDiseaseDef to work properly -->
+    <!-- sample def is required for CombatDiseaseDef to work properly -->
     <sampleDef>USH_FluSample</sampleDef>
+    <!-- pathogen def is optional -->
     <pathogenDef>USH_FluPathogen</pathogenDef>
-
-    <!-- defs below are used in auto completion -->
-    <damageDef>USH_FluDamage</damageDef>
-    <gasDef>USH_FluGas</gasDef>
-    <shellDef>USH_FluShell</shellDef>
-    <shellBulletDef>USH_FluShellBullet</shellBulletDef>
-    <barrelDef>USH_FluBarrel</barrelDef>
 
   </BiologicalWarfare.CombatDiseaseDef>
 
@@ -48,18 +44,59 @@
 
   <ThingDef ParentName="USH_BiologicalGasBase">
     <defName>USH_FluGas</defName>
+    <modExtensions>
+      <li Class="OPToxic.OPToxicDefs">
+        <OPToxicHediff>Flu</OPToxicHediff>
+        <OPToxicSeverity>0.15</OPToxicSeverity>
+        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
+      </li>
+    </modExtensions>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalShellBase">
     <defName>USH_FluShell</defName>
+    <comps>
+      <li Class="CompProperties_Explosive" Inherit="True">
+        <explosiveDamageType>USH_FluDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_FluGas</postExplosionSpawnThingDef>
+      </li>
+    </comps>
+    <projectileWhenLoaded>USH_FluShellBullet</projectileWhenLoaded>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalShellBulletBase">
     <defName>USH_FluShellBullet</defName>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>7.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_FluDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_FluGas</postExplosionSpawnThingDef>
+        <explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>
+        <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
+    <projectile>
+      <damageDef>USH_FluDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_FluGas</postExplosionSpawnThingDef>
+    </projectile>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalBarrelBase">
     <defName>USH_FluBarrel</defName>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>7.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_FluDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_FluGas</postExplosionSpawnThingDef>
+        <startWickHitPointsPercent>0.95</startWickHitPointsPercent>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
   </ThingDef>
 
 </Defs>

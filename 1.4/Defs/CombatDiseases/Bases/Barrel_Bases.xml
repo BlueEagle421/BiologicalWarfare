@@ -21,20 +21,6 @@
     <costList>
       <Chemfuel>75</Chemfuel>
     </costList>
-    <comps>
-      <li Class="CompProperties_Explosive">
-        <explosiveRadius>7.9</explosiveRadius>
-        <postExplosionSpawnChance>1</postExplosionSpawnChance>
-        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
-        <startWickHitPointsPercent>0.95</startWickHitPointsPercent>
-        <!-- explosiveDamageType is set by auto completion -->
-        <!-- postExplosionSpawnThingDef is set by auto completion -->
-        <wickTicks>
-          <min>0</min>
-          <max>30</max>
-        </wickTicks>
-      </li>
-    </comps>
     <fillPercent>0.4</fillPercent>
     <specialDisplayRadius>7.9</specialDisplayRadius>
     <uiIconOffset>(0,-0.14)</uiIconOffset>
