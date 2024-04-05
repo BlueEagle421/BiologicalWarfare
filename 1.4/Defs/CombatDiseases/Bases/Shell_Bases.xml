@@ -7,8 +7,9 @@
     <description>A shell filled with {0} {1} pathogen gas. Can be fired from mortars. Explodes when damaged.</description>
     <possessionCount>1</possessionCount>
     <graphicData>
-      <texPath>Things/Item/Resource/Shell/Shell_HighExplosive</texPath>
+      <texPath>Things/Item/GasShells</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
       <!-- color is replaced by CombatDiseaseDef -->
     </graphicData>
   </ThingDef>
