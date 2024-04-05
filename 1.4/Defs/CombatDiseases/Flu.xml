@@ -17,10 +17,12 @@
       <li>USH_FluGas</li>
       <li>USH_FluShell</li>
       <li>USH_FluBarrel</li>
+      <li>USH_FluGrenadeLauncher</li>
     </thingDefsToFormatAndColor>
 
     <thingDefsToFormat>
       <li>USH_FluShellBullet</li>
+      <li>USH_FluGrenadeBullet</li>
     </thingDefsToFormat>
 
     <!-- sample def is required for CombatDiseaseDef to work properly -->
@@ -99,6 +101,39 @@
       </li>
     </comps>
     <specialDisplayRadius>7.9</specialDisplayRadius>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">
+    <defName>USH_FluGrenadeLauncher</defName>
+    <costList>
+      <USH_FluPathogen>75</USH_FluPathogen>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>USH_FluGrenadeBullet</defaultProjectile>
+        <warmupTime>3.5</warmupTime>
+        <range>23.9</range>
+        <forcedMissRadius>2.9</forcedMissRadius>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>Artillery_HitThickRoof</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>14</muzzleFlashScale>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalGrenadeBulletBase">
+    <defName>USH_FluGrenadeBullet</defName>
+    <projectile>
+      <damageDef>USH_FluDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_FluGas</postExplosionSpawnThingDef>
+      <explosionRadius>7.9</explosionRadius>
+    </projectile>
   </ThingDef>
 
 </Defs>
