@@ -27,6 +27,9 @@ namespace BiologicalWarfare
             if (hediffDef == null)
                 yield return "hediffDef is null";
 
+            if (sampleDef == null)
+                yield return "sampleDef is null";
+
             if (colorInt.a == 0)
                 yield return "colorInt is fully transparent";
 
