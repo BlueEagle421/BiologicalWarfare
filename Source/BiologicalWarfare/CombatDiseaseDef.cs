@@ -75,10 +75,6 @@ namespace BiologicalWarfare
             if (frameDef != null)
                 frameDef.label = Formatted(frameDef.label);
 
-            foreach (RecipeDef recipeDef in thingDef.AllRecipes)
-                recipeDef.label = Formatted(recipeDef.label);
-
-
             thingDef.label = Formatted(thingDef.label);
 
             thingDef.description = Formatted(thingDef.description);

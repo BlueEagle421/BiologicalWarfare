@@ -68,6 +68,9 @@
       </li>
     </comps>
     <projectileWhenLoaded>USH_FluShellBullet</projectileWhenLoaded>
+    <costList>
+      <USH_FluPathogen>15</USH_FluPathogen>
+    </costList>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalShellBulletBase">
@@ -81,6 +84,9 @@
 
   <ThingDef ParentName="USH_BiologicalBarrelBase">
     <defName>USH_FluBarrel</defName>
+    <costList>
+      <USH_FluPathogen>75</USH_FluPathogen>
+    </costList>
     <comps>
       <li Class="CompProperties_Explosive">
         <explosiveRadius>7.9</explosiveRadius>

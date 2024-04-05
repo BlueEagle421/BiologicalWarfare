@@ -18,9 +18,6 @@
     <size>(1, 1)</size>
     <techLevel>Industrial</techLevel>
     <uiIconScale>0.8</uiIconScale>
-    <costList>
-      <Chemfuel>75</Chemfuel>
-    </costList>
     <fillPercent>0.4</fillPercent>
     <uiIconOffset>(0,-0.14)</uiIconOffset>
     <altitudeLayer>Building</altitudeLayer>
