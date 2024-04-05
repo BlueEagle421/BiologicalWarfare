@@ -22,7 +22,6 @@
       <Chemfuel>75</Chemfuel>
     </costList>
     <fillPercent>0.4</fillPercent>
-    <specialDisplayRadius>7.9</specialDisplayRadius>
     <uiIconOffset>(0,-0.14)</uiIconOffset>
     <altitudeLayer>Building</altitudeLayer>
     <drawerType>RealtimeOnly</drawerType>

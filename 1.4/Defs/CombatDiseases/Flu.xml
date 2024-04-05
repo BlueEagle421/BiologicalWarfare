@@ -97,6 +97,7 @@
         <wickTicks>30~60</wickTicks>
       </li>
     </comps>
+    <specialDisplayRadius>7.9</specialDisplayRadius>
   </ThingDef>
 
 </Defs>
