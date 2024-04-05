@@ -20,6 +20,22 @@
   </SoundDef>
 
   <SoundDef>
+    <defName>USH_GasLauncherShot</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Misc/GasGrenadeLauncherShot</clipPath>
+          </li>
+        </grains>
+        <volumeRange>25</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
     <defName>USH_ExplosionBiologicalGas</defName>
     <context>MapOnly</context>
     <maxSimultaneous>1</maxSimultaneous>
@@ -30,7 +46,7 @@
             <clipPath>Misc/ExplosionBiologicalGas</clipPath>
           </li>
         </grains>
-        <volumeRange>80~80</volumeRange>
+        <volumeRange>55~60</volumeRange>
         <pitchRange>0.8516304~1.254348</pitchRange>
       </li>
     </subSounds>

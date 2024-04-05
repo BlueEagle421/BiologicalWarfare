@@ -117,7 +117,7 @@
         <range>23.9</range>
         <forcedMissRadius>2.9</forcedMissRadius>
         <burstShotCount>1</burstShotCount>
-        <soundCast>Artillery_HitThickRoof</soundCast>
+        <soundCast>USH_GasLauncherShot</soundCast>
         <soundCastTail>GunTail_Medium</soundCastTail>
         <muzzleFlashScale>14</muzzleFlashScale>
         <targetParams>
