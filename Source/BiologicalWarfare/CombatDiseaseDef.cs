@@ -123,14 +123,33 @@ namespace BiologicalWarfare
             explosiveBarrel.postExplosionSpawnThingDef = gasDef;
         }
 
-        private void FormatDef(Def def)
+        private void FormatDef(ThingDef thingDef)
         {
-            if (def == null)
+            if (thingDef == null)
                 return;
 
-            def.label = Formatted(def.label);
+            ThingDef blueprintDef = thingDef.blueprintDef;
 
-            def.description = Formatted(def.description);
+            if (blueprintDef != null)
+                blueprintDef.label = Formatted(blueprintDef.label);
+
+            ThingDef installBlueprintDef = thingDef.installBlueprintDef;
+
+            if (installBlueprintDef != null)
+                installBlueprintDef.label = Formatted(installBlueprintDef.label);
+
+            ThingDef frameDef = thingDef.frameDef;
+
+            if (frameDef != null)
+                frameDef.label = Formatted(frameDef.label);
+
+            foreach (RecipeDef recipeDef in thingDef.AllRecipes)
+                recipeDef.label = Formatted(recipeDef.label);
+
+
+            thingDef.label = Formatted(thingDef.label);
+
+            thingDef.description = Formatted(thingDef.description);
         }
 
         private void ColorThingDef(ThingDef thingDef)
