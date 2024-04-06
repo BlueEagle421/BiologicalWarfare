@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
 
+    <USH_InsertSample>Insert {ITEM} to sample container</USH_InsertSample>
+    <USH_ExtractSample>Extract sample</USH_ExtractSample>
+
+    <USH_SampleContainerFull>{BUILDING} already contains a disease sample.</USH_SampleContainerFull>
+
 </LanguageData>
