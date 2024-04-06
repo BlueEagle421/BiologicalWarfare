@@ -34,12 +34,7 @@ namespace BiologicalWarfare
             };
         }
 
-        private static bool TargetValidator(TargetInfo target)
-        {
-            Building building = target.Thing as Building;
-            bool flag = building == null;
-            return !flag && building.TryGetComp<CompDiseaseSampleContainer>() != null;
-        }
+        private static bool TargetValidator(TargetInfo target) => target.Thing is Building building && building.TryGetComp<CompDiseaseSampleContainer>() != null;
 
 
         [HarmonyPostfix]
