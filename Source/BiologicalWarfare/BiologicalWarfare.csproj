@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\..\..\..\..\..\..\Users\Joachim\Desktop\Moje twórczości\Mody\RimworldDevKit\Dependencies\1.4\Harmony\0Harmony.dll</HintPath>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
@@ -58,12 +61,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BiologicalUtils.cs" />
+    <Compile Include="BiologicalWarfareMod.cs" />
     <Compile Include="CombatDiseaseDef.cs" />
     <Compile Include="CompDiseaseSample.cs" />
     <Compile Include="DiseaseSampler.cs" />
     <Compile Include="CompDiseaseSampleContainer.cs" />
+    <Compile Include="Patch_FloatMenuMakerMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CompVirusReplicator.cs" />
+    <Compile Include="USH_JobDefOf.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
