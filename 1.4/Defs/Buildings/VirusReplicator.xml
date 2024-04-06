@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <thingClass>Building</thingClass>
+    <defName>USH_VirusReplicator</defName>
+    <label>virus replicator</label>
+    <description>Placeholder.</description>
+    <graphicData>
+      <texPath>Things/Building/VirusReplicator</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+      <drawSize>(2,2)</drawSize>
+      <drawRotated>false</drawRotated>
+      <allowFlip>false</allowFlip>
+    </graphicData>
+    <size>(1, 1)</size>
+    <altitudeLayer>Building</altitudeLayer>
+    <surfaceType>Item</surfaceType>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.2</fillPercent>
+    <statBases>
+      <WorkToBuild>1000</WorkToBuild>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Mass>30</Mass>
+      <Flammability>0.7</Flammability>
+    </statBases>
+    <rotatable>false</rotatable>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <costList>
+      <Steel>60</Steel>
+      <Silver>30</Silver>
+      <Neutroamine>30</Neutroamine>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+    <designationCategory>Production</designationCategory>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>100</basePowerConsumption>
+        <shortCircuitInRain>false</shortCircuitInRain>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_ThingContainer">
+        <compClass>BiologicalWarfare.CompVirusReplicator</compClass>
+        <stackLimit>1</stackLimit>
+        <drawStackLabel>true</drawStackLabel>
+        <drawContainedThing>false</drawContainedThing>
+      </li>
+    </comps>
+    <researchPrerequisites>
+      <li>USH_VirusReplicationRes</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+</Defs>
