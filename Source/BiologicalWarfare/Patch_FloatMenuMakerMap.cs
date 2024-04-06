@@ -38,7 +38,7 @@ namespace BiologicalWarfare
 
 
         [HarmonyPostfix]
-        public static void AddInstallItemInDisplayOption(Vector3 clickPos, Pawn pawn, List<FloatMenuOption> opts)
+        public static void AddInsertItemInDisplayOption(Vector3 clickPos, Pawn pawn, List<FloatMenuOption> opts)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace BiologicalWarfare
                     Thing thing = enumerator.Current;
                     if (thing.def.HasComp(typeof(CompDiseaseSample)))
                     {
-                        void action() => CreateInstallJobTargeter(thing);
+                        void action() => CreateInsertJobTargeter(thing);
 
                         string label = "USH_InsertSample".Translate(thing.Named("ITEM"));
                         cachedOptions.Add(new FloatMenuOption(label, action, MenuOptionPriority.Default, null, null, 0f, null, null, true, 0));
@@ -87,7 +87,7 @@ namespace BiologicalWarfare
             }
         }
 
-        private static void CreateInstallJobTargeter(Thing item)
+        private static void CreateInsertJobTargeter(Thing item)
         {
             Find.Targeter.BeginTargeting(targetingParameters, delegate (LocalTargetInfo target)
             {
