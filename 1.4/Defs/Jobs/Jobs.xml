@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <JobDef>
+    <defName>USH_InsertSample</defName>
+    <driverClass>BiologicalWarfare.JobDriver_InsertSample</driverClass>
+    <reportString>inserting TargetA to TargetB.</reportString>
+  </JobDef>
+
+  <JobDef>
+    <defName>USH_ExtractSample</defName>
+    <driverClass>BiologicalWarfare.JobDriver_ExtractSample</driverClass>
+    <reportString>extracting TargetA from TargetB.</reportString>
+  </JobDef>
+
+</Defs>
