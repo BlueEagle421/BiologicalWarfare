@@ -65,15 +65,25 @@ namespace BiologicalWarfare
             foreach (FloatMenuOption option in base.CompFloatMenuOptions(selPawn))
                 yield return option;
 
-            if (ContainedThing != null)
-                yield return new FloatMenuOption("USH_ExtractSample".Translate(), delegate ()
-                {
-                    Job job = JobMaker.MakeJob(USH_JobDefOf.USH_ExtractSample, parent);
-                    selPawn.jobs.TryTakeOrderedJob(job, new JobTag?(JobTag.Misc), false);
-                }, MenuOptionPriority.Default, null, null, 0f, null, null, true, 0);
+
+            yield return new FloatMenuOption("USH_ExtractSample".Translate(), delegate ()
+            {
+                OrderExtractionJob(selPawn);
+            }, MenuOptionPriority.Default, null, null, 0f, null, null, true, 0);
 
             yield break;
+        }
 
+        private void OrderExtractionJob(Pawn pawn)
+        {
+            if (Empty)
+            {
+                Messages.Message("USH_SampleContainerEmpty".Translate(parent.Named("BUILDING")), parent, MessageTypeDefOf.CautionInput);
+                return;
+            }
+
+            Job job = JobMaker.MakeJob(USH_JobDefOf.USH_ExtractSample, parent);
+            pawn.jobs.TryTakeOrderedJob(job, new JobTag?(JobTag.Misc), false);
         }
     }
 }
