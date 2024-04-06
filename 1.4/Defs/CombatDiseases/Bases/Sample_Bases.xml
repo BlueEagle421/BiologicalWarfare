@@ -10,7 +10,7 @@
       <shaderType>CutoutComplex</shaderType>
       <!-- color is replaced by CombatDiseaseDef -->
     </graphicData>
-    <stackLimit>15</stackLimit>
+    <stackLimit>1</stackLimit>
     <healthAffectsPrice>false</healthAffectsPrice>
     <statBases>
       <MaxHitPoints>30</MaxHitPoints>

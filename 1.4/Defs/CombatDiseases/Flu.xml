@@ -34,6 +34,11 @@
 
   <ThingDef ParentName="USH_VirusSampleBase">
     <defName>USH_FluSample</defName>
+    <comps>
+      <li Class="BiologicalWarfare.CompProperties_DiseaseSample">
+        <combatDiseaseDef>USH_Flu</combatDiseaseDef>
+      </li>
+    </comps>
   </ThingDef>
 
   <ThingDef ParentName="USH_VirusPathogenBase">
