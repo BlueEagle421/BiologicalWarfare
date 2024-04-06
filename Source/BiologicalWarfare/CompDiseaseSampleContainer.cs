@@ -51,36 +51,29 @@ namespace BiologicalWarfare
         {
             yield return Toils_Goto.GotoThing(TargetIndex.A, ContainerPathEndMode).FailOnDespawnedNullOrForbidden(TargetIndex.A).FailOn(() => !IsFilled).FailOnSomeonePhysicallyInteracting(TargetIndex.A);
             Toil emptyToil = Toils_General.Wait(emptyDurationTicks, TargetIndex.A).WithProgressBarToilDelay(TargetIndex.A, false, -0.5f);
-            emptyToil.AddFinishAction(new Action(DropContainerItems));
+            emptyToil.AddFinishAction(() => TargetBuilding.TryGetInnerInteractableThingOwner().TryDropAll(pawn.Position, pawn.Map, ThingPlaceMode.Near, null, null, true));
             emptyToil.handlingFacing = true;
             yield return emptyToil;
             yield break;
-        }
-
-        private void DropContainerItems()
-        {
-            if (TargetBuilding.TryGetInnerInteractableThingOwner().TryDropAll(pawn.Position, pawn.Map, ThingPlaceMode.Near, null, null, true))
-                DoContainerEffects();
-        }
-
-        private void DoContainerEffects()
-        {
-            CompThingContainer compThingContainer = TargetBuilding.TryGetComp<CompThingContainer>();
-
-            if (compThingContainer == null)
-                return;
-
-            EffecterDef dropEffecterDef = compThingContainer.Props.dropEffecterDef;
-
-            if (dropEffecterDef == null)
-                return;
-
-            dropEffecterDef.Spawn(TargetBuilding, Map, 1f).Cleanup();
         }
     }
 
     public class CompDiseaseSampleContainer : CompThingContainer
     {
+        public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
+        {
+            foreach (FloatMenuOption option in base.CompFloatMenuOptions(selPawn))
+                yield return option;
 
+            if (ContainedThing != null)
+                yield return new FloatMenuOption("USH_ExtractSample".Translate(), delegate ()
+                {
+                    Job job = JobMaker.MakeJob(USH_JobDefOf.USH_ExtractSample, parent);
+                    selPawn.jobs.TryTakeOrderedJob(job, new JobTag?(JobTag.Misc), false);
+                }, MenuOptionPriority.Default, null, null, 0f, null, null, true, 0);
+
+            yield break;
+
+        }
     }
 }
