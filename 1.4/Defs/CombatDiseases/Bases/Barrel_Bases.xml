@@ -17,9 +17,9 @@
     </graphicData>
     <size>(1, 1)</size>
     <techLevel>Industrial</techLevel>
-    <uiIconScale>0.8</uiIconScale>
+    <uiIconScale>0.7</uiIconScale>
+    <uiIconOffset>(0,0.15)</uiIconOffset>
     <fillPercent>0.4</fillPercent>
-    <uiIconOffset>(0,-0.14)</uiIconOffset>
     <altitudeLayer>Building</altitudeLayer>
     <drawerType>RealtimeOnly</drawerType>
     <tickerType>Normal</tickerType>
