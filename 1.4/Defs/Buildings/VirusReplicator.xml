@@ -37,6 +37,7 @@
     </statBases>
     <rotatable>false</rotatable>
     <minifiedDef>MinifiedThing</minifiedDef>
+    <tickerType>Normal</tickerType>
     <costList>
       <Steel>60</Steel>
       <Silver>30</Silver>
