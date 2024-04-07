@@ -40,11 +40,11 @@
     <costList>
       <Steel>60</Steel>
       <Silver>30</Silver>
-      <Neutroamine>30</Neutroamine>
+      <Neutroamine>6</Neutroamine>
       <ComponentIndustrial>3</ComponentIndustrial>
     </costList>
     <thingCategories>
-      <li>BuildingsMisc</li>
+      <li>BuildingsProduction</li>
     </thingCategories>
     <designationCategory>Production</designationCategory>
     <comps>
