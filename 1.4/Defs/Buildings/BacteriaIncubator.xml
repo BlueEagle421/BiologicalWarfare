@@ -24,7 +24,7 @@
     <passability>PassThroughOnly</passability>
     <fillPercent>0.2</fillPercent>
     <statBases>
-      <WorkToBuild>1000</WorkToBuild>
+      <WorkToBuild>1500</WorkToBuild>
       <MaxHitPoints>120</MaxHitPoints>
       <Mass>45</Mass>
       <Flammability>0.7</Flammability>
