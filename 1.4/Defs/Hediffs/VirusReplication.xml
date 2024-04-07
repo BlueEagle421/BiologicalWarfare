@@ -3,9 +3,9 @@
 
   <HediffDef>
     <hediffClass>HediffWithComps</hediffClass>
-    <defName>USH_VirusReplication</defName>
-    <label>virus replication</label>
-    <labelNoun>a virus replication</labelNoun>
+    <defName>USH_VirusExtraction</defName>
+    <label>virus extraction</label>
+    <labelNoun>a virus extraction</labelNoun>
     <description>A specilized DNA modification that allows the extraction of virus pathogens post mortem.</description>
     <defaultLabelColor>(0.9, 1.0, 0.35)</defaultLabelColor>
     <comps>
