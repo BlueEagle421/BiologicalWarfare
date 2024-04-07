@@ -8,4 +8,9 @@
     <USH_SampleContainerEmpty>{BUILDING} is already empty.</USH_SampleContainerEmpty>
     <USH_SampleContainerTypeMismach>{BUILDING} only accepts {TYPE} samples.</USH_SampleContainerTypeMismach>
 
+    <USH_ReplicatorNoRoom>Not placed in a room.</USH_ReplicatorNoRoom>
+    <USH_ReplicatorRoomTooBig>The room area is bigger then {0}.</USH_ReplicatorRoomTooBig>
+    <USH_ReplicatorRoomUnroofed>The room is not fully roofed.</USH_ReplicatorRoomUnroofed>
+    <USH_ReplicatorNoSample>Missing virus sample.</USH_ReplicatorNoSample>
+
 </LanguageData>

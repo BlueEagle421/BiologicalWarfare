@@ -55,10 +55,29 @@
         <drawStackLabel>true</drawStackLabel>
         <drawContainedThing>false</drawContainedThing>
       </li>
+      <li Class="BiologicalWarfare.CompProperties_VirusReplicator">
+        <maxRoomCellSize>100</maxRoomCellSize>
+        <activeTicks>1</activeTicks>
+        <cooldownTicks>1000</cooldownTicks>
+        <ticksToActivate>60</ticksToActivate>
+        <jobString>activate</jobString>
+        <onCooldownString>cooling off</onCooldownString>
+        <activateTexPath>UI/Gizmo/ActivateVirusReplicator</activateTexPath>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
     </comps>
     <researchPrerequisites>
       <li>USH_VirusReplicationRes</li>
     </researchPrerequisites>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <placeWorkers>
+      <li>BiologicalWarfare.PlaceWorker_VirusReplicator</li>
+    </placeWorkers>
   </ThingDef>
 
 </Defs>
