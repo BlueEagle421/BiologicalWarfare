@@ -67,6 +67,7 @@
     <Compile Include="CompDiseaseSample.cs" />
     <Compile Include="DiseaseSampler.cs" />
     <Compile Include="CompDiseaseSampleContainer.cs" />
+    <Compile Include="HediffCompVirusReplication.cs" />
     <Compile Include="JobDrivers.cs" />
     <Compile Include="Patch_FloatMenuMakerMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
