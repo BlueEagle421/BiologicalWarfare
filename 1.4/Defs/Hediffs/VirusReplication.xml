@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>USH_VirusReplication</defName>
+    <label>virus replication</label>
+    <labelNoun>a virus replication</labelNoun>
+    <description>A specilized DNA modification that allows the extraction of virus pathogens post mortem.</description>
+    <defaultLabelColor>(0.9, 1.0, 0.35)</defaultLabelColor>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>100000~300000</disappearsAfterTicks>
+      </li>
+    </comps>
+  </HediffDef>
+
+</Defs>
