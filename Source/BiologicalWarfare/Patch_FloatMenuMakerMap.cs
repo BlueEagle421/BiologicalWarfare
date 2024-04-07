@@ -106,7 +106,7 @@ namespace BiologicalWarfare
 
                 if (!sampleContainer.CanAcceptSample(diseaseSample))
                 {
-                    NamedArgument type = diseaseSample.Props.combatDiseaseDef.diseaseType.ToStringUncapitalized().Named("TYPE");
+                    NamedArgument type = sampleContainer.ContainerProps.acceptableDiseaseType.ToStringUncapitalized().Named("TYPE");
                     Messages.Message("USH_SampleContainerTypeMismach".Translate(target.Thing.Named("BUILDING"), type), cachedPawn, MessageTypeDefOf.CautionInput);
                     return;
                 }

@@ -49,8 +49,8 @@
         <shortCircuitInRain>false</shortCircuitInRain>
       </li>
       <li Class="CompProperties_Flickable" />
-      <li Class="CompProperties_ThingContainer">
-        <compClass>BiologicalWarfare.CompVirusReplicator</compClass>
+      <li Class="BiologicalWarfare.CompProperties_DiseaseSampleContainer">
+        <acceptableDiseaseType>Virus</acceptableDiseaseType>
         <stackLimit>1</stackLimit>
         <drawStackLabel>true</drawStackLabel>
         <drawContainedThing>false</drawContainedThing>

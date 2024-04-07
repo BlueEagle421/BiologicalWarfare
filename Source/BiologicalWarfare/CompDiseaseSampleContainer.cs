@@ -60,7 +60,7 @@ namespace BiologicalWarfare
 
     public class CompProperties_DiseaseSampleContainer : CompProperties_ThingContainer
     {
-        public DiseaseType diseaseType;
+        public DiseaseType acceptableDiseaseType;
         public CompProperties_DiseaseSampleContainer() => compClass = typeof(CompDiseaseSampleContainer);
     }
 
@@ -70,7 +70,7 @@ namespace BiologicalWarfare
 
         public bool CanAcceptSample(CompDiseaseSample compDiseaseSample)
         {
-            if (compDiseaseSample.Props.combatDiseaseDef.diseaseType != ContainerProps.diseaseType)
+            if (compDiseaseSample.Props.combatDiseaseDef.diseaseType != ContainerProps.acceptableDiseaseType)
                 return false;
 
             return true;
