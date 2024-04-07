@@ -16,6 +16,7 @@ namespace BiologicalWarfare
                 IntVec3 cell = cells[index];
                 if (cell.Walkable(map))
                 {
+
                     Thing firstThing = cell.GetFirstThing(map, thingDef);
                     if (firstThing != null)
                     {

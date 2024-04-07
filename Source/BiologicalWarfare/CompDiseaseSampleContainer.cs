@@ -15,6 +15,8 @@ namespace BiologicalWarfare
     {
         public CompProperties_DiseaseSampleContainer ContainerProps => (CompProperties_DiseaseSampleContainer)props;
 
+        public CompDiseaseSample ContainedSampleComp() => ContainedThing.TryGetComp<CompDiseaseSample>();
+
         public bool CanAcceptSample(CompDiseaseSample compDiseaseSample)
         {
             if (compDiseaseSample.Props.combatDiseaseDef.diseaseType != ContainerProps.acceptableDiseaseType)

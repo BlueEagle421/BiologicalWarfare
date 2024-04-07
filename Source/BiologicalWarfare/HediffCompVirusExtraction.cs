@@ -3,29 +3,30 @@ using Verse;
 
 namespace BiologicalWarfare
 {
-    public class HediffCompProperties_VirusReplication : HediffCompProperties
+    public class HediffCompProperties_VirusExtraction : HediffCompProperties
     {
         public int basePathogenCount;
         public bool multiplyByBodySize;
-        public HediffCompProperties_VirusReplication() => compClass = typeof(HediffCompVirusReplication);
+        public HediffCompProperties_VirusExtraction() => compClass = typeof(HediffCompVirusExtraction);
     }
-    public class HediffCompVirusReplication : HediffComp
+    public class HediffCompVirusExtraction : HediffComp
     {
         private CombatDiseaseDef _combatDiseaseDef;
         public CombatDiseaseDef CombatDiseaseDef { get => _combatDiseaseDef; set => _combatDiseaseDef = value; }
-        public HediffCompProperties_VirusReplication Props => (HediffCompProperties_VirusReplication)props;
-
-        public override void CompPostPostAdd(DamageInfo? dinfo)
-        {
-            base.CompPostPostAdd(dinfo);
-        }
+        public HediffCompProperties_VirusExtraction Props => (HediffCompProperties_VirusExtraction)props;
 
         public override void Notify_PawnDied()
         {
             base.Notify_PawnDied();
 
-            BiologicalUtils.SpawnThingAt(Pawn.Map, Pawn.CellsAdjacent8WayAndInside().ToList(), CombatDiseaseDef.pathogenDef, SpawnCount());
             RemoveItself();
+        }
+
+        public override void Notify_PawnKilled()
+        {
+            base.Notify_PawnKilled();
+
+            BiologicalUtils.SpawnThingAt(Pawn.Map, Pawn.CellsAdjacent8WayAndInside().ToList(), CombatDiseaseDef.pathogenDef, SpawnCount());
         }
 
         private int SpawnCount() => (int)(Props.basePathogenCount * Pawn.BodySize);

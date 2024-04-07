@@ -93,7 +93,13 @@ namespace BiologicalWarfare
                     if (!(thing is Pawn pawn))
                         continue;
 
-                    pawn.health.AddHediff(USH_DefOf.USH_VirusExtraction);
+                    if (pawn.GetStatValue(StatDefOf.ToxicEnvironmentResistance) >= 0.8f)
+                        continue;
+
+                    pawn.health.AddHediff(_sampleContainer.ContainedSampleComp().Props.combatDiseaseDef.hediffDef);
+
+                    Hediff extractionHediff = pawn.health.AddHediff(USH_DefOf.USH_VirusExtraction);
+                    extractionHediff.TryGetComp<HediffCompVirusExtraction>().CombatDiseaseDef = _sampleContainer.ContainedSampleComp().Props.combatDiseaseDef;
                 }
         }
     }
