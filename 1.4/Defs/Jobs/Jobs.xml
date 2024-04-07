@@ -2,13 +2,6 @@
 <Defs>
 
   <JobDef>
-    <defName>USH_ExtractSampleFromDesignator</defName>
-    <driverClass>BiologicalWarfare.JobDriver_ExtractSampleFromDesignator</driverClass>
-    <reportString>extracting TargetA from TargetB.</reportString>
-    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
-  </JobDef>
-
-  <JobDef>
     <defName>USH_InsertSample</defName>
     <driverClass>BiologicalWarfare.JobDriver_InsertSample</driverClass>
     <reportString>inserting TargetA to TargetB.</reportString>
