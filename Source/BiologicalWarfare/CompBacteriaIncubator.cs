@@ -1,25 +1,27 @@
 ﻿using RimWorld;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BiologicalWarfare
 {
-    public class CompProperties_VirusReplicator : CompProperties_Activable
+    public class CompProperties_BacteriaIncubator : CompProperties_Activable
     {
-        public int maxRoomCellSize;
-        public CompProperties_VirusReplicator() => compClass = typeof(CompVirusReplicator);
+        public int fuelPerPathogen;
+        public CompProperties_BacteriaIncubator() => compClass = typeof(CompBacteriaIncubator);
     }
 
     public class CompBacteriaIncubator : CompActivable
     {
-        public CompProperties_VirusReplicator ReplicatorProps => (CompProperties_VirusReplicator)props;
+        private CompDiseaseSampleContainer _sampleContainer;
+        private CompRefuelable _compRefuelable;
+        public CompProperties_BacteriaIncubator IncubatorProps => (CompProperties_BacteriaIncubator)props;
 
-        protected override bool TryUse()
+        protected override bool TryUse() => true;
+
+        public override void PostSpawnSetup(bool respawningAfterLoad)
         {
-            throw new NotImplementedException();
+            base.PostSpawnSetup(respawningAfterLoad);
+
+            _sampleContainer = parent.GetComp<CompDiseaseSampleContainer>();
+            _compRefuelable = parent.GetComp<CompRefuelable>();
         }
     }
 }
