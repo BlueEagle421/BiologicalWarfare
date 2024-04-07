@@ -58,8 +58,24 @@ namespace BiologicalWarfare
         }
     }
 
+    public class CompProperties_DiseaseSampleContainer : CompProperties_ThingContainer
+    {
+        public DiseaseType diseaseType;
+        public CompProperties_DiseaseSampleContainer() => compClass = typeof(CompDiseaseSampleContainer);
+    }
+
     public class CompDiseaseSampleContainer : CompThingContainer
     {
+        public CompProperties_DiseaseSampleContainer ContainerProps => (CompProperties_DiseaseSampleContainer)props;
+
+        public bool CanAcceptSample(CompDiseaseSample compDiseaseSample)
+        {
+            if (compDiseaseSample.Props.combatDiseaseDef.diseaseType != ContainerProps.diseaseType)
+                return false;
+
+            return true;
+        }
+
         public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
         {
             foreach (FloatMenuOption option in base.CompFloatMenuOptions(selPawn))

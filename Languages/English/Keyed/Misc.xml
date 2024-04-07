@@ -6,5 +6,6 @@
 
     <USH_SampleContainerFull>{BUILDING} already contains a disease sample.</USH_SampleContainerFull>
     <USH_SampleContainerEmpty>{BUILDING} is already empty.</USH_SampleContainerEmpty>
+    <USH_SampleContainerTypeMismach>{BUILDING} only accepts {TYPE} samples.</USH_SampleContainerTypeMismach>
 
 </LanguageData>

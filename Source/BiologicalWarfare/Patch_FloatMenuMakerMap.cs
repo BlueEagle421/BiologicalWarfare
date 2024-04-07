@@ -93,8 +93,23 @@ namespace BiologicalWarfare
             {
                 CompDiseaseSampleContainer sampleContainer = (target.Thing as Building).GetComp<CompDiseaseSampleContainer>();
 
-                if (sampleContainer != null && sampleContainer.Full)
+                if (sampleContainer == null && sampleContainer.Full)
+                    return;
+
+                if (sampleContainer.Full)
+                {
                     Messages.Message("USH_SampleContainerFull".Translate(target.Thing.Named("BUILDING")), cachedPawn, MessageTypeDefOf.CautionInput);
+                    return;
+                }
+
+                CompDiseaseSample diseaseSample = item.TryGetComp<CompDiseaseSample>();
+
+                if (!sampleContainer.CanAcceptSample(diseaseSample))
+                {
+                    NamedArgument type = diseaseSample.Props.combatDiseaseDef.diseaseType.ToStringUncapitalized().Named("TYPE");
+                    Messages.Message("USH_SampleContainerTypeMismach".Translate(target.Thing.Named("BUILDING"), type), cachedPawn, MessageTypeDefOf.CautionInput);
+                    return;
+                }
 
                 GiveJobToCachedPawn(target, item);
             }, null, null, null);
