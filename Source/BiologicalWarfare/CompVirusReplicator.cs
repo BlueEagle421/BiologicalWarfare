@@ -86,7 +86,15 @@ namespace BiologicalWarfare
         public override void Activate()
         {
             base.Activate();
-            Messages.Message("Activated!", MessageTypeDefOf.PositiveEvent);
+
+            foreach (IntVec3 cell in parent.GetRoom().Cells.ToList())
+                foreach (Thing thing in parent.Map.thingGrid.ThingsAt(cell))
+                {
+                    if (!(thing is Pawn pawn))
+                        continue;
+
+                    pawn.health.AddHediff(USH_DefOf.USH_VirusExtraction);
+                }
         }
     }
 
