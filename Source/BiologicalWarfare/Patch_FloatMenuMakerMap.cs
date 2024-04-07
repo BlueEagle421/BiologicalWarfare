@@ -104,11 +104,9 @@ namespace BiologicalWarfare
         {
             Building targetBuilding = target.Thing as Building;
 
-
-            Job job = JobMaker.MakeJob(USH_JobDefOf.USH_InsertSample, item, targetBuilding, targetBuilding.InteractionCell);
+            Job job = JobMaker.MakeJob(USH_DefOf.USH_InsertSample, item, targetBuilding, targetBuilding.InteractionCell);
             job.count = 1;
             cachedPawn.jobs.TryTakeOrderedJob(job, new JobTag?(JobTag.Misc), false);
-
         }
     }
 }

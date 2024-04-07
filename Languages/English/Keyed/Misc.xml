@@ -4,6 +4,7 @@
     <USH_InsertSample>Insert {ITEM} to sample container</USH_InsertSample>
     <USH_ExtractSample>Extract sample</USH_ExtractSample>
 
+    <USH_ContainedSample>Contained sample: {0}</USH_ContainedSample>
     <USH_SampleContainerFull>{BUILDING} already contains a disease sample.</USH_SampleContainerFull>
     <USH_SampleContainerEmpty>{BUILDING} is already empty.</USH_SampleContainerEmpty>
 
