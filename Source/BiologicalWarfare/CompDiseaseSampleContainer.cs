@@ -45,7 +45,7 @@ namespace BiologicalWarfare
                 return;
             }
 
-            Job job = JobMaker.MakeJob(USH_JobDefOf.USH_ExtractSample, parent);
+            Job job = JobMaker.MakeJob(USH_DefOf.USH_ExtractSample, parent);
             pawn.jobs.TryTakeOrderedJob(job, new JobTag?(JobTag.Misc), false);
         }
     }
