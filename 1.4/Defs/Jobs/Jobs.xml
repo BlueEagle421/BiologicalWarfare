@@ -10,7 +10,7 @@
   <JobDef>
     <defName>USH_ExtractSample</defName>
     <driverClass>BiologicalWarfare.JobDriver_ExtractSample</driverClass>
-    <reportString>extracting TargetA from TargetB.</reportString>
+    <reportString>extracting sample from TargetA.</reportString>
   </JobDef>
 
 </Defs>
