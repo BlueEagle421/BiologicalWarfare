@@ -56,7 +56,7 @@
         <drawContainedThing>false</drawContainedThing>
       </li>
       <li Class="BiologicalWarfare.CompProperties_VirusReplicator">
-        <maxRoomCellSize>100</maxRoomCellSize>
+        <maxRoomCellSize>225</maxRoomCellSize>
         <activeTicks>1</activeTicks>
         <cooldownTicks>1000</cooldownTicks>
         <ticksToActivate>60</ticksToActivate>
