@@ -50,5 +50,15 @@ namespace BiologicalWarfare
             Job job = JobMaker.MakeJob(USH_DefOf.USH_ExtractSample, parent);
             pawn.jobs.TryTakeOrderedJob(job, new JobTag?(JobTag.Misc), false);
         }
+
+        public override string CompInspectStringExtra() => "USH_ContainedSample".Translate(SampleLabelFormatted());
+
+        private string SampleLabelFormatted()
+        {
+            if (Empty)
+                return (string)"Nothing".Translate();
+
+            return ContainedThing.TryGetComp<CompDiseaseSample>().Props.combatDiseaseDef.label;
+        }
     }
 }
