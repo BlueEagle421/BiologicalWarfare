@@ -25,9 +25,13 @@ namespace BiologicalWarfare
             yield return Toils_Goto.Goto(TargetIndex.A, PathEndMode.OnCell).FailOnDespawnedNullOrForbidden(TargetIndex.A).FailOn(() => IsFilled);
             yield return Toils_Haul.StartCarryThing(TargetIndex.A, false, true, false, true).FailOn(() => IsFilled);
             yield return Toils_Haul.CarryHauledThingToCell(TargetIndex.C, PathEndMode.ClosestTouch).FailOn(() => IsFilled);
-            Toil installToil = Toils_General.Wait(installDurationTicks, TargetIndex.B).WithProgressBarToilDelay(TargetIndex.B, false, -0.5f).FailOn(() => IsFilled);
-            installToil.handlingFacing = true;
-            yield return installToil;
+            Toil insertToil = Toils_General.Wait(installDurationTicks, TargetIndex.B);
+            insertToil.WithProgressBarToilDelay(TargetIndex.B, false, -0.5f);
+            insertToil.FailOn(() => IsFilled);
+            insertToil.FailOnDespawnedNullOrForbidden(TargetIndex.B);
+            insertToil.FailOnCannotTouch(TargetIndex.B, PathEndMode.Touch);
+            insertToil.handlingFacing = true;
+            yield return insertToil;
             Action playSound = () => TargetItem.def.soundDrop.PlayOneShot(pawn);
 
             yield return Toils_Haul.DepositHauledThingInContainer(TargetIndex.B, TargetIndex.A, playSound);
@@ -42,15 +46,18 @@ namespace BiologicalWarfare
         public override bool TryMakePreToilReservations(bool errorOnFailed) => pawn.Reserve(TargetBuilding, job, 1, -1, null, errorOnFailed);
         protected virtual PathEndMode ContainerPathEndMode => TargetBuilding.def.hasInteractionCell ? PathEndMode.InteractionCell : PathEndMode.Touch;
 
-        private const int emptyDurationTicks = 300;
+        private const int extractionDurationTicks = 300;
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
             yield return Toils_Goto.GotoThing(TargetIndex.A, ContainerPathEndMode).FailOnDespawnedNullOrForbidden(TargetIndex.A).FailOn(() => !IsFilled).FailOnSomeonePhysicallyInteracting(TargetIndex.A);
-            Toil emptyToil = Toils_General.Wait(emptyDurationTicks, TargetIndex.A).WithProgressBarToilDelay(TargetIndex.A, false, -0.5f);
-            emptyToil.AddFinishAction(() => TargetBuilding.TryGetInnerInteractableThingOwner().TryDropAll(pawn.Position, pawn.Map, ThingPlaceMode.Near, null, null, true));
-            emptyToil.handlingFacing = true;
-            yield return emptyToil;
+            Toil extractionToil = Toils_General.Wait(extractionDurationTicks, TargetIndex.A);
+            extractionToil.WithProgressBarToilDelay(TargetIndex.A, false, -0.5f);
+            extractionToil.FailOnDespawnedNullOrForbidden(TargetIndex.A);
+            extractionToil.FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch);
+            extractionToil.AddFinishAction(() => TargetBuilding.TryGetInnerInteractableThingOwner().TryDropAll(pawn.Position, pawn.Map, ThingPlaceMode.Near, null, null, true));
+            extractionToil.handlingFacing = true;
+            yield return extractionToil;
             yield break;
         }
     }
