@@ -49,7 +49,7 @@
       </li>
       <li Class="CompProperties_Flickable" />
       <li Class="BiologicalWarfare.CompProperties_DiseaseSampleContainer">
-        <acceptableDiseaseType>Bacteria</acceptableDiseaseType>
+        <acceptableDiseaseType>Virus</acceptableDiseaseType>
         <stackLimit>1</stackLimit>
         <drawStackLabel>true</drawStackLabel>
         <drawContainedThing>false</drawContainedThing>
@@ -57,19 +57,21 @@
       <li Class="CompProperties_Refuelable">
         <fuelConsumptionRate>22</fuelConsumptionRate>
         <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <initialConfigurableTargetFuelLevel>30</initialConfigurableTargetFuelLevel>
         <fuelCapacity>60</fuelCapacity>
         <fuelFilter>
           <thingDefs>
             <li>Neutroamine</li>
           </thingDefs>
         </fuelFilter>
-        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
       </li>
       <li Class="BiologicalWarfare.CompProperties_BacteriaIncubator">
         <pathogensPerFuel>3</pathogensPerFuel>
-        <growthDurationTicksRare>60</growthDurationTicksRare>
+        <incubationTicks>20000</incubationTicks>
         <activeTicks>1</activeTicks>
-        <cooldownTicks>1000</cooldownTicks>
+        <cooldownTicks>0</cooldownTicks>
         <ticksToActivate>60</ticksToActivate>
         <jobString>activate</jobString>
         <onCooldownString>cooling off</onCooldownString>
