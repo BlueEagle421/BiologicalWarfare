@@ -33,6 +33,9 @@ namespace BiologicalWarfare
 
         private void IncubateTick()
         {
+            if (!_isIncubating)
+                return;
+
             if (!CanIncubate())
                 return;
 
