@@ -76,7 +76,10 @@ namespace BiologicalWarfare
                 return "USH_ReplicatorRoomUnroofed".Translate();
 
             if (_sampleContainer.Empty)
-                return "USH_ReplicatorNoSample".Translate();
+            {
+                NamedArgument typeArgument = _sampleContainer.ContainerProps.acceptableDiseaseType.ToStringUncapitalized().Named("TYPE");
+                return "USH_NoSample".Translate(typeArgument);
+            }
 
             return baseResult;
         }
@@ -86,6 +89,8 @@ namespace BiologicalWarfare
         public override void Activate()
         {
             base.Activate();
+
+            _sampleContainer.innerContainer.ClearAndDestroyContents();
 
             foreach (IntVec3 cell in parent.GetRoom().Cells.ToList())
                 foreach (Thing thing in parent.Map.thingGrid.ThingsAt(cell))
