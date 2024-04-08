@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>..\..\..\..\..\..\..\..\..\Users\Joachim\Desktop\Moje twórczości\Mody\RimworldDevKit\Dependencies\1.4\Harmony\0Harmony.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Users\joach\Desktop\RimworldDevKit\Dependencies\Harmony\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
@@ -64,6 +64,7 @@
     <Compile Include="BiologicalUtils.cs" />
     <Compile Include="BiologicalWarfareMod.cs" />
     <Compile Include="CombatDiseaseDef.cs" />
+    <Compile Include="CompBacteriaIncubator.cs" />
     <Compile Include="CompDiseaseSample.cs" />
     <Compile Include="DiseaseSampler.cs" />
     <Compile Include="CompDiseaseSampleContainer.cs" />
