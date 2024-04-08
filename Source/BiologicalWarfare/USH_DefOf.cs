@@ -15,7 +15,5 @@ namespace BiologicalWarfare
         public static HediffDef USH_VirusExtraction;
 
         public static HediffDef USH_ParasiticPerforation;
-
-        public static BodyPartGroupDef FullHead;
     }
 }
