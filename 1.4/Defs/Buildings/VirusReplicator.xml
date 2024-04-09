@@ -63,7 +63,7 @@
         <ticksToActivate>60</ticksToActivate>
         <jobString>activate</jobString>
         <onCooldownString>cooling off</onCooldownString>
-        <activateTexPath>UI/Gizmo/ActivateVirusReplicator</activateTexPath>
+        <activateTexPath>UI/Gizmo/Activate</activateTexPath>
         <targetingParameters>
           <canTargetBuildings>false</canTargetBuildings>
           <canTargetAnimals>false</canTargetAnimals>
