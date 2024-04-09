@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
 
+    <USH_NoDisease>{PAWN} doesn't carry any disease that can be sampled.</USH_NoDisease>
     <USH_InsertSample>Insert {ITEM} to sample container</USH_InsertSample>
     <USH_ExtractSample>Extract sample</USH_ExtractSample>
 

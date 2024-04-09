@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 using Verse.AI;
 using Verse.Sound;
@@ -36,12 +37,12 @@ namespace BiologicalWarfare
 
     public class JobDriver_SampleDisease : JobDriver
     {
-        private Pawn Pawn => job.GetTarget(TargetIndex.A).Pawn;
+        private Pawn PawnToSampleFrom => job.GetTarget(TargetIndex.A).Pawn;
         private Thing Item => job.GetTarget(TargetIndex.B).Thing;
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
-            if (pawn.Reserve(Pawn, job, 1, -1, null, errorOnFailed))
+            if (pawn.Reserve(PawnToSampleFrom, job, 1, -1, null, errorOnFailed))
                 return pawn.Reserve(Item, job, 1, -1, null, errorOnFailed);
 
             return false;
@@ -62,8 +63,16 @@ namespace BiologicalWarfare
 
         private void SampleDisease()
         {
-            SoundDef.Named("USH_SampleDisease").PlayOneShot(SoundInfo.InMap(Pawn));
-            Messages.Message("A disease was sampled from: " + Pawn.ToString(), Pawn, MessageTypeDefOf.PositiveEvent);
+            ThingDef pathogenToSpawn = BiologicalUtils.FirstSampleDefFrom(PawnToSampleFrom.health.hediffSet.hediffs);
+
+            if (pathogenToSpawn == null)
+            {
+                Messages.Message("USH_NoDisease".Translate(PawnToSampleFrom.Named("PAWN")), PawnToSampleFrom, MessageTypeDefOf.NeutralEvent);
+                return;
+            }
+
+            SoundDef.Named("USH_SampleDisease").PlayOneShot(SoundInfo.InMap(PawnToSampleFrom));
+            BiologicalUtils.SpawnThingAt(PawnToSampleFrom.Map, PawnToSampleFrom.CellsAdjacent8WayAndInside().ToList(), pathogenToSpawn, 1);
             Item.SplitOff(1).Destroy(DestroyMode.Vanish);
         }
     }
