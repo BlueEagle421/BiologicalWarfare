@@ -102,12 +102,13 @@ namespace BiologicalWarfare
                     return;
                 }
 
-                CompDiseaseSample diseaseSample = item.TryGetComp<CompDiseaseSample>();
+                CompDiseaseSample compDiseaseSample = item.TryGetComp<CompDiseaseSample>();
 
-                if (!sampleContainer.CanAcceptSample(diseaseSample))
+                AcceptanceReport canInsert = sampleContainer.CanInsert(cachedPawn, compDiseaseSample);
+
+                if (!canInsert)
                 {
-                    NamedArgument type = sampleContainer.ContainerProps.acceptableDiseaseType.ToStringUncapitalized().Named("TYPE");
-                    Messages.Message("USH_SampleContainerTypeMismach".Translate(target.Thing.Named("BUILDING"), type), cachedPawn, MessageTypeDefOf.CautionInput);
+                    Messages.Message(canInsert.Reason, target.Thing, MessageTypeDefOf.CautionInput);
                     return;
                 }
 

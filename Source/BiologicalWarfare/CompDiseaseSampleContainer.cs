@@ -17,10 +17,21 @@ namespace BiologicalWarfare
 
         public CompDiseaseSample ContainedSampleComp() => ContainedThing.TryGetComp<CompDiseaseSample>();
 
-        public bool CanAcceptSample(CompDiseaseSample compDiseaseSample)
+        public virtual AcceptanceReport CanInsert(Pawn pawn, CompDiseaseSample compDiseaseSample)
         {
             if (compDiseaseSample.Props.combatDiseaseDef.diseaseType != ContainerProps.acceptableDiseaseType)
-                return false;
+            {
+                NamedArgument type = ContainerProps.acceptableDiseaseType.ToStringUncapitalized().Named("TYPE");
+                return "USH_SampleContainerTypeMismach".Translate(parent.Named("BUILDING"), type);
+            }
+
+            return true;
+        }
+
+        public virtual AcceptanceReport CanExtract(Pawn pawn)
+        {
+            if (Empty)
+                return "USH_SampleContainerEmpty".Translate(parent.Named("BUILDING"));
 
             return true;
         }
@@ -41,9 +52,10 @@ namespace BiologicalWarfare
 
         private void OrderExtractionJob(Pawn pawn)
         {
-            if (Empty)
+            AcceptanceReport canExtract = CanExtract(pawn);
+            if (!canExtract)
             {
-                Messages.Message("USH_SampleContainerEmpty".Translate(parent.Named("BUILDING")), parent, MessageTypeDefOf.CautionInput);
+                Messages.Message(canExtract.Reason, parent, MessageTypeDefOf.CautionInput);
                 return;
             }
 
