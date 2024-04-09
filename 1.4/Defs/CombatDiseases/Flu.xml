@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <BiologicalWarfare.CombatDiseaseDef>
+  <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
     <defName>USH_Flu</defName>
     <label>flu</label>
     <hediffDef>Flu</hediffDef>
     <diseaseType>Virus</diseaseType>
     <colorInt>(242, 200, 25, 255)</colorInt>
-    <autoComplete>True</autoComplete>
 
     <!-- formats {0} to label and {1} to disease type -->
     <!-- also sets color in graphicData -->

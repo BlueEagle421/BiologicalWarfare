@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <BiologicalWarfare.CombatDiseaseDef Name="USH_CombatDiseaseBase" Abstract="True">
+    <addHyperlinkToSampler>True</addHyperlinkToSampler>
+  </BiologicalWarfare.CombatDiseaseDef>
+
+</Defs>

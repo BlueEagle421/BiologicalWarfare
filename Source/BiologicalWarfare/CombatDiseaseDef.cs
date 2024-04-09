@@ -9,7 +9,7 @@ namespace BiologicalWarfare
         public HediffDef hediffDef;
         public DiseaseType diseaseType;
         public ColorInt colorInt;
-        public bool autoComplete;
+        public bool addHyperlinkToSampler;
 
         public List<ThingDef> thingDefsToFormat = new List<ThingDef>();
         public List<ThingDef> thingDefsToColor = new List<ThingDef>();
@@ -41,7 +41,7 @@ namespace BiologicalWarfare
         {
             base.ResolveReferences();
 
-            description = hediffDef.description;
+            AddHyperlink();
 
             foreach (ThingDef thingDef in thingDefsToFormat)
                 FormatDef(thingDef);
@@ -54,6 +54,16 @@ namespace BiologicalWarfare
                 FormatDef(thingDef);
                 ColorThingDef(thingDef);
             }
+        }
+
+        private void AddHyperlink()
+        {
+            if (!addHyperlinkToSampler)
+                return;
+
+            List<DefHyperlink> hyperlinks = USH_DefOf.USH_DiseaseSampler.descriptionHyperlinks ?? new List<DefHyperlink>();
+            hyperlinks.Add(new DefHyperlink(hediffDef));
+            USH_DefOf.USH_DiseaseSampler.descriptionHyperlinks = hyperlinks;
         }
 
         private void FormatDef(ThingDef thingDef)
