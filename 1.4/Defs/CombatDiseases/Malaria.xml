@@ -47,14 +47,35 @@
 
   <ThingDef ParentName="USH_ParasiteReproductionPills">
     <defName>USH_MalariaReproductionPills</defName>
+    <descriptionHyperlinks>
+      <HediffDef>USH_MalariaReproduction</HediffDef>
+    </descriptionHyperlinks>
+    <costList>
+      <USH_MalariaSample>1</USH_MalariaSample>
+    </costList>
     <ingestible>
       <outcomeDoers>
         <li Class="IngestionOutcomeDoer_GiveHediff">
           <hediffDef>Malaria</hediffDef>
         </li>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>USH_MalariaReproduction</hediffDef>
+        </li>
       </outcomeDoers>
     </ingestible>
   </ThingDef>
+
+  <HediffDef ParentName="USH_ParasiteReproductionBase">
+    <defName>USH_MalariaReproduction</defName>
+    <modExtensions>
+      <li Class="BiologicalWarfare.ParasiteReproductionExtension">
+        <combatDiseaseDef>USH_Malaria</combatDiseaseDef>
+        <reproductionDurationTicks>10000</reproductionDurationTicks>
+        <basePathogenCount>4</basePathogenCount>
+        <multiplyByBodySize>true</multiplyByBodySize>
+      </li>
+    </modExtensions>
+  </HediffDef>
 
   <DamageDef ParentName="USH_BiologicalDamageBase">
     <defName>USH_MalariaDamage</defName>
