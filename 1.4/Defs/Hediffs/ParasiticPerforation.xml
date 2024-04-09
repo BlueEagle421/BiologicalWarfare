@@ -6,10 +6,7 @@
     <label>parasitic perforation</label>
     <labelNoun>a parasitic perforation</labelNoun>
     <description>A parasitic perforation caused by rapid reproduction.</description>
-    <descriptionHyperlinks>
-      <HediffDef>USH_ParasiteReproduction</HediffDef>
-    </descriptionHyperlinks>
-    <initialSeverity>6</initialSeverity>
+    <initialSeverity>8</initialSeverity>
     <comps>
       <li Class="HediffCompProperties_TendDuration">
         <labelTendedWell>bandaged</labelTendedWell>
