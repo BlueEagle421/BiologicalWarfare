@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using RimWorld;
+using System.Collections.Generic;
 using System.Linq;
 using Verse;
 
@@ -56,7 +57,7 @@ namespace BiologicalWarfare
         private bool IsBodyPartOrganic(BodyPartRecord bodyPartRecord)
         {
             BodyPartDef partDef = bodyPartRecord.def;
-            return partDef.bleedRate != 0 && partDef.permanentInjuryChanceFactor != 0;
+            return partDef.bleedRate != 0 && partDef.permanentInjuryChanceFactor != 0 && partDef.GetHitChanceFactorFor(DamageDefOf.Cut) != 0;
         }
         private BodyPartRecord RandomOrganicPart()
         {
