@@ -18,4 +18,6 @@
     <USH_IncubatorTimeLeft>Incubation ends in: {0}</USH_IncubatorTimeLeft>
     <USH_IncubatorWillProduce>Will produce: {0} {1} patogens</USH_IncubatorWillProduce>
 
+    <USH_IncubationInProgress>Sample can't be extracted during incubation.</USH_IncubationInProgress>
+
 </LanguageData>

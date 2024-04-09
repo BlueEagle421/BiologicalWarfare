@@ -49,6 +49,7 @@
       </li>
       <li Class="CompProperties_Flickable" />
       <li Class="BiologicalWarfare.CompProperties_DiseaseSampleContainer">
+        <compClass>BiologicalWarfare.CompBateriaIncubatorContainer</compClass>
         <acceptableDiseaseType>Bacteria</acceptableDiseaseType>
         <stackLimit>1</stackLimit>
         <drawStackLabel>true</drawStackLabel>

@@ -12,6 +12,30 @@ namespace BiologicalWarfare
         public CompProperties_BacteriaIncubator() => compClass = typeof(CompBacteriaIncubator);
     }
 
+    public class CompBateriaIncubatorContainer : CompDiseaseSampleContainer
+    {
+        private CompBacteriaIncubator _compBactriaIncubator;
+
+        public override void PostSpawnSetup(bool respawningAfterLoad)
+        {
+            base.PostSpawnSetup(respawningAfterLoad);
+            _compBactriaIncubator = parent.GetComp<CompBacteriaIncubator>();
+        }
+
+        public override AcceptanceReport CanExtract(Pawn pawn)
+        {
+            AcceptanceReport baseResult = base.CanExtract(pawn);
+
+            if (!baseResult.Accepted)
+                return baseResult;
+
+            if (_compBactriaIncubator.IsIncubating)
+                return "USH_IncubationInProgress".Translate();
+
+            return baseResult;
+        }
+    }
+
     public class CompBacteriaIncubator : CompActivable
     {
         private CompDiseaseSampleContainer _sampleContainer;
@@ -20,6 +44,7 @@ namespace BiologicalWarfare
         private int _incubationTicks;
         private int _patogensToProduce;
         private bool _isIncubating;
+        public bool IsIncubating => _isIncubating;
         public CompProperties_BacteriaIncubator IncubatorProps => (CompProperties_BacteriaIncubator)props;
 
         protected override bool TryUse() => true;
@@ -108,6 +133,7 @@ namespace BiologicalWarfare
         }
 
         private int PathogensCount() => (int)(_compRefuelable.Fuel * IncubatorProps.pathogensPerFuel);
+
         private AcceptanceReport CanIncubate()
         {
             if (!_compPowerTrader.PowerOn)
@@ -119,6 +145,9 @@ namespace BiologicalWarfare
         public override AcceptanceReport CanActivate(Pawn activateBy = null)
         {
             AcceptanceReport baseResult = base.CanActivate(activateBy);
+
+            if (_isIncubating)
+                return "AlreadyActive".Translate();
 
             if (!baseResult)
                 return baseResult;
