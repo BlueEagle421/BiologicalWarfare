@@ -7,7 +7,7 @@
     <USH_ContainedSample>Contained sample: {0}</USH_ContainedSample>
     <USH_NoSample>Missing {TYPE} sample.</USH_NoSample>
 
-    <USH_SampleContainerFull>{BUILDING} already contains a disease sample.</USH_SampleContainerFull>
+    <USH_SampleContainerFull>{BUILDING} already contains disease sample.</USH_SampleContainerFull>
     <USH_SampleContainerEmpty>{BUILDING} is already empty.</USH_SampleContainerEmpty>
     <USH_SampleContainerTypeMismach>{BUILDING} only accepts {TYPE} samples.</USH_SampleContainerTypeMismach>
 
