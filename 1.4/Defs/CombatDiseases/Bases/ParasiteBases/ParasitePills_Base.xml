@@ -5,9 +5,6 @@
     <label>{0} {1} reproducing pills</label>
     <description>A drug containing {0} {1} embryos with enhanced reproduction capabilities. Whoever consumes it will turn into a living pathogen breeding machine. The host's body will continuously spew out {0} pathogens and receive internal damage in the process. If left untended, he will die and produce fewer pathogens. \n\nNote that large, tamed creatures in herds are best suited for being hosts.</description>
     <possessionCount>10</possessionCount>
-    <descriptionHyperlinks>
-      <HediffDef>USH_ParasiteReproduction</HediffDef>
-    </descriptionHyperlinks>
     <graphicData>
       <texPath>Things/Item/Drug/Penoxycyline</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
@@ -23,11 +20,6 @@
     <techLevel>Industrial</techLevel>
     <ingestible>
       <drugCategory>Medical</drugCategory>
-      <outcomeDoers>
-        <li Class="IngestionOutcomeDoer_GiveHediff">
-          <hediffDef>USH_ParasiteReproduction</hediffDef>
-        </li>
-      </outcomeDoers>
     </ingestible>
     <recipeMaker>
       <researchPrerequisite>USH_ParasiteReproductionRes</researchPrerequisite>

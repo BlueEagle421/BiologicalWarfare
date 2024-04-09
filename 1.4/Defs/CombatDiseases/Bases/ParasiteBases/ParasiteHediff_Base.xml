@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <HediffDef>
+  <HediffDef Name="USH_ParasiteReproductionBase" Abstract="True">
     <hediffClass>BiologicalWarfare.HediffParasiteReproduction</hediffClass>
     <defName>USH_ParasiteReproduction</defName>
     <label>rapid parasite reproduction</label>
     <labelNoun>a rapid parasite reproduction</labelNoun>
     <description>An enhanced parasitic infection tweaked to reproduce pathogens at much faster rate. An overload of parasites will lead to internal body damage.</description>
     <defaultLabelColor>(0.9, 1.0, 0.35)</defaultLabelColor>
-    <modExtensions>
-      <li Class="BiologicalWarfare.ParasiteReproductionExtension">
-        <combatDiseaseDef>USH_Flu</combatDiseaseDef>
-        <reproductionDurationTicks>10000</reproductionDurationTicks>
-        <basePathogenCount>4</basePathogenCount>
-        <multiplyByBodySize>true</multiplyByBodySize>
-      </li>
-    </modExtensions>
   </HediffDef>
 
 </Defs>
