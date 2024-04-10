@@ -24,6 +24,7 @@
     <surfaceType>Item</surfaceType>
     <passability>PassThroughOnly</passability>
     <fillPercent>0.2</fillPercent>
+    <techLevel>Industrial</techLevel>
     <statBases>
       <WorkToBuild>1000</WorkToBuild>
       <MaxHitPoints>100</MaxHitPoints>

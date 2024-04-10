@@ -22,7 +22,8 @@
     <size>(1, 1)</size>
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
-    <fillPercent>0.2</fillPercent>
+    <fillPercent>0.35</fillPercent>
+    <techLevel>Industrial</techLevel>
     <statBases>
       <WorkToBuild>1500</WorkToBuild>
       <MaxHitPoints>120</MaxHitPoints>
