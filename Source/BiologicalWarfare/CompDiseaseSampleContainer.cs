@@ -2,12 +2,14 @@ using RimWorld;
 using System.Collections.Generic;
 using Verse;
 using Verse.AI;
+using Verse.Sound;
 
 namespace BiologicalWarfare
 {
     public class CompProperties_DiseaseSampleContainer : CompProperties_ThingContainer
     {
         public DiseaseType acceptableDiseaseType;
+        public SoundDef insertedSoundDef, extractedSoundDef;
         public CompProperties_DiseaseSampleContainer() => compClass = typeof(CompDiseaseSampleContainer);
     }
 
@@ -16,25 +18,6 @@ namespace BiologicalWarfare
         public CompProperties_DiseaseSampleContainer PropsSampleContainer => (CompProperties_DiseaseSampleContainer)props;
 
         public CompDiseaseSample ContainedSampleComp() => ContainedThing.TryGetComp<CompDiseaseSample>();
-
-        public virtual AcceptanceReport CanInsert(Pawn pawn, CompDiseaseSample compDiseaseSample)
-        {
-            if (compDiseaseSample.PropsDiseaseSample.combatDiseaseDef.diseaseType != PropsSampleContainer.acceptableDiseaseType)
-            {
-                NamedArgument type = PropsSampleContainer.acceptableDiseaseType.ToStringUncapitalized().Named("TYPE");
-                return "USH_SampleContainerTypeMismatch".Translate(parent.Named("BUILDING"), type);
-            }
-
-            return true;
-        }
-
-        public virtual AcceptanceReport CanExtract(Pawn pawn)
-        {
-            if (Empty)
-                return "USH_SampleContainerEmpty".Translate(parent.Named("BUILDING"));
-
-            return true;
-        }
 
         public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
         {
@@ -64,6 +47,37 @@ namespace BiologicalWarfare
         }
 
         public override string CompInspectStringExtra() => "USH_ContainedSample".Translate(SampleLabelFormatted());
+
+        public virtual AcceptanceReport CanInsert(Pawn pawn, CompDiseaseSample compDiseaseSample)
+        {
+            if (compDiseaseSample.PropsDiseaseSample.combatDiseaseDef.diseaseType != PropsSampleContainer.acceptableDiseaseType)
+            {
+                NamedArgument type = PropsSampleContainer.acceptableDiseaseType.ToStringUncapitalized().Named("TYPE");
+                return "USH_SampleContainerTypeMismatch".Translate(parent.Named("BUILDING"), type);
+            }
+
+            return true;
+        }
+
+        public virtual AcceptanceReport CanExtract(Pawn pawn)
+        {
+            if (Empty)
+                return "USH_SampleContainerEmpty".Translate(parent.Named("BUILDING"));
+
+            return true;
+        }
+
+        public virtual void OnInserted(Pawn pawn)
+        {
+            SoundDef insertedSoundDef = PropsSampleContainer.insertedSoundDef;
+            insertedSoundDef?.PlayOneShot(SoundInfo.InMap(parent));
+        }
+
+        public virtual void OnExtracted(Pawn pawn)
+        {
+            SoundDef extractedSoundDef = PropsSampleContainer.extractedSoundDef;
+            extractedSoundDef?.PlayOneShot(SoundInfo.InMap(parent));
+        }
 
         private string SampleLabelFormatted()
         {

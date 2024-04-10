@@ -53,6 +53,8 @@
       <li Class="BiologicalWarfare.CompProperties_DiseaseSampleContainer">
         <acceptableDiseaseType>Virus</acceptableDiseaseType>
         <stackLimit>1</stackLimit>
+        <insertedSoundDef>USH_SampleInserted</insertedSoundDef>
+        <extractedSoundDef>USH_SampleExtracted</extractedSoundDef>
         <drawStackLabel>true</drawStackLabel>
         <drawContainedThing>false</drawContainedThing>
       </li>

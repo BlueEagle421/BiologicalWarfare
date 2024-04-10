@@ -20,6 +20,42 @@
   </SoundDef>
 
   <SoundDef>
+    <defName>USH_SampleInserted</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Misc/SampleInserted</clipPath>
+          </li>
+        </grains>
+        <volumeRange>32</volumeRange>
+        <sustainLoop>False</sustainLoop>
+        <distRange>15~40</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>USH_SampleExtracted</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Misc/SampleExtracted</clipPath>
+          </li>
+        </grains>
+        <volumeRange>42</volumeRange>
+        <sustainLoop>False</sustainLoop>
+        <distRange>15~40</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
     <defName>USH_GasLauncherShot</defName>
     <context>MapOnly</context>
     <maxSimultaneous>1</maxSimultaneous>
