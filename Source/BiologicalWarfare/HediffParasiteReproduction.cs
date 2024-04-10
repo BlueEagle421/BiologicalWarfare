@@ -25,13 +25,6 @@ namespace BiologicalWarfare
             _extension = def.GetModExtension<ParasiteReproductionExtension>();
         }
 
-        public override void Notify_PawnDied()
-        {
-            base.Notify_PawnDied();
-
-            RemoveItself();
-        }
-
         public override void Tick()
         {
             base.Tick();
@@ -65,7 +58,5 @@ namespace BiologicalWarfare
 
             return organicParts[UnityEngine.Random.Range(0, organicParts.Count)];
         }
-
-        private void RemoveItself() => pawn.health.RemoveHediff(this);
     }
 }

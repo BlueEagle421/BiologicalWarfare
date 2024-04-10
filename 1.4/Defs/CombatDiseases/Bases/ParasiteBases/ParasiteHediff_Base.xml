@@ -7,7 +7,17 @@
     <label>rapid parasite reproduction</label>
     <labelNoun>a rapid parasite reproduction</labelNoun>
     <description>An enhanced parasitic infection tweaked to reproduce pathogens at much faster rate. An overload of parasites will lead to internal body damage.</description>
+    <initialSeverity>1</initialSeverity>
     <defaultLabelColor>(0.9, 1.0, 0.35)</defaultLabelColor>
+    <comps>
+      <li Class="HediffCompProperties">
+        <compClass>HediffComp_DisappearsOnDeath</compClass>
+      </li>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>600000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
   </HediffDef>
 
 </Defs>

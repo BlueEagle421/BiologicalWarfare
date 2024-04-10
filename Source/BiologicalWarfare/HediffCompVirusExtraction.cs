@@ -11,16 +11,8 @@ namespace BiologicalWarfare
     }
     public class HediffCompVirusExtraction : HediffComp
     {
-        private CombatDiseaseDef _combatDiseaseDef;
-        public CombatDiseaseDef CombatDiseaseDef { get => _combatDiseaseDef; set => _combatDiseaseDef = value; }
+        public CombatDiseaseDef CombatDiseaseDef { get; set; }
         public HediffCompProperties_VirusExtraction Props => (HediffCompProperties_VirusExtraction)props;
-
-        public override void Notify_PawnDied()
-        {
-            base.Notify_PawnDied();
-
-            RemoveItself();
-        }
 
         public override void Notify_PawnKilled()
         {
@@ -30,14 +22,5 @@ namespace BiologicalWarfare
         }
 
         private int SpawnCount() => (int)(Props.basePathogenCount * Pawn.BodySize);
-
-        private void RemoveItself()
-        {
-            Hediff firstHediffOfDef = Pawn.health.hediffSet.GetFirstHediffOfDef(parent.def, false);
-            if (firstHediffOfDef == null)
-                return;
-
-            Pawn.health.RemoveHediff(firstHediffOfDef);
-        }
     }
 }

@@ -7,11 +7,19 @@
     <label>virus extraction</label>
     <labelNoun>a virus extraction</labelNoun>
     <description>A specilized DNA modification that allows the extraction of virus pathogens post mortem.</description>
+    <initialSeverity>1</initialSeverity>
     <defaultLabelColor>(0.9, 1.0, 0.35)</defaultLabelColor>
     <comps>
       <li Class="BiologicalWarfare.HediffCompProperties_VirusExtraction">
         <basePathogenCount>25</basePathogenCount>
         <multiplyByBodySize>true</multiplyByBodySize>
+      </li>
+      <li Class="HediffCompProperties">
+        <compClass>HediffComp_DisappearsOnDeath</compClass>
+      </li>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>600000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
       </li>
     </comps>
   </HediffDef>
