@@ -70,7 +70,7 @@ namespace BiologicalWarfare
             if (Empty)
                 return (string)"Nothing".Translate();
 
-            return ContainedThing.TryGetComp<CompDiseaseSample>().Props.combatDiseaseDef.label;
+            return ContainedSampleComp().Props.combatDiseaseDef.label;
         }
     }
 }
