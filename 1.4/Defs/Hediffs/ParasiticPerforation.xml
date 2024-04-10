@@ -25,8 +25,8 @@
       <averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
       <bleedRate>0.12</bleedRate>
       <canMerge>false</canMerge>
-      <destroyedLabel>Perforated</destroyedLabel>
-      <destroyedOutLabel>Perforated</destroyedOutLabel>
+      <destroyedLabel>Perforated by parasite</destroyedLabel>
+      <destroyedOutLabel>Perforated by parasite</destroyedOutLabel>
     </injuryProps>
   </HediffDef>
 
