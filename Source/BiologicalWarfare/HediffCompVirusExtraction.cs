@@ -7,20 +7,39 @@ namespace BiologicalWarfare
     {
         public int basePathogenCount;
         public bool multiplyByBodySize;
+        public bool multiplyBySeverity;
         public HediffCompProperties_VirusExtraction() => compClass = typeof(HediffCompVirusExtraction);
     }
     public class HediffCompVirusExtraction : HediffComp
     {
-        public CombatDiseaseDef CombatDiseaseDef { get; set; }
+        private CombatDiseaseDef _combatDiseaseDef;
+        public CombatDiseaseDef CombatDiseaseDef { get => _combatDiseaseDef; set => _combatDiseaseDef = value; }
         public HediffCompProperties_VirusExtraction Props => (HediffCompProperties_VirusExtraction)props;
+
+        public override void CompExposeData()
+        {
+            base.CompExposeData();
+            Scribe_Defs.Look(ref _combatDiseaseDef, "USH_CombatDiseaseDef");
+        }
 
         public override void Notify_PawnKilled()
         {
             base.Notify_PawnKilled();
 
-            BiologicalUtils.SpawnThingAt(Pawn.Map, Pawn.CellsAdjacent8WayAndInside().ToList(), CombatDiseaseDef.pathogenDef, SpawnCount());
+            BiologicalUtils.SpawnThingAt(Pawn.Map, Pawn.CellsAdjacent8WayAndInside().ToList(), _combatDiseaseDef.pathogenDef, SpawnCount());
         }
 
-        private int SpawnCount() => (int)(Props.basePathogenCount * Pawn.BodySize);
+        private int SpawnCount()
+        {
+            int baseCount = Props.basePathogenCount;
+
+            float sizeMultiplier = Props.multiplyByBodySize ? Pawn.BodySize : 1f;
+
+            Hediff diseaseHediff = Pawn.health.hediffSet.GetFirstHediffOfDef(_combatDiseaseDef.hediffDef);
+
+            float severityMultiplier = Props.multiplyBySeverity ? diseaseHediff.Severity : 1f;
+
+            return (int)(baseCount * sizeMultiplier * severityMultiplier);
+        }
     }
 }
