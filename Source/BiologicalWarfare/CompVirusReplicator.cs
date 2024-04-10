@@ -99,6 +99,9 @@ namespace BiologicalWarfare
                     if (pawn.GetStatValue(StatDefOf.ToxicEnvironmentResistance) >= 0.8f)
                         continue;
 
+                    if (pawn.Position.DistanceTo(parent.Position) <= parent.def.specialDisplayRadius)
+                        continue;
+
                     pawn.health.AddHediff(_sampleContainer.ContainedSampleComp().Props.combatDiseaseDef.hediffDef);
 
                     Hediff extractionHediff = pawn.health.AddHediff(USH_DefOf.USH_VirusExtraction);

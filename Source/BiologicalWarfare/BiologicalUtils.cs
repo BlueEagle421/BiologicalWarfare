@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Verse;
 
@@ -47,6 +48,14 @@ namespace BiologicalWarfare
                 return null;
 
             return foundDisease.sampleDef;
+        }
+
+        public static float DistanceTo(this IntVec3 a, IntVec3 b)
+        {
+            float num = a.x - b.x;
+            float num2 = a.y - b.y;
+            float num3 = a.z - b.z;
+            return (float)Math.Sqrt(num * num + num2 * num2 + num3 * num3);
         }
     }
 }
