@@ -86,7 +86,7 @@ namespace BiologicalWarfare
             if (frameDef != null)
                 frameDef.label = Formatted(frameDef.label);
 
-            foreach (RecipeDef recipeDef in DefDatabase<RecipeDef>.AllDefs.Where(x => x.defName.Contains(thingDef.defName)))
+            foreach (RecipeDef recipeDef in DefDatabase<RecipeDef>.AllDefs.Where(x => IsRecipeRelevantFor(x, thingDef)))
                 recipeDef.label = Formatted(recipeDef.label);
 
             thingDef.label = Formatted(thingDef.label);
@@ -110,6 +110,20 @@ namespace BiologicalWarfare
             string type = diseaseType.ToStringUncapitalized();
 
             return string.Format(toFormat, label, type).CapitalizeFirst();
+        }
+
+        private bool IsRecipeRelevantFor(RecipeDef recipeDef, ThingDef toFormat)
+        {
+            if (recipeDef.defName == "Make_" + toFormat.defName)
+                return true;
+
+            if (recipeDef.defName == "Make_" + toFormat.defName + "Bulk")
+                return true;
+
+            if (recipeDef.defName == "Administer_" + toFormat.defName)
+                return true;
+
+            return false;
         }
     }
 
