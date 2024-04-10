@@ -62,7 +62,7 @@
       <li Class="BiologicalWarfare.CompProperties_VirusReplicator">
         <maxRoomCellSize>225</maxRoomCellSize>
         <activeTicks>1</activeTicks>
-        <cooldownTicks>1000</cooldownTicks>
+        <cooldownTicks>0</cooldownTicks>
         <ticksToActivate>60</ticksToActivate>
         <jobString>activate</jobString>
         <onCooldownString>cooling off</onCooldownString>
