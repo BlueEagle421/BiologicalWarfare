@@ -61,9 +61,9 @@ namespace BiologicalWarfare
             if (!addHyperlinkToSampler)
                 return;
 
-            List<DefHyperlink> hyperlinks = USH_DefOf.USH_DiseaseSampler.descriptionHyperlinks ?? new List<DefHyperlink>();
+            List<DefHyperlink> hyperlinks = USHDefOf.USH_DiseaseSampler.descriptionHyperlinks ?? new List<DefHyperlink>();
             hyperlinks.Add(new DefHyperlink(hediffDef));
-            USH_DefOf.USH_DiseaseSampler.descriptionHyperlinks = hyperlinks;
+            USHDefOf.USH_DiseaseSampler.descriptionHyperlinks = hyperlinks;
         }
 
         private void FormatDef(ThingDef thingDef)

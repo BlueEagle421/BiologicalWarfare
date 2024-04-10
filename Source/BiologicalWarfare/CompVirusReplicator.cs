@@ -104,7 +104,7 @@ namespace BiologicalWarfare
 
                     pawn.health.AddHediff(_sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.hediffDef);
 
-                    Hediff extractionHediff = pawn.health.AddHediff(USH_DefOf.USH_VirusExtraction);
+                    Hediff extractionHediff = pawn.health.AddHediff(USHDefOf.USH_VirusExtraction);
                     extractionHediff.TryGetComp<HediffCompVirusExtraction>().CombatDiseaseDef = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef;
                 }
 

@@ -4,9 +4,9 @@ using Verse;
 namespace BiologicalWarfare
 {
     [DefOf]
-    public static class USH_DefOf
+    public static class USHDefOf
     {
-        static USH_DefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(USH_DefOf));
+        static USHDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(USHDefOf));
 
         public static JobDef USH_InsertSample;
 
