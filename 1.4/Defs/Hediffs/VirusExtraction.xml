@@ -19,7 +19,7 @@
         <compClass>HediffComp_DisappearsOnDeath</compClass>
       </li>
       <li Class="HediffCompProperties_Disappears">
-        <disappearsAfterTicks>600000</disappearsAfterTicks>
+        <disappearsAfterTicks>600000~650000</disappearsAfterTicks>
         <showRemainingTime>true</showRemainingTime>
       </li>
     </comps>
