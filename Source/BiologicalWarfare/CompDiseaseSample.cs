@@ -10,6 +10,6 @@ namespace BiologicalWarfare
 
     public class CompDiseaseSample : ThingComp
     {
-        public CompProperties_DiseaseSample Props => (CompProperties_DiseaseSample)props;
+        public CompProperties_DiseaseSample PropsDiseaseSample => (CompProperties_DiseaseSample)props;
     }
 }

@@ -45,7 +45,7 @@ namespace BiologicalWarfare
         private int _patogensToProduce;
         private bool _isIncubating;
         public bool IsIncubating => _isIncubating;
-        public CompProperties_BacteriaIncubator IncubatorProps => (CompProperties_BacteriaIncubator)props;
+        public CompProperties_BacteriaIncubator PropsBacteriaIncubator => (CompProperties_BacteriaIncubator)props;
 
         protected override bool TryUse() => true;
 
@@ -66,13 +66,13 @@ namespace BiologicalWarfare
 
             _incubationTicks++;
 
-            if (_incubationTicks >= IncubatorProps.incubationTicks)
+            if (_incubationTicks >= PropsBacteriaIncubator.incubationTicks)
                 IncubationEnded();
         }
 
         private void IncubationEnded()
         {
-            ThingDef toSpawn = _sampleContainer.ContainedSampleComp().Props.combatDiseaseDef.pathogenDef;
+            ThingDef toSpawn = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.pathogenDef;
             BiologicalUtils.SpawnThingAt(parent.Map, parent.CellsAdjacent8WayAndInside().ToList(), toSpawn, _patogensToProduce);
 
             _sampleContainer.innerContainer.ClearAndDestroyContents();
@@ -112,10 +112,10 @@ namespace BiologicalWarfare
 
             StringBuilder stringBuilder = new StringBuilder();
 
-            string timeLeft = GenDate.ToStringTicksToPeriod(IncubatorProps.incubationTicks - _incubationTicks);
+            string timeLeft = GenDate.ToStringTicksToPeriod(PropsBacteriaIncubator.incubationTicks - _incubationTicks);
             stringBuilder.AppendLine("USH_IncubatorTimeLeft".Translate(timeLeft));
 
-            string diseaseLabel = _sampleContainer.ContainedSampleComp().Props.combatDiseaseDef.label;
+            string diseaseLabel = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.label;
             stringBuilder.AppendLine("USH_IncubatorWillProduce".Translate(_patogensToProduce, diseaseLabel));
 
             return stringBuilder.ToString().TrimEnd();
@@ -132,7 +132,7 @@ namespace BiologicalWarfare
             _compRefuelable.ConsumeFuel(_compRefuelable.Fuel);
         }
 
-        private int PathogensCount() => (int)(_compRefuelable.Fuel * IncubatorProps.pathogensPerFuel);
+        private int PathogensCount() => (int)(_compRefuelable.Fuel * PropsBacteriaIncubator.pathogensPerFuel);
 
         private AcceptanceReport CanIncubate()
         {
@@ -154,7 +154,7 @@ namespace BiologicalWarfare
 
             if (_sampleContainer.Empty)
             {
-                NamedArgument typeArgument = _sampleContainer.ContainerProps.acceptableDiseaseType.ToStringUncapitalized().Named("TYPE");
+                NamedArgument typeArgument = _sampleContainer.PropsSampleContainer.acceptableDiseaseType.ToStringUncapitalized().Named("TYPE");
                 return "USH_NoSample".Translate(typeArgument);
             }
 

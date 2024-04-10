@@ -13,16 +13,16 @@ namespace BiologicalWarfare
 
     public class CompDiseaseSampleContainer : CompThingContainer
     {
-        public CompProperties_DiseaseSampleContainer ContainerProps => (CompProperties_DiseaseSampleContainer)props;
+        public CompProperties_DiseaseSampleContainer PropsSampleContainer => (CompProperties_DiseaseSampleContainer)props;
 
         public CompDiseaseSample ContainedSampleComp() => ContainedThing.TryGetComp<CompDiseaseSample>();
 
         public virtual AcceptanceReport CanInsert(Pawn pawn, CompDiseaseSample compDiseaseSample)
         {
-            if (compDiseaseSample.Props.combatDiseaseDef.diseaseType != ContainerProps.acceptableDiseaseType)
+            if (compDiseaseSample.PropsDiseaseSample.combatDiseaseDef.diseaseType != PropsSampleContainer.acceptableDiseaseType)
             {
-                NamedArgument type = ContainerProps.acceptableDiseaseType.ToStringUncapitalized().Named("TYPE");
-                return "USH_SampleContainerTypeMismach".Translate(parent.Named("BUILDING"), type);
+                NamedArgument type = PropsSampleContainer.acceptableDiseaseType.ToStringUncapitalized().Named("TYPE");
+                return "USH_SampleContainerTypeMismatch".Translate(parent.Named("BUILDING"), type);
             }
 
             return true;
@@ -70,7 +70,7 @@ namespace BiologicalWarfare
             if (Empty)
                 return (string)"Nothing".Translate();
 
-            return ContainedSampleComp().Props.combatDiseaseDef.label;
+            return ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.label;
         }
     }
 }

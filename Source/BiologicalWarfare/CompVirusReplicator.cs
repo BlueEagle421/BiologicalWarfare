@@ -77,7 +77,7 @@ namespace BiologicalWarfare
 
             if (_sampleContainer.Empty)
             {
-                NamedArgument typeArgument = _sampleContainer.ContainerProps.acceptableDiseaseType.ToStringUncapitalized().Named("TYPE");
+                NamedArgument typeArgument = _sampleContainer.PropsSampleContainer.acceptableDiseaseType.ToStringUncapitalized().Named("TYPE");
                 return "USH_NoSample".Translate(typeArgument);
             }
 
@@ -102,10 +102,10 @@ namespace BiologicalWarfare
                     if (pawn.Position.DistanceTo(parent.Position) <= parent.def.specialDisplayRadius)
                         continue;
 
-                    pawn.health.AddHediff(_sampleContainer.ContainedSampleComp().Props.combatDiseaseDef.hediffDef);
+                    pawn.health.AddHediff(_sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.hediffDef);
 
                     Hediff extractionHediff = pawn.health.AddHediff(USH_DefOf.USH_VirusExtraction);
-                    extractionHediff.TryGetComp<HediffCompVirusExtraction>().CombatDiseaseDef = _sampleContainer.ContainedSampleComp().Props.combatDiseaseDef;
+                    extractionHediff.TryGetComp<HediffCompVirusExtraction>().CombatDiseaseDef = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef;
                 }
 
             _sampleContainer.innerContainer.ClearAndDestroyContents();

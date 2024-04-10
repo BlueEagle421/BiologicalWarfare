@@ -19,7 +19,7 @@ namespace BiologicalWarfare
 
     public class CompTargetEffect_SampleDisease : CompTargetEffect
     {
-        public CompProperties_TargetEffectSampleDisease Props => (CompProperties_TargetEffectSampleDisease)props;
+        public CompProperties_TargetEffectSampleDisease PropsSampleDisease => (CompProperties_TargetEffectSampleDisease)props;
         public override void DoEffectOn(Pawn user, Thing target)
         {
             if (!user.IsColonistPlayerControlled)
@@ -28,7 +28,7 @@ namespace BiologicalWarfare
             if (!user.CanReserveAndReach(target, PathEndMode.Touch, Danger.Deadly, 1, -1, null, false))
                 return;
 
-            Job job = JobMaker.MakeJob(Props.jobDef, target, parent);
+            Job job = JobMaker.MakeJob(PropsSampleDisease.jobDef, target, parent);
             job.count = 1;
             user.jobs.TryTakeOrderedJob(job);
         }
