@@ -90,8 +90,6 @@ namespace BiologicalWarfare
         {
             base.Activate();
 
-            _sampleContainer.innerContainer.ClearAndDestroyContents();
-
             foreach (IntVec3 cell in parent.GetRoom().Cells.ToList())
                 foreach (Thing thing in parent.Map.thingGrid.ThingsAt(cell))
                 {
@@ -106,6 +104,8 @@ namespace BiologicalWarfare
                     Hediff extractionHediff = pawn.health.AddHediff(USH_DefOf.USH_VirusExtraction);
                     extractionHediff.TryGetComp<HediffCompVirusExtraction>().CombatDiseaseDef = _sampleContainer.ContainedSampleComp().Props.combatDiseaseDef;
                 }
+
+            _sampleContainer.innerContainer.ClearAndDestroyContents();
         }
     }
 
