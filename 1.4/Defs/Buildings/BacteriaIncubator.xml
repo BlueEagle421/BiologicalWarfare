@@ -79,6 +79,7 @@
         <jobString>activate</jobString>
         <onCooldownString>cooling off</onCooldownString>
         <activateTexPath>UI/Gizmo/Activate</activateTexPath>
+        <soundActivate>USH_BacteriaIncubatorActivated</soundActivate>
         <targetingParameters>
           <canTargetBuildings>false</canTargetBuildings>
           <canTargetAnimals>false</canTargetAnimals>
