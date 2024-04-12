@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <ThingDef ParentName="MakeableDrugPillBase">
+  <ThingDef ParentName="DrugBase">
     <defName>USH_FleshBreaker</defName>
     <label>flesh-breaker</label>
     <description>A drug that exhausts the body, attacking the brain, lungs, stomach, and eyes. It induces unbearable hallucinations and general weakness in the organism. It is utilized in urbworlds as an illegal interrogation technique. Its properties make it a perfect candidate for a non-lethal chemical weapon.</description>
@@ -20,11 +20,23 @@
       <Flammability>0.6</Flammability>
     </statBases>
     <ingestible>
+      <foodType>Processed, Fluid</foodType>
+      <baseIngestTicks>90</baseIngestTicks>
+      <nurseable>true</nurseable>
       <drugCategory>Medical</drugCategory>
+      <ingestSound>Ingest_Inject</ingestSound>
+      <ingestHoldOffsetStanding>
+        <northDefault>
+          <offset>(0.18,0,0)</offset>
+        </northDefault>
+      </ingestHoldOffsetStanding>
+      <ingestHoldUsesTable>true</ingestHoldUsesTable>
+      <ingestCommandString>Inject {0}</ingestCommandString>
+      <ingestReportString>Injecting {0}.</ingestReportString>
       <outcomeDoers>
         <li Class="IngestionOutcomeDoer_GiveHediff">
           <hediffDef>USH_FleshBreakerHigh</hediffDef>
-          <severity>1</severity>
+          <severity>1.0</severity>
         </li>
       </outcomeDoers>
     </ingestible>
@@ -68,7 +80,7 @@
         <animalMentalStateAlias>Wander_Psychotic_Short</animalMentalStateAlias>
         <humanMentalState>Wander_Psychotic_Short</humanMentalState>
         <letterDef>ThreatSmall</letterDef>
-        <mtbDaysToCauseMentalState>0.05</mtbDaysToCauseMentalState>
+        <mtbDaysToCauseMentalState>0.2</mtbDaysToCauseMentalState>
       </li>
     </comps>
     <stages>
@@ -83,45 +95,45 @@
           </li>
           <li>
             <capacity>Moving</capacity>
-            <offset>-0.2</offset>
+            <offset>-0.1</offset>
           </li>
         </capMods>
       </li>
       <li>
         <label>pounding</label>
         <minSeverity>0.6</minSeverity>
-        <hungerRateFactor>1.8</hungerRateFactor>
-        <restFallFactor>1.8</restFallFactor>
-        <vomitMtbDays>4</vomitMtbDays>
+        <hungerRateFactor>1.5</hungerRateFactor>
+        <restFallFactor>1.5</restFallFactor>
+        <vomitMtbDays>2</vomitMtbDays>
         <painFactor>1.25</painFactor>
         <capMods>
           <li>
             <capacity>Consciousness</capacity>
-            <offset>-0.35</offset>
+            <offset>-0.25</offset>
           </li>
           <li>
             <capacity>Moving</capacity>
-            <offset>-0.6</offset>
+            <offset>-0.2</offset>
           </li>
           <li>
             <capacity>Sight</capacity>
-            <offset>-0.40</offset>
+            <offset>-0.2</offset>
           </li>
           <li>
             <capacity>BloodFiltration</capacity>
-            <offset>-0.40</offset>
+            <offset>-0.2</offset>
           </li>
           <li>
             <capacity>BloodPumping</capacity>
-            <offset>-0.20</offset>
-          </li>
-          <li>
-            <capacity>Metabolism</capacity>
-            <offset>-1.00</offset>
+            <offset>-0.2</offset>
           </li>
           <li>
             <capacity>Breathing</capacity>
-            <offset>-0.50</offset>
+            <offset>-0.2</offset>
+          </li>
+          <li>
+            <capacity>Metabolism</capacity>
+            <offset>-0.6</offset>
           </li>
         </capMods>
       </li>
