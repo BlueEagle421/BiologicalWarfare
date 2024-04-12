@@ -58,7 +58,7 @@
   <HediffDef>
     <defName>USH_FleshBreakerHigh</defName>
     <label>flesh-breaker</label>
-    <description>Placeholder.</description>
+    <description>Flesh-breaker chemicals in the bloodstream. Casues general weekness, vomiting and severe hallucinations.</description>
     <hediffClass>Hediff_High</hediffClass>
     <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
     <scenarioCanAdd>false</scenarioCanAdd>
