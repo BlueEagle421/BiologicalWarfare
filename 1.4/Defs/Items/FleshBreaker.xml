@@ -55,7 +55,7 @@
       </skillRequirements>
     </recipeMaker>
     <costList>
-      <Neutroamine>4</Neutroamine>
+      <Neutroamine>2</Neutroamine>
     </costList>
     <comps>
       <li Class="CompProperties_Drug">
