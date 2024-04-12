@@ -29,7 +29,7 @@
       </outcomeDoers>
     </ingestible>
     <recipeMaker>
-      <!--<researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>-->
+      <researchPrerequisite>DrugProduction</researchPrerequisite>
       <bulkRecipeCount>4</bulkRecipeCount>
       <recipeUsers>
         <li>DrugLab</li>
