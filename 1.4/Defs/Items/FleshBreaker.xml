@@ -66,14 +66,14 @@
     <isBad>false</isBad>
     <comps>
       <li Class="HediffCompProperties_SeverityPerDay">
-        <severityPerDay>-0.25</severityPerDay>
+        <severityPerDay>-0.5</severityPerDay>
         <showHoursToRecover>true</showHoursToRecover>
       </li>
     </comps>
     <stages>
       <li>
         <label>initial</label>
-        <vomitMtbDays>2</vomitMtbDays>
+        <vomitMtbDays>0.125</vomitMtbDays>
         <painFactor>1.1</painFactor>
         <capMods>
           <li>
