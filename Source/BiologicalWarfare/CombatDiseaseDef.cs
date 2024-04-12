@@ -84,10 +84,18 @@ namespace BiologicalWarfare
             ThingDef frameDef = thingDef.frameDef;
 
             if (frameDef != null)
+            {
                 frameDef.label = Formatted(frameDef.label);
+                frameDef.description = Formatted(frameDef.description);
+            }
 
             foreach (RecipeDef recipeDef in DefDatabase<RecipeDef>.AllDefs.Where(x => IsRecipeRelevantFor(x, thingDef)))
+            {
                 recipeDef.label = Formatted(recipeDef.label);
+
+                if (!string.IsNullOrEmpty(recipeDef.description))
+                    recipeDef.description = Formatted(recipeDef.description);
+            }
 
             thingDef.label = Formatted(thingDef.label);
 
