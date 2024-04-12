@@ -7,7 +7,7 @@
     <description>A drug that exhausts the body, attacking the brain, lungs, stomach, and eyes. It induces unbearable hallucinations and general weakness in the organism. It is utilized in urbworlds as an illegal interrogation technique. Its properties make it a perfect candidate for a non-lethal chemical weapon.</description>
     <techLevel>Industrial</techLevel>
     <graphicData>
-      <texPath>Things/Item/Drugs/Socializer</texPath>
+      <texPath>Things/Item/FleshBreaker</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
       <drawSize>0.85</drawSize>
     </graphicData>
