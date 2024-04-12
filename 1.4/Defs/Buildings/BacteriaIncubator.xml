@@ -7,8 +7,8 @@
     <label>bacteria incubator</label>
     <description>A lab machine designed to breed bacteria colonies. It's fueled by neutroamine and requires a sample of bacteria disease to operate. It will produce 3 bacteria pathogens for every unit of neutroamine. The entire process takes no more than 8 hours.</description>
     <graphicData>
-      <texPath>Things/Building/VirusReplicator</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Building/BacteriaIncubator/BacteriaIncubator</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
@@ -16,12 +16,15 @@
         <cornerBR>Damage/Corner</cornerBR>
       </damageData>
       <drawSize>(2,2)</drawSize>
-      <drawRotated>false</drawRotated>
-      <allowFlip>false</allowFlip>
+      <drawRotated>true</drawRotated>
+      <allowFlip>true</allowFlip>
     </graphicData>
     <size>(1, 1)</size>
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(0,0,1)</interactionCellOffset>
     <fillPercent>0.35</fillPercent>
     <techLevel>Industrial</techLevel>
     <statBases>
@@ -30,7 +33,7 @@
       <Mass>45</Mass>
       <Flammability>0.7</Flammability>
     </statBases>
-    <rotatable>false</rotatable>
+    <rotatable>true</rotatable>
     <minifiedDef>MinifiedThing</minifiedDef>
     <tickerType>Normal</tickerType>
     <costList>
