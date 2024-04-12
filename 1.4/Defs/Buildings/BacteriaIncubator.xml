@@ -23,6 +23,7 @@
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
     <defaultPlacingRot>South</defaultPlacingRot>
+    <rotatable>true</rotatable>
     <hasInteractionCell>true</hasInteractionCell>
     <interactionCellOffset>(0,0,1)</interactionCellOffset>
     <fillPercent>0.35</fillPercent>
@@ -33,7 +34,6 @@
       <Mass>45</Mass>
       <Flammability>0.7</Flammability>
     </statBases>
-    <rotatable>true</rotatable>
     <minifiedDef>MinifiedThing</minifiedDef>
     <tickerType>Normal</tickerType>
     <costList>
