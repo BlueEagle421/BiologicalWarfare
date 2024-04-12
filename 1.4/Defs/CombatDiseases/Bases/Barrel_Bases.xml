@@ -48,7 +48,7 @@
       <li>PlaceWorker_NeverAdjacentTrap</li>
     </placeWorkers>
     <researchPrerequisites>
-      <li>BiofuelRefining</li>
+      <li>USH_PathogenOperationRes</li>
     </researchPrerequisites>
   </ThingDef>
 
