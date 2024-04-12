@@ -63,7 +63,7 @@
     <defName>USH_PlagueShell</defName>
     <comps>
       <li Class="CompProperties_Explosive">
-        <explosiveRadius>7.9</explosiveRadius>
+        <explosiveRadius>6.9</explosiveRadius>
         <postExplosionSpawnChance>1</postExplosionSpawnChance>
         <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
         <explosiveDamageType>USH_PlagueDamage</explosiveDamageType>
@@ -84,7 +84,7 @@
     <projectile>
       <damageDef>USH_PlagueDamage</damageDef>
       <postExplosionSpawnThingDef>USH_PlagueGas</postExplosionSpawnThingDef>
-      <explosionRadius>7.9</explosionRadius>
+      <explosionRadius>6.9</explosionRadius>
     </projectile>
   </ThingDef>
 
@@ -95,7 +95,7 @@
     </costList>
     <comps>
       <li Class="CompProperties_Explosive">
-        <explosiveRadius>7.9</explosiveRadius>
+        <explosiveRadius>6.9</explosiveRadius>
         <postExplosionSpawnChance>1</postExplosionSpawnChance>
         <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
         <explosiveDamageType>USH_PlagueDamage</explosiveDamageType>
@@ -104,7 +104,7 @@
         <wickTicks>30~60</wickTicks>
       </li>
     </comps>
-    <specialDisplayRadius>7.9</specialDisplayRadius>
+    <specialDisplayRadius>6.9</specialDisplayRadius>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">
@@ -136,7 +136,7 @@
     <projectile>
       <damageDef>USH_PlagueDamage</damageDef>
       <postExplosionSpawnThingDef>USH_PlagueGas</postExplosionSpawnThingDef>
-      <explosionRadius>7.9</explosionRadius>
+      <explosionRadius>4.9</explosionRadius>
     </projectile>
   </ThingDef>
 
