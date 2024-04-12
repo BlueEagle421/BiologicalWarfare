@@ -9,7 +9,7 @@ namespace BiologicalWarfare
         public HediffDef hediffDef;
         public DiseaseType diseaseType;
         public ColorInt colorInt;
-        public bool addHyperlinkToSampler;
+        public bool canBeSampled;
 
         public List<ThingDef> thingDefsToFormat = new List<ThingDef>();
         public List<ThingDef> thingDefsToColor = new List<ThingDef>();
@@ -28,8 +28,8 @@ namespace BiologicalWarfare
             if (hediffDef == null)
                 yield return "hediffDef is null";
 
-            if (sampleDef == null)
-                yield return "sampleDef is null";
+            if (canBeSampled && sampleDef == null)
+                yield return "canBeSampled is true, but sampleDef is null";
 
             if (colorInt.a == 0)
                 yield return "colorInt is fully transparent";
@@ -41,7 +41,7 @@ namespace BiologicalWarfare
         {
             base.ResolveReferences();
 
-            AddHyperlink();
+            AddHediffHyperlink();
 
             foreach (ThingDef thingDef in thingDefsToFormat)
                 FormatDef(thingDef);
@@ -56,9 +56,9 @@ namespace BiologicalWarfare
             }
         }
 
-        private void AddHyperlink()
+        private void AddHediffHyperlink()
         {
-            if (!addHyperlinkToSampler)
+            if (!canBeSampled)
                 return;
 
             List<DefHyperlink> hyperlinks = USHDefOf.USH_DiseaseSampler.descriptionHyperlinks ?? new List<DefHyperlink>();
@@ -132,6 +132,7 @@ namespace BiologicalWarfare
         Bacteria,
         Virus,
         Parasite,
-        Mechanites
+        Mechanites,
+        Custom
     }
 }

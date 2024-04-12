@@ -42,7 +42,7 @@ namespace BiologicalWarfare
                 return null;
 
             CombatDiseaseDef foundDisease = DefDatabase<CombatDiseaseDef>.AllDefs.ToList()
-                .Find(disease => hediffs.Any(x => x.def == disease.hediffDef));
+                .Find(disease => hediffs.Any(x => x.def == disease.hediffDef && disease.canBeSampled));
 
             if (foundDisease == null)
                 return null;

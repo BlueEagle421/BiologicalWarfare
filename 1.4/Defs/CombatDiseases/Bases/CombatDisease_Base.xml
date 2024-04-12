@@ -2,7 +2,8 @@
 <Defs>
 
   <BiologicalWarfare.CombatDiseaseDef Name="USH_CombatDiseaseBase" Abstract="True">
-    <addHyperlinkToSampler>True</addHyperlinkToSampler>
+    <!-- automatically adds hediffDef hyperlink to disease sampler item -->
+    <canBeSampled>True</canBeSampled>
   </BiologicalWarfare.CombatDiseaseDef>
 
 </Defs>
