@@ -11,7 +11,7 @@
       <!-- color is replaced by CombatDiseaseDef -->
     </graphicData>
     <soundInteract>Interact_Rifle</soundInteract>
-    <generateCommonality>0.3</generateCommonality>
+    <generateCommonality>0.05</generateCommonality>
     <statBases>
       <WorkToMake>10000</WorkToMake>
       <Mass>3.4</Mass>
@@ -28,6 +28,9 @@
       <skillRequirements>
         <Crafting>4</Crafting>
       </skillRequirements>
+      <researchPrerequisites>
+        <li>USH_PathogenOperationRes</li>
+      </researchPrerequisites>
     </recipeMaker>
     <weaponTags>
       <li>GunHeavy</li>
