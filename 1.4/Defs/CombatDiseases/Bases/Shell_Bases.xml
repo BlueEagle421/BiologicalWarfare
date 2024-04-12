@@ -15,10 +15,12 @@
     <costList>
       <Steel>15</Steel>
     </costList>
-    <researchPrerequisites>
-      <li>Mortars</li>
-      <li>USH_PathogenOperationRes</li>
-    </researchPrerequisites>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>Mortars</li>
+        <li>USH_PathogenOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <ThingDef Name="USH_BiologicalShellBulletBase" ParentName="BaseBullet" Abstract="True">
