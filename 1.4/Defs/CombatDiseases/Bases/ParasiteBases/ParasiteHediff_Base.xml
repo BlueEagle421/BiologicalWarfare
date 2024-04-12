@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
+  <!-- unlike virus reproduction hediff, the parasite hediff is unique to every disease def-->
   <HediffDef Name="USH_ParasiteReproductionBase" Abstract="True">
     <hediffClass>BiologicalWarfare.HediffParasiteReproduction</hediffClass>
     <defName>USH_ParasiteReproduction</defName>
