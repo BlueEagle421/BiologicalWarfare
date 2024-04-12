@@ -16,7 +16,7 @@
     <tickerType>Rare</tickerType>
     <statBases>
       <MaxHitPoints>30</MaxHitPoints>
-      <MarketValue>1</MarketValue>
+      <MarketValue>1.8</MarketValue>
       <Mass>0.02</Mass>
       <Flammability>0.5</Flammability>
       <DeteriorationRate>2.0</DeteriorationRate>
