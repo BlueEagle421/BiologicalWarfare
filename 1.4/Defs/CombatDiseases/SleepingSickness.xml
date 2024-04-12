@@ -6,7 +6,7 @@
     <label>sleeping sickness</label>
     <hediffDef>SleepingSickness</hediffDef>
     <diseaseType>Parasite</diseaseType>
-    <colorInt>(91, 10, 145, 255)</colorInt>
+    <colorInt>(22, 168, 119, 255)</colorInt>
 
     <!-- formats {0} to label and {1} to disease type -->
     <!-- also sets color in graphicData -->

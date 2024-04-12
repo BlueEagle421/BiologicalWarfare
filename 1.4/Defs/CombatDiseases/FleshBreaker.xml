@@ -7,7 +7,7 @@
     <hediffDef>USH_FleshBreakerHigh</hediffDef>
     <diseaseType>Custom</diseaseType>
     <canBeSampled>False</canBeSampled>
-    <colorInt>(242, 200, 25, 255)</colorInt>
+    <colorInt>(148, 153, 49, 255)</colorInt>
 
     <!-- formats {0} to label and {1} to disease type -->
     <!-- also sets color in graphicData -->
@@ -33,7 +33,7 @@
     <defName>USH_FleshBreakerGas</defName>
     <modExtensions>
       <li Class="OPToxic.OPToxicDefs">
-        <OPToxicHediff>FleshBreaker</OPToxicHediff>
+        <OPToxicHediff>USH_FleshBreakerHigh</OPToxicHediff>
         <OPToxicSeverity>0.15</OPToxicSeverity>
         <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
       </li>
@@ -56,7 +56,7 @@
     </comps>
     <projectileWhenLoaded>USH_FleshBreakerShellBullet</projectileWhenLoaded>
     <costList>
-      <USH_FleshBreakerPathogen>15</USH_FleshBreakerPathogen>
+      <USH_FleshBreaker>15</USH_FleshBreaker>
     </costList>
   </ThingDef>
 
@@ -72,7 +72,7 @@
   <ThingDef ParentName="USH_BiologicalBarrelBase">
     <defName>USH_FleshBreakerBarrel</defName>
     <costList>
-      <USH_FleshBreakerPathogen>75</USH_FleshBreakerPathogen>
+      <USH_FleshBreaker>75</USH_FleshBreaker>
     </costList>
     <comps>
       <li Class="CompProperties_Explosive">
@@ -91,7 +91,7 @@
   <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">
     <defName>USH_FleshBreakerGrenadeLauncher</defName>
     <costList>
-      <USH_FleshBreakerPathogen>75</USH_FleshBreakerPathogen>
+      <USH_FleshBreaker>75</USH_FleshBreaker>
     </costList>
     <verbs>
       <li>

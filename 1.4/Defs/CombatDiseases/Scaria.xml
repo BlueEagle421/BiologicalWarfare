@@ -6,7 +6,7 @@
     <label>scaria</label>
     <hediffDef>Scaria</hediffDef>
     <diseaseType>Virus</diseaseType>
-    <colorInt>(242, 200, 25, 255)</colorInt>
+    <colorInt>(181, 45, 61, 255)</colorInt>
 
     <!-- formats {0} to label and {1} to disease type -->
     <!-- also sets color in graphicData -->

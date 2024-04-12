@@ -6,7 +6,7 @@
     <label>plague</label>
     <hediffDef>Plague</hediffDef>
     <diseaseType>Bacteria</diseaseType>
-    <colorInt>(139, 139, 100, 255)</colorInt>
+    <colorInt>(160, 92, 124, 255)</colorInt>
 
     <!-- formats {0} to label and {1} to disease type -->
     <!-- also sets color in graphicData -->
