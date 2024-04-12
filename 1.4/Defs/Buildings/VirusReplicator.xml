@@ -7,8 +7,8 @@
     <label>virus replicator</label>
     <description>A specialized lab-grade machine is designed to modify virus DNA from provided disease samples. Upon activation, it infects all living creatures in an enclosed, fully roofed room with mutated viruses and provides a way to extract their pathogens. The number of pathogens that can be yielded from an organism depends on its size and infection severity. The bigger the species, the more pathogens drop from it.\n\nAll pawns in the same room will get infected unless they remain in a small safe zone around the replicator or possess environmental toxic resistance exceeding 80%.\n\nNote that large, tamed creatures in their pens are optimal targets for virus replication.</description>
     <graphicData>
-      <texPath>Things/Building/VirusReplicator</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Building/VirusReplicator/VirusReplicator</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
@@ -16,13 +16,16 @@
         <cornerBR>Damage/Corner</cornerBR>
       </damageData>
       <drawSize>(2,2)</drawSize>
-      <drawRotated>false</drawRotated>
-      <allowFlip>false</allowFlip>
+      <drawRotated>true</drawRotated>
+      <allowFlip>true</allowFlip>
     </graphicData>
     <size>(1, 1)</size>
     <altitudeLayer>Building</altitudeLayer>
-    <surfaceType>Item</surfaceType>
     <passability>PassThroughOnly</passability>
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <rotatable>true</rotatable>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(0,0,1)</interactionCellOffset>
     <fillPercent>0.2</fillPercent>
     <techLevel>Industrial</techLevel>
     <statBases>
@@ -31,7 +34,6 @@
       <Mass>30</Mass>
       <Flammability>0.7</Flammability>
     </statBases>
-    <rotatable>false</rotatable>
     <minifiedDef>MinifiedThing</minifiedDef>
     <tickerType>Normal</tickerType>
     <costList>
