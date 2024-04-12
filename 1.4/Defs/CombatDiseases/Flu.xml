@@ -38,6 +38,9 @@
         <combatDiseaseDef>USH_Flu</combatDiseaseDef>
       </li>
     </comps>
+    <costList>
+      <USH_FluPathogen>1</USH_FluPathogen>
+    </costList>
   </ThingDef>
 
   <ThingDef ParentName="USH_VirusPathogenBase">

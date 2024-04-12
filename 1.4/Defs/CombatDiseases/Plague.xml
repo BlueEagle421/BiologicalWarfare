@@ -38,6 +38,9 @@
         <combatDiseaseDef>USH_Plague</combatDiseaseDef>
       </li>
     </comps>
+    <costList>
+      <USH_PlaguePathogen>1</USH_PlaguePathogen>
+    </costList>
   </ThingDef>
 
   <ThingDef ParentName="USH_BacteriaPathogenBase">

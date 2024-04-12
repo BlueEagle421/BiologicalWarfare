@@ -38,6 +38,9 @@
         <combatDiseaseDef>USH_Scaria</combatDiseaseDef>
       </li>
     </comps>
+    <costList>
+      <USH_ScariaPathogen>1</USH_ScariaPathogen>
+    </costList>
   </ThingDef>
 
   <ThingDef ParentName="USH_VirusPathogenBase">

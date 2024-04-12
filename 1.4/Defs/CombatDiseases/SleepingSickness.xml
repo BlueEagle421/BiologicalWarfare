@@ -34,6 +34,9 @@
 
   <ThingDef ParentName="USH_ParasiteSampleBase">
     <defName>USH_SleepingSicknessSample</defName>
+    <costList>
+      <USH_SleepingSicknessPathogen>1</USH_SleepingSicknessPathogen>
+    </costList>
   </ThingDef>
 
   <ThingDef ParentName="USH_ParasitePathogenBase">
