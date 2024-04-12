@@ -5,6 +5,9 @@
     <defName>USH_FleshBreaker</defName>
     <label>flesh-breaker</label>
     <description>A drug that exhausts the body, attacking the brain, lungs, stomach, and eyes. It induces unbearable hallucinations and general weakness in the organism. It is utilized in urbworlds as an illegal interrogation technique. Its properties make it a perfect candidate for a non-lethal chemical weapon.</description>
+    <descriptionHyperlinks>
+      <HediffDef>USH_FleshBreakerHigh</HediffDef>
+    </descriptionHyperlinks>
     <techLevel>Industrial</techLevel>
     <graphicData>
       <texPath>Things/Item/FleshBreaker</texPath>
