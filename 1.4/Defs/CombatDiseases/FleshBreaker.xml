@@ -7,7 +7,7 @@
     <hediffDef>USH_FleshBreakerHigh</hediffDef>
     <diseaseType>Custom</diseaseType>
     <canBeSampled>False</canBeSampled>
-    <colorInt>(242, 200, 25, 255)</colorInt>
+    <colorInt>(148, 153, 49, 255)</colorInt>
 
     <!-- formats {0} to label and {1} to disease type -->
     <!-- also sets color in graphicData -->

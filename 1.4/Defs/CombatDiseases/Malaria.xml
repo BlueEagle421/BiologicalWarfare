@@ -6,7 +6,7 @@
     <label>malaria</label>
     <hediffDef>Malaria</hediffDef>
     <diseaseType>Parasite</diseaseType>
-    <colorInt>(174, 55, 255, 255)</colorInt>
+    <colorInt>(165, 120, 98, 255)</colorInt>
 
     <!-- formats {0} to label and {1} to disease type -->
     <!-- also sets color in graphicData -->
