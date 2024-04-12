@@ -75,13 +75,6 @@
         <severityPerDay>-0.5</severityPerDay>
         <showHoursToRecover>true</showHoursToRecover>
       </li>
-      <li Class="HediffCompProperties_CauseMentalState">
-        <animalMentalState>Wander_Psychotic_Short</animalMentalState>
-        <animalMentalStateAlias>Wander_Psychotic_Short</animalMentalStateAlias>
-        <humanMentalState>Wander_Psychotic_Short</humanMentalState>
-        <letterDef>ThreatSmall</letterDef>
-        <mtbDaysToCauseMentalState>0.2</mtbDaysToCauseMentalState>
-      </li>
     </comps>
     <stages>
       <li>
