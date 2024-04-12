@@ -6,8 +6,9 @@
     <description>A drug containing {0} {1} embryos with enhanced reproduction capabilities. Whoever consumes it will turn into a living pathogen breeding machine. The host's body will continuously spew out {0} pathogens and receive internal damage in the process. If left untended, he will die and produce fewer pathogens. \n\nNote that large, tamed creatures in herds are best suited for being hosts.</description>
     <possessionCount>10</possessionCount>
     <graphicData>
-      <texPath>Things/Item/Drug/Penoxycyline</texPath>
-      <graphicClass>Graphic_StackCount</graphicClass>
+      <texPath>Things/Item/ParasitePills/ParasitePills</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <socialPropernessMatters>false</socialPropernessMatters>
     <rotatable>false</rotatable>
