@@ -1,75 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <ResearchTabDef>
-    <defName>USH_BiologicalWarfare</defName>
-    <label>Biological Warfare</label>
-  </ResearchTabDef>
-
   <ResearchProjectDef Name="USH_BiologicalProjectBase" Abstract="True">
-    <tab>USH_BiologicalWarfare</tab>
+    <tab>Main</tab>
     <techLevel>Industrial</techLevel>
   </ResearchProjectDef>
 
   <ResearchProjectDef ParentName="USH_BiologicalProjectBase">
-    <defName>USH_DiseaseSamplingRes</defName>
-    <label>Disease sampling</label>
+    <defName>USH_PathogenProductionRes</defName>
+    <label>Pathogen production</label>
     <description>Acquire disease samples from sick colonists to initiate a production chain of powerful pathogens.</description>
     <baseCost>800</baseCost>
     <prerequisites>
-      <li>Electricity</li>
+      <li>DrugProduction</li>
     </prerequisites>
-    <researchViewX>0.00</researchViewX>
-    <researchViewY>2.10</researchViewY>
-  </ResearchProjectDef>
-
-  <ResearchProjectDef ParentName="USH_BiologicalProjectBase">
-    <defName>USH_VirusReplicationRes</defName>
-    <label>Virus replication</label>
-    <description>Learn how to artificially replicate pythogens from virus samples.</description>
-    <baseCost>600</baseCost>
-    <prerequisites>
-      <li>USH_DiseaseSamplingRes</li>
-    </prerequisites>
-    <researchViewX>1.00</researchViewX>
-    <researchViewY>0.30</researchViewY>
-  </ResearchProjectDef>
-
-  <ResearchProjectDef ParentName="USH_BiologicalProjectBase">
-    <defName>USH_BacteriaReproductionRes</defName>
-    <label>Bacteria reproduction</label>
-    <description>Learn how to artificially reproduce pathogens from bacteria samples.</description>
-    <baseCost>600</baseCost>
-    <prerequisites>
-      <li>USH_DiseaseSamplingRes</li>
-    </prerequisites>
-    <researchViewX>1.00</researchViewX>
-    <researchViewY>0.80</researchViewY>
-  </ResearchProjectDef>
-
-  <ResearchProjectDef ParentName="USH_BiologicalProjectBase">
-    <defName>USH_ParasiteReproductionRes</defName>
-    <label>Parasite reproduction</label>
-    <description>Learn how to artificially reproduce pathogens from parasite samples.</description>
-    <baseCost>600</baseCost>
-    <prerequisites>
-      <li>USH_DiseaseSamplingRes</li>
-    </prerequisites>
-    <researchViewX>1.00</researchViewX>
-    <researchViewY>1.35</researchViewY>
+    <researchViewX>4.00</researchViewX>
+    <researchViewY>4.10</researchViewY>
   </ResearchProjectDef>
 
   <ResearchProjectDef ParentName="USH_BiologicalProjectBase">
     <defName>USH_PathogenOperationRes</defName>
     <label>Pathogen operation</label>
-    <description>Craft pythogen gas grenade launchers, explosive gas barrels and devastating mortar shells.</description>
+    <description>Craft pythogen gas grenade launchers, explosive gas barrels and devastating gas mortar shells.</description>
     <baseCost>1000</baseCost>
     <prerequisites>
-      <li>USH_DiseaseSamplingRes</li>
-      <li>Machining</li>
+      <li>USH_PathogenProductionRes</li>
     </prerequisites>
-    <researchViewX>1.00</researchViewX>
-    <researchViewY>3.20</researchViewY>
+    <researchViewX>5.00</researchViewX>
+    <researchViewY>4.10</researchViewY>
   </ResearchProjectDef>
 
 </Defs>

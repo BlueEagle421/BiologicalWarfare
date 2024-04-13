@@ -80,7 +80,7 @@
     </comps>
     <specialDisplayRadius>1.9</specialDisplayRadius>
     <researchPrerequisites>
-      <li>USH_VirusReplicationRes</li>
+      <li>USH_PathogenProductionRes</li>
     </researchPrerequisites>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
     <placeWorkers>
