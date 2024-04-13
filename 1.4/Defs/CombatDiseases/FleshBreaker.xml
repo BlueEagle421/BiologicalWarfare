@@ -56,7 +56,7 @@
     </comps>
     <projectileWhenLoaded>USH_FleshBreakerShellBullet</projectileWhenLoaded>
     <costList>
-      <USH_FleshBreaker>15</USH_FleshBreaker>
+      <USH_FleshBreaker>3</USH_FleshBreaker>
     </costList>
   </ThingDef>
 
@@ -72,7 +72,7 @@
   <ThingDef ParentName="USH_BiologicalBarrelBase">
     <defName>USH_FleshBreakerBarrel</defName>
     <costList>
-      <USH_FleshBreaker>75</USH_FleshBreaker>
+      <USH_FleshBreaker>15</USH_FleshBreaker>
     </costList>
     <comps>
       <li Class="CompProperties_Explosive">
@@ -91,7 +91,7 @@
   <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">
     <defName>USH_FleshBreakerGrenadeLauncher</defName>
     <costList>
-      <USH_FleshBreaker>75</USH_FleshBreaker>
+      <USH_FleshBreaker>15</USH_FleshBreaker>
     </costList>
     <verbs>
       <li>
