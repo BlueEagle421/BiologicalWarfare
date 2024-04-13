@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <DesignatorDropdownGroupDef>
+    <defName>USH_BiologicalBarrels</defName>
+    <label>gas barrels</label>
+  </DesignatorDropdownGroupDef>
+
+</Defs>

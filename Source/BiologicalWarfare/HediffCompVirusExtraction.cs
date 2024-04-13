@@ -37,7 +37,10 @@ namespace BiologicalWarfare
 
             Hediff diseaseHediff = Pawn.health.hediffSet.GetFirstHediffOfDef(_combatDiseaseDef.hediffDef);
 
-            float severityMultiplier = PropsVirusExtraction.multiplyBySeverity ? diseaseHediff.Severity : 1f;
+            float severityMultiplier = 1f;
+
+            if (diseaseHediff != null && PropsVirusExtraction.multiplyBySeverity)
+                severityMultiplier = diseaseHediff.Severity;
 
             return (int)(baseCount * sizeMultiplier * severityMultiplier);
         }

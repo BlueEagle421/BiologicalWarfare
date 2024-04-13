@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <HediffDef ParentName="InjuryBase">
+    <defName>USH_ParasiticPerforation</defName>
+    <label>parasitic perforation</label>
+    <labelNoun>a parasitic perforation</labelNoun>
+    <description>A parasitic perforation caused by rapid reproduction.</description>
+    <initialSeverity>8</initialSeverity>
+    <comps>
+      <li Class="HediffCompProperties_TendDuration">
+        <labelTendedWell>bandaged</labelTendedWell>
+        <labelTendedWellInner>sutured</labelTendedWellInner>
+        <labelSolidTendedWell>set</labelSolidTendedWell>
+      </li>
+      <li Class="HediffCompProperties_Infecter">
+        <infectionChance>0.15</infectionChance>
+      </li>
+      <li Class="HediffCompProperties_GetsPermanent">
+        <permanentLabel>parasitic perforation scar</permanentLabel>
+      </li>
+    </comps>
+    <injuryProps>
+      <painPerSeverity>0.0125</painPerSeverity>
+      <averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
+      <bleedRate>0.12</bleedRate>
+      <canMerge>false</canMerge>
+      <destroyedLabel>Perforated by parasite</destroyedLabel>
+      <destroyedOutLabel>Perforated by parasite</destroyedOutLabel>
+    </injuryProps>
+  </HediffDef>
+
+</Defs>

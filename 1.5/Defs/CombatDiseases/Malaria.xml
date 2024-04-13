@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
+    <defName>USH_Malaria</defName>
+    <label>malaria</label>
+    <hediffDef>Malaria</hediffDef>
+    <diseaseType>Parasite</diseaseType>
+    <colorInt>(165, 120, 98, 255)</colorInt>
+
+    <!-- formats {0} to label and {1} to disease type -->
+    <!-- also sets color in graphicData -->
+    <thingDefsToFormatAndColor>
+      <li>USH_MalariaSample</li>
+      <li>USH_MalariaPathogen</li>
+      <li>USH_MalariaReproductionPills</li>
+      <li>USH_MalariaGas</li>
+      <li>USH_MalariaShell</li>
+      <li>USH_MalariaBarrel</li>
+      <li>USH_MalariaGrenadeLauncher</li>
+    </thingDefsToFormatAndColor>
+
+    <thingDefsToFormat>
+      <li>USH_MalariaShellBullet</li>
+      <li>USH_MalariaGrenadeBullet</li>
+    </thingDefsToFormat>
+
+    <!-- sample def is required for CombatDiseaseDef to work properly -->
+    <sampleDef>USH_MalariaSample</sampleDef>
+    <!-- pathogen def is optional -->
+    <pathogenDef>USH_MalariaPathogen</pathogenDef>
+
+  </BiologicalWarfare.CombatDiseaseDef>
+
+  <ThingDef ParentName="USH_ParasiteSampleBase">
+    <defName>USH_MalariaSample</defName>
+    <costList>
+      <USH_MalariaPathogen>1</USH_MalariaPathogen>
+    </costList>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_ParasitePathogenBase">
+    <defName>USH_MalariaPathogen</defName>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_ParasiteReproductionPills">
+    <defName>USH_MalariaReproductionPills</defName>
+    <descriptionHyperlinks>
+      <HediffDef>USH_MalariaReproduction</HediffDef>
+    </descriptionHyperlinks>
+    <costList>
+      <USH_MalariaSample>1</USH_MalariaSample>
+    </costList>
+    <ingestible>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>Malaria</hediffDef>
+        </li>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>USH_MalariaReproduction</hediffDef>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+  </ThingDef>
+
+  <HediffDef ParentName="USH_ParasiteReproductionBase">
+    <defName>USH_MalariaReproduction</defName>
+    <modExtensions>
+      <li Class="BiologicalWarfare.ParasiteReproductionExtension">
+        <combatDiseaseDef>USH_Malaria</combatDiseaseDef>
+        <reproductionDurationTicks>10000</reproductionDurationTicks>
+        <basePathogenCount>4</basePathogenCount>
+        <multiplyByBodySize>true</multiplyByBodySize>
+      </li>
+    </modExtensions>
+  </HediffDef>
+
+  <DamageDef ParentName="USH_BiologicalDamageBase">
+    <defName>USH_MalariaDamage</defName>
+  </DamageDef>
+
+  <ThingDef ParentName="USH_BiologicalGasBase">
+    <defName>USH_MalariaGas</defName>
+    <modExtensions>
+      <li Class="OPToxic.OPToxicDefs">
+        <OPToxicHediff>Malaria</OPToxicHediff>
+        <OPToxicSeverity>0.15</OPToxicSeverity>
+        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalShellBase">
+    <defName>USH_MalariaShell</defName>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>6.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_MalariaDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_MalariaGas</postExplosionSpawnThingDef>
+        <explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>
+        <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
+    <projectileWhenLoaded>USH_MalariaShellBullet</projectileWhenLoaded>
+    <costList>
+      <USH_MalariaPathogen>15</USH_MalariaPathogen>
+    </costList>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalShellBulletBase">
+    <defName>USH_MalariaShellBullet</defName>
+    <projectile>
+      <damageDef>USH_MalariaDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_MalariaGas</postExplosionSpawnThingDef>
+      <explosionRadius>6.9</explosionRadius>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalBarrelBase">
+    <defName>USH_MalariaBarrel</defName>
+    <costList>
+      <USH_MalariaPathogen>75</USH_MalariaPathogen>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>6.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_MalariaDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_MalariaGas</postExplosionSpawnThingDef>
+        <startWickHitPointsPercent>0.95</startWickHitPointsPercent>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
+    <specialDisplayRadius>6.9</specialDisplayRadius>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">
+    <defName>USH_MalariaGrenadeLauncher</defName>
+    <costList>
+      <USH_MalariaPathogen>75</USH_MalariaPathogen>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>USH_MalariaGrenadeBullet</defaultProjectile>
+        <warmupTime>3.5</warmupTime>
+        <range>23.9</range>
+        <forcedMissRadius>2.9</forcedMissRadius>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>USH_GasLauncherShot</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>14</muzzleFlashScale>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalGrenadeBulletBase">
+    <defName>USH_MalariaGrenadeBullet</defName>
+    <projectile>
+      <damageDef>USH_MalariaDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_MalariaGas</postExplosionSpawnThingDef>
+      <explosionRadius>4.9</explosionRadius>
+    </projectile>
+  </ThingDef>
+
+</Defs>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
+    <defName>USH_Plague</defName>
+    <label>plague</label>
+    <hediffDef>Plague</hediffDef>
+    <diseaseType>Bacteria</diseaseType>
+    <colorInt>(160, 92, 124, 255)</colorInt>
+
+    <!-- formats {0} to label and {1} to disease type -->
+    <!-- also sets color in graphicData -->
+    <thingDefsToFormatAndColor>
+      <li>USH_PlagueSample</li>
+      <li>USH_PlaguePathogen</li>
+      <li>USH_PlagueGas</li>
+      <li>USH_PlagueShell</li>
+      <li>USH_PlagueBarrel</li>
+      <li>USH_PlagueGrenadeLauncher</li>
+    </thingDefsToFormatAndColor>
+
+    <thingDefsToFormat>
+      <li>USH_PlagueShellBullet</li>
+      <li>USH_PlagueGrenadeBullet</li>
+    </thingDefsToFormat>
+
+    <!-- sample def is required for CombatDiseaseDef to work properly -->
+    <sampleDef>USH_PlagueSample</sampleDef>
+    <!-- pathogen def is optional -->
+    <pathogenDef>USH_PlaguePathogen</pathogenDef>
+
+  </BiologicalWarfare.CombatDiseaseDef>
+
+  <ThingDef ParentName="USH_BacteriaSampleBase">
+    <defName>USH_PlagueSample</defName>
+    <comps>
+      <li Class="BiologicalWarfare.CompProperties_DiseaseSample">
+        <combatDiseaseDef>USH_Plague</combatDiseaseDef>
+      </li>
+    </comps>
+    <costList>
+      <USH_PlaguePathogen>1</USH_PlaguePathogen>
+    </costList>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BacteriaPathogenBase">
+    <defName>USH_PlaguePathogen</defName>
+  </ThingDef>
+
+  <DamageDef ParentName="USH_BiologicalDamageBase">
+    <defName>USH_PlagueDamage</defName>
+  </DamageDef>
+
+  <ThingDef ParentName="USH_BiologicalGasBase">
+    <defName>USH_PlagueGas</defName>
+    <modExtensions>
+      <li Class="OPToxic.OPToxicDefs">
+        <OPToxicHediff>Plague</OPToxicHediff>
+        <OPToxicSeverity>0.15</OPToxicSeverity>
+        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalShellBase">
+    <defName>USH_PlagueShell</defName>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>6.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_PlagueDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_PlagueGas</postExplosionSpawnThingDef>
+        <explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>
+        <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
+    <projectileWhenLoaded>USH_PlagueShellBullet</projectileWhenLoaded>
+    <costList>
+      <USH_PlaguePathogen>15</USH_PlaguePathogen>
+    </costList>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalShellBulletBase">
+    <defName>USH_PlagueShellBullet</defName>
+    <projectile>
+      <damageDef>USH_PlagueDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_PlagueGas</postExplosionSpawnThingDef>
+      <explosionRadius>6.9</explosionRadius>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalBarrelBase">
+    <defName>USH_PlagueBarrel</defName>
+    <costList>
+      <USH_PlaguePathogen>75</USH_PlaguePathogen>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>6.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_PlagueDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_PlagueGas</postExplosionSpawnThingDef>
+        <startWickHitPointsPercent>0.95</startWickHitPointsPercent>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
+    <specialDisplayRadius>6.9</specialDisplayRadius>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">
+    <defName>USH_PlagueGrenadeLauncher</defName>
+    <costList>
+      <USH_PlaguePathogen>75</USH_PlaguePathogen>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>USH_PlagueGrenadeBullet</defaultProjectile>
+        <warmupTime>3.5</warmupTime>
+        <range>23.9</range>
+        <forcedMissRadius>2.9</forcedMissRadius>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>USH_GasLauncherShot</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>14</muzzleFlashScale>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalGrenadeBulletBase">
+    <defName>USH_PlagueGrenadeBullet</defName>
+    <projectile>
+      <damageDef>USH_PlagueDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_PlagueGas</postExplosionSpawnThingDef>
+      <explosionRadius>4.9</explosionRadius>
+    </projectile>
+  </ThingDef>
+
+</Defs>

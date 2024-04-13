@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
+    <defName>USH_Flu</defName>
+    <label>flu</label>
+    <hediffDef>Flu</hediffDef>
+    <diseaseType>Virus</diseaseType>
+    <colorInt>(242, 200, 25, 255)</colorInt>
+
+    <!-- formats {0} to label and {1} to disease type -->
+    <!-- also sets color in graphicData -->
+    <thingDefsToFormatAndColor>
+      <li>USH_FluSample</li>
+      <li>USH_FluPathogen</li>
+      <li>USH_FluGas</li>
+      <li>USH_FluShell</li>
+      <li>USH_FluBarrel</li>
+      <li>USH_FluGrenadeLauncher</li>
+    </thingDefsToFormatAndColor>
+
+    <thingDefsToFormat>
+      <li>USH_FluShellBullet</li>
+      <li>USH_FluGrenadeBullet</li>
+    </thingDefsToFormat>
+
+    <!-- sample def is required for CombatDiseaseDef to work properly -->
+    <sampleDef>USH_FluSample</sampleDef>
+    <!-- pathogen def is optional -->
+    <pathogenDef>USH_FluPathogen</pathogenDef>
+
+  </BiologicalWarfare.CombatDiseaseDef>
+
+  <ThingDef ParentName="USH_VirusSampleBase">
+    <defName>USH_FluSample</defName>
+    <comps>
+      <li Class="BiologicalWarfare.CompProperties_DiseaseSample">
+        <combatDiseaseDef>USH_Flu</combatDiseaseDef>
+      </li>
+    </comps>
+    <costList>
+      <USH_FluPathogen>1</USH_FluPathogen>
+    </costList>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_VirusPathogenBase">
+    <defName>USH_FluPathogen</defName>
+  </ThingDef>
+
+  <DamageDef ParentName="USH_BiologicalDamageBase">
+    <defName>USH_FluDamage</defName>
+  </DamageDef>
+
+  <ThingDef ParentName="USH_BiologicalGasBase">
+    <defName>USH_FluGas</defName>
+    <modExtensions>
+      <li Class="OPToxic.OPToxicDefs">
+        <OPToxicHediff>Flu</OPToxicHediff>
+        <OPToxicSeverity>0.15</OPToxicSeverity>
+        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalShellBase">
+    <defName>USH_FluShell</defName>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>6.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_FluDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_FluGas</postExplosionSpawnThingDef>
+        <explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>
+        <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
+    <projectileWhenLoaded>USH_FluShellBullet</projectileWhenLoaded>
+    <costList>
+      <USH_FluPathogen>15</USH_FluPathogen>
+    </costList>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalShellBulletBase">
+    <defName>USH_FluShellBullet</defName>
+    <projectile>
+      <damageDef>USH_FluDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_FluGas</postExplosionSpawnThingDef>
+      <explosionRadius>6.9</explosionRadius>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalBarrelBase">
+    <defName>USH_FluBarrel</defName>
+    <costList>
+      <USH_FluPathogen>75</USH_FluPathogen>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>6.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_FluDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_FluGas</postExplosionSpawnThingDef>
+        <startWickHitPointsPercent>0.95</startWickHitPointsPercent>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
+    <specialDisplayRadius>6.9</specialDisplayRadius>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">
+    <defName>USH_FluGrenadeLauncher</defName>
+    <costList>
+      <USH_FluPathogen>75</USH_FluPathogen>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>USH_FluGrenadeBullet</defaultProjectile>
+        <warmupTime>3.5</warmupTime>
+        <range>23.9</range>
+        <forcedMissRadius>2.9</forcedMissRadius>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>USH_GasLauncherShot</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>14</muzzleFlashScale>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalGrenadeBulletBase">
+    <defName>USH_FluGrenadeBullet</defName>
+    <projectile>
+      <damageDef>USH_FluDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_FluGas</postExplosionSpawnThingDef>
+      <explosionRadius>4.9</explosionRadius>
+    </projectile>
+  </ThingDef>
+
+</Defs>

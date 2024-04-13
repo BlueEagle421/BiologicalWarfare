@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <DamageDef Name="USH_BiologicalDamageBase" Abstract="True">
+    <label>pathogen damage</label>
+    <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    <workerClass>OPToxic.DamageWorker_OPToxic</workerClass>
+    <canInterruptJobs>false</canInterruptJobs>
+    <makesBlood>false</makesBlood>
+    <defaultDamage>0</defaultDamage>
+    <explosionCellFleck>BlastExtinguisher</explosionCellFleck>
+    <explosionColorEdge>(134,144,22,0.05)</explosionColorEdge>
+    <soundExplosion>USH_ExplosionBiologicalGas</soundExplosion>
+    <harmsHealth>false</harmsHealth>
+    <combatLogRules>Damage_Extinguish</combatLogRules>
+  </DamageDef>
+
+  <ThingDef Name="USH_BiologicalGasBase" Abstract="True">
+    <label>{0} {1} gas</label>
+    <description>A {0} pathogen gas</description>
+    <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    <category>Gas</category>
+    <altitudeLayer>Gas</altitudeLayer>
+    <useHitPoints>false</useHitPoints>
+    <tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/Gas/ThickSmoke</texPath>
+      <drawSize>2.6</drawSize>
+      <graphicClass>Graphic_Gas</graphicClass>
+      <shaderType>Transparent</shaderType>
+    </graphicData>
+    <gas>
+      <expireSeconds>
+        <min>20</min>
+        <max>30</max>
+      </expireSeconds>
+      <rotationSpeed>20</rotationSpeed>
+    </gas>
+    <thingClass>OPToxic.OPToxicGas</thingClass>
+  </ThingDef>
+
+</Defs>

@@ -38,13 +38,13 @@ namespace BiologicalWarfare
         }
     }
 
-    public class CompProperties_VirusReplicator : CompProperties_Activable
+    public class CompProperties_VirusReplicator : CompProperties_Interactable
     {
         public int maxRoomCellSize;
         public CompProperties_VirusReplicator() => compClass = typeof(CompVirusReplicator);
     }
 
-    public class CompVirusReplicator : CompActivable
+    public class CompVirusReplicator : CompInteractable
     {
         public CompProperties_VirusReplicator ReplicatorProps => (CompProperties_VirusReplicator)props;
 
@@ -57,9 +57,9 @@ namespace BiologicalWarfare
             _sampleContainer = parent.GetComp<CompDiseaseSampleContainer>();
         }
 
-        public override AcceptanceReport CanActivate(Pawn activateBy = null)
+        public override AcceptanceReport CanInteract(Pawn activateBy = null, bool checkOptionalItems = true)
         {
-            AcceptanceReport baseResult = base.CanActivate(activateBy);
+            AcceptanceReport baseResult = base.CanInteract(activateBy, checkOptionalItems);
 
             if (!baseResult)
                 return baseResult;
@@ -84,11 +84,10 @@ namespace BiologicalWarfare
             return baseResult;
         }
 
-        protected override bool TryUse() => true;
-
-        public override void Activate()
+        protected override bool TryInteractTick() => true;
+        protected override void OnInteracted(Pawn caster)
         {
-            base.Activate();
+            base.OnInteracted(caster);
 
             foreach (IntVec3 cell in parent.GetRoom().Cells.ToList())
                 foreach (Thing thing in parent.Map.thingGrid.ThingsAt(cell))

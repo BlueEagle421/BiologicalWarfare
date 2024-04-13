@@ -5,7 +5,7 @@ using Verse;
 
 namespace BiologicalWarfare
 {
-    public class CompProperties_BacteriaIncubator : CompProperties_Activable
+    public class CompProperties_BacteriaIncubator : CompProperties_Interactable
     {
         public int pathogensPerFuel;
         public int incubationTicks;
@@ -36,7 +36,7 @@ namespace BiologicalWarfare
         }
     }
 
-    public class CompBacteriaIncubator : CompActivable
+    public class CompBacteriaIncubator : CompInteractable
     {
         private CompDiseaseSampleContainer _sampleContainer;
         private CompRefuelable _compRefuelable;
@@ -47,7 +47,7 @@ namespace BiologicalWarfare
         public bool IsIncubating => _isIncubating;
         public CompProperties_BacteriaIncubator PropsBacteriaIncubator => (CompProperties_BacteriaIncubator)props;
 
-        protected override bool TryUse() => true;
+        protected override bool TryInteractTick() => true;
 
         public override void CompTick()
         {
@@ -121,12 +121,12 @@ namespace BiologicalWarfare
             return stringBuilder.ToString().TrimEnd();
         }
 
-        public override void Activate()
+        protected override void OnInteracted(Pawn caster)
         {
             if (_isIncubating)
                 return;
 
-            base.Activate();
+            base.OnInteracted(caster);
             _patogensToProduce = PathogensCount();
             _isIncubating = true;
             _compRefuelable.ConsumeFuel(_compRefuelable.Fuel);
@@ -142,9 +142,11 @@ namespace BiologicalWarfare
             return true;
         }
 
-        public override AcceptanceReport CanActivate(Pawn activateBy = null)
+
+
+        public override AcceptanceReport CanInteract(Pawn activateBy = null, bool checkOptionalItems = true)
         {
-            AcceptanceReport baseResult = base.CanActivate(activateBy);
+            AcceptanceReport baseResult = base.CanInteract(activateBy, checkOptionalItems);
 
             if (_isIncubating)
                 return "AlreadyActive".Translate();

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
+    <defName>USH_SleepingSickness</defName>
+    <label>sleeping sickness</label>
+    <hediffDef>SleepingSickness</hediffDef>
+    <diseaseType>Parasite</diseaseType>
+    <colorInt>(22, 168, 119, 255)</colorInt>
+
+    <!-- formats {0} to label and {1} to disease type -->
+    <!-- also sets color in graphicData -->
+    <thingDefsToFormatAndColor>
+      <li>USH_SleepingSicknessSample</li>
+      <li>USH_SleepingSicknessPathogen</li>
+      <li>USH_SleepingSicknessReproductionPills</li>
+      <li>USH_SleepingSicknessGas</li>
+      <li>USH_SleepingSicknessShell</li>
+      <li>USH_SleepingSicknessBarrel</li>
+      <li>USH_SleepingSicknessGrenadeLauncher</li>
+    </thingDefsToFormatAndColor>
+
+    <thingDefsToFormat>
+      <li>USH_SleepingSicknessShellBullet</li>
+      <li>USH_SleepingSicknessGrenadeBullet</li>
+    </thingDefsToFormat>
+
+    <!-- sample def is required for CombatDiseaseDef to work properly -->
+    <sampleDef>USH_SleepingSicknessSample</sampleDef>
+    <!-- pathogen def is optional -->
+    <pathogenDef>USH_SleepingSicknessPathogen</pathogenDef>
+
+  </BiologicalWarfare.CombatDiseaseDef>
+
+  <ThingDef ParentName="USH_ParasiteSampleBase">
+    <defName>USH_SleepingSicknessSample</defName>
+    <costList>
+      <USH_SleepingSicknessPathogen>1</USH_SleepingSicknessPathogen>
+    </costList>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_ParasitePathogenBase">
+    <defName>USH_SleepingSicknessPathogen</defName>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_ParasiteReproductionPills">
+    <defName>USH_SleepingSicknessReproductionPills</defName>
+    <descriptionHyperlinks>
+      <HediffDef>USH_SleepingSicknessReproduction</HediffDef>
+    </descriptionHyperlinks>
+    <costList>
+      <USH_SleepingSicknessSample>1</USH_SleepingSicknessSample>
+    </costList>
+    <ingestible>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>SleepingSickness</hediffDef>
+        </li>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>USH_SleepingSicknessReproduction</hediffDef>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+  </ThingDef>
+
+  <HediffDef ParentName="USH_ParasiteReproductionBase">
+    <defName>USH_SleepingSicknessReproduction</defName>
+    <modExtensions>
+      <li Class="BiologicalWarfare.ParasiteReproductionExtension">
+        <combatDiseaseDef>USH_SleepingSickness</combatDiseaseDef>
+        <reproductionDurationTicks>10000</reproductionDurationTicks>
+        <basePathogenCount>4</basePathogenCount>
+        <multiplyByBodySize>true</multiplyByBodySize>
+      </li>
+    </modExtensions>
+  </HediffDef>
+
+  <DamageDef ParentName="USH_BiologicalDamageBase">
+    <defName>USH_SleepingSicknessDamage</defName>
+  </DamageDef>
+
+  <ThingDef ParentName="USH_BiologicalGasBase">
+    <defName>USH_SleepingSicknessGas</defName>
+    <modExtensions>
+      <li Class="OPToxic.OPToxicDefs">
+        <OPToxicHediff>SleepingSickness</OPToxicHediff>
+        <OPToxicSeverity>0.15</OPToxicSeverity>
+        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalShellBase">
+    <defName>USH_SleepingSicknessShell</defName>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>6.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_SleepingSicknessDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_SleepingSicknessGas</postExplosionSpawnThingDef>
+        <explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>
+        <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
+    <projectileWhenLoaded>USH_SleepingSicknessShellBullet</projectileWhenLoaded>
+    <costList>
+      <USH_SleepingSicknessPathogen>15</USH_SleepingSicknessPathogen>
+    </costList>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalShellBulletBase">
+    <defName>USH_SleepingSicknessShellBullet</defName>
+    <projectile>
+      <damageDef>USH_SleepingSicknessDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_SleepingSicknessGas</postExplosionSpawnThingDef>
+      <explosionRadius>6.9</explosionRadius>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalBarrelBase">
+    <defName>USH_SleepingSicknessBarrel</defName>
+    <costList>
+      <USH_SleepingSicknessPathogen>75</USH_SleepingSicknessPathogen>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>6.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_SleepingSicknessDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_SleepingSicknessGas</postExplosionSpawnThingDef>
+        <startWickHitPointsPercent>0.95</startWickHitPointsPercent>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
+    <specialDisplayRadius>6.9</specialDisplayRadius>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">
+    <defName>USH_SleepingSicknessGrenadeLauncher</defName>
+    <costList>
+      <USH_SleepingSicknessPathogen>75</USH_SleepingSicknessPathogen>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>USH_SleepingSicknessGrenadeBullet</defaultProjectile>
+        <warmupTime>3.5</warmupTime>
+        <range>23.9</range>
+        <forcedMissRadius>2.9</forcedMissRadius>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>USH_GasLauncherShot</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>14</muzzleFlashScale>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalGrenadeBulletBase">
+    <defName>USH_SleepingSicknessGrenadeBullet</defName>
+    <projectile>
+      <damageDef>USH_SleepingSicknessDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_SleepingSicknessGas</postExplosionSpawnThingDef>
+      <explosionRadius>4.9</explosionRadius>
+    </projectile>
+  </ThingDef>
+
+</Defs>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef Name="USH_BiologicalShellBase" ParentName="MakeableShellBase" Abstract="True">
+    <label>{0} gas shell</label>
+    <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    <description>A shell filled with {0} {1} pathogen gas. Can be fired from mortars. Explodes when damaged infecting everyone nearby.</description>
+    <possessionCount>1</possessionCount>
+    <graphicData>
+      <texPath>Things/Item/GasShells</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <!-- color is replaced by CombatDiseaseDef -->
+    </graphicData>
+    <costList>
+      <Steel>15</Steel>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>Mortars</li>
+        <li>USH_PathogenOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef Name="USH_BiologicalShellBulletBase" ParentName="BaseBullet" Abstract="True">
+    <label>{0} gas shell</label>
+    <description>A {0} gas shell</description>
+    <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    <graphicData>
+      <texPath>Things/Projectile/ShellHighExplosive</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <speed>41</speed>
+      <explosionRadius>7.9</explosionRadius>
+      <postExplosionSpawnChance>1</postExplosionSpawnChance>
+      <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+      <flyOverhead>true</flyOverhead>
+      <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+      <soundExplode>USH_ExplosionBiologicalGas</soundExplode>
+      <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+      <soundAmbient>MortarRound_Ambient</soundAmbient>
+    </projectile>
+  </ThingDef>
+
+</Defs>

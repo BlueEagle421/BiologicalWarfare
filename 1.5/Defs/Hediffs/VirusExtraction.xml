@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>USH_VirusExtraction</defName>
+    <label>virus extraction</label>
+    <labelNoun>a virus extraction</labelNoun>
+    <description>A specilized DNA modification that allows the extraction of virus pathogens post mortem. The more advanced the disease becomes, the greater the number of pathogens will drop.</description>
+    <initialSeverity>1</initialSeverity>
+    <defaultLabelColor>(0.9, 1.0, 0.35)</defaultLabelColor>
+    <comps>
+      <li Class="BiologicalWarfare.HediffCompProperties_VirusExtraction">
+        <basePathogenCount>25</basePathogenCount>
+        <multiplyByBodySize>true</multiplyByBodySize>
+        <multiplyBySeverity>true</multiplyBySeverity>
+      </li>
+      <li Class="HediffCompProperties">
+        <compClass>HediffComp_DisappearsOnDeath</compClass>
+      </li>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>600000~650000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+  </HediffDef>
+
+</Defs>

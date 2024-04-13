@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef Name="USH_BiologicalBarrelBase" ParentName="BuildingBase" Abstract="True">
+    <label>{0} gas barrel</label>
+    <description>A barrel full of {0} gas. Ignites upon getting shot, which results in a massive gas explosion infecting everyone around it.</description>
+    <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    <graphicData>
+      <texPath>Things/Building/GasBarrel/GasBarrel</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(2,2)</drawSize>
+      <damageData>
+        <rect>(0.1,0,0.8,0.3)</rect>
+      </damageData>
+      <!-- color is replaced by CombatDiseaseDef-->
+    </graphicData>
+    <size>(1, 1)</size>
+    <techLevel>Industrial</techLevel>
+    <designatorDropdown>USH_BiologicalBarrels</designatorDropdown>
+    <uiIconScale>0.7</uiIconScale>
+    <uiIconOffset>(0,0.15)</uiIconOffset>
+    <fillPercent>0.4</fillPercent>
+    <altitudeLayer>Building</altitudeLayer>
+    <drawerType>RealtimeOnly</drawerType>
+    <tickerType>Normal</tickerType>
+    <rotatable>false</rotatable>
+    <stealable>false</stealable>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories Inherit="False">
+      <li>BuildingsSecurity</li>
+    </thingCategories>
+    <statBases>
+      <Mass>10</Mass>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>1400</WorkToBuild>
+      <Flammability>2</Flammability>
+      <Beauty>-10</Beauty>
+      <TrapSpringChance>0.05</TrapSpringChance>
+    </statBases>
+    <designationCategory>Security</designationCategory>
+    <building>
+      <isTrap>true</isTrap>
+      <expandHomeArea>false</expandHomeArea>
+      <ai_chillDestination>false</ai_chillDestination>
+    </building>
+    <placeWorkers>
+      <li>PlaceWorker_NeverAdjacentTrap</li>
+    </placeWorkers>
+    <researchPrerequisites>
+      <li>USH_PathogenOperationRes</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+</Defs>
