@@ -1,3 +1,4 @@
+using RimWorld;
 using System.Collections.Generic;
 using Verse;
 using Verse.AI;
@@ -73,6 +74,58 @@ namespace BiologicalWarfare
             extractionToil.handlingFacing = true;
             yield return extractionToil;
 
+            yield break;
+        }
+    }
+
+    public class JobDriver_VaccineResearch : JobDriver
+    {
+
+        //private RimatomicResearchDef Proj
+        //{
+        //    get
+        //    {
+        //        return this.Bench.currentProj;
+        //    }
+        //}
+
+        private const int JobEndInterval = 4000;
+
+        private BuildingVaccineResearchStation Station
+        {
+            get
+            {
+                return (BuildingVaccineResearchStation)base.TargetThingA;
+            }
+        }
+
+        public override bool TryMakePreToilReservations(bool errorOnFailed)
+        {
+            return this.pawn.Reserve(this.job.targetA, this.job, 1, -1, null, true, false);
+        }
+        protected override IEnumerable<Toil> MakeNewToils()
+        {
+            this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
+            yield return Toils_Reserve.Reserve(TargetIndex.A, 1, -1, null, false);
+            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell, false);
+            //ResearchStepDef step = this.Proj.CurrentStep;
+
+            Toil research = new Toil();
+            research.tickAction = delegate ()
+            {
+                Pawn actor = research.actor;
+
+                Station.Test();
+
+                actor.GainComfortFromCellIfPossible(false);
+            };
+            research.FailOnCannotTouch(TargetIndex.A, PathEndMode.InteractionCell);
+            research.WithEffect(EffecterDefOf.Research, TargetIndex.A, null);
+            research.WithProgressBar(TargetIndex.A, () => 0.5f, false, -0.5f, false);
+            research.defaultCompleteMode = ToilCompleteMode.Delay;
+            research.defaultDuration = JobEndInterval;
+            yield return research;
+            yield return Toils_General.Wait(2, TargetIndex.None);
             yield break;
         }
     }
