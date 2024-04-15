@@ -18,6 +18,8 @@ namespace BiologicalWarfare
         public ThingDef sampleDef;
         public ThingDef pathogenDef;
 
+        public ResearchProjectDef vaccineResProjectDef;
+
         public override string ToString() => string.Format("{0} ({1})", defName, diseaseType.ToStringUncapitalized());
 
         public override IEnumerable<string> ConfigErrors()
