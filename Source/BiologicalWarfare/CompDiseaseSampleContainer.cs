@@ -8,6 +8,7 @@ namespace BiologicalWarfare
 {
     public class CompProperties_DiseaseSampleContainer : CompProperties_ThingContainer
     {
+        public bool acceptAllDiseaseTypes;
         public DiseaseType acceptableDiseaseType;
         public SoundDef insertedSoundDef, extractedSoundDef;
         public CompProperties_DiseaseSampleContainer() => compClass = typeof(CompDiseaseSampleContainer);
@@ -50,7 +51,10 @@ namespace BiologicalWarfare
 
         public virtual AcceptanceReport CanInsert(Pawn pawn, CompDiseaseSample compDiseaseSample)
         {
-            if (compDiseaseSample.PropsDiseaseSample.combatDiseaseDef.diseaseType != PropsSampleContainer.acceptableDiseaseType)
+            bool isMatchingDiseaseType = compDiseaseSample.PropsDiseaseSample.combatDiseaseDef.diseaseType
+                == PropsSampleContainer.acceptableDiseaseType;
+
+            if (!isMatchingDiseaseType && !PropsSampleContainer.acceptAllDiseaseTypes)
             {
                 NamedArgument type = PropsSampleContainer.acceptableDiseaseType.ToStringUncapitalized().Named("TYPE");
                 return "USH_SampleContainerTypeMismatch".Translate(parent.Named("BUILDING"), type);
