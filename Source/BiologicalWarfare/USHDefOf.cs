@@ -17,5 +17,9 @@ namespace BiologicalWarfare
         public static HediffDef USH_ParasiticPerforation;
 
         public static ThingDef USH_DiseaseSampler;
+
+        public static ThingDef USH_VaccineResearchStation;
+
+        public static JobDef USH_ResearchVaccine;
     }
 }
