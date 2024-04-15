@@ -80,51 +80,39 @@ namespace BiologicalWarfare
 
     public class JobDriver_VaccineResearch : JobDriver
     {
-
-        //private RimatomicResearchDef Proj
-        //{
-        //    get
-        //    {
-        //        return this.Bench.currentProj;
-        //    }
-        //}
-
         private const int JobEndInterval = 4000;
 
-        private BuildingVaccineResearchStation Station
-        {
-            get
-            {
-                return (BuildingVaccineResearchStation)base.TargetThingA;
-            }
-        }
+        private BuildingVaccineResearchStation Station => (BuildingVaccineResearchStation)TargetThingA;
 
-        public override bool TryMakePreToilReservations(bool errorOnFailed)
-        {
-            return this.pawn.Reserve(this.job.targetA, this.job, 1, -1, null, true, false);
-        }
+        public override bool TryMakePreToilReservations(bool errorOnFailed) => pawn.Reserve(job.targetA, job, 1, -1, null, true, false);
         protected override IEnumerable<Toil> MakeNewToils()
         {
             this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
             yield return Toils_Reserve.Reserve(TargetIndex.A, 1, -1, null, false);
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell, false);
-            //ResearchStepDef step = this.Proj.CurrentStep;
 
-            Toil research = new Toil();
-            research.tickAction = delegate ()
+            Toil researchToil = new Toil();
+            researchToil.tickAction = delegate ()
             {
-                Pawn actor = research.actor;
+                Pawn actor = researchToil.actor;
 
-                Station.Test();
+                float progress = actor.GetStatValue(StatDefOf.ResearchSpeed, true, -1);
+                progress *= TargetThingA.GetStatValue(StatDefOf.ResearchSpeedFactor, true, -1);
 
-                actor.GainComfortFromCellIfPossible(false);
+                Station.ResearchPerformed(progress, actor);
+
+                float xpToLearn = 0.1f;
+                actor.skills?.GetSkill(SkillDefOf.Intellectual).Learn(xpToLearn, false, false);
+
+                actor.GainComfortFromCellIfPossible(true);
             };
-            research.FailOnCannotTouch(TargetIndex.A, PathEndMode.InteractionCell);
-            research.WithEffect(EffecterDefOf.Research, TargetIndex.A, null);
-            research.WithProgressBar(TargetIndex.A, () => 0.5f, false, -0.5f, false);
-            research.defaultCompleteMode = ToilCompleteMode.Delay;
-            research.defaultDuration = JobEndInterval;
-            yield return research;
+            researchToil.FailOnCannotTouch(TargetIndex.A, PathEndMode.InteractionCell);
+            researchToil.FailOn(() => !Station.CanPerformResearch(researchToil.actor));
+            researchToil.WithEffect(EffecterDefOf.Research, TargetIndex.A);
+            researchToil.WithProgressBar(TargetIndex.A, () => Station.CurrentVaccineProject().ProgressPercent, false, -0.5f, false);
+            researchToil.defaultCompleteMode = ToilCompleteMode.Delay;
+            researchToil.defaultDuration = JobEndInterval;
+            yield return researchToil;
             yield return Toils_General.Wait(2, TargetIndex.None);
             yield break;
         }
