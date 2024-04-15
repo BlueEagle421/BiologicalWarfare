@@ -13,4 +13,11 @@
     <reportString>extracting sample from TargetA.</reportString>
   </JobDef>
 
+  <JobDef>
+    <defName>USH_ResearchVaccine</defName>
+    <driverClass>BiologicalWarfare.JobDriver_VaccineResearch</driverClass>
+    <reportString>researching vaccine.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
 </Defs>
