@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -56,6 +57,17 @@ namespace BiologicalWarfare
             float num2 = a.y - b.y;
             float num3 = a.z - b.z;
             return (float)Math.Sqrt(num * num + num2 * num2 + num3 * num3);
+        }
+
+        public static float GetSkill(this Pawn pawn, SkillDef skillDef)
+        {
+            if (pawn.skills != null)
+                return pawn.skills.GetSkill(skillDef).Level;
+
+            if (pawn.IsColonyMech)
+                return pawn.RaceProps.mechFixedSkillLevel;
+
+            return 1f;
         }
     }
 }
