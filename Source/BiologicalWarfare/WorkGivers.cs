@@ -13,35 +13,9 @@ namespace BiologicalWarfare
 
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            BuildingVaccineResearchStation buildingVaccineStation = t as BuildingVaccineResearchStation;
-            //RimatomicResearchDef currentProj = buildingVaccineStation.currentProj;
-            //if (currentProj == null)
-            //{
-            //    return false;
-            //}
-            //if (!currentProj.CurrentStep.requiredResearchFacilities.NullOrEmpty<ThingDef>())
-            //{
-            //    return false;
-            //}
-            //if (currentProj.CurrentStep.WorkType != this.def.workType)
-            //{
-            //    return false;
-            //}
-            //int skillLevel = currentProj.CurrentStep.SkillLevel;
-            //if (skillLevel > 0)
-            //{
-            //    foreach (SkillDef skillDef in this.def.workType.relevantSkills)
-            //    {
-            //        float skill = pawn.GetSkill(skillDef);
-            //        if (skill < skillLevel)
-            //        {
-            //            JobFailReason.Is("SkillTooLow".Translate(skillDef.label, skill, skillLevel), null);
-            //            return false;
-            //        }
-            //    }
-            //}
-            //return currentProj.CurrentStep.CanBeResearchedAt(buildingVaccineStation, false) && pawn.CanReserve(t, 1, -1, null, forced);
-            return pawn.CanReserve(t, 1, -1, null, forced);
+            BuildingVaccineResearchStation station = t as BuildingVaccineResearchStation;
+
+            return station.CanPerformResearch(pawn) && pawn.CanReserve(t, 1, -1, null, forced);
         }
     }
 }
