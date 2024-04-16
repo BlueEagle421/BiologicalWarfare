@@ -3,7 +3,7 @@
 
   <ThingDef Name="USH_PathogenFilthBase" ParentName="BaseFilth" Abstract="True">
     <label>{0} contamination puddle</label>
-    <description>A puddle of liquid and infectious {0} filth.</description>
+    <description>A puddle of infectious {0} filth. Decomposes itself within a few days.</description>
     <thingClass>BiologicalWarfare.PathogenFilth</thingClass>
     <useHitPoints>true</useHitPoints>
     <tickerType>Normal</tickerType>
@@ -18,9 +18,9 @@
     </graphicData>
     <filth>
       <ignoreFilthMultiplierStat>true</ignoreFilthMultiplierStat>
-      <disappearsInDays>35~40</disappearsInDays>
+      <disappearsInDays>2~6</disappearsInDays>
       <rainWashes>true</rainWashes>
-      <cleaningWorkToReduceThickness>70</cleaningWorkToReduceThickness>
+      <cleaningWorkToReduceThickness>210</cleaningWorkToReduceThickness>
       <canFilthAttach>true</canFilthAttach>
       <maxThickness>1</maxThickness>
       <cleaningSound>Interact_CleanFilth_Fluid</cleaningSound>
