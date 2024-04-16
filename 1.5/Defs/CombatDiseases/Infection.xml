@@ -22,6 +22,8 @@
 
     <!-- sample def is required for CombatDiseaseDef to work properly -->
     <sampleDef>USH_InfectionSample</sampleDef>
+    <!-- filth def is optional -->
+    <filthDef>USH_FluFilth</filthDef>
 
   </BiologicalWarfare.CombatDiseaseDef>
 
@@ -54,6 +56,17 @@
     <thingCategories>
       <li>USH_Samples</li>
     </thingCategories>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_PathogenFilthBase">
+    <defName>USH_FluFilth</defName>
+    <modExtensions>
+      <li Class="OPToxic.OPToxicDefs">
+        <OPToxicHediff>Flu</OPToxicHediff>
+        <OPToxicSeverity>0.02</OPToxicSeverity>
+        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
+      </li>
+    </modExtensions>
   </ThingDef>
 
   <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase">

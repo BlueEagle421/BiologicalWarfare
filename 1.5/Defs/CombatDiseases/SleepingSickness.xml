@@ -36,6 +36,8 @@
     <sampleDef>USH_SleepingSicknessSample</sampleDef>
     <!-- pathogen def is optional -->
     <pathogenDef>USH_SleepingSicknessPathogen</pathogenDef>
+    <!-- filth def is optional -->
+    <filthDef>USH_FluFilth</filthDef>
 
   </BiologicalWarfare.CombatDiseaseDef>
 
@@ -58,6 +60,17 @@
 
   <ThingDef ParentName="USH_ParasitePathogenBase">
     <defName>USH_SleepingSicknessPathogen</defName>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_PathogenFilthBase">
+    <defName>USH_FluFilth</defName>
+    <modExtensions>
+      <li Class="OPToxic.OPToxicDefs">
+        <OPToxicHediff>Flu</OPToxicHediff>
+        <OPToxicSeverity>0.02</OPToxicSeverity>
+        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
+      </li>
+    </modExtensions>
   </ThingDef>
 
   <ThingDef ParentName="USH_ParasiteReproductionPills">
