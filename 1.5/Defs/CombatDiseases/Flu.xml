@@ -17,6 +17,7 @@
       <li>USH_FluShell</li>
       <li>USH_FluBarrel</li>
       <li>USH_FluGrenadeLauncher</li>
+      <li>USH_FluFilth</li>
     </thingDefsToFormatAndColor>
 
     <thingDefsToFormat>
@@ -35,7 +36,8 @@
     <sampleDef>USH_FluSample</sampleDef>
     <!-- pathogen def is optional -->
     <pathogenDef>USH_FluPathogen</pathogenDef>
-
+    <!-- filth def is optional -->
+    <filthDef>USH_FluFilth</filthDef>
 
   </BiologicalWarfare.CombatDiseaseDef>
 
@@ -58,6 +60,17 @@
 
   <ThingDef ParentName="USH_VirusPathogenBase">
     <defName>USH_FluPathogen</defName>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_PathogenFilthBase">
+    <defName>USH_FluFilth</defName>
+    <modExtensions>
+      <li Class="OPToxic.OPToxicDefs">
+        <OPToxicHediff>Flu</OPToxicHediff>
+        <OPToxicSeverity>0.02</OPToxicSeverity>
+        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
+      </li>
+    </modExtensions>
   </ThingDef>
 
   <DamageDef ParentName="USH_BiologicalDamageBase">

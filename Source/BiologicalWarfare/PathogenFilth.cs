@@ -18,9 +18,6 @@ namespace BiologicalWarfare
             if (!this.IsHashIntervalTick(OPToxicDefGetValue.OPToxicGetSevUpVal(def)))
                 return;
 
-            //if (Find.TickManager.TicksGame % OPToxicDefGetValue.OPToxicGetSevUpVal(def) != 0)
-            //    return;
-
             List<Thing> thingsInFilth = Position.GetThingList(Map);
 
             if (thingsInFilth.Count <= 0)
@@ -31,12 +28,12 @@ namespace BiologicalWarfare
                     Infect(this, pawn);
         }
 
-        public void Infect(Thing gas, Pawn pawn)
+        public void Infect(Thing filth, Pawn pawn)
         {
             if (!BiologicalUtils.CanPathogenInfect(pawn))
                 return;
 
-            HediffDef hediffToAdd = DefDatabase<HediffDef>.GetNamedSilentFail(OPToxicDefGetValue.OPToxicGetHediff(gas.def));
+            HediffDef hediffToAdd = DefDatabase<HediffDef>.GetNamedSilentFail(OPToxicDefGetValue.OPToxicGetHediff(filth.def));
 
             if (hediffToAdd == null)
                 return;
@@ -45,18 +42,18 @@ namespace BiologicalWarfare
             Hediff hediffFound = (hediffSet?.GetFirstHediffOfDef(hediffToAdd, false));
 
             float statValue = 1 - pawn.GetStatValue(StatDefOf.ToxicResistance, true);
-            float severityToSet = Mathf.Max(OPToxicDefGetValue.OPToxicGetSev(gas.def), hediffToAdd.minSeverity);
+            float newSeverity = Mathf.Max(hediffToAdd.minSeverity, OPToxicDefGetValue.OPToxicGetSev(filth.def));
 
-            severityToSet = Rand.Range(hediffToAdd.minSeverity * statValue, severityToSet * statValue);
+            newSeverity = Rand.Range(newSeverity / 2f, newSeverity) * statValue;
 
-            if (hediffFound != null && severityToSet > 0f)
+            if (hediffFound != null && newSeverity > 0f)
             {
-                hediffFound.Severity += severityToSet;
+                hediffFound.Severity += newSeverity;
                 return;
             }
 
             Hediff hediffMade = HediffMaker.MakeHediff(hediffToAdd, pawn);
-            hediffMade.Severity = severityToSet;
+            hediffMade.Severity = newSeverity;
             pawn.health.AddHediff(hediffMade);
         }
     }

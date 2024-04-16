@@ -26,9 +26,6 @@ namespace BiologicalWarfare
             if (!this.IsHashIntervalTick(OPToxicDefGetValue.OPToxicGetSevUpVal(def)))
                 return;
 
-            //if (Find.TickManager.TicksGame % OPToxicDefGetValue.OPToxicGetSevUpVal(def) != 0)
-            //    return;
-
             List<Thing> thingsInGas = Position.GetThingList(Map);
 
             if (thingsInGas.Count <= 0)
@@ -55,7 +52,7 @@ namespace BiologicalWarfare
             float statValue = 1 - pawn.GetStatValue(StatDefOf.ToxicResistance, true);
             float severityToSet = Mathf.Max(OPToxicDefGetValue.OPToxicGetSev(gas.def), hediffToAdd.minSeverity);
 
-            severityToSet = Rand.Range(hediffToAdd.minSeverity * statValue, severityToSet * statValue);
+            severityToSet = Rand.Range(severityToSet / 2f, severityToSet) * statValue;
 
             if (hediffFound != null && severityToSet > 0f)
             {

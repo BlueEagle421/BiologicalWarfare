@@ -8,6 +8,8 @@ namespace BiologicalWarfare
         private CompDiseaseSampleContainer _compDiseaseContainer;
         private CompPowerTrader _compPowerTrader;
 
+        private int _contaminationTicks;
+
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
@@ -20,6 +22,13 @@ namespace BiologicalWarfare
                 return null;
 
             return _compDiseaseContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.vaccineResProjectDef;
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+
+            Scribe_Values.Look(ref _contaminationTicks, "USH_ContaminationTicks", 0);
         }
 
         public bool CanPerformResearch(Pawn pawn)
@@ -82,6 +91,8 @@ namespace BiologicalWarfare
                 return;
             }
 
+            ContamidationTick();
+
             ResearchProjectDef vaccineProj = CurrentVaccineProject();
 
             progress *= ResearchManager.ResearchPointsPerWorkTick;
@@ -97,6 +108,18 @@ namespace BiologicalWarfare
 
             if (!vaccineProj.IsFinished)
                 Find.ResearchManager.AddProgress(vaccineProj, progress, researcher);
+        }
+
+        private void ContamidationTick()
+        {
+            _contaminationTicks++;
+
+            if (_contaminationTicks < BiologicalUtils.CONTAMINATION_TICKS)
+                return;
+
+            _contaminationTicks = 0;
+
+            BiologicalUtils.TryToContaminate(this, _compDiseaseContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef);
         }
     }
 }

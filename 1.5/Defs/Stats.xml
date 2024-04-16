@@ -16,7 +16,6 @@
         <factorIndoors>1.00</factorIndoors>
         <factorOutdoors>1.2</factorOutdoors>
       </li>
-      <li Class="StatPart_WorkTableTemperature" />
       <li Class="StatPart_RoomStat">
         <roomStat>InfectionChanceFactor</roomStat>
         <customLabel>Room cleanliness</customLabel>

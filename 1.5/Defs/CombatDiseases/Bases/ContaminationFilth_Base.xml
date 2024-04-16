@@ -25,13 +25,6 @@
       <maxThickness>1</maxThickness>
       <cleaningSound>Interact_CleanFilth_Fluid</cleaningSound>
     </filth>
-    <modExtensions>
-      <li Class="OPToxic.OPToxicDefs">
-        <OPToxicHediff>Flu</OPToxicHediff>
-        <OPToxicSeverity>0.15</OPToxicSeverity>
-        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
-      </li>
-    </modExtensions>
   </ThingDef>
 
 </Defs>

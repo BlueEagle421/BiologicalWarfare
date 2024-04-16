@@ -10,7 +10,8 @@ namespace BiologicalWarfare
     {
         public static string ToStringUncapitalized(this DiseaseType diseaseType) => diseaseType.ToString().UncapitalizeFirst();
 
-        public static float CELL_CONTAMINATION_CHANCE = 0.05f;
+        public static float CELL_CONTAMINATION_CHANCE = 0.8f; //8%
+        public static int CONTAMINATION_TICKS = 2500 * 12; //12 hours
 
         public static void SpawnThingAt(Map map, List<IntVec3> cells, ThingDef thingDef, int count)
         {
@@ -99,16 +100,44 @@ namespace BiologicalWarfare
             return true;
         }
 
-        public static void TryToContaminate(Thing thingSource, ThingDef filthDef)
+        public static void TryToContaminate(Thing thingSource, CombatDiseaseDef combatDiseaseDef, float chance)
         {
+            if (combatDiseaseDef == null)
+                return;
+
             if (thingSource == null)
                 return;
+
+            ThingDef filthDef = combatDiseaseDef.filthDef;
+
+            if (filthDef == null)
+                return;
+
+            if (RandomChance(chance))
+            {
+                ContaminateAreaAt(thingSource, filthDef);
+                Messages.Message("USH_AreaContaminated".Translate(thingSource.ToString()), thingSource, MessageTypeDefOf.NegativeEvent);
+            }
+        }
+
+        public static void TryToContaminate(Thing thingSource, CombatDiseaseDef combatDiseaseDef)
+        {
+            if (combatDiseaseDef == null)
+                return;
+
+            if (thingSource == null)
+                return;
+
+            ThingDef filthDef = combatDiseaseDef.filthDef;
 
             if (filthDef == null)
                 return;
 
             if (RandomChance(thingSource.GetStatValue(USHDefOf.USH_ContaminationChanceFactor)))
+            {
                 ContaminateAreaAt(thingSource, filthDef);
+                Messages.Message("USH_AreaContaminated".Translate(), thingSource, MessageTypeDefOf.NegativeEvent);
+            }
         }
 
         public static void ContaminateAreaAt(Thing thingSource, ThingDef filthDef)

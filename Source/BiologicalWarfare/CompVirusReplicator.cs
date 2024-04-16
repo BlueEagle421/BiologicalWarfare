@@ -89,6 +89,8 @@ namespace BiologicalWarfare
         {
             base.OnInteracted(caster);
 
+            BiologicalUtils.TryToContaminate(parent, _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef);
+
             foreach (IntVec3 cell in parent.GetRoom().Cells.ToList())
                 foreach (Thing thing in parent.Map.thingGrid.ThingsAt(cell))
                 {
