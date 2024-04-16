@@ -24,6 +24,6 @@
     <USH_InsertSampleToResearch>Insert disease sample to begin researching.</USH_InsertSampleToResearch>
     <USH_WrongSampleToResearch>No vaccine can be developed from this sample.</USH_WrongSampleToResearch>
 
-    <USH_AreaContaminated>Pathogen leakage contaminated {0} nearest area.</USH_AreaContaminated>
+    <USH_AreaContaminated>{0} pathogen leakage contaminated {1} nearest area.</USH_AreaContaminated>
 
 </LanguageData>

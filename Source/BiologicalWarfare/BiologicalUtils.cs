@@ -116,7 +116,7 @@ namespace BiologicalWarfare
             if (RandomChance(chance))
             {
                 ContaminateAreaAt(thingSource, filthDef);
-                Messages.Message("USH_AreaContaminated".Translate(thingSource.ToString()), thingSource, MessageTypeDefOf.NegativeEvent);
+                Messages.Message("USH_AreaContaminated".Translate(combatDiseaseDef.label.CapitalizeFirst(), thingSource.Label), thingSource, MessageTypeDefOf.NegativeEvent);
             }
         }
 
@@ -136,7 +136,7 @@ namespace BiologicalWarfare
             if (RandomChance(thingSource.GetStatValue(USHDefOf.USH_ContaminationChanceFactor)))
             {
                 ContaminateAreaAt(thingSource, filthDef);
-                Messages.Message("USH_AreaContaminated".Translate(), thingSource, MessageTypeDefOf.NegativeEvent);
+                Messages.Message("USH_AreaContaminated".Translate(combatDiseaseDef.label.CapitalizeFirst(), thingSource.Label), thingSource, MessageTypeDefOf.NegativeEvent);
             }
         }
 
