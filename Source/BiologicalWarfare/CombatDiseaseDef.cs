@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Verse;
 
 namespace BiologicalWarfare
@@ -15,10 +14,14 @@ namespace BiologicalWarfare
         public List<ThingDef> thingDefsToColor = new List<ThingDef>();
         public List<ThingDef> thingDefsToFormatAndColor = new List<ThingDef>();
 
+        public List<ResearchProjectDef> researchProjectsDefsToFormat = new List<ResearchProjectDef>();
+
         public ThingDef sampleDef;
         public ThingDef pathogenDef;
 
         public ResearchProjectDef vaccineResProjectDef;
+
+        private DefFormatter _defFormatter;
 
         public override string ToString() => string.Format("{0} ({1})", defName, diseaseType.ToStringUncapitalized());
 
@@ -45,17 +48,19 @@ namespace BiologicalWarfare
 
             AddHediffHyperlink();
 
-            foreach (ThingDef thingDef in thingDefsToFormat)
-                FormatDef(thingDef);
+            _defFormatter = new DefFormatter(new List<Def>(), new List<object> { label, diseaseType.ToStringUncapitalized() });
+
+            _defFormatter.AddDefsToFormat(thingDefsToFormat.ConvertAll(x => (Def)x));
+            _defFormatter.AddDefsToFormat(thingDefsToFormatAndColor.ConvertAll(x => (Def)x));
+            _defFormatter.AddDefsToFormat(researchProjectsDefsToFormat.ConvertAll(x => (Def)x));
+
+            _defFormatter.Format();
 
             foreach (ThingDef thingDef in thingDefsToColor)
                 ColorThingDef(thingDef);
 
             foreach (ThingDef thingDef in thingDefsToFormatAndColor)
-            {
-                FormatDef(thingDef);
                 ColorThingDef(thingDef);
-            }
         }
 
         private void AddHediffHyperlink()
@@ -68,42 +73,6 @@ namespace BiologicalWarfare
             USHDefOf.USH_DiseaseSampler.descriptionHyperlinks = hyperlinks;
         }
 
-        private void FormatDef(ThingDef thingDef)
-        {
-            if (thingDef == null)
-                return;
-
-            ThingDef blueprintDef = thingDef.blueprintDef;
-
-            if (blueprintDef != null)
-                blueprintDef.label = Formatted(blueprintDef.label);
-
-            ThingDef installBlueprintDef = thingDef.installBlueprintDef;
-
-            if (installBlueprintDef != null)
-                installBlueprintDef.label = Formatted(installBlueprintDef.label);
-
-            ThingDef frameDef = thingDef.frameDef;
-
-            if (frameDef != null)
-            {
-                frameDef.label = Formatted(frameDef.label);
-                frameDef.description = Formatted(frameDef.description);
-            }
-
-            foreach (RecipeDef recipeDef in DefDatabase<RecipeDef>.AllDefs.Where(x => IsRecipeRelevantFor(x, thingDef)))
-            {
-                recipeDef.label = Formatted(recipeDef.label);
-
-                if (!string.IsNullOrEmpty(recipeDef.description))
-                    recipeDef.description = Formatted(recipeDef.description);
-            }
-
-            thingDef.label = Formatted(thingDef.label);
-
-            thingDef.description = Formatted(thingDef.description);
-        }
-
         private void ColorThingDef(ThingDef thingDef)
         {
             if (thingDef == null)
@@ -111,31 +80,9 @@ namespace BiologicalWarfare
 
             thingDef.graphicData.color = colorInt.ToColor;
         }
-
-        private string Formatted(string toFormat)
-        {
-            if (string.IsNullOrEmpty(toFormat))
-                return string.Empty;
-
-            string type = diseaseType.ToStringUncapitalized();
-
-            return string.Format(toFormat, label, type).CapitalizeFirst();
-        }
-
-        private bool IsRecipeRelevantFor(RecipeDef recipeDef, ThingDef toFormat)
-        {
-            if (recipeDef.defName == "Make_" + toFormat.defName)
-                return true;
-
-            if (recipeDef.defName == "Make_" + toFormat.defName + "Bulk")
-                return true;
-
-            if (recipeDef.defName == "Administer_" + toFormat.defName)
-                return true;
-
-            return false;
-        }
     }
+
+
 
     public enum DiseaseType
     {
