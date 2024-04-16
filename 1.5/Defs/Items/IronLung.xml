@@ -3,16 +3,15 @@
 
   <HediffDef ParentName="AddedBodyPartBase">
     <defName>USH_IronLung</defName>
-    <label>iron lung</label>
-    <labelNoun>an iron lung</labelNoun>
-    <description>An installed iron lung.</description>
+    <label>detoxifier lung</label>
+    <labelNoun>a detoxifier lung</labelNoun>
+    <description>An installed detoxifier lung.</description>
     <descriptionHyperlinks>
       <ThingDef>USH_IronLung</ThingDef>
     </descriptionHyperlinks>
     <stages>
       <li>
         <statOffsets>
-          <ToxicResistance>0.6</ToxicResistance>
           <ToxicEnvironmentResistance>0.6</ToxicEnvironmentResistance>
         </statOffsets>
       </li>
@@ -27,7 +26,7 @@
 
   <ThingDef ParentName="BodyPartBionicBase">
     <defName>USH_IronLung</defName>
-    <label>iron lung</label>
+    <label>detoxifier lung</label>
     <description>An advanced artificial lung with specialized mesh filters that greatly enhances users' environmental toxic resistance. This makes it a perfect candidate for installation in soldiers wielding biological weapons.</description>
     <descriptionHyperlinks>
       <RecipeDef>USH_InstallIronLung</RecipeDef>
@@ -47,13 +46,13 @@
 
   <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
     <defName>USH_InstallIronLung</defName>
-    <label>install iron lung</label>
-    <description>Install an iron lung.</description>
+    <label>install detoxifier lung</label>
+    <description>Install a detoxifier lung.</description>
     <descriptionHyperlinks>
       <ThingDef>USH_IronLung</ThingDef>
       <HediffDef>USH_IronLung</HediffDef>
     </descriptionHyperlinks>
-    <jobString>Installing iron lung.</jobString>
+    <jobString>Installing detoxifier lung.</jobString>
     <ingredients>
       <li>
         <filter>
