@@ -53,7 +53,6 @@
       </li>
       <li Class="CompProperties_Flickable" />
       <li Class="BiologicalWarfare.CompProperties_DiseaseSampleContainer">
-        <compClass>BiologicalWarfare.CompVaccineResearchContainer</compClass>
         <acceptAllDiseaseTypes>true</acceptAllDiseaseTypes>
         <stackLimit>1</stackLimit>
         <insertedSoundDef>USH_SampleInserted</insertedSoundDef>
