@@ -10,6 +10,8 @@ namespace BiologicalWarfare
     {
         public static string ToStringUncapitalized(this DiseaseType diseaseType) => diseaseType.ToString().UncapitalizeFirst();
 
+        public static float CELL_CONTAMINATION_CHANCE = 0.05f;
+
         public static void SpawnThingAt(Map map, List<IntVec3> cells, ThingDef thingDef, int count)
         {
             foreach (IntVec3 cell in cells)
@@ -85,6 +87,75 @@ namespace BiologicalWarfare
                 return false;
 
             return true;
+        }
+
+        public static bool RandomChance(float chance)
+        {
+            float randomValue = UnityEngine.Random.value;
+
+            if (randomValue >= chance)
+                return false;
+
+            return true;
+        }
+
+        public static void TryToContaminate(Thing thingSource, ThingDef filthDef)
+        {
+            if (thingSource == null)
+                return;
+
+            if (filthDef == null)
+                return;
+
+            if (RandomChance(thingSource.GetStatValue(USHDefOf.USH_ContaminationChanceFactor)))
+                ContaminateAreaAt(thingSource, filthDef);
+        }
+
+        public static void ContaminateAreaAt(Thing thingSource, ThingDef filthDef)
+        {
+            Map map = thingSource.Map;
+
+            List<IntVec3> cells = thingSource.CellsAdjacent8WayAndInside().ToList();
+
+            foreach (IntVec3 cell in cells)
+            {
+                if (!cell.Walkable(map))
+                    continue;
+
+                Thing firstThing = cell.GetFirstThing(map, filthDef);
+                if (firstThing != null)
+                    continue;
+
+                Thing thing = ThingMaker.MakeThing(filthDef);
+
+                GenPlace.TryPlaceThing(thing, cell, map, ThingPlaceMode.Near);
+            }
+
+            Room room = thingSource.GetRoom();
+
+            if (room == null)
+                return;
+
+            if (!room.ProperRoom)
+                return;
+
+            foreach (IntVec3 cell in room.Cells.ToList())
+            {
+                if (!RandomChance(CELL_CONTAMINATION_CHANCE))
+                    continue;
+
+                if (!cell.Walkable(map))
+                    continue;
+
+                Thing firstThing = cell.GetFirstThing(map, filthDef);
+
+                if (firstThing != null)
+                    continue;
+
+                Thing thing = ThingMaker.MakeThing(filthDef);
+                if (GenPlace.TryPlaceThing(thing, cell, map, ThingPlaceMode.Near))
+                    break;
+            }
         }
     }
 }
