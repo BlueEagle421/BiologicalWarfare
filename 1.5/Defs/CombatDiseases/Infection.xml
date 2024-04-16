@@ -58,8 +58,11 @@
 
   <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase">
     <defName>USH_InfectionVaccineRes</defName>
+    <prerequisites>
+      <li>USH_PathogenProductionRes</li>
+    </prerequisites>
     <researchViewX>1.50</researchViewX>
-    <researchViewY>3.20</researchViewY>
+    <researchViewY>4.00</researchViewY>
   </ResearchProjectDef>
 
 </Defs>

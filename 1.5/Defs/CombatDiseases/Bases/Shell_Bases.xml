@@ -18,7 +18,6 @@
     <recipeMaker>
       <researchPrerequisites>
         <li>Mortars</li>
-        <li>USH_PathogenOperationRes</li>
       </researchPrerequisites>
     </recipeMaker>
   </ThingDef>

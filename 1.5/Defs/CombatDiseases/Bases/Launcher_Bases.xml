@@ -28,9 +28,6 @@
       <skillRequirements>
         <Crafting>4</Crafting>
       </skillRequirements>
-      <researchPrerequisites>
-        <li>USH_PathogenOperationRes</li>
-      </researchPrerequisites>
     </recipeMaker>
     <weaponTags>
       <li>GunHeavy</li>

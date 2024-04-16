@@ -49,6 +49,11 @@
     <costList>
       <USH_SleepingSicknessPathogen>1</USH_SleepingSicknessPathogen>
     </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_SleepingSicknessOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_ParasitePathogenBase">
@@ -120,6 +125,11 @@
     <costList>
       <USH_SleepingSicknessPathogen>15</USH_SleepingSicknessPathogen>
     </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_SleepingSicknessOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalShellBulletBase">
@@ -133,9 +143,6 @@
 
   <ThingDef ParentName="USH_BiologicalBarrelBase">
     <defName>USH_SleepingSicknessBarrel</defName>
-    <costList>
-      <USH_SleepingSicknessPathogen>75</USH_SleepingSicknessPathogen>
-    </costList>
     <comps>
       <li Class="CompProperties_Explosive">
         <explosiveRadius>6.9</explosiveRadius>
@@ -147,6 +154,14 @@
         <wickTicks>30~60</wickTicks>
       </li>
     </comps>
+    <costList>
+      <USH_SleepingSicknessPathogen>75</USH_SleepingSicknessPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_SleepingSicknessOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
     <specialDisplayRadius>6.9</specialDisplayRadius>
   </ThingDef>
 
@@ -172,6 +187,11 @@
         </targetParams>
       </li>
     </verbs>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_SleepingSicknessOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGrenadeBulletBase">

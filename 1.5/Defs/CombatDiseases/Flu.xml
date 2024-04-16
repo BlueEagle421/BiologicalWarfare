@@ -49,6 +49,11 @@
     <costList>
       <USH_FluPathogen>1</USH_FluPathogen>
     </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_FluOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_VirusPathogenBase">
@@ -88,6 +93,11 @@
     <costList>
       <USH_FluPathogen>15</USH_FluPathogen>
     </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_FluOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalShellBulletBase">
@@ -101,9 +111,6 @@
 
   <ThingDef ParentName="USH_BiologicalBarrelBase">
     <defName>USH_FluBarrel</defName>
-    <costList>
-      <USH_FluPathogen>75</USH_FluPathogen>
-    </costList>
     <comps>
       <li Class="CompProperties_Explosive">
         <explosiveRadius>6.9</explosiveRadius>
@@ -115,6 +122,14 @@
         <wickTicks>30~60</wickTicks>
       </li>
     </comps>
+    <costList>
+      <USH_FluPathogen>75</USH_FluPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_FluOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
     <specialDisplayRadius>6.9</specialDisplayRadius>
   </ThingDef>
 
@@ -140,6 +155,11 @@
         </targetParams>
       </li>
     </verbs>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_FluOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGrenadeBulletBase">

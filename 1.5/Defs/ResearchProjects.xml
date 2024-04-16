@@ -25,17 +25,4 @@
     <researchViewY>2.10</researchViewY>
   </ResearchProjectDef>
 
-  <ResearchProjectDef ParentName="USH_BiologicalProjectBase">
-    <defName>USH_PathogenOperationRes</defName>
-    <label>Pathogen operation</label>
-    <description>Craft pythogen gas grenade launchers, explosive gas barrels and devastating mortar shells.</description>
-    <baseCost>1000</baseCost>
-    <prerequisites>
-      <li>USH_PathogenProductionRes</li>
-      <li>Machining</li>
-    </prerequisites>
-    <researchViewX>1.50</researchViewX>
-    <researchViewY>3.30</researchViewY>
-  </ResearchProjectDef>
-
 </Defs>

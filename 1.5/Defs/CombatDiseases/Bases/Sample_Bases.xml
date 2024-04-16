@@ -21,7 +21,6 @@
       <DeteriorationRate>2.0</DeteriorationRate>
     </statBases>
     <recipeMaker>
-      <researchPrerequisite>USH_PathogenProductionRes</researchPrerequisite>
       <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
       <workSkill>Intellectual</workSkill>
       <effectWorking>Cook</effectWorking>

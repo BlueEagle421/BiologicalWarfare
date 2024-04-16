@@ -48,6 +48,11 @@
     <costList>
       <USH_ScariaPathogen>1</USH_ScariaPathogen>
     </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_ScariaOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_VirusPathogenBase">
@@ -87,6 +92,11 @@
     <costList>
       <USH_ScariaPathogen>15</USH_ScariaPathogen>
     </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_ScariaOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalShellBulletBase">
@@ -100,9 +110,6 @@
 
   <ThingDef ParentName="USH_BiologicalBarrelBase">
     <defName>USH_ScariaBarrel</defName>
-    <costList>
-      <USH_ScariaPathogen>75</USH_ScariaPathogen>
-    </costList>
     <comps>
       <li Class="CompProperties_Explosive">
         <explosiveRadius>6.9</explosiveRadius>
@@ -114,6 +121,14 @@
         <wickTicks>30~60</wickTicks>
       </li>
     </comps>
+    <costList>
+      <USH_ScariaPathogen>75</USH_ScariaPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_ScariaOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
     <specialDisplayRadius>6.9</specialDisplayRadius>
   </ThingDef>
 
@@ -139,6 +154,11 @@
         </targetParams>
       </li>
     </verbs>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_ScariaOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGrenadeBulletBase">
