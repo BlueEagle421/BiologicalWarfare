@@ -5,7 +5,7 @@
     <defName>USH_FleshBreaker</defName>
     <label>flesh-breaker</label>
     <hediffDef>USH_FleshBreakerHigh</hediffDef>
-    <diseaseType>Custom</diseaseType>
+    <diseaseType>Chemical</diseaseType>
     <canBeSampled>False</canBeSampled>
     <colorInt>(148, 153, 49, 255)</colorInt>
 

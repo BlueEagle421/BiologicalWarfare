@@ -91,6 +91,7 @@ namespace BiologicalWarfare
         Virus,
         Parasite,
         Mechanites,
+        Chemical,
         Custom
     }
 }
