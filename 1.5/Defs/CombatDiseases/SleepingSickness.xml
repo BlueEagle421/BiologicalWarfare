@@ -25,6 +25,13 @@
       <li>USH_SleepingSicknessGrenadeBullet</li>
     </thingDefsToFormat>
 
+    <researchProjectsDefsToFormat>
+      <li>USH_SleepingSicknessOperationRes</li>
+      <li>USH_SleepingSicknessVaccineRes</li>
+    </researchProjectsDefsToFormat>
+
+    <vaccineResProjectDef>USH_SleepingSicknessVaccineRes</vaccineResProjectDef>
+
     <!-- sample def is required for CombatDiseaseDef to work properly -->
     <sampleDef>USH_SleepingSicknessSample</sampleDef>
     <!-- pathogen def is optional -->
@@ -170,5 +177,20 @@
       <explosionRadius>4.9</explosionRadius>
     </projectile>
   </ThingDef>
+
+  <ResearchProjectDef ParentName="USH_DiseaseOprationResBase">
+    <defName>USH_SleepingSicknessOperationRes</defName>
+    <researchViewX>1.50</researchViewX>
+    <researchViewY>2.60</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase">
+    <defName>USH_SleepingSicknessVaccineRes</defName>
+    <prerequisites>
+      <li>USH_SleepingSicknessOperationRes</li>
+    </prerequisites>
+    <researchViewX>2.50</researchViewX>
+    <researchViewY>2.60</researchViewY>
+  </ResearchProjectDef>
 
 </Defs>

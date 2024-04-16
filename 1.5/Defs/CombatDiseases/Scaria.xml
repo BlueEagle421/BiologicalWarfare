@@ -24,6 +24,13 @@
       <li>USH_ScariaGrenadeBullet</li>
     </thingDefsToFormat>
 
+    <researchProjectsDefsToFormat>
+      <li>USH_ScariaOperationRes</li>
+      <li>USH_ScariaVaccineRes</li>
+    </researchProjectsDefsToFormat>
+
+    <vaccineResProjectDef>USH_ScariaVaccineRes</vaccineResProjectDef>
+
     <!-- sample def is required for CombatDiseaseDef to work properly -->
     <sampleDef>USH_ScariaSample</sampleDef>
     <!-- pathogen def is optional -->
@@ -142,5 +149,20 @@
       <explosionRadius>4.9</explosionRadius>
     </projectile>
   </ThingDef>
+
+  <ResearchProjectDef ParentName="USH_DiseaseOprationResBase">
+    <defName>USH_ScariaOperationRes</defName>
+    <researchViewX>1.50</researchViewX>
+    <researchViewY>0.80</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase">
+    <defName>USH_ScariaVaccineRes</defName>
+    <prerequisites>
+      <li>USH_ScariaOperationRes</li>
+    </prerequisites>
+    <researchViewX>2.50</researchViewX>
+    <researchViewY>0.80</researchViewY>
+  </ResearchProjectDef>
 
 </Defs>

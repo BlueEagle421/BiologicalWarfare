@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
+  <ResearchTabDef>
+    <defName>USH_BiologicalWarfare</defName>
+    <label>Biological Warfare</label>
+    <generalTitle>Pathogen research projects</generalTitle>
+    <generalDescription>Placeholder.</generalDescription>
+  </ResearchTabDef>
+
   <ResearchProjectDef Name="USH_BiologicalProjectBase" Abstract="True">
-    <tab>Main</tab>
     <techLevel>Industrial</techLevel>
+    <tab>USH_BiologicalWarfare</tab>
   </ResearchProjectDef>
 
   <ResearchProjectDef ParentName="USH_BiologicalProjectBase">
@@ -12,22 +19,23 @@
     <description>Acquire disease samples from sick colonists to initiate a production chain of powerful pathogens.</description>
     <baseCost>800</baseCost>
     <prerequisites>
-      <li>DrugProduction</li>
+      <li>Electricity</li>
     </prerequisites>
-    <researchViewX>4.00</researchViewX>
-    <researchViewY>4.10</researchViewY>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>2.10</researchViewY>
   </ResearchProjectDef>
 
   <ResearchProjectDef ParentName="USH_BiologicalProjectBase">
     <defName>USH_PathogenOperationRes</defName>
     <label>Pathogen operation</label>
-    <description>Craft pythogen gas grenade launchers, explosive gas barrels and devastating gas mortar shells.</description>
+    <description>Craft pythogen gas grenade launchers, explosive gas barrels and devastating mortar shells.</description>
     <baseCost>1000</baseCost>
     <prerequisites>
       <li>USH_PathogenProductionRes</li>
+      <li>Machining</li>
     </prerequisites>
-    <researchViewX>5.00</researchViewX>
-    <researchViewY>4.10</researchViewY>
+    <researchViewX>1.50</researchViewX>
+    <researchViewY>3.30</researchViewY>
   </ResearchProjectDef>
 
 </Defs>

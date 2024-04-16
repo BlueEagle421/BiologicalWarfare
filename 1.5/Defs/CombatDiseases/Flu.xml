@@ -24,10 +24,18 @@
       <li>USH_FluGrenadeBullet</li>
     </thingDefsToFormat>
 
+    <researchProjectsDefsToFormat>
+      <li>USH_FluOperationRes</li>
+      <li>USH_FluVaccineRes</li>
+    </researchProjectsDefsToFormat>
+
+    <vaccineResProjectDef>USH_FluVaccineRes</vaccineResProjectDef>
+
     <!-- sample def is required for CombatDiseaseDef to work properly -->
     <sampleDef>USH_FluSample</sampleDef>
     <!-- pathogen def is optional -->
     <pathogenDef>USH_FluPathogen</pathogenDef>
+
 
   </BiologicalWarfare.CombatDiseaseDef>
 
@@ -142,5 +150,20 @@
       <explosionRadius>4.9</explosionRadius>
     </projectile>
   </ThingDef>
+
+  <ResearchProjectDef ParentName="USH_DiseaseOprationResBase">
+    <defName>USH_FluOperationRes</defName>
+    <researchViewX>1.50</researchViewX>
+    <researchViewY>0.20</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase">
+    <defName>USH_FluVaccineRes</defName>
+    <prerequisites>
+      <li>USH_FluOperationRes</li>
+    </prerequisites>
+    <researchViewX>2.50</researchViewX>
+    <researchViewY>0.20</researchViewY>
+  </ResearchProjectDef>
 
 </Defs>

@@ -25,6 +25,13 @@
       <li>USH_MalariaGrenadeBullet</li>
     </thingDefsToFormat>
 
+    <researchProjectsDefsToFormat>
+      <li>USH_MalariaOperationRes</li>
+      <li>USH_MalariaVaccineRes</li>
+    </researchProjectsDefsToFormat>
+
+    <vaccineResProjectDef>USH_MalariaVaccineRes</vaccineResProjectDef>
+
     <!-- sample def is required for CombatDiseaseDef to work properly -->
     <sampleDef>USH_MalariaSample</sampleDef>
     <!-- pathogen def is optional -->
@@ -170,5 +177,20 @@
       <explosionRadius>4.9</explosionRadius>
     </projectile>
   </ThingDef>
+
+  <ResearchProjectDef ParentName="USH_DiseaseOprationResBase">
+    <defName>USH_MalariaOperationRes</defName>
+    <researchViewX>1.50</researchViewX>
+    <researchViewY>2.00</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase">
+    <defName>USH_MalariaVaccineRes</defName>
+    <prerequisites>
+      <li>USH_MalariaOperationRes</li>
+    </prerequisites>
+    <researchViewX>2.50</researchViewX>
+    <researchViewY>2.00</researchViewY>
+  </ResearchProjectDef>
 
 </Defs>
