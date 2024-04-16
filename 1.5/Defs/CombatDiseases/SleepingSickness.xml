@@ -41,6 +41,11 @@
 
   <ThingDef ParentName="USH_ParasiteSampleBase">
     <defName>USH_SleepingSicknessSample</defName>
+    <comps>
+      <li Class="BiologicalWarfare.CompProperties_DiseaseSample">
+        <combatDiseaseDef>USH_SleepingSickness</combatDiseaseDef>
+      </li>
+    </comps>
     <costList>
       <USH_SleepingSicknessPathogen>1</USH_SleepingSicknessPathogen>
     </costList>
