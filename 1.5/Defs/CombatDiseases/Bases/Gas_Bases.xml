@@ -36,7 +36,7 @@
       </expireSeconds>
       <rotationSpeed>20</rotationSpeed>
     </gas>
-    <thingClass>OPToxic.OPToxicGas</thingClass>
+    <thingClass>BiologicalWarfare.PathogenGas</thingClass>
   </ThingDef>
 
 </Defs>
