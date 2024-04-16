@@ -69,5 +69,22 @@ namespace BiologicalWarfare
 
             return 1f;
         }
+
+        public static bool CanGasInfect(Pawn pawn)
+        {
+            if (pawn == null)
+                return false;
+
+            if (pawn.RaceProps.IsMechanoid)
+                return false;
+
+            if (pawn.GetStatValue(StatDefOf.ToxicEnvironmentResistance) >= 0.8f)
+                return false;
+
+            if (!pawn.health.capacities.CapableOf(PawnCapacityDefOf.Breathing))
+                return false;
+
+            return true;
+        }
     }
 }
