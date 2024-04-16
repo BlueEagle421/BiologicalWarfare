@@ -70,7 +70,7 @@ namespace BiologicalWarfare
             return 1f;
         }
 
-        public static bool CanGasInfect(Pawn pawn)
+        public static bool CanPathogenInfect(Pawn pawn)
         {
             if (pawn == null)
                 return false;
