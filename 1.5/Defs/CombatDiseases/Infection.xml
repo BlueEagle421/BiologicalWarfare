@@ -63,7 +63,7 @@
     <defName>USH_InfectionFilth</defName>
     <modExtensions>
       <li Class="OPToxic.OPToxicDefs">
-        <OPToxicHediff>Infection</OPToxicHediff>
+        <OPToxicHediff>WoundInfection</OPToxicHediff>
         <OPToxicSeverity>0.02</OPToxicSeverity>
         <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
       </li>
