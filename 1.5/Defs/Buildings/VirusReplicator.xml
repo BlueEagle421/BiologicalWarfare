@@ -33,6 +33,7 @@
       <MaxHitPoints>100</MaxHitPoints>
       <Mass>30</Mass>
       <Flammability>0.7</Flammability>
+      <USH_ContaminationChanceFactor>0.8</USH_ContaminationChanceFactor>
     </statBases>
     <minifiedDef>MinifiedThing</minifiedDef>
     <tickerType>Normal</tickerType>
