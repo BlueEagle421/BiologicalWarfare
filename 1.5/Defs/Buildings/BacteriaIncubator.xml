@@ -5,7 +5,7 @@
     <thingClass>Building</thingClass>
     <defName>USH_BacteriaIncubator</defName>
     <label>bacteria incubator</label>
-    <description>A lab machine designed to breed bacteria colonies. It's fueled by neutroamine and requires a sample of bacteria disease to operate. It will produce 3 bacteria pathogens for every unit of neutroamine. The entire process takes no more than 8 hours.</description>
+    <description>A lab machine designed to breed bacteria colonies. It's fueled by neutroamine and requires a sample of bacteria disease to operate. It will produce 3 bacteria pathogens for every unit of neutroamine. The entire process takes no more than 8 hours.\n\nIt can contaminate the surrounding area during activation and incubation.</description>
     <graphicData>
       <texPath>Things/Building/BacteriaIncubator/BacteriaIncubator</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
