@@ -23,8 +23,11 @@ namespace BiologicalWarfare
             if (Destroyed)
                 return;
 
-            if (Find.TickManager.TicksGame % OPToxicDefGetValue.OPToxicGetSevUpVal(def) != 0)
+            if (!this.IsHashIntervalTick(OPToxicDefGetValue.OPToxicGetSevUpVal(def)))
                 return;
+
+            //if (Find.TickManager.TicksGame % OPToxicDefGetValue.OPToxicGetSevUpVal(def) != 0)
+            //    return;
 
             List<Thing> thingsInGas = Position.GetThingList(Map);
 
@@ -38,7 +41,7 @@ namespace BiologicalWarfare
 
         public void Infect(Thing gas, Pawn pawn)
         {
-            if (!BiologicalUtils.CanGasInfect(pawn))
+            if (!BiologicalUtils.CanPathogenInfect(pawn))
                 return;
 
             HediffDef hediffToAdd = DefDatabase<HediffDef>.GetNamedSilentFail(OPToxicDefGetValue.OPToxicGetHediff(gas.def));
