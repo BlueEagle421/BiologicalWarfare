@@ -32,6 +32,9 @@ namespace BiologicalWarfare
             if (vaccineProj.IsFinished)
                 return false;
 
+            if (vaccineProj.prerequisites.Any(x => !x.IsFinished))
+                return false;
+
             if (pawn == null)
                 return false;
 
