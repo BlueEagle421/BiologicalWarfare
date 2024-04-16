@@ -81,7 +81,6 @@ namespace BiologicalWarfare
     public class JobDriver_VaccineResearch : JobDriver
     {
         private const int JobEndInterval = 4000;
-
         private BuildingVaccineResearchStation Station => (BuildingVaccineResearchStation)TargetThingA;
 
         public override bool TryMakePreToilReservations(bool errorOnFailed) => pawn.Reserve(job.targetA, job, 1, -1, null, true, false);
@@ -109,9 +108,19 @@ namespace BiologicalWarfare
             researchToil.FailOnCannotTouch(TargetIndex.A, PathEndMode.InteractionCell);
             researchToil.FailOn(() => !Station.CanPerformResearch(researchToil.actor));
             researchToil.WithEffect(EffecterDefOf.Research, TargetIndex.A);
-            researchToil.WithProgressBar(TargetIndex.A, () => Station.CurrentVaccineProject().ProgressPercent, false, -0.5f, false);
+            researchToil.WithProgressBar(TargetIndex.A, delegate
+            {
+                ResearchProjectDef vaccineProj = Station.CurrentVaccineProject();
+
+                if (vaccineProj == null)
+                    return 0f;
+
+                return vaccineProj.ProgressPercent;
+            },
+            false, -0.5f, false);
             researchToil.defaultCompleteMode = ToilCompleteMode.Delay;
             researchToil.defaultDuration = JobEndInterval;
+            researchToil.activeSkill = () => SkillDefOf.Intellectual;
             yield return researchToil;
             yield return Toils_General.Wait(2, TargetIndex.None);
             yield break;
