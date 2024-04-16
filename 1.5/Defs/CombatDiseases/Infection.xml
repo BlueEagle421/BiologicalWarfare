@@ -12,6 +12,7 @@
     <!-- also sets color in graphicData -->
     <thingDefsToFormatAndColor>
       <li>USH_InfectionSample</li>
+      <li>USH_InfectionFilth</li>
     </thingDefsToFormatAndColor>
 
     <researchProjectsDefsToFormat>
@@ -23,7 +24,7 @@
     <!-- sample def is required for CombatDiseaseDef to work properly -->
     <sampleDef>USH_InfectionSample</sampleDef>
     <!-- filth def is optional -->
-    <filthDef>USH_FluFilth</filthDef>
+    <filthDef>USH_InfectionFilth</filthDef>
 
   </BiologicalWarfare.CombatDiseaseDef>
 
@@ -59,10 +60,10 @@
   </ThingDef>
 
   <ThingDef ParentName="USH_PathogenFilthBase">
-    <defName>USH_FluFilth</defName>
+    <defName>USH_InfectionFilth</defName>
     <modExtensions>
       <li Class="OPToxic.OPToxicDefs">
-        <OPToxicHediff>Flu</OPToxicHediff>
+        <OPToxicHediff>Infection</OPToxicHediff>
         <OPToxicSeverity>0.02</OPToxicSeverity>
         <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
       </li>

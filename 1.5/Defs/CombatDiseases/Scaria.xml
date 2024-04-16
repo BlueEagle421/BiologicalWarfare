@@ -13,6 +13,7 @@
     <thingDefsToFormatAndColor>
       <li>USH_ScariaSample</li>
       <li>USH_ScariaPathogen</li>
+      <li>USH_ScariaFilth</li>
       <li>USH_ScariaGas</li>
       <li>USH_ScariaShell</li>
       <li>USH_ScariaBarrel</li>
@@ -36,7 +37,7 @@
     <!-- pathogen def is optional -->
     <pathogenDef>USH_ScariaPathogen</pathogenDef>
     <!-- filth def is optional -->
-    <filthDef>USH_FluFilth</filthDef>
+    <filthDef>USH_ScariaFilth</filthDef>
 
   </BiologicalWarfare.CombatDiseaseDef>
 
@@ -62,10 +63,10 @@
   </ThingDef>
 
   <ThingDef ParentName="USH_PathogenFilthBase">
-    <defName>USH_FluFilth</defName>
+    <defName>USH_ScariaFilth</defName>
     <modExtensions>
       <li Class="OPToxic.OPToxicDefs">
-        <OPToxicHediff>Flu</OPToxicHediff>
+        <OPToxicHediff>Scaria</OPToxicHediff>
         <OPToxicSeverity>0.02</OPToxicSeverity>
         <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
       </li>

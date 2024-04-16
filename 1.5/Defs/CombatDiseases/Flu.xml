@@ -13,11 +13,11 @@
     <thingDefsToFormatAndColor>
       <li>USH_FluSample</li>
       <li>USH_FluPathogen</li>
+      <li>USH_FluFilth</li>
       <li>USH_FluGas</li>
       <li>USH_FluShell</li>
       <li>USH_FluBarrel</li>
       <li>USH_FluGrenadeLauncher</li>
-      <li>USH_FluFilth</li>
     </thingDefsToFormatAndColor>
 
     <thingDefsToFormat>

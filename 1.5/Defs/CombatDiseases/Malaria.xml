@@ -13,6 +13,7 @@
     <thingDefsToFormatAndColor>
       <li>USH_MalariaSample</li>
       <li>USH_MalariaPathogen</li>
+      <li>USH_MalariaFilth</li>
       <li>USH_MalariaReproductionPills</li>
       <li>USH_MalariaGas</li>
       <li>USH_MalariaShell</li>
@@ -37,7 +38,7 @@
     <!-- pathogen def is optional -->
     <pathogenDef>USH_MalariaPathogen</pathogenDef>
     <!-- filth def is optional -->
-    <filthDef>USH_FluFilth</filthDef>
+    <filthDef>USH_MalariaFilth</filthDef>
 
   </BiologicalWarfare.CombatDiseaseDef>
 
@@ -63,10 +64,10 @@
   </ThingDef>
 
   <ThingDef ParentName="USH_PathogenFilthBase">
-    <defName>USH_FluFilth</defName>
+    <defName>USH_MalariaFilth</defName>
     <modExtensions>
       <li Class="OPToxic.OPToxicDefs">
-        <OPToxicHediff>Flu</OPToxicHediff>
+        <OPToxicHediff>Malaria</OPToxicHediff>
         <OPToxicSeverity>0.02</OPToxicSeverity>
         <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
       </li>
