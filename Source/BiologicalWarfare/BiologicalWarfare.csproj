@@ -66,6 +66,7 @@
     <Compile Include="CombatDiseaseDef.cs" />
     <Compile Include="CompBacteriaIncubator.cs" />
     <Compile Include="CompDiseaseSample.cs" />
+    <Compile Include="DefFormatter.cs" />
     <Compile Include="DiseaseSampler.cs" />
     <Compile Include="CompDiseaseSampleContainer.cs" />
     <Compile Include="HediffParasiteReproduction.cs" />
