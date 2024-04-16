@@ -3,7 +3,7 @@
 
   <ThingDef Name="USH_PathogenFilthBase" ParentName="BaseFilth" Abstract="True">
     <label>{0} contamination puddle</label>
-    <description>A puddle of infectious {0} filth. Decomposes itself within a few days.</description>
+    <description>A puddle of infectious {0} filth. While not as deadly as pathogen gas, the puddles still cause harm to anyone near them. They decompose within a few days.</description>
     <thingClass>BiologicalWarfare.PathogenFilth</thingClass>
     <useHitPoints>true</useHitPoints>
     <tickerType>Normal</tickerType>
