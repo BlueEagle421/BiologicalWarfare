@@ -24,7 +24,12 @@ namespace BiologicalWarfare
 
         public bool CanPerformResearch(Pawn pawn)
         {
-            if (CurrentVaccineProject() == null)
+            ResearchProjectDef vaccineProj = CurrentVaccineProject();
+
+            if (vaccineProj == null)
+                return false;
+
+            if (vaccineProj.IsFinished)
                 return false;
 
             if (pawn == null)
@@ -87,7 +92,8 @@ namespace BiologicalWarfare
 
             researcher?.records.AddTo(RecordDefOf.ResearchPointsResearched, progress);
 
-            Find.ResearchManager.AddProgress(vaccineProj, progress, researcher);
+            if (!vaccineProj.IsFinished)
+                Find.ResearchManager.AddProgress(vaccineProj, progress, researcher);
         }
     }
 }
