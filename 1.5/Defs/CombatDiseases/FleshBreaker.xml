@@ -140,7 +140,6 @@
 
   <ResearchProjectDef ParentName="USH_DiseaseOprationResBase">
     <defName>USH_FleshBreakerOperationRes</defName>
-    <label>{0}</label>
     <researchViewX>1.50</researchViewX>
     <researchViewY>4.00</researchViewY>
   </ResearchProjectDef>
