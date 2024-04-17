@@ -26,6 +26,7 @@
     <rotatable>true</rotatable>
     <hasInteractionCell>true</hasInteractionCell>
     <interactionCellOffset>(0,0,1)</interactionCellOffset>
+    <interactionCellIcon>DiningChair</interactionCellIcon>
     <fillPercent>0.35</fillPercent>
     <techLevel>Industrial</techLevel>
     <statBases>
