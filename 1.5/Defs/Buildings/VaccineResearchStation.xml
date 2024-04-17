@@ -40,7 +40,7 @@
     <costList>
       <Steel>80</Steel>
       <Silver>30</Silver>
-      <ComponentIndustrial>6</ComponentIndustrial>
+      <ComponentIndustrial>5</ComponentIndustrial>
     </costList>
     <thingCategories>
       <li>BuildingsProduction</li>
