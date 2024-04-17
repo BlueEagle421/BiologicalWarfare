@@ -138,11 +138,9 @@
     <costList>
       <USH_FluPathogen>75</USH_FluPathogen>
     </costList>
-    <recipeMaker>
-      <researchPrerequisites>
-        <li>USH_FluOperationRes</li>
-      </researchPrerequisites>
-    </recipeMaker>
+    <researchPrerequisites>
+      <li>USH_FluOperationRes</li>
+    </researchPrerequisites>
     <specialDisplayRadius>6.9</specialDisplayRadius>
   </ThingDef>
 

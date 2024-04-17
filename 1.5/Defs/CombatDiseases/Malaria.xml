@@ -171,11 +171,9 @@
     <costList>
       <USH_MalariaPathogen>75</USH_MalariaPathogen>
     </costList>
-    <recipeMaker>
-      <researchPrerequisites>
-        <li>USH_MalariaOperationRes</li>
-      </researchPrerequisites>
-    </recipeMaker>
+    <researchPrerequisites>
+      <li>USH_MalariaOperationRes</li>
+    </researchPrerequisites>
     <specialDisplayRadius>6.9</specialDisplayRadius>
   </ThingDef>
 

@@ -171,11 +171,9 @@
     <costList>
       <USH_SleepingSicknessPathogen>75</USH_SleepingSicknessPathogen>
     </costList>
-    <recipeMaker>
-      <researchPrerequisites>
-        <li>USH_SleepingSicknessOperationRes</li>
-      </researchPrerequisites>
-    </recipeMaker>
+    <researchPrerequisites>
+      <li>USH_SleepingSicknessOperationRes</li>
+    </researchPrerequisites>
     <specialDisplayRadius>6.9</specialDisplayRadius>
   </ThingDef>
 

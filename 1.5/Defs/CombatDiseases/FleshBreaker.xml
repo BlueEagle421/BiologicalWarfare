@@ -91,15 +91,13 @@
         <wickTicks>30~60</wickTicks>
       </li>
     </comps>
-    <specialDisplayRadius>6.9</specialDisplayRadius>
     <costList>
       <USH_FleshBreaker>15</USH_FleshBreaker>
     </costList>
-    <recipeMaker>
-      <researchPrerequisites>
-        <li>USH_FleshBreakerOperationRes</li>
-      </researchPrerequisites>
-    </recipeMaker>
+    <researchPrerequisites>
+      <li>USH_FleshBreakerOperationRes</li>
+    </researchPrerequisites>
+    <specialDisplayRadius>6.9</specialDisplayRadius>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">

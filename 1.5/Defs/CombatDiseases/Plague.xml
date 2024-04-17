@@ -138,11 +138,9 @@
     <costList>
       <USH_PlaguePathogen>75</USH_PlaguePathogen>
     </costList>
-    <recipeMaker>
-      <researchPrerequisites>
-        <li>USH_PlagueOperationRes</li>
-      </researchPrerequisites>
-    </recipeMaker>
+    <researchPrerequisites>
+      <li>USH_PlagueOperationRes</li>
+    </researchPrerequisites>
     <specialDisplayRadius>6.9</specialDisplayRadius>
   </ThingDef>
 

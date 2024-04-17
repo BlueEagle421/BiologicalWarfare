@@ -138,11 +138,9 @@
     <costList>
       <USH_ScariaPathogen>75</USH_ScariaPathogen>
     </costList>
-    <recipeMaker>
-      <researchPrerequisites>
-        <li>USH_ScariaOperationRes</li>
-      </researchPrerequisites>
-    </recipeMaker>
+    <researchPrerequisites>
+      <li>USH_ScariaOperationRes</li>
+    </researchPrerequisites>
     <specialDisplayRadius>6.9</specialDisplayRadius>
   </ThingDef>
 
