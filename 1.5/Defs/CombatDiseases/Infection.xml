@@ -12,6 +12,7 @@
     <!-- also sets color in graphicData -->
     <thingDefsToFormatAndColor>
       <li>USH_InfectionSample</li>
+      <li>USH_InfectionPathogen</li>
       <li>USH_InfectionFilth</li>
       <li>USH_InfectionVaccine</li>
     </thingDefsToFormatAndColor>
@@ -83,7 +84,7 @@
     </recipeMaker>
   </ThingDef>
 
-  <HediffDef ParentName="USH_DiseaseVaccineHediffBase">
+  <HediffDef>
     <hediffClass>HediffWithComps</hediffClass>
     <defName>USH_InfectionVaccineHediff</defName>
     <label>{0} immunity</label>
@@ -107,8 +108,6 @@
         </makeImmuneTo>
       </li>
     </stages>
-    <comps>
-    </comps>
   </HediffDef>
 
   <ResearchProjectDef ParentName="USH_DiseaseOprationResBase">
