@@ -60,15 +60,17 @@ namespace BiologicalWarfare
         {
             string baseString = base.GetInspectString();
 
+            string contaminationChance = USHDefOf.USH_ContaminationChanceFactor.LabelCap + ": " + this.GetStatValue(USHDefOf.USH_ContaminationChanceFactor).ToStringPercent();
+
             CompDiseaseSample diseaseSample = _compDiseaseContainer.ContainedSampleComp();
 
             ResearchProjectDef vaccineProj = CurrentVaccineProject();
 
             if (diseaseSample == null)
-                return baseString + string.Format("\n{0}", "USH_InsertSampleToResearch".Translate());
+                return baseString + string.Format("\n{0}", "USH_InsertSampleToResearch".Translate()) + "\n" + contaminationChance;
 
             if (vaccineProj == null)
-                return baseString + string.Format("\n{0}", "USH_WrongSampleToResearch".Translate());
+                return baseString + string.Format("\n{0}", "USH_WrongSampleToResearch".Translate()) + "\n" + contaminationChance;
 
             baseString += string.Format("\n{0}: {1}\n{2}: {3:F0} / {4:F0} ({5})", new object[]
                 {
@@ -79,6 +81,8 @@ namespace BiologicalWarfare
                     vaccineProj.CostApparent,
                     vaccineProj.ProgressPercent.ToStringPercent("0.#")
                 });
+
+            baseString += "\n" + contaminationChance;
 
             return baseString;
         }

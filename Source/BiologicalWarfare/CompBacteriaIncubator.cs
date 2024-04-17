@@ -124,8 +124,10 @@ namespace BiologicalWarfare
 
         public override string CompInspectStringExtra()
         {
+            string contaminationChance = USHDefOf.USH_ContaminationChanceFactor.LabelCap + ": " + parent.GetStatValue(USHDefOf.USH_ContaminationChanceFactor).ToStringPercent();
+
             if (!_isIncubating)
-                return base.CompInspectStringExtra();
+                return base.CompInspectStringExtra() + "\n" + contaminationChance;
 
             StringBuilder stringBuilder = new StringBuilder();
 
@@ -134,6 +136,8 @@ namespace BiologicalWarfare
 
             string diseaseLabel = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.label;
             stringBuilder.AppendLine("USH_IncubatorWillProduce".Translate(_patogensToProduce, diseaseLabel));
+
+            stringBuilder.AppendInNewLine(contaminationChance);
 
             return stringBuilder.ToString().TrimEnd();
         }
