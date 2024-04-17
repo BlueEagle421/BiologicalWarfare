@@ -23,7 +23,6 @@
     <thingCategories>
       <li>ItemsMisc</li>
     </thingCategories>
-    <tradeability>Sellable</tradeability>
     <comps>
       <li Class="CompProperties_Usable">
         <useJob>UseItem</useJob>
