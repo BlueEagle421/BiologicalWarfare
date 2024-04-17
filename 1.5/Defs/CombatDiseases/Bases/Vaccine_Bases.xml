@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef Name="USH_DiseaseVaccineBase" ParentName="ResourceBase" Abstract="True">
+    <label>{0} vaccine</label>
+    <description>Placeholder.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <graphicData>
+      <texPath>Things/Item/DiseaseSampler</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <useHitPoints>true</useHitPoints>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <Mass>0.1</Mass>
+      <DeteriorationRate>2.0</DeteriorationRate>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <stackLimit>10</stackLimit>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+    <recipeMaker>
+      <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+      <workSkill>Intellectual</workSkill>
+      <effectWorking>Cook</effectWorking>
+      <soundWorking>Recipe_CookMeal</soundWorking>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+        <Intellectual>6</Intellectual>
+      </skillRequirements>
+      <recipeUsers>
+        <li>DrugLab</li>
+      </recipeUsers>
+    </recipeMaker>
+    <costList>
+      <Neutroamine>15</Neutroamine>
+      <Penoxycyline>3</Penoxycyline>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>USH_UseVaccine</useJob>
+        <useLabel>Inject {0_label}</useLabel>
+        <useDuration>0</useDuration>
+      </li>
+      <li Class="CompProperties_Targetable">
+        <compClass>CompTargetable_SinglePawn</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <JobDef>
+    <defName>USH_UseVaccine</defName>
+    <driverClass>JobDriver_UseItem</driverClass>
+    <reportString>injecting TargetA to TargetB.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <JobDef>
+    <defName>USH_InjectVaccine</defName>
+    <driverClass>BiologicalWarfare.JobDriver_InjectVaccine</driverClass>
+    <reportString>injecting TargetB to TargetA.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <HediffDef Name="USH_DiseaseVaccineHediffBase" Abstract="True">
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>{0} immunity</label>
+    <labelNoun>a {0} immunity</labelNoun>
+    <description>{0} antigens in the bloodstream. Comes from {0} vaccine.</description>
+    <initialSeverity>1</initialSeverity>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>2700000</disappearsAfterTicks> <!-- 45 days-->
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+  </HediffDef>
+
+</Defs>

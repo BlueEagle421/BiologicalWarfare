@@ -33,6 +33,9 @@ namespace BiologicalWarfare
 
         public bool CanPerformResearch(Pawn pawn)
         {
+            if (!Spawned)
+                return false;
+
             ResearchProjectDef vaccineProj = CurrentVaccineProject();
 
             if (vaccineProj == null)

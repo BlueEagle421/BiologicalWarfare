@@ -46,32 +46,4 @@
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>
 
-  <RecipeDef>
-    <defName>USH_SampleDisease</defName>
-    <label>sample disease</label>
-    <description>Sample a disease.</description>
-    <workerClass>Recipe_AdministerUsableItem</workerClass>
-    <jobString>Taking a sample of a disease.</jobString>
-    <targetsBodyPart>false</targetsBodyPart>
-    <anesthetize>false</anesthetize>
-    <workAmount>120</workAmount>
-    <dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
-    <surgeryOutcomeEffect IsNull="True" />
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>USH_DiseaseSampler</li>
-          </thingDefs>
-        </filter>
-        <count>1</count>
-      </li>
-    </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>USH_DiseaseSampler</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-  </RecipeDef>
-
 </Defs>

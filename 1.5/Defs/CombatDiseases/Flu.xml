@@ -18,6 +18,7 @@
       <li>USH_FluShell</li>
       <li>USH_FluBarrel</li>
       <li>USH_FluGrenadeLauncher</li>
+      <li>USH_FluVaccine</li>
     </thingDefsToFormatAndColor>
 
     <thingDefsToFormat>
@@ -72,6 +73,41 @@
       </li>
     </modExtensions>
   </ThingDef>
+
+  <ThingDef ParentName="USH_DiseaseVaccineBase">
+    <defName>USH_FluVaccine</defName>
+    <comps>
+      <li Class="BiologicalWarfare.CompProperties_TargetEffectVaccine">
+        <jobDef>USH_InjectVaccine</jobDef>
+        <hediffDefVaccine>USH_FluVaccineHediff</hediffDefVaccine>
+      </li>
+    </comps>
+    <costList>
+      <USH_FluPathogen>25</USH_FluPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_FluVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <HediffDef ParentName="USH_DiseaseVaccineHediffBase">
+    <defName>USH_FluVaccineHediff</defName>
+    <label>flu vaccine</label>
+    <comps>
+      <li Class="BiologicalWarfare.HediffCompProperties_RemoveHediff">
+        <removeHediffDef>Flu</removeHediffDef>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <makeImmuneTo>
+          <li>Flu</li>
+        </makeImmuneTo>
+      </li>
+    </stages>
+  </HediffDef>
 
   <DamageDef ParentName="USH_BiologicalDamageBase">
     <defName>USH_FluDamage</defName>
