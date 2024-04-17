@@ -53,6 +53,11 @@
         <shortCircuitInRain>false</shortCircuitInRain>
       </li>
       <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>USH_PathogenStabilizer</li>
+        </linkableFacilities>
+      </li>
       <li Class="BiologicalWarfare.CompProperties_DiseaseSampleContainer">
         <compClass>BiologicalWarfare.CompBateriaIncubatorContainer</compClass>
         <acceptableDiseaseType>Bacteria</acceptableDiseaseType>

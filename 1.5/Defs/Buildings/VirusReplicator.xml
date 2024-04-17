@@ -54,6 +54,11 @@
         <shortCircuitInRain>true</shortCircuitInRain>
       </li>
       <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>USH_PathogenStabilizer</li>
+        </linkableFacilities>
+      </li>
       <li Class="BiologicalWarfare.CompProperties_DiseaseSampleContainer">
         <acceptableDiseaseType>Virus</acceptableDiseaseType>
         <stackLimit>1</stackLimit>

@@ -15,16 +15,11 @@
         <cornerBR>Damage/Corner</cornerBR>
       </damageData>
       <drawSize>(2,2)</drawSize>
-      <drawRotated>true</drawRotated>
-      <allowFlip>true</allowFlip>
     </graphicData>
     <size>(1, 1)</size>
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
     <defaultPlacingRot>South</defaultPlacingRot>
-    <rotatable>true</rotatable>
-    <hasInteractionCell>true</hasInteractionCell>
-    <interactionCellOffset>(0,0,1)</interactionCellOffset>
     <fillPercent>0.2</fillPercent>
     <techLevel>Industrial</techLevel>
     <statBases>
@@ -34,7 +29,6 @@
       <Flammability>0.7</Flammability>
     </statBases>
     <minifiedDef>MinifiedThing</minifiedDef>
-    <tickerType>Normal</tickerType>
     <costList>
       <Steel>20</Steel>
       <Silver>20</Silver>
