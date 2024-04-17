@@ -14,6 +14,7 @@
       <li>USH_SleepingSicknessSample</li>
       <li>USH_SleepingSicknessPathogen</li>
       <li>USH_SleepingSicknessFilth</li>
+      <li>USH_SleepingSicknessVaccine</li>
       <li>USH_SleepingSicknessReproductionPills</li>
       <li>USH_SleepingSicknessGas</li>
       <li>USH_SleepingSicknessShell</li>
@@ -30,6 +31,10 @@
       <li>USH_SleepingSicknessOperationRes</li>
       <li>USH_SleepingSicknessVaccineRes</li>
     </researchProjectsDefsToFormat>
+
+    <hediffDefsToFormat>
+      <li>USH_SleepingSicknessVaccineHediff</li>
+    </hediffDefsToFormat>
 
     <vaccineResProjectDef>USH_SleepingSicknessVaccineRes</vaccineResProjectDef>
 
@@ -73,6 +78,41 @@
       </li>
     </modExtensions>
   </ThingDef>
+
+  <ThingDef ParentName="USH_DiseaseVaccineBase">
+    <defName>USH_SleepingSicknessVaccine</defName>
+    <comps>
+      <li Class="BiologicalWarfare.CompProperties_TargetEffectVaccine">
+        <jobDef>USH_InjectVaccine</jobDef>
+        <hediffDefVaccine>USH_SleepingSicknessVaccineHediff</hediffDefVaccine>
+      </li>
+    </comps>
+    <costList>
+      <USH_SleepingSicknessPathogen>25</USH_SleepingSicknessPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_SleepingSicknessVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <HediffDef ParentName="USH_DiseaseVaccineHediffBase">
+    <defName>USH_SleepingSicknessVaccineHediff</defName>
+    <label>sleepingsickness vaccine</label>
+    <comps>
+      <li Class="BiologicalWarfare.HediffCompProperties_RemoveHediff">
+        <removeHediffDef>SleepingSickness</removeHediffDef>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <makeImmuneTo>
+          <li>SleepingSickness</li>
+        </makeImmuneTo>
+      </li>
+    </stages>
+  </HediffDef>
 
   <ThingDef ParentName="USH_ParasiteReproductionPills">
     <defName>USH_SleepingSicknessReproductionPills</defName>

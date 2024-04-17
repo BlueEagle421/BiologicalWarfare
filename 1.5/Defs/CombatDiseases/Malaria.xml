@@ -14,6 +14,7 @@
       <li>USH_MalariaSample</li>
       <li>USH_MalariaPathogen</li>
       <li>USH_MalariaFilth</li>
+      <li>USH_MalariaVaccine</li>
       <li>USH_MalariaReproductionPills</li>
       <li>USH_MalariaGas</li>
       <li>USH_MalariaShell</li>
@@ -30,6 +31,10 @@
       <li>USH_MalariaOperationRes</li>
       <li>USH_MalariaVaccineRes</li>
     </researchProjectsDefsToFormat>
+
+    <hediffDefsToFormat>
+      <li>USH_MalariaVaccineHediff</li>
+    </hediffDefsToFormat>
 
     <vaccineResProjectDef>USH_MalariaVaccineRes</vaccineResProjectDef>
 
@@ -73,6 +78,41 @@
       </li>
     </modExtensions>
   </ThingDef>
+
+  <ThingDef ParentName="USH_DiseaseVaccineBase">
+    <defName>USH_MalariaVaccine</defName>
+    <comps>
+      <li Class="BiologicalWarfare.CompProperties_TargetEffectVaccine">
+        <jobDef>USH_InjectVaccine</jobDef>
+        <hediffDefVaccine>USH_MalariaVaccineHediff</hediffDefVaccine>
+      </li>
+    </comps>
+    <costList>
+      <USH_MalariaPathogen>25</USH_MalariaPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_MalariaVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <HediffDef ParentName="USH_DiseaseVaccineHediffBase">
+    <defName>USH_MalariaVaccineHediff</defName>
+    <label>malaria vaccine</label>
+    <comps>
+      <li Class="BiologicalWarfare.HediffCompProperties_RemoveHediff">
+        <removeHediffDef>Malaria</removeHediffDef>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <makeImmuneTo>
+          <li>Malaria</li>
+        </makeImmuneTo>
+      </li>
+    </stages>
+  </HediffDef>
 
   <ThingDef ParentName="USH_ParasiteReproductionPills">
     <defName>USH_MalariaReproductionPills</defName>
