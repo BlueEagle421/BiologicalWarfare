@@ -3,7 +3,7 @@
 
   <ThingDef Name="USH_DiseaseVaccineBase" ParentName="ResourceBase" Abstract="True">
     <label>{0} vaccine</label>
-    <description>A syringe contaning a carefully prepared mixture of antigens. It can be used on a pawn to grand instant immunity to a specific disease. It also prevents getting sick from {0} for 45 days.\n\nNote that it doesn't protect from pathogen gas or contamination.</description>
+    <description>A syringe contaning a carefully prepared mixture of antigens. It can be used on a pawn to grand instant immunity to {0} disease. It also prevents getting sick from {0} for 45 days.\n\nNote that it doesn't protect from pathogen gas or contamination.</description>
     <thingClass>ThingWithComps</thingClass>
     <graphicData>
       <texPath>Things/Item/DiseaseSampler</texPath>

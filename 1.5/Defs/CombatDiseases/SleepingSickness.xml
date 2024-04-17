@@ -99,7 +99,6 @@
 
   <HediffDef ParentName="USH_DiseaseVaccineHediffBase">
     <defName>USH_SleepingSicknessVaccineHediff</defName>
-    <label>sleepingsickness vaccine</label>
     <comps>
       <li Class="BiologicalWarfare.HediffCompProperties_RemoveHediff">
         <removeHediffDef>SleepingSickness</removeHediffDef>

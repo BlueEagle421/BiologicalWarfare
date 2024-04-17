@@ -118,7 +118,7 @@
     <defName>USH_InfectionOperationRes</defName>
     <description>Sample {0} {1} and craft {0} pythogens to develop powerful vaccines. Note that no weapons can be crafted from {0} pathogens.</description>
     <researchViewX>1.50</researchViewX>
-    <researchViewY>4.00</researchViewY>
+    <researchViewY>3.40</researchViewY>
   </ResearchProjectDef>
 
   <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase">
@@ -128,7 +128,7 @@
     </prerequisites>
     <baseCost>2600</baseCost>
     <researchViewX>2.50</researchViewX>
-    <researchViewY>4.00</researchViewY>
+    <researchViewY>3.40</researchViewY>
   </ResearchProjectDef>
 
 </Defs>

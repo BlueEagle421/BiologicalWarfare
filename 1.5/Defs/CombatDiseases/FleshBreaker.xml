@@ -142,7 +142,7 @@
     <defName>USH_FleshBreakerOperationRes</defName>
     <label>{0}</label>
     <researchViewX>1.50</researchViewX>
-    <researchViewY>3.40</researchViewY>
+    <researchViewY>4.00</researchViewY>
   </ResearchProjectDef>
 
 </Defs>

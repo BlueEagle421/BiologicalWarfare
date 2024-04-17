@@ -98,7 +98,6 @@
 
   <HediffDef ParentName="USH_DiseaseVaccineHediffBase">
     <defName>USH_PlagueVaccineHediff</defName>
-    <label>plague vaccine</label>
     <comps>
       <li Class="BiologicalWarfare.HediffCompProperties_RemoveHediff">
         <removeHediffDef>Plague</removeHediffDef>

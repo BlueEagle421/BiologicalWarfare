@@ -99,7 +99,6 @@
 
   <HediffDef ParentName="USH_DiseaseVaccineHediffBase">
     <defName>USH_MalariaVaccineHediff</defName>
-    <label>malaria vaccine</label>
     <comps>
       <li Class="BiologicalWarfare.HediffCompProperties_RemoveHediff">
         <removeHediffDef>Malaria</removeHediffDef>
