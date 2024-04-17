@@ -15,6 +15,7 @@ namespace BiologicalWarfare
         public List<ThingDef> thingDefsToFormatAndColor = new List<ThingDef>();
 
         public List<ResearchProjectDef> researchProjectsDefsToFormat = new List<ResearchProjectDef>();
+        public List<HediffDef> hediffDefsToFormat = new List<HediffDef>();
 
         public ThingDef sampleDef;
         public ThingDef pathogenDef;
@@ -54,6 +55,7 @@ namespace BiologicalWarfare
             _defFormatter.AddDefsToFormat(thingDefsToFormat.ConvertAll(x => (Def)x));
             _defFormatter.AddDefsToFormat(thingDefsToFormatAndColor.ConvertAll(x => (Def)x));
             _defFormatter.AddDefsToFormat(researchProjectsDefsToFormat.ConvertAll(x => (Def)x));
+            _defFormatter.AddDefsToFormat(hediffDefsToFormat.ConvertAll(x => (Def)x));
 
             _defFormatter.Format();
 

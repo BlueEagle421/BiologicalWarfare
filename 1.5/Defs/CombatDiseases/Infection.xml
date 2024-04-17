@@ -22,6 +22,10 @@
       <li>USH_InfectionVaccineRes</li>
     </researchProjectsDefsToFormat>
 
+    <hediffDefsToFormat>
+      <li>USH_InfectionVaccineHediff</li>
+    </hediffDefsToFormat>
+
     <vaccineResProjectDef>USH_InfectionVaccineRes</vaccineResProjectDef>
 
     <!-- sample def is required for CombatDiseaseDef to work properly -->
