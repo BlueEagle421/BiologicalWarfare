@@ -137,9 +137,9 @@ namespace BiologicalWarfare
             string diseaseLabel = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.label;
             stringBuilder.AppendLine("USH_IncubatorWillProduce".Translate(_patogensToProduce, diseaseLabel));
 
-            stringBuilder.AppendInNewLine(contaminationChance);
+            stringBuilder.AppendLine(contaminationChance);
 
-            return stringBuilder.ToString().TrimEnd();
+            return stringBuilder.ToString().Trim();
         }
 
         protected override void OnInteracted(Pawn caster)
