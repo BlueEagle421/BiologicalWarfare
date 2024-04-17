@@ -15,7 +15,7 @@
   <ResearchProjectDef Name="USH_DiseaseVaccineResBase" ParentName="USH_BiologicalProjectBase" Abstract="True">
     <label>{0} vaccine</label>
     <description>Craft vaccines that grand instant immunity to {0}. This reasearch project must be studied using vaccine reseach station with an iserted {0} {1} sample.</description>
-    <baseCost>3000</baseCost>
+    <baseCost>1200</baseCost>
     <requiredResearchFacilities>
       <li>USH_VaccineResearchStation</li>
     </requiredResearchFacilities>
