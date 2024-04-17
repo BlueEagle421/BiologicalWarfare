@@ -11,7 +11,7 @@ namespace BiologicalWarfare
         public static string ToStringUncapitalized(this DiseaseType diseaseType) => diseaseType.ToString().UncapitalizeFirst();
 
         public static float CELL_CONTAMINATION_CHANCE = 0.8f; //8%
-        public static int CONTAMINATION_TICKS = 2500 * 12; //12 hours
+        public static int CONTAMINATION_TICKS = 2500 * 8; //8 hours
 
         public static void SpawnThingAt(Map map, List<IntVec3> cells, ThingDef thingDef, int count)
         {
