@@ -97,8 +97,11 @@ namespace BiologicalWarfare
         {
             Hediff toRemove = Pawn.health.hediffSet.GetFirstHediffOfDef(PropsVaccine.removeHediffDef);
 
-            if (toRemove != null)
-                Pawn.health.hediffSet.hediffs.Remove(toRemove);
+            if (toRemove == null)
+                return;
+
+            Messages.Message((string)"USH_VaccineHealed".Translate(toRemove.Named("HEDIFF"), Pawn.Named("PAWN")), Pawn, MessageTypeDefOf.PositiveEvent, true);
+            Pawn.health.hediffSet.hediffs.Remove(toRemove);
         }
     }
 }

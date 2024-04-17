@@ -26,4 +26,6 @@
 
     <USH_AreaContaminated>{0} pathogen leakage contaminated {1} nearest area.</USH_AreaContaminated>
 
+    <USH_VaccineHealed>Vaccine succesfully healed {HEDIFF} carried by {PAWN}.</USH_VaccineHealed>
+
 </LanguageData>
