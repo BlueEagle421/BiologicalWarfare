@@ -96,7 +96,9 @@ namespace BiologicalWarfare
         private void RemoveHediff()
         {
             Hediff toRemove = Pawn.health.hediffSet.GetFirstHediffOfDef(PropsVaccine.removeHediffDef);
-            Pawn.health.hediffSet.hediffs.Remove(toRemove);
+
+            if (toRemove != null)
+                Pawn.health.hediffSet.hediffs.Remove(toRemove);
         }
     }
 }
