@@ -13,12 +13,12 @@
     </graphicData>
     <statBases>
       <MaxHitPoints>30</MaxHitPoints>
-      <WorkToMake>2500</WorkToMake>
+      <WorkToMake>2000</WorkToMake>
       <Mass>0.15</Mass>
       <StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
       <StuffEffectMultiplierInsulation_Cold>0.50</StuffEffectMultiplierInsulation_Cold>
       <StuffEffectMultiplierInsulation_Heat>0</StuffEffectMultiplierInsulation_Heat>
-      <EquipDelay>0.4</EquipDelay>
+      <EquipDelay>0.6</EquipDelay>
     </statBases>
     <equippedStatOffsets>
       <ToxicEnvironmentResistance>0.8</ToxicEnvironmentResistance>
@@ -50,11 +50,6 @@
       <tags>
         <li>IndustrialBasic</li>
       </tags>
-      <forceEyesVisibleForRotations>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-      </forceEyesVisibleForRotations>
     </apparel>
   </ThingDef>
 
