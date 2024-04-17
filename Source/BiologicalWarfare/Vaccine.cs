@@ -39,10 +39,6 @@ namespace BiologicalWarfare
         private Pawn PawnToInjectTo => job.GetTarget(TargetIndex.A).Pawn;
         private Thing Item => job.GetTarget(TargetIndex.B).Thing;
         private HediffDef HediffDefToGive => Item.TryGetComp<CompTargetEffect_Vaccine>().PropsVaccine.hediffDefVaccine;
-        public override void ExposeData()
-        {
-            base.ExposeData();
-        }
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
