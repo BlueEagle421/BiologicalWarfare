@@ -3,13 +3,11 @@
 
   <ThoughtDef>
     <defName>USH_VaccineWoozy</defName>
-    <workerClass>ThoughtWorker_Hediff</workerClass>
     <durationDays>1</durationDays>
-    <validWhileDespawned>true</validWhileDespawned>
-    <nullifyingTraits>
-      <li>ChemicalInterest</li>
-    </nullifyingTraits>
-    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <nullifyingTraitDegrees>
+      <DrugDesire>1</DrugDesire>
+    </nullifyingTraitDegrees>
+    <requiredTraitsDegree>2</requiredTraitsDegree>
     <stages>
       <li>
         <label>woozy</label>
