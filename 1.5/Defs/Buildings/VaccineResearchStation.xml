@@ -4,8 +4,8 @@
   <ThingDef ParentName="BuildingBase">
     <thingClass>BiologicalWarfare.BuildingVaccineResearchStation</thingClass>
     <defName>USH_VaccineResearchStation</defName>
-    <label>vaccine research station</label>
-    <description>A lab-grade machine designed to analyze disease samples and develop antigens for vaccines. It requires an inserted sample and a researcher to operate it. All previous vaccine research requirements must be met for it to function properly.\n\nIt can contaminate the surrounding area during reasearch.</description>
+    <label>antigens analyzer</label>
+    <description>A lab-grade machine designed to analyze disease samples and develop antigens. It requires an inserted sample and a researcher to operate it. All previous antigens research requirements must be met for it to function properly.\n\nIt can contaminate the surrounding area during reasearch.</description>
     <graphicData>
       <texPath>Things/Building/BacteriaIncubator/BacteriaIncubator</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -27,6 +27,7 @@
     <hasInteractionCell>true</hasInteractionCell>
     <interactionCellOffset>(0,0,1)</interactionCellOffset>
     <interactionCellIcon>DiningChair</interactionCellIcon>
+    <interactionCellIconReverse>true</interactionCellIconReverse>
     <fillPercent>0.35</fillPercent>
     <techLevel>Industrial</techLevel>
     <statBases>
@@ -68,6 +69,10 @@
         <drawContainedThing>false</drawContainedThing>
       </li>
     </comps>
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+    </placeWorkers>
     <researchPrerequisites>
       <li>USH_PathogenProductionRes</li>
     </researchPrerequisites>
