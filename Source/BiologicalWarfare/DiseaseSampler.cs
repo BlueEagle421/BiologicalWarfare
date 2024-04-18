@@ -71,7 +71,7 @@ namespace BiologicalWarfare
                 return;
             }
 
-            SoundDef.Named("USH_SampleDisease").PlayOneShot(SoundInfo.InMap(PawnToSampleFrom));
+            USHDefOf.USH_SampleDisease.PlayOneShot(SoundInfo.InMap(PawnToSampleFrom));
             BiologicalUtils.SpawnThingAt(PawnToSampleFrom.Map, PawnToSampleFrom.CellsAdjacent8WayAndInside().ToList(), pathogenToSpawn, 1);
             Item.SplitOff(1).Destroy(DestroyMode.Vanish);
         }

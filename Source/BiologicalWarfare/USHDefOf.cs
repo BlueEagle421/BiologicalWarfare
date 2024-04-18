@@ -25,5 +25,9 @@ namespace BiologicalWarfare
         public static StatDef USH_ContaminationChanceFactor;
 
         public static ThoughtDef USH_VaccineWoozy;
+
+        public static SoundDef USH_SampleDisease;
+
+        public static SoundDef USH_VaccineInjected;
     }
 }

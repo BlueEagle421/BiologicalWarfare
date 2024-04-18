@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Verse;
 using Verse.AI;
+using Verse.Sound;
 
 namespace BiologicalWarfare
 {
@@ -69,11 +70,11 @@ namespace BiologicalWarfare
                 return;
             }
 
+            USHDefOf.USH_VaccineInjected.PlayOneShot(SoundInfo.InMap(pawn));
+
             pawn.needs.mood.thoughts.memories.TryGainMemory(USHDefOf.USH_VaccineWoozy);
             pawn.health.AddHediff(HediffDefToGive);
             Item.SplitOff(1).Destroy(DestroyMode.Vanish);
         }
     }
-
-
 }
