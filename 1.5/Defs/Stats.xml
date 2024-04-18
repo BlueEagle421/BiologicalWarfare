@@ -20,10 +20,6 @@
         <roomStat>InfectionChanceFactor</roomStat>
         <customLabel>Room cleanliness</customLabel>
       </li>
-      <li Class="StatPart_RoomStat">
-        <roomStat>ReadingBonus</roomStat>
-        <customLabel>Reading bonus</customLabel>
-      </li>
     </parts>
     <displayPriorityInCategory>1000</displayPriorityInCategory>
   </StatDef>
