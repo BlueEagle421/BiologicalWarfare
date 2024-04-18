@@ -13,8 +13,9 @@
     <thingDefsToFormatAndColor>
       <li>USH_ScariaSample</li>
       <li>USH_ScariaPathogen</li>
-      <li>USH_ScariaFilth</li>
       <li>USH_ScariaVaccine</li>
+      <li>USH_ScariaAntiserum</li>
+      <li>USH_ScariaFilth</li>
       <li>USH_ScariaGas</li>
       <li>USH_ScariaShell</li>
       <li>USH_ScariaBarrel</li>
@@ -67,17 +68,6 @@
     <defName>USH_ScariaPathogen</defName>
   </ThingDef>
 
-  <ThingDef ParentName="USH_PathogenFilthBase">
-    <defName>USH_ScariaFilth</defName>
-    <modExtensions>
-      <li Class="OPToxic.OPToxicDefs">
-        <OPToxicHediff>Scaria</OPToxicHediff>
-        <OPToxicSeverity>0.02</OPToxicSeverity>
-        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
-      </li>
-    </modExtensions>
-  </ThingDef>
-
   <ThingDef ParentName="USH_DiseaseVaccineBase">
     <defName>USH_ScariaVaccine</defName>
     <comps>
@@ -107,9 +97,40 @@
     </stages>
   </HediffDef>
 
+  <ThingDef ParentName="USH_DiseaseAntiserum">
+    <defName>USH_ScariaAntiserum</defName>
+    <ingestible>
+      <outcomeDoers>
+        <li Class="BiologicalWarfare.IngestionOutcomeDoer_RemoveHediff">
+          <hediffDefToRemove>Scaria</hediffDefToRemove>
+          <sendMessage>true</sendMessage>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <costList>
+      <USH_ScariaPathogen>40</USH_ScariaPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_ScariaVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
   <DamageDef ParentName="USH_BiologicalDamageBase">
     <defName>USH_ScariaDamage</defName>
   </DamageDef>
+
+  <ThingDef ParentName="USH_PathogenFilthBase">
+    <defName>USH_ScariaFilth</defName>
+    <modExtensions>
+      <li Class="OPToxic.OPToxicDefs">
+        <OPToxicHediff>Scaria</OPToxicHediff>
+        <OPToxicSeverity>0.02</OPToxicSeverity>
+        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
+      </li>
+    </modExtensions>
+  </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGasBase">
     <defName>USH_ScariaGas</defName>

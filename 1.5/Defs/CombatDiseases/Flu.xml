@@ -13,12 +13,13 @@
     <thingDefsToFormatAndColor>
       <li>USH_FluSample</li>
       <li>USH_FluPathogen</li>
+      <li>USH_FluVaccine</li>
+      <li>USH_FluAntiserum</li>
       <li>USH_FluFilth</li>
       <li>USH_FluGas</li>
       <li>USH_FluShell</li>
       <li>USH_FluBarrel</li>
       <li>USH_FluGrenadeLauncher</li>
-      <li>USH_FluVaccine</li>
     </thingDefsToFormatAndColor>
 
     <thingDefsToFormat>
@@ -67,17 +68,6 @@
     <defName>USH_FluPathogen</defName>
   </ThingDef>
 
-  <ThingDef ParentName="USH_PathogenFilthBase">
-    <defName>USH_FluFilth</defName>
-    <modExtensions>
-      <li Class="OPToxic.OPToxicDefs">
-        <OPToxicHediff>Flu</OPToxicHediff>
-        <OPToxicSeverity>0.02</OPToxicSeverity>
-        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
-      </li>
-    </modExtensions>
-  </ThingDef>
-
   <ThingDef ParentName="USH_DiseaseVaccineBase">
     <defName>USH_FluVaccine</defName>
     <comps>
@@ -107,9 +97,40 @@
     </stages>
   </HediffDef>
 
+  <ThingDef ParentName="USH_DiseaseAntiserum">
+    <defName>USH_FluAntiserum</defName>
+    <ingestible>
+      <outcomeDoers>
+        <li Class="BiologicalWarfare.IngestionOutcomeDoer_RemoveHediff">
+          <hediffDefToRemove>Flu</hediffDefToRemove>
+          <sendMessage>true</sendMessage>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <costList>
+      <USH_FluPathogen>40</USH_FluPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_FluVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
   <DamageDef ParentName="USH_BiologicalDamageBase">
     <defName>USH_FluDamage</defName>
   </DamageDef>
+
+  <ThingDef ParentName="USH_PathogenFilthBase">
+    <defName>USH_FluFilth</defName>
+    <modExtensions>
+      <li Class="OPToxic.OPToxicDefs">
+        <OPToxicHediff>Flu</OPToxicHediff>
+        <OPToxicSeverity>0.02</OPToxicSeverity>
+        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
+      </li>
+    </modExtensions>
+  </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGasBase">
     <defName>USH_FluGas</defName>

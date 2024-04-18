@@ -13,8 +13,9 @@
     <thingDefsToFormatAndColor>
       <li>USH_InfectionSample</li>
       <li>USH_InfectionPathogen</li>
-      <li>USH_InfectionFilth</li>
       <li>USH_InfectionVaccine</li>
+      <li>USH_InfectionAntiserum</li>
+      <li>USH_InfectionFilth</li>
     </thingDefsToFormatAndColor>
 
     <researchProjectsDefsToFormat>
@@ -58,17 +59,6 @@
     <defName>USH_InfectionPathogen</defName>
   </ThingDef>
 
-  <ThingDef ParentName="USH_PathogenFilthBase">
-    <defName>USH_InfectionFilth</defName>
-    <modExtensions>
-      <li Class="OPToxic.OPToxicDefs">
-        <OPToxicHediff>WoundInfection</OPToxicHediff>
-        <OPToxicSeverity>0.02</OPToxicSeverity>
-        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
-      </li>
-    </modExtensions>
-  </ThingDef>
-
   <ThingDef ParentName="USH_DiseaseVaccineBase">
     <defName>USH_InfectionVaccine</defName>
     <description>A syringe contaning a carefully prepared mixture of antigens.\n\nNote that it doesn't protect from pathogen gas or contamination.\n\nDue to the diverse range of bacteria within the infection family, antigens are not as effective as in other diseases. It provides full immunity for only 8 days.</description>
@@ -110,6 +100,37 @@
       </li>
     </stages>
   </HediffDef>
+
+  <ThingDef ParentName="USH_DiseaseAntiserum">
+    <defName>USH_InfectionAntiserum</defName>
+    <ingestible>
+      <outcomeDoers>
+        <li Class="BiologicalWarfare.IngestionOutcomeDoer_RemoveHediff">
+          <hediffDefToRemove>WoundInfection</hediffDefToRemove>
+          <sendMessage>true</sendMessage>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <costList>
+      <USH_InfectionPathogen>40</USH_InfectionPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_InfectionVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_PathogenFilthBase">
+    <defName>USH_InfectionFilth</defName>
+    <modExtensions>
+      <li Class="OPToxic.OPToxicDefs">
+        <OPToxicHediff>WoundInfection</OPToxicHediff>
+        <OPToxicSeverity>0.02</OPToxicSeverity>
+        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
+      </li>
+    </modExtensions>
+  </ThingDef>
 
   <ResearchProjectDef ParentName="USH_DiseaseOprationResBase">
     <defName>USH_InfectionOperationRes</defName>

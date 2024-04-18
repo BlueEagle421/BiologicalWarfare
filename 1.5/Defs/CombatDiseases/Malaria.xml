@@ -13,9 +13,10 @@
     <thingDefsToFormatAndColor>
       <li>USH_MalariaSample</li>
       <li>USH_MalariaPathogen</li>
-      <li>USH_MalariaFilth</li>
       <li>USH_MalariaVaccine</li>
+      <li>USH_MalariaAntiserum</li>
       <li>USH_MalariaReproductionPills</li>
+      <li>USH_MalariaFilth</li>
       <li>USH_MalariaGas</li>
       <li>USH_MalariaShell</li>
       <li>USH_MalariaBarrel</li>
@@ -68,17 +69,6 @@
     <defName>USH_MalariaPathogen</defName>
   </ThingDef>
 
-  <ThingDef ParentName="USH_PathogenFilthBase">
-    <defName>USH_MalariaFilth</defName>
-    <modExtensions>
-      <li Class="OPToxic.OPToxicDefs">
-        <OPToxicHediff>Malaria</OPToxicHediff>
-        <OPToxicSeverity>0.02</OPToxicSeverity>
-        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
-      </li>
-    </modExtensions>
-  </ThingDef>
-
   <ThingDef ParentName="USH_DiseaseVaccineBase">
     <defName>USH_MalariaVaccine</defName>
     <comps>
@@ -107,6 +97,26 @@
       </li>
     </stages>
   </HediffDef>
+
+  <ThingDef ParentName="USH_DiseaseAntiserum">
+    <defName>USH_MalariaAntiserum</defName>
+    <ingestible>
+      <outcomeDoers>
+        <li Class="BiologicalWarfare.IngestionOutcomeDoer_RemoveHediff">
+          <hediffDefToRemove>Malaria</hediffDefToRemove>
+          <sendMessage>true</sendMessage>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <costList>
+      <USH_MalariaPathogen>40</USH_MalariaPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_MalariaVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
 
   <ThingDef ParentName="USH_ParasiteReproductionPills">
     <defName>USH_MalariaReproductionPills</defName>
@@ -143,6 +153,17 @@
   <DamageDef ParentName="USH_BiologicalDamageBase">
     <defName>USH_MalariaDamage</defName>
   </DamageDef>
+
+  <ThingDef ParentName="USH_PathogenFilthBase">
+    <defName>USH_MalariaFilth</defName>
+    <modExtensions>
+      <li Class="OPToxic.OPToxicDefs">
+        <OPToxicHediff>Malaria</OPToxicHediff>
+        <OPToxicSeverity>0.02</OPToxicSeverity>
+        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
+      </li>
+    </modExtensions>
+  </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGasBase">
     <defName>USH_MalariaGas</defName>

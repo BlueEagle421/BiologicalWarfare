@@ -7,9 +7,9 @@ namespace BiologicalWarfare
     {
         public HediffDef hediffDefToRemove;
         public bool sendMessage;
-        protected override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested, int ingestedCount) => RemoveHediffFrom(pawn);
+        protected override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested, int ingestedCount) => RemoveHediffFrom(pawn, ingested);
 
-        private void RemoveHediffFrom(Pawn pawn)
+        private void RemoveHediffFrom(Pawn pawn, Thing ingested)
         {
             Hediff toRemove = pawn.health.hediffSet.GetFirstHediffOfDef(hediffDefToRemove);
 
@@ -20,7 +20,8 @@ namespace BiologicalWarfare
 
             if (sendMessage)
             {
-                string content = (string)"USH_VaccineHealed".Translate(toRemove.Named("HEDIFF"), pawn.Named("PAWN"));
+                string content = (string)"USH_ThingHealed"
+                    .Translate(ingested.Named("THING"), toRemove.Named("HEDIFF"), pawn.Named("PAWN"));
                 Messages.Message(content, pawn, MessageTypeDefOf.PositiveEvent, true);
             }
         }

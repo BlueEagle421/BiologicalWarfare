@@ -13,8 +13,9 @@
     <thingDefsToFormatAndColor>
       <li>USH_SleepingSicknessSample</li>
       <li>USH_SleepingSicknessPathogen</li>
-      <li>USH_SleepingSicknessFilth</li>
       <li>USH_SleepingSicknessVaccine</li>
+      <li>USH_SleepingSicknessAntiserum</li>
+      <li>USH_SleepingSicknessFilth</li>
       <li>USH_SleepingSicknessReproductionPills</li>
       <li>USH_SleepingSicknessGas</li>
       <li>USH_SleepingSicknessShell</li>
@@ -68,17 +69,6 @@
     <defName>USH_SleepingSicknessPathogen</defName>
   </ThingDef>
 
-  <ThingDef ParentName="USH_PathogenFilthBase">
-    <defName>USH_SleepingSicknessFilth</defName>
-    <modExtensions>
-      <li Class="OPToxic.OPToxicDefs">
-        <OPToxicHediff>SleepingSickness</OPToxicHediff>
-        <OPToxicSeverity>0.02</OPToxicSeverity>
-        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
-      </li>
-    </modExtensions>
-  </ThingDef>
-
   <ThingDef ParentName="USH_DiseaseVaccineBase">
     <defName>USH_SleepingSicknessVaccine</defName>
     <comps>
@@ -107,6 +97,26 @@
       </li>
     </stages>
   </HediffDef>
+
+  <ThingDef ParentName="USH_DiseaseAntiserum">
+    <defName>USH_SleepingSicknessAntiserum</defName>
+    <ingestible>
+      <outcomeDoers>
+        <li Class="BiologicalWarfare.IngestionOutcomeDoer_RemoveHediff">
+          <hediffDefToRemove>SleepingSickness</hediffDefToRemove>
+          <sendMessage>true</sendMessage>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <costList>
+      <USH_SleepingSicknessPathogen>40</USH_SleepingSicknessPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_SleepingSicknessVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
 
   <ThingDef ParentName="USH_ParasiteReproductionPills">
     <defName>USH_SleepingSicknessReproductionPills</defName>
@@ -143,6 +153,17 @@
   <DamageDef ParentName="USH_BiologicalDamageBase">
     <defName>USH_SleepingSicknessDamage</defName>
   </DamageDef>
+
+  <ThingDef ParentName="USH_PathogenFilthBase">
+    <defName>USH_SleepingSicknessFilth</defName>
+    <modExtensions>
+      <li Class="OPToxic.OPToxicDefs">
+        <OPToxicHediff>SleepingSickness</OPToxicHediff>
+        <OPToxicSeverity>0.02</OPToxicSeverity>
+        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
+      </li>
+    </modExtensions>
+  </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGasBase">
     <defName>USH_SleepingSicknessGas</defName>
