@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThoughtDef>
+    <defName>USH_VaccineWoozy</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <durationDays>1</durationDays>
+    <validWhileDespawned>true</validWhileDespawned>
+    <nullifyingTraits>
+      <li>ChemicalInterest</li>
+    </nullifyingTraits>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>woozy</label>
+        <description>I feel woozy from the recent vaccine shot.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>
