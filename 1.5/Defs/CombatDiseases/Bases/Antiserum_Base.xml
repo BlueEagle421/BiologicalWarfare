@@ -19,6 +19,7 @@
       <Flammability>0.7</Flammability>
     </statBases>
     <techLevel>Industrial</techLevel>
+    <tradeability>Sellable</tradeability>
     <ingestible>
       <drugCategory>Medical</drugCategory>
       <foodType>Processed, Fluid</foodType>
