@@ -40,20 +40,7 @@
       </recipeUsers>
     </recipeMaker>
     <costList>
-      <!-- <li>
-        <filter>
-          <categories>
-            <li>Medicine</li>
-          </categories>
-        </filter>
-        <count>2</count>
-      </li> -->
       <Neutroamine>6</Neutroamine>
-      <!-- <fixedIngredientFilter>
-        <categories>
-          <li>Medicine</li>
-        </categories>
-      </fixedIngredientFilter> -->
     </costList>
     <comps>
       <li Class="CompProperties_Drug">
