@@ -13,10 +13,10 @@
     <socialPropernessMatters>false</socialPropernessMatters>
     <rotatable>false</rotatable>
     <statBases>
-      <WorkToMake>800</WorkToMake>
+      <WorkToMake>1200</WorkToMake>
       <MarketValue>80</MarketValue>
       <Mass>0.007</Mass>
-      <Flammability>0.7</Flammability>
+      <Flammability>1.0</Flammability>
     </statBases>
     <techLevel>Industrial</techLevel>
     <tradeability>Sellable</tradeability>

@@ -13,9 +13,9 @@
     <useHitPoints>true</useHitPoints>
     <statBases>
       <MaxHitPoints>50</MaxHitPoints>
-      <Mass>0.1</Mass>
+      <Mass>0.015</Mass>
       <DeteriorationRate>2.0</DeteriorationRate>
-      <Flammability>0.2</Flammability>
+      <Flammability>1.0</Flammability>
     </statBases>
     <techLevel>Industrial</techLevel>
     <tradeability>Sellable</tradeability>
