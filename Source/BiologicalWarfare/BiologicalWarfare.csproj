@@ -73,6 +73,7 @@
     <Compile Include="GenGas.cs" />
     <Compile Include="HediffParasiteReproduction.cs" />
     <Compile Include="HediffCompVirusExtraction.cs" />
+    <Compile Include="IngestionOutcomeDoer_RemoveHediff.cs" />
     <Compile Include="JobDrivers.cs" />
     <Compile Include="Patch_FloatMenuMakerMap.cs" />
     <Compile Include="PathogenFilth.cs" />

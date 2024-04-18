@@ -74,30 +74,5 @@ namespace BiologicalWarfare
         }
     }
 
-    public class HediffCompProperties_RemoveHediff : HediffCompProperties
-    {
-        public HediffDef removeHediffDef;
-        public HediffCompProperties_RemoveHediff() => compClass = typeof(HediffCompRemoveHediff);
-    }
-    public class HediffCompRemoveHediff : HediffComp
-    {
-        public HediffCompProperties_RemoveHediff PropsVaccine => (HediffCompProperties_RemoveHediff)props;
 
-        public override void CompPostMake()
-        {
-            base.CompPostMake();
-            RemoveHediff();
-        }
-
-        private void RemoveHediff()
-        {
-            Hediff toRemove = Pawn.health.hediffSet.GetFirstHediffOfDef(PropsVaccine.removeHediffDef);
-
-            if (toRemove == null)
-                return;
-
-            Messages.Message((string)"USH_VaccineHealed".Translate(toRemove.Named("HEDIFF"), Pawn.Named("PAWN")), Pawn, MessageTypeDefOf.PositiveEvent, true);
-            Pawn.health.hediffSet.hediffs.Remove(toRemove);
-        }
-    }
 }
