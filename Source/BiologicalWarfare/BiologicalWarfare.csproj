@@ -70,6 +70,7 @@
     <Compile Include="DefFormatter.cs" />
     <Compile Include="DiseaseSampler.cs" />
     <Compile Include="CompDiseaseSampleContainer.cs" />
+    <Compile Include="GenGas.cs" />
     <Compile Include="HediffParasiteReproduction.cs" />
     <Compile Include="HediffCompVirusExtraction.cs" />
     <Compile Include="JobDrivers.cs" />
