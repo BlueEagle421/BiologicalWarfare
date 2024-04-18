@@ -98,11 +98,6 @@
 
   <HediffDef ParentName="USH_DiseaseVaccineHediffBase">
     <defName>USH_ScariaVaccineHediff</defName>
-    <comps>
-      <li Class="BiologicalWarfare.HediffCompProperties_RemoveHediff">
-        <removeHediffDef>Scaria</removeHediffDef>
-      </li>
-    </comps>
     <stages>
       <li>
         <makeImmuneTo>

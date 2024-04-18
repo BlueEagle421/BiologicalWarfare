@@ -81,12 +81,6 @@
 
   <ThingDef ParentName="USH_DiseaseVaccineBase">
     <defName>USH_MalariaVaccine</defName>
-    <comps>
-      <li Class="BiologicalWarfare.CompProperties_TargetEffectVaccine">
-        <jobDef>USH_InjectVaccine</jobDef>
-        <hediffDefVaccine>USH_MalariaVaccineHediff</hediffDefVaccine>
-      </li>
-    </comps>
     <costList>
       <USH_MalariaPathogen>25</USH_MalariaPathogen>
     </costList>
