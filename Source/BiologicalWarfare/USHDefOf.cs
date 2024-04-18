@@ -23,5 +23,7 @@ namespace BiologicalWarfare
         public static JobDef USH_ResearchVaccine;
 
         public static StatDef USH_ContaminationChanceFactor;
+
+        public static ThoughtDef USH_VaccineWoozy;
     }
 }

@@ -69,6 +69,7 @@ namespace BiologicalWarfare
                 return;
             }
 
+            pawn.needs.mood.thoughts.memories.TryGainMemory(USHDefOf.USH_VaccineWoozy);
             pawn.health.AddHediff(HediffDefToGive);
             Item.SplitOff(1).Destroy(DestroyMode.Vanish);
         }
