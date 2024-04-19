@@ -4,7 +4,7 @@
   <ThingDef ParentName="DoorBase">
     <thingClass>BiologicalWarfare.Building_ContaminationDoor</thingClass>
     <defName>USH_ContaminationDoor</defName>
-    <label>labolatory door</label>
+    <label>laboratory door</label>
     <description>An auto door with extended features. It only lets through pawns that are fully immune to disease pathogens. It's perfect for laboratories with contamination hazards. Any pawn that can breathe and has toxic environmental resistance below 80% will be blocked unless the door is set to be always held open.\n\nIt needs power to oparate properly.</description>
     <statBases>
       <WorkToBuild>1100</WorkToBuild>
