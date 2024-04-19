@@ -3,7 +3,7 @@ using Verse;
 
 namespace BiologicalWarfare
 {
-    public class BuildingVaccineResearchStation : Building
+    public class Building_AntigensAnalyzer : Building
     {
         private CompDiseaseSampleContainer _compDiseaseContainer;
         private CompPowerTrader _compPowerTrader;

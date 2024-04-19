@@ -7,7 +7,12 @@ namespace BiologicalWarfare
 {
     public class PathogenFilth : LiquidFuel
     {
-        public override void Tick() => InfectionTick();
+        public override void Tick()
+        {
+            base.Tick();
+
+            InfectionTick();
+        }
 
         private void InfectionTick()
         {
@@ -19,12 +24,9 @@ namespace BiologicalWarfare
 
             List<Thing> thingsInFilth = Position.GetThingList(Map);
 
-            if (thingsInFilth.Count <= 0)
-                return;
-
-            for (int i = 0; i < thingsInFilth.Count; i++)
-                if (thingsInFilth[i] is Pawn pawn)
-                    BiologicalUtils.DoPathogenInfection(this, pawn);
+            foreach (Thing thingInFilth in thingsInFilth)
+                if (thingInFilth is Pawn pawnInFilth)
+                    BiologicalUtils.DoPathogenInfection(this, pawnInFilth);
         }
     }
 }

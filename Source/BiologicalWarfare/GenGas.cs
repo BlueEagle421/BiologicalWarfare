@@ -1,7 +1,4 @@
-﻿// Copyright Karel Kroeze, 2020-2020.
-// modified from VanillaPowerExpanded/VanillaPowerExpanded/GenGas.cs
-
-using RimWorld;
+﻿using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -59,8 +56,7 @@ namespace BiologicalWarfare
 
             if (amount < 0)
             {
-                Log.Error(
-                    $"Cannot add {amount} to {gas} at {gas.Position}. AddGas on a spreading gas should have a positive amount of gas.");
+                Log.Error($"Cannot add {amount} to {gas} at {gas.Position}. AddGas on a spreading gas should have a positive amount of gas.");
                 gas.Destroy();
                 return amount;
             }

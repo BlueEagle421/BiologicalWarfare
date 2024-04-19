@@ -9,10 +9,7 @@ namespace BiologicalWarfare
     {
         public override void Tick()
         {
-            if (destroyTick <= Find.TickManager.TicksGame)
-                Destroy(DestroyMode.Vanish);
-
-            graphicRotation += graphicRotationSpeed;
+            base.Tick();
 
             InfectionTick();
         }
@@ -30,11 +27,9 @@ namespace BiologicalWarfare
             if (thingsInGas.Count <= 0)
                 return;
 
-            for (int i = 0; i < thingsInGas.Count; i++)
-                if (thingsInGas[i] is Pawn pawn)
-                    BiologicalUtils.DoPathogenInfection(this, pawn);
+            foreach (Thing thingInGas in thingsInGas)
+                if (thingInGas is Pawn pawnInGas)
+                    BiologicalUtils.DoPathogenInfection(this, pawnInGas);
         }
-
-
     }
 }

@@ -72,8 +72,6 @@ namespace BiologicalWarfare
         public bool CanBeSampled => samplableHediffDefs.Count != 0;
     }
 
-
-
     public enum DiseaseType
     {
         Bacteria,

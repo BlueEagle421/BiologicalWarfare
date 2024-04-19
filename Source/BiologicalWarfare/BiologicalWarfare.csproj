@@ -66,9 +66,9 @@
     <Compile Include="CombatDiseaseDef.cs" />
     <Compile Include="CompBacteriaIncubator.cs" />
     <Compile Include="CompDiseaseSample.cs" />
-    <Compile Include="ContaminationDoor.cs" />
+    <Compile Include="BuildingContaminationDoor.cs" />
     <Compile Include="DefFormatter.cs" />
-    <Compile Include="DiseaseSampler.cs" />
+    <Compile Include="CompDiseaseSampler.cs" />
     <Compile Include="CompDiseaseSampleContainer.cs" />
     <Compile Include="GenGas.cs" />
     <Compile Include="HediffParasiteReproduction.cs" />
@@ -81,8 +81,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CompVirusReplicator.cs" />
     <Compile Include="USHDefOf.cs" />
-    <Compile Include="Vaccine.cs" />
-    <Compile Include="VaccineResearchStation.cs" />
+    <Compile Include="CompVaccine.cs" />
+    <Compile Include="BuildingAntigensAnalyzer.cs" />
     <Compile Include="WorkGivers.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

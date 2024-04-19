@@ -13,7 +13,7 @@ namespace BiologicalWarfare
 
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            BuildingVaccineResearchStation station = t as BuildingVaccineResearchStation;
+            Building_AntigensAnalyzer station = t as Building_AntigensAnalyzer;
 
             return station.CanPerformResearch(pawn) && pawn.CanReserve(t, 1, -1, null, forced);
         }
