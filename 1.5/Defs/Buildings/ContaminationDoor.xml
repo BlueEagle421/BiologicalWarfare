@@ -10,13 +10,13 @@
       <WorkToBuild>1100</WorkToBuild>
     </statBases>
     <graphicData>
-      <texPath>Things/Building/Door/Autodoor_Mover</texPath>
+      <texPath>Things/Building/LabolatoryDoor/LabolatoryDoorWing</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <damageData>
         <enabled>false</enabled>
       </damageData>
     </graphicData>
-    <uiIconPath>Things/Building/Door/Autodoor_MenuIcon</uiIconPath>
+    <uiIconPath>Things/Building/LabolatoryDoor/LabolatoryDoorIcon</uiIconPath>
     <costList>
       <Steel>40</Steel>
       <Neutroamine>15</Neutroamine>
