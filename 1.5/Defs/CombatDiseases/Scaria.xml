@@ -4,7 +4,10 @@
   <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
     <defName>USH_Scaria</defName>
     <label>scaria</label>
-    <hediffDef>Scaria</hediffDef>
+    <samplableHediffDefs>
+      <li>Scaria</li>
+    </samplableHediffDefs>
+    <giveHediffDef>Scaria</giveHediffDef>
     <diseaseType>Virus</diseaseType>
     <colorInt>(181, 45, 61, 255)</colorInt>
 

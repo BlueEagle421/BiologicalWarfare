@@ -4,7 +4,10 @@
   <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
     <defName>USH_SleepingSickness</defName>
     <label>sleeping sickness</label>
-    <hediffDef>SleepingSickness</hediffDef>
+    <samplableHediffDefs>
+      <li>SleepingSickness</li>
+    </samplableHediffDefs>
+    <giveHediffDef>SleepingSickness</giveHediffDef>
     <diseaseType>Parasite</diseaseType>
     <colorInt>(22, 168, 119, 255)</colorInt>
 
@@ -15,8 +18,8 @@
       <li>USH_SleepingSicknessPathogen</li>
       <li>USH_SleepingSicknessVaccine</li>
       <li>USH_SleepingSicknessAntiserum</li>
-      <li>USH_SleepingSicknessFilth</li>
       <li>USH_SleepingSicknessReproductionPills</li>
+      <li>USH_SleepingSicknessFilth</li>
       <li>USH_SleepingSicknessGas</li>
       <li>USH_SleepingSicknessShell</li>
       <li>USH_SleepingSicknessBarrel</li>

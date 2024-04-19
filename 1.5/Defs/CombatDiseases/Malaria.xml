@@ -4,7 +4,10 @@
   <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
     <defName>USH_Malaria</defName>
     <label>malaria</label>
-    <hediffDef>Malaria</hediffDef>
+    <samplableHediffDefs>
+      <li>Malaria</li>
+    </samplableHediffDefs>
+    <giveHediffDef>Malaria</giveHediffDef>
     <diseaseType>Parasite</diseaseType>
     <colorInt>(165, 120, 98, 255)</colorInt>
 

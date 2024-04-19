@@ -4,7 +4,11 @@
   <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
     <defName>USH_Plague</defName>
     <label>plague</label>
-    <hediffDef>Plague</hediffDef>
+    <samplableHediffDefs>
+      <li>Plague</li>
+      <li>Animal_Plague</li>
+    </samplableHediffDefs>
+    <giveHediffDef>Plague</giveHediffDef>
     <diseaseType>Bacteria</diseaseType>
     <colorInt>(160, 92, 124, 255)</colorInt>
 
