@@ -18,7 +18,7 @@ namespace BiologicalWarfare
 
         public static ThingDef USH_DiseaseSampler;
 
-        public static ThingDef USH_VaccineResearchStation;
+        public static ThingDef USH_AntigensAnalyzer;
 
         public static JobDef USH_ResearchVaccine;
 
