@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <ThingDef ParentName="BuildingBase">
+  <!-- <ThingDef ParentName="BuildingBase">
     <defName>USH_PathogenStabilizer</defName>
     <label>pathogen stabilizer</label>
     <description>Laboratory equipment designed to make working with pathogens more manageable. It reduces the chance of contamination by 10%.</description>
     <graphicData>
-      <texPath>Things/Building/VirusReplicator/VirusReplicator</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
+      <texPath>Things/Building/PathogenStabilizer</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
         <cornerBL>Damage/Corner</cornerBL>
         <cornerBR>Damage/Corner</cornerBR>
       </damageData>
-      <drawSize>(2,2)</drawSize>
+      <drawSize>(1,1)</drawSize>
     </graphicData>
     <size>(1, 1)</size>
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
-    <defaultPlacingRot>South</defaultPlacingRot>
-    <fillPercent>0.2</fillPercent>
+    <rotatable>false</rotatable>
+    <defaultPlacingRot>North</defaultPlacingRot>
+    <fillPercent>0.1</fillPercent>
     <techLevel>Industrial</techLevel>
     <statBases>
       <MaxHitPoints>100</MaxHitPoints>
@@ -31,8 +32,7 @@
     <minifiedDef>MinifiedThing</minifiedDef>
     <costList>
       <Steel>20</Steel>
-      <Silver>15</Silver>
-      <Neutroamine>15</Neutroamine>
+      <Neutroamine>10</Neutroamine>
       <ComponentIndustrial>1</ComponentIndustrial>
     </costList>
     <thingCategories>
@@ -46,13 +46,6 @@
         </statOffsets>
         <maxSimultaneous>4</maxSimultaneous>
       </li>
-      <li Class="CompProperties_Power">
-        <compClass>CompPowerTrader</compClass>
-        <basePowerConsumption>90</basePowerConsumption>
-        <shortCircuitInRain>true</shortCircuitInRain>
-      </li>
-      <li Class="CompProperties_Breakdownable" />
-      <li Class="CompProperties_Flickable" />
     </comps>
     <researchPrerequisites>
       <li>USH_PathogenProductionRes</li>
@@ -61,6 +54,6 @@
     <placeWorkers>
       <li>PlaceWorker_ShowFacilitiesConnections</li>
     </placeWorkers>
-  </ThingDef>
+  </ThingDef> -->
 
 </Defs>
