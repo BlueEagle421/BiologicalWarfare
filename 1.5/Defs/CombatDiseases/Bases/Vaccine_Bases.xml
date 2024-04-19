@@ -3,7 +3,7 @@
 
   <ThingDef Name="USH_DiseaseVaccineBase" ParentName="ResourceBase" Abstract="True">
     <label>{0} vaccine</label>
-    <description>A syringe contaning a carefully prepared mixture of antigens. It prevents getting sick from {0} for 45 days.\n\nNote that it does not cure existing infections nor protect against pathogen gases and contamination.</description>
+    <description>A syringe contaning a carefully prepared mixture of antigens. It prevents getting sick from {0} for 8 days and provides full protection from {0} pathogen gas and contamination.\n\nNote that it does not cure existing infections.</description>
     <thingClass>ThingWithComps</thingClass>
     <graphicData>
       <texPath>Things/Item/DiseaseSampler</texPath>
@@ -75,7 +75,7 @@
     <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
     <comps>
       <li Class="HediffCompProperties_Disappears">
-        <disappearsAfterTicks>2700000</disappearsAfterTicks> <!-- 45 days-->
+        <disappearsAfterTicks>480000</disappearsAfterTicks> <!-- 8 days-->
         <showRemainingTime>true</showRemainingTime>
       </li>
     </comps>
