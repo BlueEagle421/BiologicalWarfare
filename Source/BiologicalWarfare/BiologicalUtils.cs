@@ -90,6 +90,32 @@ namespace BiologicalWarfare
             return true;
         }
 
+        public static bool IsImmuneTo(Pawn pawn, HediffDef hediffDef)
+        {
+            if (pawn.health.immunity.AnyGeneMakesFullyImmuneTo(hediffDef))
+                return true;
+
+            if (AnyHediffMakesFullyImmuneTo(pawn, hediffDef))
+                return true;
+
+            return false;
+        }
+
+        public static bool AnyHediffMakesFullyImmuneTo(Pawn pawn, HediffDef hediffDef)
+        {
+            List<Hediff> allHediffs = pawn.health.hediffSet.hediffs;
+
+            if (allHediffs == null || allHediffs.Count == 0)
+                return false;
+
+            if (allHediffs.Any(x => CanCheckHediff(x) && x.CurStage.makeImmuneTo.Any(y => y == hediffDef)))
+                return true;
+
+            return false;
+        }
+
+        private static bool CanCheckHediff(Hediff hediff) => hediff.CurStage != null && hediff.CurStage.makeImmuneTo != null;
+
         public static bool RandomChance(float chance)
         {
             float randomValue = UnityEngine.Random.value;

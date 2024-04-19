@@ -46,6 +46,9 @@ namespace BiologicalWarfare
             if (hediffToAdd == null)
                 return;
 
+            if (BiologicalUtils.IsImmuneTo(pawn, hediffToAdd))
+                return;
+
             HediffSet hediffSet = pawn.health.hediffSet;
             Hediff hediffFound = (hediffSet?.GetFirstHediffOfDef(hediffToAdd, false));
 
