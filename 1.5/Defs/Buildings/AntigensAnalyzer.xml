@@ -7,7 +7,7 @@
     <label>antigens analyzer</label>
     <description>A lab-grade machine designed to analyze disease samples and develop antigens. It requires an inserted sample and a researcher to operate it. All previous antigens research requirements must be met for it to function properly.\n\nIt can contaminate the surrounding area during reasearch.</description>
     <graphicData>
-      <texPath>Things/Building/BacteriaIncubator/BacteriaIncubator</texPath>
+      <texPath>Things/Building/AntigensAnalyzer/AntigensAnalyzer</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
