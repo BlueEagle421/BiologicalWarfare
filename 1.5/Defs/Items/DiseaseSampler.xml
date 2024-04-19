@@ -6,6 +6,13 @@
     <label>disease sampler</label>
     <description>A medical tool intended for use on sick patients. It creates a sample of the disease that can later be utilized in the production of deadly pathogens. \n\nCan be crafted in drug lab.\n\nDiseases that can be sampled are listed below.</description>
     <thingClass>ThingWithComps</thingClass>
+    <descriptionHyperlinks>
+      <HediffDef>Flu</HediffDef>
+      <HediffDef>Malaria</HediffDef>
+      <HediffDef>Plague</HediffDef>
+      <HediffDef>Scaria</HediffDef>
+      <HediffDef>SleepingSickness</HediffDef>
+    </descriptionHyperlinks>
     <graphicData>
       <texPath>Things/Item/DiseaseSampler</texPath>
       <graphicClass>Graphic_Single</graphicClass>
