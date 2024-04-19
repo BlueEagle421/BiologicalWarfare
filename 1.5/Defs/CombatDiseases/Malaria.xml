@@ -53,6 +53,9 @@
 
   <ThingDef ParentName="USH_ParasiteSampleBase">
     <defName>USH_MalariaSample</defName>
+    <descriptionHyperlinks>
+      <ThingDef>USH_MalariaReproductionPills</ThingDef>
+    </descriptionHyperlinks>
     <comps>
       <li Class="BiologicalWarfare.CompProperties_DiseaseSample">
         <combatDiseaseDef>USH_Malaria</combatDiseaseDef>
