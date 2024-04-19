@@ -4,9 +4,8 @@
   <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
     <defName>USH_FleshBreaker</defName>
     <label>flesh-breaker</label>
-    <hediffDef>USH_FleshBreakerHigh</hediffDef>
+    <giveHediffDef>USH_FleshBreakerHigh</giveHediffDef>
     <diseaseType>Chemical</diseaseType>
-    <canBeSampled>False</canBeSampled>
     <colorInt>(148, 153, 49, 255)</colorInt>
 
     <!-- formats {0} to label and {1} to disease type -->

@@ -78,7 +78,7 @@
   <ThingDef ParentName="USH_DiseaseVaccineBase">
     <defName>USH_SleepingSicknessVaccine</defName>
     <descriptionHyperlinks>
-      <ThingDef>USH_SleepingSicknessVaccineHediff</ThingDef>
+      <HediffDef>USH_SleepingSicknessVaccineHediff</HediffDef>
     </descriptionHyperlinks>
     <comps>
       <li Class="BiologicalWarfare.CompProperties_TargetEffectVaccine">
