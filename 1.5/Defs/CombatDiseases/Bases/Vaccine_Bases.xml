@@ -6,8 +6,10 @@
     <description>A syringe contaning a carefully prepared mixture of antigens. It prevents getting sick from {0} for 8 days and provides full protection from {0} pathogen gas and contamination.\n\nNote that it does not cure existing infections.</description>
     <thingClass>ThingWithComps</thingClass>
     <graphicData>
-      <texPath>Things/Item/DiseaseSampler</texPath>
+      <texPath>Things/Item/Vaccine/Vaccine</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>0.75</drawSize>
     </graphicData>
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
     <useHitPoints>true</useHitPoints>
