@@ -1,7 +1,9 @@
-﻿using RimWorld;
+﻿using OPToxic;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using Verse;
 
 namespace BiologicalWarfare
@@ -71,6 +73,38 @@ namespace BiologicalWarfare
                 return pawn.RaceProps.mechFixedSkillLevel;
 
             return 1f;
+        }
+
+        public static void DoPathogenInfection(Thing thingInfecter, Pawn pawn)
+        {
+            if (!CanPathogenInfect(pawn))
+                return;
+
+            HediffDef hediffToAdd = DefDatabase<HediffDef>.GetNamedSilentFail(OPToxicDefGetValue.OPToxicGetHediff(thingInfecter.def));
+
+            if (hediffToAdd == null)
+                return;
+
+            if (IsImmuneTo(pawn, hediffToAdd))
+                return;
+
+            HediffSet hediffSet = pawn.health.hediffSet;
+            Hediff hediffFound = (hediffSet?.GetFirstHediffOfDef(hediffToAdd, false));
+
+            float statValue = 1 - pawn.GetStatValue(StatDefOf.ToxicResistance, true);
+            float severityToSet = Mathf.Max(OPToxicDefGetValue.OPToxicGetSev(thingInfecter.def), hediffToAdd.minSeverity);
+
+            severityToSet = Rand.Range(severityToSet / 2f, severityToSet) * statValue;
+
+            if (hediffFound != null && severityToSet > 0f)
+            {
+                hediffFound.Severity += severityToSet;
+                return;
+            }
+
+            Hediff hediffMade = HediffMaker.MakeHediff(hediffToAdd, pawn);
+            hediffMade.Severity = severityToSet;
+            pawn.health.AddHediff(hediffMade);
         }
 
         public static bool CanPathogenInfect(Pawn pawn)
