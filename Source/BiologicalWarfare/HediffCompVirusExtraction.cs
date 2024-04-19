@@ -35,7 +35,7 @@ namespace BiologicalWarfare
 
             float sizeMultiplier = PropsVirusExtraction.multiplyByBodySize ? Pawn.BodySize : 1f;
 
-            Hediff diseaseHediff = Pawn.health.hediffSet.GetFirstHediffOfDef(_combatDiseaseDef.hediffDef);
+            Hediff diseaseHediff = Pawn.health.hediffSet.GetFirstHediffOfDef(_combatDiseaseDef.giveHediffDef);
 
             float severityMultiplier = 1f;
 

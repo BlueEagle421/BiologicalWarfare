@@ -109,7 +109,7 @@ namespace BiologicalWarfare
                     if (pawn.Position.DistanceTo(parent.Position) <= parent.def.specialDisplayRadius)
                         continue;
 
-                    pawn.health.AddHediff(_sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.hediffDef);
+                    pawn.health.AddHediff(_sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.giveHediffDef);
 
                     Hediff extractionHediff = pawn.health.AddHediff(USHDefOf.USH_VirusExtraction);
                     extractionHediff.TryGetComp<HediffCompVirusExtraction>().CombatDiseaseDef = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef;

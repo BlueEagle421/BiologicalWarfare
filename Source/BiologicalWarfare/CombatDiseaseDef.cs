@@ -5,10 +5,10 @@ namespace BiologicalWarfare
 {
     public class CombatDiseaseDef : Def
     {
-        public HediffDef hediffDef;
+        public List<HediffDef> samplableHediffDefs = new List<HediffDef>();
+        public HediffDef giveHediffDef;
         public DiseaseType diseaseType;
         public ColorInt colorInt;
-        public bool canBeSampled;
 
         public List<ThingDef> thingDefsToFormat = new List<ThingDef>();
         public List<ThingDef> thingDefsToColor = new List<ThingDef>();
@@ -32,11 +32,8 @@ namespace BiologicalWarfare
             foreach (string text in base.ConfigErrors())
                 yield return text;
 
-            if (hediffDef == null)
-                yield return "hediffDef is null";
-
-            if (canBeSampled && sampleDef == null)
-                yield return "canBeSampled is true, but sampleDef is null";
+            if (giveHediffDef == null)
+                yield return "giveHediffDef is null";
 
             if (colorInt.a == 0)
                 yield return "colorInt is fully transparent";
@@ -47,8 +44,6 @@ namespace BiologicalWarfare
         public override void ResolveReferences()
         {
             base.ResolveReferences();
-
-            AddHediffHyperlink();
 
             _defFormatter = new DefFormatter(new List<Def>(), new List<object> { label, diseaseType.ToStringUncapitalized() });
 
@@ -66,16 +61,6 @@ namespace BiologicalWarfare
                 ColorThingDef(thingDef);
         }
 
-        private void AddHediffHyperlink()
-        {
-            if (!canBeSampled)
-                return;
-
-            List<DefHyperlink> hyperlinks = USHDefOf.USH_DiseaseSampler.descriptionHyperlinks ?? new List<DefHyperlink>();
-            hyperlinks.Add(new DefHyperlink(hediffDef));
-            USHDefOf.USH_DiseaseSampler.descriptionHyperlinks = hyperlinks;
-        }
-
         private void ColorThingDef(ThingDef thingDef)
         {
             if (thingDef == null)
@@ -83,6 +68,8 @@ namespace BiologicalWarfare
 
             thingDef.graphicData.color = colorInt.ToColor;
         }
+
+        public bool CanBeSampled => samplableHediffDefs.Count != 0;
     }
 
 
