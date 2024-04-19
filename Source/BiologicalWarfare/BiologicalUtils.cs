@@ -115,6 +115,9 @@ namespace BiologicalWarfare
             if (pawn.RaceProps.IsMechanoid)
                 return false;
 
+            if (pawn.IsGhoul)
+                return false;
+
             if (pawn.GetStatValue(StatDefOf.ToxicEnvironmentResistance) >= 0.8f)
                 return false;
 
