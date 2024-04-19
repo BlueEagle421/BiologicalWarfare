@@ -73,6 +73,9 @@
 
   <ThingDef ParentName="USH_DiseaseVaccineBase">
     <defName>USH_ScariaVaccine</defName>
+    <descriptionHyperlinks>
+      <ThingDef>USH_ScariaVaccineHediff</ThingDef>
+    </descriptionHyperlinks>
     <comps>
       <li Class="BiologicalWarfare.CompProperties_TargetEffectVaccine">
         <jobDef>USH_InjectVaccine</jobDef>
