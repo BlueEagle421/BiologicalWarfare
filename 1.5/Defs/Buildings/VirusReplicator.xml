@@ -85,7 +85,6 @@
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
     <placeWorkers>
       <li>BiologicalWarfare.PlaceWorker_VirusReplicator</li>
-      <li>PlaceWorker_ShowFacilitiesConnections</li>
     </placeWorkers>
   </ThingDef>
 

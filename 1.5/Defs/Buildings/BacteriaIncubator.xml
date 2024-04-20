@@ -93,9 +93,6 @@
       </li>
     </comps>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
-    <placeWorkers>
-      <li>PlaceWorker_ShowFacilitiesConnections</li>
-    </placeWorkers>
     <researchPrerequisites>
       <li>USH_PathogenProductionRes</li>
     </researchPrerequisites>
