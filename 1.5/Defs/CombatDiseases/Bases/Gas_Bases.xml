@@ -31,8 +31,8 @@
     </graphicData>
     <gas>
       <expireSeconds>
-        <min>20</min>
-        <max>30</max>
+        <min>25</min>
+        <max>35</max>
       </expireSeconds>
       <rotationSpeed>20</rotationSpeed>
     </gas>

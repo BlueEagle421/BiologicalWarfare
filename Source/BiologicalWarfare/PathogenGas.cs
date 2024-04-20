@@ -27,9 +27,11 @@ namespace BiologicalWarfare
             if (thingsInGas.Count <= 0)
                 return;
 
-            foreach (Thing thingInGas in thingsInGas)
-                if (thingInGas is Pawn pawnInGas)
+            for (int i = 0; i < thingsInGas.Count; i++)
+            {
+                if (thingsInGas[i] is Pawn pawnInGas)
                     BiologicalUtils.DoPathogenInfection(this, pawnInGas);
+            }
         }
     }
 }

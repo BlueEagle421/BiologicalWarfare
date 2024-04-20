@@ -74,6 +74,9 @@ namespace BiologicalWarfare
 
         public static void DoPathogenInfection(Thing thingInfecter, Pawn pawn)
         {
+            if (pawn == null)
+                return;
+
             if (!CanPathogenInfect(pawn))
                 return;
 
