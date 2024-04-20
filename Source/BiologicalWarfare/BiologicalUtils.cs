@@ -96,6 +96,8 @@ namespace BiologicalWarfare
 
             severityToSet = Rand.Range(severityToSet / 2f, severityToSet) * statValue;
 
+            severityToSet *= BiologicalWarfareMod.Settings.GasSeverityMultiplier;
+
             if (hediffFound != null && severityToSet > 0f)
             {
                 hediffFound.Severity += severityToSet;
