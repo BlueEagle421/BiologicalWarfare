@@ -6,6 +6,7 @@
     <label>scaria</label>
     <samplableHediffDefs>
       <li>Scaria</li>
+      <li MayRequire="VanillaExpanded.VGeneticsE">GR_GreaterScaria</li>
     </samplableHediffDefs>
     <giveHediffDef>Scaria</giveHediffDef>
     <diseaseType>Virus</diseaseType>
