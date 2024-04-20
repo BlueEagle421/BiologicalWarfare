@@ -129,7 +129,7 @@
     <modExtensions>
       <li Class="OPToxic.OPToxicDefs">
         <OPToxicHediff>Scaria</OPToxicHediff>
-        <OPToxicSeverity>0.06</OPToxicSeverity>
+        <OPToxicSeverity>0.12</OPToxicSeverity>
         <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
       </li>
     </modExtensions>
