@@ -48,6 +48,8 @@ namespace BiologicalWarfare
         private CompRefuelable _compRefuelable;
         protected IntVec3 _ventPos;
 
+        private const int GAS_CELL_DELAY = 25;
+
         public CompProperties_GasVent PropsVent => props as CompProperties_GasVent;
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -93,7 +95,7 @@ namespace BiologicalWarfare
 
         private async Task MakeGasAt(IntVec3 cell, Map map, Room room)
         {
-            await Task.Delay(25);
+            await Task.Delay(GAS_CELL_DELAY);
 
             if (_compRefuelable.Fuel < PropsVent.pathogensPerCell)
                 return;
