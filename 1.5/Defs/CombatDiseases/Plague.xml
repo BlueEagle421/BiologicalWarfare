@@ -19,7 +19,6 @@
       <li>USH_PlaguePathogen</li>
       <li>USH_PlagueVaccine</li>
       <li>USH_PlagueAntiserum</li>
-      <li>USH_PlagueFilth</li>
       <li>USH_PlagueGas</li>
       <li>USH_PlagueShell</li>
       <li>USH_PlagueBarrel</li>
@@ -46,8 +45,6 @@
     <sampleDef>USH_PlagueSample</sampleDef>
     <!-- pathogen def is optional -->
     <pathogenDef>USH_PlaguePathogen</pathogenDef>
-    <!-- filth def is optional -->
-    <filthDef>USH_PlagueFilth</filthDef>
 
   </BiologicalWarfare.CombatDiseaseDef>
 
@@ -127,17 +124,6 @@
   <DamageDef ParentName="USH_BiologicalDamageBase">
     <defName>USH_PlagueDamage</defName>
   </DamageDef>
-
-  <ThingDef ParentName="USH_PathogenFilthBase">
-    <defName>USH_PlagueFilth</defName>
-    <modExtensions>
-      <li Class="OPToxic.OPToxicDefs">
-        <OPToxicHediff>Plague</OPToxicHediff>
-        <OPToxicSeverity>0.02</OPToxicSeverity>
-        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
-      </li>
-    </modExtensions>
-  </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGasBase">
     <defName>USH_PlagueGas</defName>

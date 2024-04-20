@@ -57,12 +57,6 @@ namespace BiologicalWarfare
             _sampleContainer = parent.GetComp<CompDiseaseSampleContainer>();
         }
 
-        public override string CompInspectStringExtra()
-        {
-            string contaminationChance = USHDefOf.USH_ContaminationChanceFactor.LabelCap + ": " + parent.GetStatValue(USHDefOf.USH_ContaminationChanceFactor).ToStringPercent();
-            return base.CompInspectStringExtra() + "\n" + contaminationChance;
-        }
-
         public override AcceptanceReport CanInteract(Pawn activateBy = null, bool checkOptionalItems = true)
         {
             AcceptanceReport baseResult = base.CanInteract(activateBy, checkOptionalItems);
@@ -94,8 +88,6 @@ namespace BiologicalWarfare
         protected override void OnInteracted(Pawn caster)
         {
             base.OnInteracted(caster);
-
-            BiologicalUtils.TryToContaminate(parent, _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef);
 
             foreach (IntVec3 cell in parent.GetRoom().Cells.ToList())
                 foreach (Thing thing in parent.Map.thingGrid.ThingsAt(cell))

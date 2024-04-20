@@ -18,7 +18,6 @@
       <li>USH_ScariaPathogen</li>
       <li>USH_ScariaVaccine</li>
       <li>USH_ScariaAntiserum</li>
-      <li>USH_ScariaFilth</li>
       <li>USH_ScariaGas</li>
       <li>USH_ScariaShell</li>
       <li>USH_ScariaBarrel</li>
@@ -45,8 +44,6 @@
     <sampleDef>USH_ScariaSample</sampleDef>
     <!-- pathogen def is optional -->
     <pathogenDef>USH_ScariaPathogen</pathogenDef>
-    <!-- filth def is optional -->
-    <filthDef>USH_ScariaFilth</filthDef>
 
   </BiologicalWarfare.CombatDiseaseDef>
 
@@ -126,17 +123,6 @@
   <DamageDef ParentName="USH_BiologicalDamageBase">
     <defName>USH_ScariaDamage</defName>
   </DamageDef>
-
-  <ThingDef ParentName="USH_PathogenFilthBase">
-    <defName>USH_ScariaFilth</defName>
-    <modExtensions>
-      <li Class="OPToxic.OPToxicDefs">
-        <OPToxicHediff>Scaria</OPToxicHediff>
-        <OPToxicSeverity>0.02</OPToxicSeverity>
-        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
-      </li>
-    </modExtensions>
-  </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGasBase">
     <defName>USH_ScariaGas</defName>

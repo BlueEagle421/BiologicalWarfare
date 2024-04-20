@@ -19,7 +19,6 @@
       <li>USH_FluPathogen</li>
       <li>USH_FluVaccine</li>
       <li>USH_FluAntiserum</li>
-      <li>USH_FluFilth</li>
       <li>USH_FluGas</li>
       <li>USH_FluShell</li>
       <li>USH_FluBarrel</li>
@@ -46,8 +45,6 @@
     <sampleDef>USH_FluSample</sampleDef>
     <!-- pathogen def is optional -->
     <pathogenDef>USH_FluPathogen</pathogenDef>
-    <!-- filth def is optional -->
-    <filthDef>USH_FluFilth</filthDef>
 
   </BiologicalWarfare.CombatDiseaseDef>
 
@@ -127,17 +124,6 @@
   <DamageDef ParentName="USH_BiologicalDamageBase">
     <defName>USH_FluDamage</defName>
   </DamageDef>
-
-  <ThingDef ParentName="USH_PathogenFilthBase">
-    <defName>USH_FluFilth</defName>
-    <modExtensions>
-      <li Class="OPToxic.OPToxicDefs">
-        <OPToxicHediff>Flu</OPToxicHediff>
-        <OPToxicSeverity>0.02</OPToxicSeverity>
-        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
-      </li>
-    </modExtensions>
-  </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGasBase">
     <defName>USH_FluGas</defName>

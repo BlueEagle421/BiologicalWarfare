@@ -66,7 +66,6 @@
     <Compile Include="CombatDiseaseDef.cs" />
     <Compile Include="CompBacteriaIncubator.cs" />
     <Compile Include="CompDiseaseSample.cs" />
-    <Compile Include="BuildingContaminationDoor.cs" />
     <Compile Include="DefFormatter.cs" />
     <Compile Include="CompDiseaseSampler.cs" />
     <Compile Include="CompDiseaseSampleContainer.cs" />
@@ -76,7 +75,6 @@
     <Compile Include="IngestionOutcomeDoer_RemoveHediff.cs" />
     <Compile Include="JobDrivers.cs" />
     <Compile Include="Patch_FloatMenuMakerMap.cs" />
-    <Compile Include="PathogenFilth.cs" />
     <Compile Include="PathogenGas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CompVirusReplicator.cs" />

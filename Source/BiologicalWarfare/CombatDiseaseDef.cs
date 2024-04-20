@@ -19,7 +19,6 @@ namespace BiologicalWarfare
 
         public ThingDef sampleDef;
         public ThingDef pathogenDef;
-        public ThingDef filthDef;
 
         public ResearchProjectDef vaccineResProjectDef;
 

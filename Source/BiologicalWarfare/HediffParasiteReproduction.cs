@@ -40,8 +40,6 @@ namespace BiologicalWarfare
 
         private void Reproduce()
         {
-            BiologicalUtils.TryToContaminate(pawn, _extension.combatDiseaseDef, 0.05f);
-
             BiologicalUtils.SpawnThingAt(pawn.Map, pawn.CellsAdjacent8WayAndInside().ToList(), _extension.combatDiseaseDef.pathogenDef, SpawnCount());
             pawn.health.AddHediff(USHDefOf.USH_ParasiticPerforation, RandomOrganicPart());
             _reproductionTicks = 0;

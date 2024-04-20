@@ -42,7 +42,6 @@ namespace BiologicalWarfare
         private CompRefuelable _compRefuelable;
         private CompPowerTrader _compPowerTrader;
         private int _incubationTicks;
-        private int _contaminationTicks;
         private int _patogensToProduce;
         private bool _isIncubating;
         public bool IsIncubating => _isIncubating;
@@ -65,24 +64,10 @@ namespace BiologicalWarfare
             if (!CanIncubate())
                 return;
 
-            ContamidationTick();
-
             _incubationTicks++;
 
             if (_incubationTicks >= PropsBacteriaIncubator.incubationTicks)
                 IncubationEnded();
-        }
-
-        private void ContamidationTick()
-        {
-            _contaminationTicks++;
-
-            if (_contaminationTicks < BiologicalUtils.CONTAMINATION_TICKS)
-                return;
-
-            _contaminationTicks = 0;
-
-            BiologicalUtils.TryToContaminate(parent, _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef);
         }
 
         private void IncubationEnded()
@@ -109,7 +94,6 @@ namespace BiologicalWarfare
         {
             base.Initialize(props);
             _incubationTicks = 0;
-            _contaminationTicks = 0;
             _patogensToProduce = 0;
         }
 
@@ -117,17 +101,14 @@ namespace BiologicalWarfare
         {
             base.PostExposeData();
             Scribe_Values.Look(ref _incubationTicks, "USH_IncubationTicks", 0);
-            Scribe_Values.Look(ref _contaminationTicks, "USH_ContaminationTicks", 0);
             Scribe_Values.Look(ref _patogensToProduce, "USH_PatogensToProduce", 0);
             Scribe_Values.Look(ref _isIncubating, "USH_IsIncubating", false);
         }
 
         public override string CompInspectStringExtra()
         {
-            string contaminationChance = USHDefOf.USH_ContaminationChanceFactor.LabelCap + ": " + parent.GetStatValue(USHDefOf.USH_ContaminationChanceFactor).ToStringPercent();
-
             if (!_isIncubating)
-                return base.CompInspectStringExtra() + "\n" + contaminationChance;
+                return base.CompInspectStringExtra();
 
             StringBuilder stringBuilder = new StringBuilder();
 
@@ -136,8 +117,6 @@ namespace BiologicalWarfare
 
             string diseaseLabel = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.label;
             stringBuilder.AppendLine("USH_IncubatorWillProduce".Translate(_patogensToProduce, diseaseLabel));
-
-            stringBuilder.AppendLine(contaminationChance);
 
             return stringBuilder.ToString().Trim();
         }
@@ -148,8 +127,6 @@ namespace BiologicalWarfare
                 return;
 
             base.OnInteracted(caster);
-
-            BiologicalUtils.TryToContaminate(parent, _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef);
 
             _patogensToProduce = PathogensCount();
             _isIncubating = true;

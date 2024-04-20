@@ -19,7 +19,6 @@
       <li>USH_MalariaVaccine</li>
       <li>USH_MalariaAntiserum</li>
       <li>USH_MalariaReproductionPills</li>
-      <li>USH_MalariaFilth</li>
       <li>USH_MalariaGas</li>
       <li>USH_MalariaShell</li>
       <li>USH_MalariaBarrel</li>
@@ -46,8 +45,6 @@
     <sampleDef>USH_MalariaSample</sampleDef>
     <!-- pathogen def is optional -->
     <pathogenDef>USH_MalariaPathogen</pathogenDef>
-    <!-- filth def is optional -->
-    <filthDef>USH_MalariaFilth</filthDef>
 
   </BiologicalWarfare.CombatDiseaseDef>
 
@@ -162,17 +159,6 @@
   <DamageDef ParentName="USH_BiologicalDamageBase">
     <defName>USH_MalariaDamage</defName>
   </DamageDef>
-
-  <ThingDef ParentName="USH_PathogenFilthBase">
-    <defName>USH_MalariaFilth</defName>
-    <modExtensions>
-      <li Class="OPToxic.OPToxicDefs">
-        <OPToxicHediff>Malaria</OPToxicHediff>
-        <OPToxicSeverity>0.02</OPToxicSeverity>
-        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
-      </li>
-    </modExtensions>
-  </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGasBase">
     <defName>USH_MalariaGas</defName>

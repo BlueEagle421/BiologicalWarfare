@@ -8,8 +8,6 @@ namespace BiologicalWarfare
         private CompDiseaseSampleContainer _compDiseaseContainer;
         private CompPowerTrader _compPowerTrader;
 
-        private int _contaminationTicks;
-
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
@@ -22,13 +20,6 @@ namespace BiologicalWarfare
                 return null;
 
             return _compDiseaseContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.vaccineResProjectDef;
-        }
-
-        public override void ExposeData()
-        {
-            base.ExposeData();
-
-            Scribe_Values.Look(ref _contaminationTicks, "USH_ContaminationTicks", 0);
         }
 
         public bool CanPerformResearch(Pawn pawn)
@@ -63,17 +54,15 @@ namespace BiologicalWarfare
         {
             string baseString = base.GetInspectString();
 
-            string contaminationChance = USHDefOf.USH_ContaminationChanceFactor.LabelCap + ": " + this.GetStatValue(USHDefOf.USH_ContaminationChanceFactor).ToStringPercent();
-
             CompDiseaseSample diseaseSample = _compDiseaseContainer.ContainedSampleComp();
 
             ResearchProjectDef vaccineProj = CurrentVaccineProject();
 
             if (diseaseSample == null)
-                return baseString + string.Format("\n{0}", "USH_InsertSampleToResearch".Translate()) + "\n" + contaminationChance;
+                return baseString + string.Format("\n{0}", "USH_InsertSampleToResearch".Translate());
 
             if (vaccineProj == null)
-                return baseString + string.Format("\n{0}", "USH_WrongSampleToResearch".Translate()) + "\n" + contaminationChance;
+                return baseString + string.Format("\n{0}", "USH_WrongSampleToResearch".Translate());
 
             baseString += string.Format("\n{0}: {1}\n{2}: {3:F0} / {4:F0} ({5})", new object[]
                 {
@@ -85,8 +74,6 @@ namespace BiologicalWarfare
                     vaccineProj.ProgressPercent.ToStringPercent("0.#")
                 });
 
-            baseString += "\n" + contaminationChance;
-
             return baseString;
         }
 
@@ -97,8 +84,6 @@ namespace BiologicalWarfare
                 Log.Error("Researched without having a vaccine project.");
                 return;
             }
-
-            ContamidationTick();
 
             ResearchProjectDef vaccineProj = CurrentVaccineProject();
 
@@ -115,18 +100,6 @@ namespace BiologicalWarfare
 
             if (!vaccineProj.IsFinished)
                 Find.ResearchManager.AddProgress(vaccineProj, progress, researcher);
-        }
-
-        private void ContamidationTick()
-        {
-            _contaminationTicks++;
-
-            if (_contaminationTicks < BiologicalUtils.CONTAMINATION_TICKS)
-                return;
-
-            _contaminationTicks = 0;
-
-            BiologicalUtils.TryToContaminate(this, _compDiseaseContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef);
         }
     }
 }

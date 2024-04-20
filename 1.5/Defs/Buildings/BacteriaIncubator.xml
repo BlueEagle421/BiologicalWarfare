@@ -5,7 +5,7 @@
     <thingClass>Building</thingClass>
     <defName>USH_BacteriaIncubator</defName>
     <label>bacteria incubator</label>
-    <description>A lab machine designed to breed bacteria colonies. It's fueled by neutroamine and requires a sample of bacteria disease to operate. It will produce 3 bacteria pathogens for every unit of neutroamine. The entire process takes no more than 8 hours.\n\nIt can contaminate the surrounding area during activation and incubation.</description>
+    <description>A lab machine designed to breed bacteria colonies. It's fueled by neutroamine and requires a sample of bacteria disease to operate. It will produce 3 bacteria pathogens for every unit of neutroamine. The entire process takes no more than 8 hours.</description>
     <graphicData>
       <texPath>Things/Building/BacteriaIncubator/BacteriaIncubator</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -33,7 +33,6 @@
       <MaxHitPoints>120</MaxHitPoints>
       <Mass>45</Mass>
       <Flammability>0.7</Flammability>
-      <USH_ContaminationChanceFactor>0.8</USH_ContaminationChanceFactor>
     </statBases>
     <minifiedDef>MinifiedThing</minifiedDef>
     <tickerType>Normal</tickerType>
@@ -53,11 +52,6 @@
         <shortCircuitInRain>false</shortCircuitInRain>
       </li>
       <li Class="CompProperties_Flickable" />
-      <li Class="CompProperties_AffectedByFacilities">
-        <linkableFacilities>
-          <li>USH_PathogenStabilizer</li>
-        </linkableFacilities>
-      </li>
       <li Class="BiologicalWarfare.CompProperties_DiseaseSampleContainer">
         <compClass>BiologicalWarfare.CompBateriaIncubatorContainer</compClass>
         <acceptableDiseaseType>Bacteria</acceptableDiseaseType>

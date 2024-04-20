@@ -12,9 +12,6 @@ namespace BiologicalWarfare
     {
         public static string ToStringUncapitalized(this DiseaseType diseaseType) => diseaseType.ToString().UncapitalizeFirst();
 
-        public static float CELL_CONTAMINATION_CHANCE = 0.8f; //8%
-        public static int CONTAMINATION_TICKS = 2500 * 8; //8 hours
-
         public static void SpawnThingAt(Map map, List<IntVec3> cells, ThingDef thingDef, int count)
         {
             foreach (IntVec3 cell in cells)
@@ -161,93 +158,6 @@ namespace BiologicalWarfare
                 return false;
 
             return true;
-        }
-
-        public static void TryToContaminate(Thing thingSource, CombatDiseaseDef combatDiseaseDef, float chance)
-        {
-            if (combatDiseaseDef == null)
-                return;
-
-            if (thingSource == null)
-                return;
-
-            ThingDef filthDef = combatDiseaseDef.filthDef;
-
-            if (filthDef == null)
-                return;
-
-            if (RandomChance(chance))
-            {
-                ContaminateAreaAt(thingSource, filthDef);
-                Messages.Message("USH_AreaContaminated".Translate(combatDiseaseDef.label.CapitalizeFirst(), thingSource.Label), thingSource, MessageTypeDefOf.NegativeEvent);
-            }
-        }
-
-        public static void TryToContaminate(Thing thingSource, CombatDiseaseDef combatDiseaseDef)
-        {
-            if (combatDiseaseDef == null)
-                return;
-
-            if (thingSource == null)
-                return;
-
-            ThingDef filthDef = combatDiseaseDef.filthDef;
-
-            if (filthDef == null)
-                return;
-
-            if (RandomChance(thingSource.GetStatValue(USHDefOf.USH_ContaminationChanceFactor)))
-            {
-                ContaminateAreaAt(thingSource, filthDef);
-                Messages.Message("USH_AreaContaminated".Translate(combatDiseaseDef.label.CapitalizeFirst(), thingSource.Label), thingSource, MessageTypeDefOf.NegativeEvent);
-            }
-        }
-
-        public static void ContaminateAreaAt(Thing thingSource, ThingDef filthDef)
-        {
-            Map map = thingSource.Map;
-
-            List<IntVec3> cells = thingSource.CellsAdjacent8WayAndInside().ToList();
-
-            foreach (IntVec3 cell in cells)
-            {
-                if (!cell.Walkable(map))
-                    continue;
-
-                Thing firstThing = cell.GetFirstThing(map, filthDef);
-                if (firstThing != null)
-                    continue;
-
-                Thing thing = ThingMaker.MakeThing(filthDef);
-
-                GenPlace.TryPlaceThing(thing, cell, map, ThingPlaceMode.Near);
-            }
-
-            Room room = thingSource.GetRoom();
-
-            if (room == null)
-                return;
-
-            if (!room.ProperRoom)
-                return;
-
-            foreach (IntVec3 cell in room.Cells.ToList())
-            {
-                if (!RandomChance(CELL_CONTAMINATION_CHANCE))
-                    continue;
-
-                if (!cell.Walkable(map))
-                    continue;
-
-                Thing firstThing = cell.GetFirstThing(map, filthDef);
-
-                if (firstThing != null)
-                    continue;
-
-                Thing thing = ThingMaker.MakeThing(filthDef);
-                if (GenPlace.TryPlaceThing(thing, cell, map, ThingPlaceMode.Near))
-                    break;
-            }
         }
     }
 }
