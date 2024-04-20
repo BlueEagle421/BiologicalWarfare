@@ -26,6 +26,8 @@
     <castEdgeShadows>true</castEdgeShadows>
     <canOverlapZones>false</canOverlapZones>
     <staticSunShadowHeight>1.0</staticSunShadowHeight>
+    <techLevel>Industrial</techLevel>
+    <designatorDropdown>USH_BiologicalVents</designatorDropdown>
     <statBases>
       <WorkToBuild>400</WorkToBuild>
       <MaxHitPoints>100</MaxHitPoints>
