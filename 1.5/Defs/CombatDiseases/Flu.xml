@@ -22,6 +22,7 @@
       <li>USH_FluGas</li>
       <li>USH_FluShell</li>
       <li>USH_FluBarrel</li>
+      <li>USH_FluVent</li>
       <li>USH_FluGrenadeLauncher</li>
     </thingDefsToFormatAndColor>
 
@@ -192,10 +193,52 @@
     <specialDisplayRadius>6.9</specialDisplayRadius>
   </ThingDef>
 
+  <ThingDef ParentName="USH_BiologicalVentBase">
+    <defName>USH_FluVent</defName>
+    <comps>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>0</fuelConsumptionRate>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <initialConfigurableTargetFuelLevel>25</initialConfigurableTargetFuelLevel>
+        <fuelCapacity>50</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>USH_FluPathogen</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="BiologicalWarfare.CompProperties_GasVent">
+        <gasDef>USH_FluGas</gasDef>
+        <pathogensPerCell>0.5</pathogensPerCell>
+        <activeTicks>1</activeTicks>
+        <cooldownTicks>0</cooldownTicks>
+        <ticksToActivate>60</ticksToActivate>
+        <jobString>activate</jobString>
+        <onCooldownString>cooling off</onCooldownString>
+        <activateTexPath>UI/Gizmo/ActivateGasVent</activateTexPath>
+        <soundActivate>USH_GasVentActivated</soundActivate>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
+    </comps>
+    <costList>
+      <USH_FluPathogen>15</USH_FluPathogen>
+    </costList>
+    <researchPrerequisites>
+      <li>USH_FluOperationRes</li>
+    </researchPrerequisites>
+  </ThingDef>
+
   <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">
     <defName>USH_FluGrenadeLauncher</defName>
     <costList>
-      <USH_FluPathogen>75</USH_FluPathogen>
+      <USH_FluPathogen>50</USH_FluPathogen>
     </costList>
     <verbs>
       <li>

@@ -74,6 +74,24 @@
   </SoundDef>
 
   <SoundDef>
+    <defName>USH_GasVentActivated</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Misc/GasVentActivated</clipPath>
+          </li>
+        </grains>
+        <volumeRange>32</volumeRange>
+        <sustainLoop>False</sustainLoop>
+        <distRange>15~40</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
     <defName>USH_BacteriaIncubatorActivated</defName>
     <context>MapOnly</context>
     <maxSimultaneous>1</maxSimultaneous>

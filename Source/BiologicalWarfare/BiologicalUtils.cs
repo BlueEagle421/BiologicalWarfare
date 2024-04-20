@@ -164,5 +164,22 @@ namespace BiologicalWarfare
 
             return true;
         }
+
+        public static void Shuffle<T>(this List<T> list, int shuffleSteps)
+        {
+            System.Random rand = new System.Random();
+
+            for (int i = 0; i < shuffleSteps; i++)
+            {
+                // Generate two random indices
+                int index1 = rand.Next(0, list.Count - 1);
+                int index2 = rand.Next(index1, list.Count);
+
+                // Swap the elements at the randomly chosen indices
+                T temp = list[index1];
+                list[index1] = list[index2];
+                list[index2] = temp;
+            }
+        }
     }
 }
