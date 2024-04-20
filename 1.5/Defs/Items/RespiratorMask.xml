@@ -7,10 +7,11 @@
     <description>A military-grade tactical respirator mask designed for use on the battlefield. Provides full protection from toxic damage, rendering the user fully immune to pathogen gases.</description>
     <possessionCount>1</possessionCount>
     <graphicData>
-      <texPath>Things/Pawn/Humanlike/Apparel/TribalHeaddress/TribalHeaddress</texPath>
+      <texPath>Things/Item/RespiratorMask/RespiratorMask</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>0.8</drawSize>
+      <drawSize>1</drawSize>
     </graphicData>
+    <uiIconScale>1.2</uiIconScale>
     <statBases>
       <MaxHitPoints>30</MaxHitPoints>
       <WorkToMake>2000</WorkToMake>
@@ -20,6 +21,8 @@
       <StuffEffectMultiplierInsulation_Heat>0</StuffEffectMultiplierInsulation_Heat>
       <EquipDelay>0.6</EquipDelay>
     </statBases>
+    <generateCommonality>0.3</generateCommonality>
+    <generateAllowChance>0.15</generateAllowChance>
     <equippedStatOffsets>
       <ToxicEnvironmentResistance>0.8</ToxicEnvironmentResistance>
     </equippedStatOffsets>
@@ -41,9 +44,12 @@
       <developmentalStageFilter>Child, Adult</developmentalStageFilter>
       <immuneToToxGasExposure>true</immuneToToxGasExposure>
       <bodyPartGroups>
-        <li>FullHead</li>
+        <li>Mouth</li>
       </bodyPartGroups>
-      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/TribalHeaddress/TribalHeaddress</wornGraphicPath>
+      <drawData>
+        <scale>0.75</scale>
+      </drawData>
+      <wornGraphicPath>Things/Item/RespiratorMask/RespiratorMask</wornGraphicPath>
       <layers>
         <li>EyeCover</li>
       </layers>
