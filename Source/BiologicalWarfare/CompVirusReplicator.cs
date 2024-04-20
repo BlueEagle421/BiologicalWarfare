@@ -92,16 +92,21 @@ namespace BiologicalWarfare
             foreach (IntVec3 cell in parent.GetRoom().Cells.ToList())
                 foreach (Thing thing in parent.Map.thingGrid.ThingsAt(cell))
                 {
+                    HediffDef toAdd = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.giveHediffDef;
+
                     if (!(thing is Pawn pawn))
                         continue;
 
-                    if (pawn.GetStatValue(StatDefOf.ToxicEnvironmentResistance) >= 0.8f)
+                    if (!BiologicalUtils.CanPathogenInfect(pawn))
+                        continue;
+
+                    if (BiologicalUtils.IsImmuneTo(pawn, toAdd))
                         continue;
 
                     if (pawn.Position.DistanceTo(parent.Position) <= parent.def.specialDisplayRadius)
                         continue;
 
-                    pawn.health.AddHediff(_sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.giveHediffDef);
+                    pawn.health.AddHediff(toAdd);
 
                     Hediff extractionHediff = pawn.health.AddHediff(USHDefOf.USH_VirusExtraction);
                     extractionHediff.TryGetComp<HediffCompVirusExtraction>().CombatDiseaseDef = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef;
