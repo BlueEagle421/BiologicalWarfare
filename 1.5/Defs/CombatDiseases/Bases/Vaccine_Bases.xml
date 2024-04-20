@@ -11,6 +11,7 @@
       <shaderType>CutoutComplex</shaderType>
       <drawSize>0.75</drawSize>
     </graphicData>
+    <uiIconScale>1.2</uiIconScale>
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
     <useHitPoints>true</useHitPoints>
     <statBases>
