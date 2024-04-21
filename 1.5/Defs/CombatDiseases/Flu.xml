@@ -228,7 +228,7 @@
       </li>
     </comps>
     <costList>
-      <USH_FluPathogen>15</USH_FluPathogen>
+      <USH_FluPathogen>45</USH_FluPathogen>
     </costList>
     <researchPrerequisites>
       <li>USH_FluOperationRes</li>
