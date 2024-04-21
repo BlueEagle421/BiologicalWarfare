@@ -49,6 +49,7 @@ namespace BiologicalWarfare
         protected IntVec3 _ventPos;
 
         private const int GAS_CELL_DELAY = 25;
+        private const int SHUFFLE_STEPS = 12;
 
         public CompProperties_GasVent PropsVent => props as CompProperties_GasVent;
 
@@ -92,7 +93,7 @@ namespace BiologicalWarfare
 
             cellsToFlood.OrderBy(x => x.DistanceTo(parent.Position)).ToList();
 
-            cellsToFlood.Shuffle(12);
+            cellsToFlood.Shuffle(SHUFFLE_STEPS);
 
             foreach (IntVec3 cell in cellsToFlood)
                 await MakeGasAt(cell, map, room);
