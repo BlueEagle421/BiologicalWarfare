@@ -105,6 +105,7 @@
     <comps>
       <li Class="CompProperties_Refuelable">
         <fuelConsumptionRate>0</fuelConsumptionRate>
+        <initialFuelPercent>1</initialFuelPercent>
         <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
         <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
         <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
@@ -135,7 +136,7 @@
       </li>
     </comps>
     <costList>
-      <USH_FleshBreaker>3</USH_FleshBreaker>
+      <USH_FleshBreaker>10</USH_FleshBreaker>
     </costList>
     <researchPrerequisites>
       <li>USH_FleshBreakerOperationRes</li>

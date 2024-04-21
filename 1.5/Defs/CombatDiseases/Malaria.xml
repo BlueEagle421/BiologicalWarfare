@@ -233,6 +233,7 @@
     <comps>
       <li Class="CompProperties_Refuelable">
         <fuelConsumptionRate>0</fuelConsumptionRate>
+        <initialFuelPercent>1</initialFuelPercent>
         <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
         <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
         <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
@@ -263,7 +264,7 @@
       </li>
     </comps>
     <costList>
-      <USH_MalariaPathogen>45</USH_MalariaPathogen>
+      <USH_MalariaPathogen>50</USH_MalariaPathogen>
     </costList>
     <researchPrerequisites>
       <li>USH_MalariaOperationRes</li>

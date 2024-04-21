@@ -198,6 +198,7 @@
     <comps>
       <li Class="CompProperties_Refuelable">
         <fuelConsumptionRate>0</fuelConsumptionRate>
+        <initialFuelPercent>1</initialFuelPercent>
         <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
         <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
         <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
@@ -228,7 +229,7 @@
       </li>
     </comps>
     <costList>
-      <USH_ScariaPathogen>45</USH_ScariaPathogen>
+      <USH_ScariaPathogen>50</USH_ScariaPathogen>
     </costList>
     <researchPrerequisites>
       <li>USH_ScariaOperationRes</li>
