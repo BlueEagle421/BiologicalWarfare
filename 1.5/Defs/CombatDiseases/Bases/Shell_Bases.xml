@@ -4,7 +4,7 @@
   <ThingDef Name="USH_BiologicalShellBase" ParentName="MakeableShellBase" Abstract="True">
     <label>{0} gas shell</label>
     <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
-    <description>A shell filled with {0} {1} pathogen gas. Can be fired from mortars. Explodes when damaged infecting everyone nearby.</description>
+    <description>A shell filled with {0} gas. Can be fired from mortars. Explodes when damaged infecting everyone nearby.</description>
     <possessionCount>1</possessionCount>
     <graphicData>
       <texPath>Things/Item/GasShells</texPath>
