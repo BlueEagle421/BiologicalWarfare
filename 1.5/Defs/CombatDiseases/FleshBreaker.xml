@@ -108,8 +108,8 @@
         <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
         <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
         <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
-        <initialConfigurableTargetFuelLevel>25</initialConfigurableTargetFuelLevel>
-        <fuelCapacity>50</fuelCapacity>
+        <initialConfigurableTargetFuelLevel>5</initialConfigurableTargetFuelLevel>
+        <fuelCapacity>10</fuelCapacity>
         <fuelFilter>
           <thingDefs>
             <li>USH_FleshBreaker</li>
@@ -118,7 +118,7 @@
       </li>
       <li Class="BiologicalWarfare.CompProperties_GasVent">
         <gasDef>USH_FleshBreakerGas</gasDef>
-        <pathogensPerCell>0.5</pathogensPerCell>
+        <pathogensPerCell>0.1</pathogensPerCell>
         <activeTicks>1</activeTicks>
         <cooldownTicks>0</cooldownTicks>
         <ticksToActivate>60</ticksToActivate>
