@@ -4,8 +4,15 @@
   <ThingDef ParentName="ResourceBase">
     <defName>USH_DiseaseSampler</defName>
     <label>disease sampler</label>
-    <description>A medical tool intended for use on sick patients. It creates a sample of the disease that can later be utilized in the production of deadly pathogens. Diseases that can be sampled are listed below.</description>
+    <description>A medical tool intended for use on sick patients. It creates a sample of the disease that can later be utilized in the production of deadly pathogens. \n\nCan be crafted in drug lab.\n\nDiseases that can be sampled are listed below.</description>
     <thingClass>ThingWithComps</thingClass>
+    <descriptionHyperlinks>
+      <HediffDef>Flu</HediffDef>
+      <HediffDef>Malaria</HediffDef>
+      <HediffDef>Plague</HediffDef>
+      <HediffDef>Scaria</HediffDef>
+      <HediffDef>SleepingSickness</HediffDef>
+    </descriptionHyperlinks>
     <graphicData>
       <texPath>Things/Item/DiseaseSampler</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -23,7 +30,6 @@
     <thingCategories>
       <li>ItemsMisc</li>
     </thingCategories>
-    <tradeability>Sellable</tradeability>
     <comps>
       <li Class="CompProperties_Usable">
         <useJob>UseItem</useJob>
@@ -46,33 +52,5 @@
     <reportString>sampling disease from TargetA.</reportString>
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>
-
-  <RecipeDef>
-    <defName>USH_SampleDisease</defName>
-    <label>sample disease</label>
-    <description>Sample a disease.</description>
-    <workerClass>Recipe_AdministerUsableItem</workerClass>
-    <jobString>Taking a sample of a disease.</jobString>
-    <targetsBodyPart>false</targetsBodyPart>
-    <anesthetize>false</anesthetize>
-    <workAmount>120</workAmount>
-    <dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
-    <surgeryOutcomeEffect IsNull="True" />
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>USH_DiseaseSampler</li>
-          </thingDefs>
-        </filter>
-        <count>1</count>
-      </li>
-    </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>USH_DiseaseSampler</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-  </RecipeDef>
 
 </Defs>

@@ -47,9 +47,6 @@
     <placeWorkers>
       <li>PlaceWorker_NeverAdjacentTrap</li>
     </placeWorkers>
-    <researchPrerequisites>
-      <li>USH_PathogenOperationRes</li>
-    </researchPrerequisites>
   </ThingDef>
 
 </Defs>

@@ -6,4 +6,9 @@
     <label>gas barrels</label>
   </DesignatorDropdownGroupDef>
 
+  <DesignatorDropdownGroupDef>
+    <defName>USH_BiologicalVents</defName>
+    <label>gas vents</label>
+  </DesignatorDropdownGroupDef>
+
 </Defs>

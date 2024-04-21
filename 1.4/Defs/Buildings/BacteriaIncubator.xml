@@ -92,8 +92,9 @@
         </targetingParameters>
       </li>
     </comps>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
     <researchPrerequisites>
-      <li>USH_BacteriaReproductionRes</li>
+      <li>USH_PathogenProductionRes</li>
     </researchPrerequisites>
   </ThingDef>
 

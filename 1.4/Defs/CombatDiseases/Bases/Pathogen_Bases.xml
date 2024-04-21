@@ -14,6 +14,7 @@
     <stackLimit>150</stackLimit>
     <healthAffectsPrice>false</healthAffectsPrice>
     <tickerType>Rare</tickerType>
+    <tradeability>Sellable</tradeability>
     <statBases>
       <MaxHitPoints>30</MaxHitPoints>
       <MarketValue>1.8</MarketValue>

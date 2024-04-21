@@ -4,7 +4,11 @@
   <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
     <defName>USH_Flu</defName>
     <label>flu</label>
-    <hediffDef>Flu</hediffDef>
+    <samplableHediffDefs>
+      <li>Flu</li>
+      <li>Animal_Flu</li>
+    </samplableHediffDefs>
+    <giveHediffDef>Flu</giveHediffDef>
     <diseaseType>Virus</diseaseType>
     <colorInt>(242, 200, 25, 255)</colorInt>
 
@@ -13,9 +17,12 @@
     <thingDefsToFormatAndColor>
       <li>USH_FluSample</li>
       <li>USH_FluPathogen</li>
+      <li>USH_FluVaccine</li>
+      <li>USH_FluAntiserum</li>
       <li>USH_FluGas</li>
       <li>USH_FluShell</li>
       <li>USH_FluBarrel</li>
+      <li>USH_FluVent</li>
       <li>USH_FluGrenadeLauncher</li>
     </thingDefsToFormatAndColor>
 
@@ -23,6 +30,17 @@
       <li>USH_FluShellBullet</li>
       <li>USH_FluGrenadeBullet</li>
     </thingDefsToFormat>
+
+    <researchProjectsDefsToFormat>
+      <li>USH_FluOperationRes</li>
+      <li>USH_FluVaccineRes</li>
+    </researchProjectsDefsToFormat>
+
+    <hediffDefsToFormat>
+      <li>USH_FluVaccineHediff</li>
+    </hediffDefsToFormat>
+
+    <vaccineResProjectDef>USH_FluVaccineRes</vaccineResProjectDef>
 
     <!-- sample def is required for CombatDiseaseDef to work properly -->
     <sampleDef>USH_FluSample</sampleDef>
@@ -41,10 +59,67 @@
     <costList>
       <USH_FluPathogen>1</USH_FluPathogen>
     </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_FluOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_VirusPathogenBase">
     <defName>USH_FluPathogen</defName>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_DiseaseVaccineBase">
+    <defName>USH_FluVaccine</defName>
+    <descriptionHyperlinks>
+      <HediffDef>USH_FluVaccineHediff</HediffDef>
+    </descriptionHyperlinks>
+    <comps>
+      <li Class="BiologicalWarfare.CompProperties_TargetEffectVaccine">
+        <jobDef>USH_InjectVaccine</jobDef>
+        <hediffDefVaccine>USH_FluVaccineHediff</hediffDefVaccine>
+      </li>
+    </comps>
+    <costList>
+      <USH_FluPathogen>25</USH_FluPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_FluVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <HediffDef ParentName="USH_DiseaseVaccineHediffBase">
+    <defName>USH_FluVaccineHediff</defName>
+    <stages>
+      <li>
+        <makeImmuneTo>
+          <li>Flu</li>
+        </makeImmuneTo>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThingDef ParentName="USH_DiseaseAntiserum">
+    <defName>USH_FluAntiserum</defName>
+    <ingestible>
+      <outcomeDoers>
+        <li Class="BiologicalWarfare.IngestionOutcomeDoer_RemoveHediff">
+          <hediffDefToRemove>Flu</hediffDefToRemove>
+          <sendMessage>true</sendMessage>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <costList>
+      <USH_FluPathogen>25</USH_FluPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_FluVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <DamageDef ParentName="USH_BiologicalDamageBase">
@@ -56,7 +131,7 @@
     <modExtensions>
       <li Class="OPToxic.OPToxicDefs">
         <OPToxicHediff>Flu</OPToxicHediff>
-        <OPToxicSeverity>0.15</OPToxicSeverity>
+        <OPToxicSeverity>0.12</OPToxicSeverity>
         <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
       </li>
     </modExtensions>
@@ -80,6 +155,11 @@
     <costList>
       <USH_FluPathogen>15</USH_FluPathogen>
     </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_FluOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalShellBulletBase">
@@ -93,9 +173,6 @@
 
   <ThingDef ParentName="USH_BiologicalBarrelBase">
     <defName>USH_FluBarrel</defName>
-    <costList>
-      <USH_FluPathogen>75</USH_FluPathogen>
-    </costList>
     <comps>
       <li Class="CompProperties_Explosive">
         <explosiveRadius>6.9</explosiveRadius>
@@ -107,13 +184,61 @@
         <wickTicks>30~60</wickTicks>
       </li>
     </comps>
+    <costList>
+      <USH_FluPathogen>75</USH_FluPathogen>
+    </costList>
+    <researchPrerequisites>
+      <li>USH_FluOperationRes</li>
+    </researchPrerequisites>
     <specialDisplayRadius>6.9</specialDisplayRadius>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalVentBase">
+    <defName>USH_FluVent</defName>
+    <comps>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>0</fuelConsumptionRate>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <initialConfigurableTargetFuelLevel>25</initialConfigurableTargetFuelLevel>
+        <fuelCapacity>50</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>USH_FluPathogen</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="BiologicalWarfare.CompProperties_GasVent">
+        <gasDef>USH_FluGas</gasDef>
+        <pathogensPerCell>0.5</pathogensPerCell>
+        <activeTicks>1</activeTicks>
+        <cooldownTicks>0</cooldownTicks>
+        <ticksToActivate>60</ticksToActivate>
+        <jobString>activate</jobString>
+        <onCooldownString>cooling off</onCooldownString>
+        <activateTexPath>UI/Gizmo/ActivateGasVent</activateTexPath>
+        <soundActivate>USH_GasVentActivated</soundActivate>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
+    </comps>
+    <costList>
+      <USH_FluPathogen>45</USH_FluPathogen>
+    </costList>
+    <researchPrerequisites>
+      <li>USH_FluOperationRes</li>
+    </researchPrerequisites>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">
     <defName>USH_FluGrenadeLauncher</defName>
     <costList>
-      <USH_FluPathogen>75</USH_FluPathogen>
+      <USH_FluPathogen>50</USH_FluPathogen>
     </costList>
     <verbs>
       <li>
@@ -132,6 +257,11 @@
         </targetParams>
       </li>
     </verbs>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_FluOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGrenadeBulletBase">
@@ -142,5 +272,20 @@
       <explosionRadius>4.9</explosionRadius>
     </projectile>
   </ThingDef>
+
+  <ResearchProjectDef ParentName="USH_DiseaseOprationResBase">
+    <defName>USH_FluOperationRes</defName>
+    <researchViewX>1.50</researchViewX>
+    <researchViewY>0.20</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase">
+    <defName>USH_FluVaccineRes</defName>
+    <prerequisites>
+      <li>USH_FluOperationRes</li>
+    </prerequisites>
+    <researchViewX>2.50</researchViewX>
+    <researchViewY>0.20</researchViewY>
+  </ResearchProjectDef>
 
 </Defs>

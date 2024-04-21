@@ -47,7 +47,7 @@
       <USH_DiseaseSampler>1</USH_DiseaseSampler>
     </products>
     <workSkill>Crafting</workSkill>
-    <researchPrerequisite>USH_DiseaseSamplingRes</researchPrerequisite>
+    <researchPrerequisite>USH_PathogenProductionRes</researchPrerequisite>
   </RecipeDef>
 
 </Defs>

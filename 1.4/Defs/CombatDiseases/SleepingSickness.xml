@@ -4,7 +4,10 @@
   <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
     <defName>USH_SleepingSickness</defName>
     <label>sleeping sickness</label>
-    <hediffDef>SleepingSickness</hediffDef>
+    <samplableHediffDefs>
+      <li>SleepingSickness</li>
+    </samplableHediffDefs>
+    <giveHediffDef>SleepingSickness</giveHediffDef>
     <diseaseType>Parasite</diseaseType>
     <colorInt>(22, 168, 119, 255)</colorInt>
 
@@ -13,10 +16,13 @@
     <thingDefsToFormatAndColor>
       <li>USH_SleepingSicknessSample</li>
       <li>USH_SleepingSicknessPathogen</li>
+      <li>USH_SleepingSicknessVaccine</li>
+      <li>USH_SleepingSicknessAntiserum</li>
       <li>USH_SleepingSicknessReproductionPills</li>
       <li>USH_SleepingSicknessGas</li>
       <li>USH_SleepingSicknessShell</li>
       <li>USH_SleepingSicknessBarrel</li>
+      <li>USH_SleepingSicknessVent</li>
       <li>USH_SleepingSicknessGrenadeLauncher</li>
     </thingDefsToFormatAndColor>
 
@@ -24,6 +30,17 @@
       <li>USH_SleepingSicknessShellBullet</li>
       <li>USH_SleepingSicknessGrenadeBullet</li>
     </thingDefsToFormat>
+
+    <researchProjectsDefsToFormat>
+      <li>USH_SleepingSicknessOperationRes</li>
+      <li>USH_SleepingSicknessVaccineRes</li>
+    </researchProjectsDefsToFormat>
+
+    <hediffDefsToFormat>
+      <li>USH_SleepingSicknessVaccineHediff</li>
+    </hediffDefsToFormat>
+
+    <vaccineResProjectDef>USH_SleepingSicknessVaccineRes</vaccineResProjectDef>
 
     <!-- sample def is required for CombatDiseaseDef to work properly -->
     <sampleDef>USH_SleepingSicknessSample</sampleDef>
@@ -34,13 +51,78 @@
 
   <ThingDef ParentName="USH_ParasiteSampleBase">
     <defName>USH_SleepingSicknessSample</defName>
+    <descriptionHyperlinks>
+      <ThingDef>USH_SleepingSicknessReproductionPills</ThingDef>
+    </descriptionHyperlinks>
+    <comps>
+      <li Class="BiologicalWarfare.CompProperties_DiseaseSample">
+        <combatDiseaseDef>USH_SleepingSickness</combatDiseaseDef>
+      </li>
+    </comps>
     <costList>
       <USH_SleepingSicknessPathogen>1</USH_SleepingSicknessPathogen>
     </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_SleepingSicknessOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_ParasitePathogenBase">
     <defName>USH_SleepingSicknessPathogen</defName>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_DiseaseVaccineBase">
+    <defName>USH_SleepingSicknessVaccine</defName>
+    <descriptionHyperlinks>
+      <HediffDef>USH_SleepingSicknessVaccineHediff</HediffDef>
+    </descriptionHyperlinks>
+    <comps>
+      <li Class="BiologicalWarfare.CompProperties_TargetEffectVaccine">
+        <jobDef>USH_InjectVaccine</jobDef>
+        <hediffDefVaccine>USH_SleepingSicknessVaccineHediff</hediffDefVaccine>
+      </li>
+    </comps>
+    <costList>
+      <USH_SleepingSicknessPathogen>25</USH_SleepingSicknessPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_SleepingSicknessVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <HediffDef ParentName="USH_DiseaseVaccineHediffBase">
+    <defName>USH_SleepingSicknessVaccineHediff</defName>
+    <stages>
+      <li>
+        <makeImmuneTo>
+          <li>SleepingSickness</li>
+        </makeImmuneTo>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThingDef ParentName="USH_DiseaseAntiserum">
+    <defName>USH_SleepingSicknessAntiserum</defName>
+    <ingestible>
+      <outcomeDoers>
+        <li Class="BiologicalWarfare.IngestionOutcomeDoer_RemoveHediff">
+          <hediffDefToRemove>SleepingSickness</hediffDefToRemove>
+          <sendMessage>true</sendMessage>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <costList>
+      <USH_SleepingSicknessPathogen>25</USH_SleepingSicknessPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_SleepingSicknessVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_ParasiteReproductionPills">
@@ -84,7 +166,7 @@
     <modExtensions>
       <li Class="OPToxic.OPToxicDefs">
         <OPToxicHediff>SleepingSickness</OPToxicHediff>
-        <OPToxicSeverity>0.15</OPToxicSeverity>
+        <OPToxicSeverity>0.12</OPToxicSeverity>
         <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
       </li>
     </modExtensions>
@@ -108,6 +190,11 @@
     <costList>
       <USH_SleepingSicknessPathogen>15</USH_SleepingSicknessPathogen>
     </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_SleepingSicknessOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalShellBulletBase">
@@ -121,9 +208,6 @@
 
   <ThingDef ParentName="USH_BiologicalBarrelBase">
     <defName>USH_SleepingSicknessBarrel</defName>
-    <costList>
-      <USH_SleepingSicknessPathogen>75</USH_SleepingSicknessPathogen>
-    </costList>
     <comps>
       <li Class="CompProperties_Explosive">
         <explosiveRadius>6.9</explosiveRadius>
@@ -135,7 +219,55 @@
         <wickTicks>30~60</wickTicks>
       </li>
     </comps>
+    <costList>
+      <USH_SleepingSicknessPathogen>75</USH_SleepingSicknessPathogen>
+    </costList>
+    <researchPrerequisites>
+      <li>USH_SleepingSicknessOperationRes</li>
+    </researchPrerequisites>
     <specialDisplayRadius>6.9</specialDisplayRadius>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalVentBase">
+    <defName>USH_SleepingSicknessVent</defName>
+    <comps>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>0</fuelConsumptionRate>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <initialConfigurableTargetFuelLevel>25</initialConfigurableTargetFuelLevel>
+        <fuelCapacity>50</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>USH_SleepingSicknessPathogen</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="BiologicalWarfare.CompProperties_GasVent">
+        <gasDef>USH_SleepingSicknessGas</gasDef>
+        <pathogensPerCell>0.5</pathogensPerCell>
+        <activeTicks>1</activeTicks>
+        <cooldownTicks>0</cooldownTicks>
+        <ticksToActivate>60</ticksToActivate>
+        <jobString>activate</jobString>
+        <onCooldownString>cooling off</onCooldownString>
+        <activateTexPath>UI/Gizmo/ActivateGasVent</activateTexPath>
+        <soundActivate>USH_GasVentActivated</soundActivate>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
+    </comps>
+    <costList>
+      <USH_SleepingSicknessPathogen>45</USH_SleepingSicknessPathogen>
+    </costList>
+    <researchPrerequisites>
+      <li>USH_SleepingSicknessOperationRes</li>
+    </researchPrerequisites>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">
@@ -160,6 +292,11 @@
         </targetParams>
       </li>
     </verbs>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_SleepingSicknessOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGrenadeBulletBase">
@@ -170,5 +307,20 @@
       <explosionRadius>4.9</explosionRadius>
     </projectile>
   </ThingDef>
+
+  <ResearchProjectDef ParentName="USH_DiseaseOprationResBase">
+    <defName>USH_SleepingSicknessOperationRes</defName>
+    <researchViewX>1.50</researchViewX>
+    <researchViewY>2.60</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase">
+    <defName>USH_SleepingSicknessVaccineRes</defName>
+    <prerequisites>
+      <li>USH_SleepingSicknessOperationRes</li>
+    </prerequisites>
+    <researchViewX>2.50</researchViewX>
+    <researchViewY>2.60</researchViewY>
+  </ResearchProjectDef>
 
 </Defs>

@@ -23,7 +23,7 @@
       <drugCategory>Medical</drugCategory>
     </ingestible>
     <recipeMaker>
-      <researchPrerequisite>USH_ParasiteReproductionRes</researchPrerequisite>
+      <researchPrerequisite>USH_PathogenProductionRes</researchPrerequisite>
       <recipeUsers>
         <li>DrugLab</li>
       </recipeUsers>

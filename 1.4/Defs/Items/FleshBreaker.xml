@@ -44,7 +44,7 @@
       </outcomeDoers>
     </ingestible>
     <recipeMaker>
-      <researchPrerequisite>DrugProduction</researchPrerequisite>
+      <researchPrerequisite>USH_FleshBreakerOperationRes</researchPrerequisite>
       <bulkRecipeCount>4</bulkRecipeCount>
       <recipeUsers>
         <li>DrugLab</li>

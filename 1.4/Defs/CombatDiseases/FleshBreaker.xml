@@ -4,9 +4,8 @@
   <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
     <defName>USH_FleshBreaker</defName>
     <label>flesh-breaker</label>
-    <hediffDef>USH_FleshBreakerHigh</hediffDef>
-    <diseaseType>Custom</diseaseType>
-    <canBeSampled>False</canBeSampled>
+    <giveHediffDef>USH_FleshBreakerHigh</giveHediffDef>
+    <diseaseType>Chemical</diseaseType>
     <colorInt>(148, 153, 49, 255)</colorInt>
 
     <!-- formats {0} to label and {1} to disease type -->
@@ -15,6 +14,7 @@
       <li>USH_FleshBreakerGas</li>
       <li>USH_FleshBreakerShell</li>
       <li>USH_FleshBreakerBarrel</li>
+      <li>USH_FleshBreakerVent</li>
       <li>USH_FleshBreakerGrenadeLauncher</li>
     </thingDefsToFormatAndColor>
 
@@ -22,6 +22,10 @@
       <li>USH_FleshBreakerShellBullet</li>
       <li>USH_FleshBreakerGrenadeBullet</li>
     </thingDefsToFormat>
+
+    <researchProjectsDefsToFormat>
+      <li>USH_FleshBreakerOperationRes</li>
+    </researchProjectsDefsToFormat>
 
   </BiologicalWarfare.CombatDiseaseDef>
 
@@ -34,7 +38,7 @@
     <modExtensions>
       <li Class="OPToxic.OPToxicDefs">
         <OPToxicHediff>USH_FleshBreakerHigh</OPToxicHediff>
-        <OPToxicSeverity>0.15</OPToxicSeverity>
+        <OPToxicSeverity>0.12</OPToxicSeverity>
         <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
       </li>
     </modExtensions>
@@ -58,6 +62,11 @@
     <costList>
       <USH_FleshBreaker>3</USH_FleshBreaker>
     </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_FleshBreakerOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalShellBulletBase">
@@ -71,9 +80,6 @@
 
   <ThingDef ParentName="USH_BiologicalBarrelBase">
     <defName>USH_FleshBreakerBarrel</defName>
-    <costList>
-      <USH_FleshBreaker>15</USH_FleshBreaker>
-    </costList>
     <comps>
       <li Class="CompProperties_Explosive">
         <explosiveRadius>6.9</explosiveRadius>
@@ -85,7 +91,55 @@
         <wickTicks>30~60</wickTicks>
       </li>
     </comps>
+    <costList>
+      <USH_FleshBreaker>15</USH_FleshBreaker>
+    </costList>
+    <researchPrerequisites>
+      <li>USH_FleshBreakerOperationRes</li>
+    </researchPrerequisites>
     <specialDisplayRadius>6.9</specialDisplayRadius>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalVentBase">
+    <defName>USH_FleshBreakerVent</defName>
+    <comps>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>0</fuelConsumptionRate>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <initialConfigurableTargetFuelLevel>5</initialConfigurableTargetFuelLevel>
+        <fuelCapacity>10</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>USH_FleshBreaker</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="BiologicalWarfare.CompProperties_GasVent">
+        <gasDef>USH_FleshBreakerGas</gasDef>
+        <pathogensPerCell>0.1</pathogensPerCell>
+        <activeTicks>1</activeTicks>
+        <cooldownTicks>0</cooldownTicks>
+        <ticksToActivate>60</ticksToActivate>
+        <jobString>activate</jobString>
+        <onCooldownString>cooling off</onCooldownString>
+        <activateTexPath>UI/Gizmo/ActivateGasVent</activateTexPath>
+        <soundActivate>USH_GasVentActivated</soundActivate>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
+    </comps>
+    <costList>
+      <USH_FleshBreaker>3</USH_FleshBreaker>
+    </costList>
+    <researchPrerequisites>
+      <li>USH_FleshBreakerOperationRes</li>
+    </researchPrerequisites>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">
@@ -110,6 +164,11 @@
         </targetParams>
       </li>
     </verbs>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_FleshBreakerOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGrenadeBulletBase">
@@ -120,5 +179,11 @@
       <explosionRadius>4.9</explosionRadius>
     </projectile>
   </ThingDef>
+
+  <ResearchProjectDef ParentName="USH_DiseaseOprationResBase">
+    <defName>USH_FleshBreakerOperationRes</defName>
+    <researchViewX>1.50</researchViewX>
+    <researchViewY>3.40</researchViewY>
+  </ResearchProjectDef>
 
 </Defs>

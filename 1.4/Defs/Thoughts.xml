@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThoughtDef>
+    <defName>USH_VaccineWoozy</defName>
+    <durationDays>1</durationDays>
+    <nullifyingTraitDegrees>
+      <DrugDesire>1</DrugDesire>
+    </nullifyingTraitDegrees>
+    <requiredTraitsDegree>2</requiredTraitsDegree>
+    <stages>
+      <li>
+        <label>woozy</label>
+        <description>I feel woozy from the recent vaccine shot.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

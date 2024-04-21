@@ -4,7 +4,7 @@
   <HediffDef ParentName="AddedBodyPartBase">
     <defName>USH_IronLung</defName>
     <label>iron lung</label>
-    <labelNoun>an iron lung</labelNoun>
+    <labelNoun>a iron lung</labelNoun>
     <description>An installed iron lung.</description>
     <descriptionHyperlinks>
       <ThingDef>USH_IronLung</ThingDef>
@@ -12,7 +12,6 @@
     <stages>
       <li>
         <statOffsets>
-          <ToxicResistance>0.6</ToxicResistance>
           <ToxicEnvironmentResistance>0.6</ToxicEnvironmentResistance>
         </statOffsets>
       </li>
@@ -48,7 +47,7 @@
   <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
     <defName>USH_InstallIronLung</defName>
     <label>install iron lung</label>
-    <description>Install an iron lung.</description>
+    <description>Install a iron lung.</description>
     <descriptionHyperlinks>
       <ThingDef>USH_IronLung</ThingDef>
       <HediffDef>USH_IronLung</HediffDef>
