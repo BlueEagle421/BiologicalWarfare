@@ -29,20 +29,27 @@ namespace BiologicalWarfare
             BiologicalUtils.SpawnThingAt(Pawn.Map, Pawn.CellsAdjacent8WayAndInside().ToList(), _combatDiseaseDef.pathogenDef, SpawnCount());
         }
 
+        public override string CompDescriptionExtra => base.CompDescriptionExtra + "\n" + "USH_VirusReplicationCount".Translate(SpawnCount()).Colorize(parent.def.defaultLabelColor);
+
         private int SpawnCount()
         {
             int baseCount = PropsVirusExtraction.basePathogenCount;
 
             float sizeMultiplier = PropsVirusExtraction.multiplyByBodySize ? Pawn.BodySize : 1f;
 
+            return (int)(baseCount * sizeMultiplier * SeverityMultiplier());
+        }
+
+        private float SeverityMultiplier()
+        {
+            float result = 0f;
+
             Hediff diseaseHediff = Pawn.health.hediffSet.GetFirstHediffOfDef(_combatDiseaseDef.giveHediffDef);
 
-            float severityMultiplier = 1f;
-
             if (diseaseHediff != null && PropsVirusExtraction.multiplyBySeverity)
-                severityMultiplier = diseaseHediff.Severity;
+                result = diseaseHediff.Severity;
 
-            return (int)(baseCount * sizeMultiplier * severityMultiplier);
+            return result;
         }
     }
 }

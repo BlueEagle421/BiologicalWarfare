@@ -28,6 +28,8 @@
 
     <USH_GasVentConsumtion>Consumes {0} fuel per gas spread.</USH_GasVentConsumtion>
 
+    <USH_VirusReplicationCount>Will yield: {0} pathogens.</USH_VirusReplicationCount>
+
     <USH_GasMultplierSetting>Pathogen gas severity multiplier</USH_GasMultplierSetting>
     <USH_GasMultplierSettingDesc>Pathogen gas severity per second will be multiplied by: {0}.\n\nIf you only want to infect pawns without killing them, I advise setting this to 1%.</USH_GasMultplierSettingDesc>
 
