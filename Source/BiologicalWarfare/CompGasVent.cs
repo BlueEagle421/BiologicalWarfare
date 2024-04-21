@@ -78,6 +78,11 @@ namespace BiologicalWarfare
             FloodAreaWithGas();
         }
 
+        public override string CompInspectStringExtra()
+        {
+            return base.CompInspectStringExtra() + "\n" + "USH_GasVentConsumtion".Translate(PropsVent.pathogensPerCell.ToString());
+        }
+
         private async void FloodAreaWithGas()
         {
             Map map = parent.Map;
