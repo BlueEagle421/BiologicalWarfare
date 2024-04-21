@@ -28,6 +28,7 @@
     <staticSunShadowHeight>1.0</staticSunShadowHeight>
     <techLevel>Industrial</techLevel>
     <designatorDropdown>USH_BiologicalVents</designatorDropdown>
+    <uiIconScale>0.7</uiIconScale>
     <statBases>
       <WorkToBuild>400</WorkToBuild>
       <MaxHitPoints>100</MaxHitPoints>
@@ -47,6 +48,9 @@
     <building>
       <canPlaceOverWall>true</canPlaceOverWall>
     </building>
+    <comps>
+      <li Class="CompProperties_Breakdownable" />
+    </comps>
   </ThingDef>
 
 </Defs>
