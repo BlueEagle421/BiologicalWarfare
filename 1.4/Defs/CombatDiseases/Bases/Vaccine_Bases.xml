@@ -21,7 +21,6 @@
       <Flammability>1.0</Flammability>
     </statBases>
     <techLevel>Industrial</techLevel>
-    <tradeability>Sellable</tradeability>
     <stackLimit>10</stackLimit>
     <thingCategories>
       <li>ItemsMisc</li>

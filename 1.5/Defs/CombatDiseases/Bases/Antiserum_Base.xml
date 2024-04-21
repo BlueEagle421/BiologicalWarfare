@@ -16,12 +16,10 @@
     <rotatable>false</rotatable>
     <statBases>
       <WorkToMake>1200</WorkToMake>
-      <MarketValue>80</MarketValue>
       <Mass>0.007</Mass>
       <Flammability>1.0</Flammability>
     </statBases>
-    <techLevel>Industrial</techLevel>
-    <tradeability>Sellable</tradeability>
+    <techLevel>Ultra</techLevel>
     <ingestible>
       <drugCategory>Medical</drugCategory>
       <foodType>Processed, Fluid</foodType>
