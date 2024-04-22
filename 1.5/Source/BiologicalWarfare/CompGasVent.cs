@@ -61,17 +61,6 @@ namespace BiologicalWarfare
             _ventPos = GenGas.VentingPosition(parent);
         }
 
-        public override void CompTick()
-        {
-            base.CompTick();
-
-            if (!parent.IsHashIntervalTick(30))
-                return;
-
-            if (parent.GetRoom() == null || !parent.GetRoom().ProperRoom)
-                return;
-        }
-
         protected override void OnInteracted(Pawn caster)
         {
             base.OnInteracted(caster);
