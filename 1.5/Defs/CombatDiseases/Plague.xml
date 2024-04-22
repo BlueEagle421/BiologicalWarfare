@@ -175,7 +175,7 @@
     <defName>USH_PlagueBarrel</defName>
     <comps>
       <li Class="CompProperties_Explosive">
-        <explosiveRadius>4.9</explosiveRadius>
+        <explosiveRadius>6.9</explosiveRadius>
         <postExplosionSpawnChance>1</postExplosionSpawnChance>
         <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
         <explosiveDamageType>USH_PlagueDamage</explosiveDamageType>
@@ -190,7 +190,7 @@
     <researchPrerequisites>
       <li>USH_PlagueOperationRes</li>
     </researchPrerequisites>
-    <specialDisplayRadius>4.9</specialDisplayRadius>
+    <specialDisplayRadius>6.9</specialDisplayRadius>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalVentBase">
