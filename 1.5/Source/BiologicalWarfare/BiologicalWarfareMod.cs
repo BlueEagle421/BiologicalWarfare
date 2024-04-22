@@ -19,14 +19,33 @@ namespace BiologicalWarfare
 
         public override void DoSettingsWindowContents(Rect inRect)
         {
+            //GasSeverityMultiplier
             Listing_Standard listingStandard = new Listing_Standard();
             listingStandard.Begin(inRect);
             listingStandard.Label("USH_GasMultplierSetting".Translate());
-            float sliderValue = listingStandard.Slider(Settings.GasSeverityMultiplier, 0.01f, 1f);
-            listingStandard.Label("USH_GasMultplierSettingDesc".Translate(sliderValue.ToStringPercent()));
-            Settings.GasSeverityMultiplier = sliderValue;
+            float severitySliderValue = listingStandard.Slider(Settings.GasSeverityMultiplier, 0.01f, 1f);
+            listingStandard.Label("USH_GasMultplierSettingDesc".Translate(severitySliderValue.ToStringPercent()));
+            Settings.GasSeverityMultiplier = severitySliderValue;
+
+            //MaxGasInfectionCount
+
+            listingStandard.Label("\n");
+            listingStandard.Label("USH_GasInfectionCountSetting".Translate());
+            int countSliderValue = MaxCountFormatted(listingStandard.Slider(Settings.MaxGasInfectionCount, 0f, 6f));
+            listingStandard.Label("USH_GasInfectionCountSettingDesc".Translate(countSliderValue.ToString()));
+            Settings.MaxGasInfectionCount = countSliderValue;
+
+            //End
             listingStandard.End();
             base.DoSettingsWindowContents(inRect);
+        }
+
+        private int MaxCountFormatted(float sliderValue)
+        {
+            if (sliderValue < 1f)
+                return -1;
+
+            return (int)sliderValue;
         }
 
         public override string SettingsCategory() => "Biological Warfare";
@@ -34,9 +53,11 @@ namespace BiologicalWarfare
     public class BiologicalWarfareSettings : ModSettings
     {
         public float GasSeverityMultiplier = 1f;
+        public int MaxGasInfectionCount = 1;
         public override void ExposeData()
         {
             Scribe_Values.Look(ref GasSeverityMultiplier, "USH_GasSeverityMultiplier", 1f);
+            Scribe_Values.Look(ref MaxGasInfectionCount, "USH_MaxGasInfectionCount", 1);
             base.ExposeData();
         }
     }
