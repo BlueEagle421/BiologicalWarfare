@@ -73,6 +73,14 @@ namespace BiologicalWarfare
             return base.CompInspectStringExtra() + "\n" + "USH_GasVentConsumtion".Translate(PropsVent.pathogensPerCell.ToString());
         }
 
+        public override AcceptanceReport CanInteract(Pawn activateBy = null, bool checkOptionalItems = true)
+        {
+            if (activateBy != null && activateBy.WorkTagIsDisabled(WorkTags.Violent))
+                return "IsIncapableOfViolence".Translate(activateBy.LabelShort, activateBy);
+
+            return base.CanInteract(activateBy, checkOptionalItems);
+        }
+
         private async void FloodAreaWithGas()
         {
             Map map = parent.Map;
