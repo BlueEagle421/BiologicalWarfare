@@ -176,7 +176,7 @@
     <defName>USH_MalariaShell</defName>
     <comps>
       <li Class="CompProperties_Explosive">
-        <explosiveRadius>6.9</explosiveRadius>
+        <explosiveRadius>4.9</explosiveRadius>
         <postExplosionSpawnChance>1</postExplosionSpawnChance>
         <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
         <explosiveDamageType>USH_MalariaDamage</explosiveDamageType>
@@ -202,7 +202,7 @@
     <projectile>
       <damageDef>USH_MalariaDamage</damageDef>
       <postExplosionSpawnThingDef>USH_MalariaGas</postExplosionSpawnThingDef>
-      <explosionRadius>6.9</explosionRadius>
+      <explosionRadius>4.9</explosionRadius>
     </projectile>
   </ThingDef>
 
@@ -210,7 +210,7 @@
     <defName>USH_MalariaBarrel</defName>
     <comps>
       <li Class="CompProperties_Explosive">
-        <explosiveRadius>6.9</explosiveRadius>
+        <explosiveRadius>4.9</explosiveRadius>
         <postExplosionSpawnChance>1</postExplosionSpawnChance>
         <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
         <explosiveDamageType>USH_MalariaDamage</explosiveDamageType>
@@ -225,7 +225,7 @@
     <researchPrerequisites>
       <li>USH_MalariaOperationRes</li>
     </researchPrerequisites>
-    <specialDisplayRadius>6.9</specialDisplayRadius>
+    <specialDisplayRadius>4.9</specialDisplayRadius>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalVentBase">

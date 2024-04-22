@@ -53,11 +53,11 @@ namespace BiologicalWarfare
     public class BiologicalWarfareSettings : ModSettings
     {
         public float GasSeverityMultiplier = 1f;
-        public int MaxGasInfectionCount = 1;
+        public int MaxGasInfectionCount = 2;
         public override void ExposeData()
         {
             Scribe_Values.Look(ref GasSeverityMultiplier, "USH_GasSeverityMultiplier", 1f);
-            Scribe_Values.Look(ref MaxGasInfectionCount, "USH_MaxGasInfectionCount", 1);
+            Scribe_Values.Look(ref MaxGasInfectionCount, "USH_MaxGasInfectionCount", 2);
             base.ExposeData();
         }
     }

@@ -48,7 +48,7 @@
     <defName>USH_FleshBreakerShell</defName>
     <comps>
       <li Class="CompProperties_Explosive">
-        <explosiveRadius>6.9</explosiveRadius>
+        <explosiveRadius>4.9</explosiveRadius>
         <postExplosionSpawnChance>1</postExplosionSpawnChance>
         <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
         <explosiveDamageType>USH_FleshBreakerDamage</explosiveDamageType>
@@ -74,7 +74,7 @@
     <projectile>
       <damageDef>USH_FleshBreakerDamage</damageDef>
       <postExplosionSpawnThingDef>USH_FleshBreakerGas</postExplosionSpawnThingDef>
-      <explosionRadius>6.9</explosionRadius>
+      <explosionRadius>4.9</explosionRadius>
     </projectile>
   </ThingDef>
 
@@ -82,7 +82,7 @@
     <defName>USH_FleshBreakerBarrel</defName>
     <comps>
       <li Class="CompProperties_Explosive">
-        <explosiveRadius>6.9</explosiveRadius>
+        <explosiveRadius>4.9</explosiveRadius>
         <postExplosionSpawnChance>1</postExplosionSpawnChance>
         <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
         <explosiveDamageType>USH_FleshBreakerDamage</explosiveDamageType>
@@ -97,7 +97,7 @@
     <researchPrerequisites>
       <li>USH_FleshBreakerOperationRes</li>
     </researchPrerequisites>
-    <specialDisplayRadius>6.9</specialDisplayRadius>
+    <specialDisplayRadius>4.9</specialDisplayRadius>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalVentBase">
