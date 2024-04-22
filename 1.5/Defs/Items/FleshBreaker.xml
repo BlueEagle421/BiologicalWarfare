@@ -83,15 +83,18 @@
       <li>
         <label>initial</label>
         <vomitMtbDays>0.125</vomitMtbDays>
-        <painFactor>1.1</painFactor>
         <capMods>
           <li>
             <capacity>Consciousness</capacity>
             <offset>-0.1</offset>
           </li>
           <li>
-            <capacity>Moving</capacity>
-            <offset>-0.1</offset>
+            <capacity>Sight</capacity>
+            <offset>-0.15</offset>
+          </li>
+          <li>
+            <capacity>Metabolism</capacity>
+            <offset>-0.3</offset>
           </li>
         </capMods>
       </li>
@@ -101,19 +104,15 @@
         <hungerRateFactor>1.5</hungerRateFactor>
         <restFallFactor>1.5</restFallFactor>
         <vomitMtbDays>2</vomitMtbDays>
-        <painFactor>1.25</painFactor>
+        <painFactor>1.15</painFactor>
         <capMods>
           <li>
             <capacity>Consciousness</capacity>
             <offset>-0.15</offset>
           </li>
           <li>
-            <capacity>Moving</capacity>
-            <offset>-0.15</offset>
-          </li>
-          <li>
             <capacity>Sight</capacity>
-            <offset>-0.2</offset>
+            <offset>-0.35</offset>
           </li>
           <li>
             <capacity>BloodFiltration</capacity>
