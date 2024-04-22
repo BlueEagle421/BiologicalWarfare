@@ -14,8 +14,8 @@ namespace BiologicalWarfare
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
-            if (pawn.Reserve(PawnToSampleFrom, job, 1, -1, null, errorOnFailed))
-                return pawn.Reserve(Item, job, 1, -1, null, errorOnFailed);
+            if (pawn.Reserve(PawnToSampleFrom, job))
+                return pawn.Reserve(Item, job);
 
             return false;
         }
@@ -58,8 +58,8 @@ namespace BiologicalWarfare
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
-            bool successfullyReservedItem = pawn.Reserve(TargetItem, job, 1, -1, null, true);
-            bool successfullyReservedBuilding = pawn.Reserve(TargetBuilding, job, 1, -1, null, true);
+            bool successfullyReservedItem = pawn.Reserve(TargetItem, job);
+            bool successfullyReservedBuilding = pawn.Reserve(TargetBuilding, job);
             return successfullyReservedItem && successfullyReservedBuilding;
         }
 
@@ -91,7 +91,7 @@ namespace BiologicalWarfare
     {
         private Building TargetBuilding => job.GetTarget(TargetIndex.A).Thing as Building;
         private bool CanExtract(Pawn pawn) => TargetBuilding.GetComp<CompDiseaseSampleContainer>().CanExtract(pawn).Accepted;
-        public override bool TryMakePreToilReservations(bool errorOnFailed) => pawn.Reserve(TargetBuilding, job, 1, -1, null, errorOnFailed);
+        public override bool TryMakePreToilReservations(bool errorOnFailed) => pawn.Reserve(TargetBuilding, job);
         protected virtual PathEndMode ContainerPathEndMode => TargetBuilding.def.hasInteractionCell ? PathEndMode.InteractionCell : PathEndMode.Touch;
 
         private const int extractionDurationTicks = 300;
@@ -108,10 +108,9 @@ namespace BiologicalWarfare
             extractionToil.WithProgressBarToilDelay(TargetIndex.A, false, -0.5f);
             extractionToil.FailOnDespawnedNullOrForbidden(TargetIndex.A);
             extractionToil.FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch);
-
             extractionToil.AddFinishAction(() =>
             {
-                TargetBuilding.TryGetInnerInteractableThingOwner().TryDropAll(pawn.Position, pawn.Map, ThingPlaceMode.Near, null, null, true);
+                TargetBuilding.TryGetInnerInteractableThingOwner().TryDropAll(pawn.Position, pawn.Map, ThingPlaceMode.Near);
                 TargetBuilding.GetComp<CompDiseaseSampleContainer>().OnExtracted(pawn);
             });
             extractionToil.handlingFacing = true;
@@ -126,12 +125,12 @@ namespace BiologicalWarfare
         private const int JobEndInterval = 4000;
         private Building_AntigensAnalyzer Station => (Building_AntigensAnalyzer)TargetThingA;
 
-        public override bool TryMakePreToilReservations(bool errorOnFailed) => pawn.Reserve(job.targetA, job, 1, -1, null, true, false);
+        public override bool TryMakePreToilReservations(bool errorOnFailed) => pawn.Reserve(job.targetA, job);
         protected override IEnumerable<Toil> MakeNewToils()
         {
             this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
-            yield return Toils_Reserve.Reserve(TargetIndex.A, 1, -1, null, false);
-            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell, false);
+            yield return Toils_Reserve.Reserve(TargetIndex.A);
+            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell);
 
             Toil researchToil = new Toil();
             researchToil.tickAction = delegate ()
@@ -178,8 +177,8 @@ namespace BiologicalWarfare
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
-            if (pawn.Reserve(PawnToInjectTo, job, 1, -1, null, errorOnFailed))
-                return pawn.Reserve(Item, job, 1, -1, null, errorOnFailed);
+            if (pawn.Reserve(PawnToInjectTo, job))
+                return pawn.Reserve(Item, job);
 
             return false;
         }
