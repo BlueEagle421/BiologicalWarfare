@@ -72,21 +72,21 @@ namespace BiologicalWarfare
             return 1f;
         }
 
-        public static void DoPathogenInfection(Thing thingInfecter, Pawn pawn)
+        public static float AddInfectionSeverity(Thing thingInfecter, Pawn pawn)
         {
             if (pawn == null)
-                return;
+                return 0f;
 
             if (!CanPathogenInfect(pawn))
-                return;
+                return 0f;
 
             HediffDef hediffToAdd = DefDatabase<HediffDef>.GetNamedSilentFail(OPToxicDefGetValue.OPToxicGetHediff(thingInfecter.def));
 
             if (hediffToAdd == null)
-                return;
+                return 0f;
 
             if (IsImmuneTo(pawn, hediffToAdd))
-                return;
+                return 0f;
 
             HediffSet hediffSet = pawn.health.hediffSet;
             Hediff hediffFound = (hediffSet?.GetFirstHediffOfDef(hediffToAdd, false));
@@ -101,12 +101,13 @@ namespace BiologicalWarfare
             if (hediffFound != null && severityToSet > 0f)
             {
                 hediffFound.Severity += severityToSet;
-                return;
+                return severityToSet;
             }
 
             Hediff hediffMade = HediffMaker.MakeHediff(hediffToAdd, pawn);
             hediffMade.Severity = severityToSet;
             pawn.health.AddHediff(hediffMade);
+            return severityToSet;
         }
 
         public static bool CanPathogenInfect(Pawn pawn)
@@ -174,9 +175,7 @@ namespace BiologicalWarfare
                 int index1 = rand.Next(0, list.Count - 1);
                 int index2 = rand.Next(index1, list.Count);
 
-                T temp = list[index1];
-                list[index1] = list[index2];
-                list[index2] = temp;
+                (list[index2], list[index1]) = (list[index1], list[index2]);
             }
         }
     }
