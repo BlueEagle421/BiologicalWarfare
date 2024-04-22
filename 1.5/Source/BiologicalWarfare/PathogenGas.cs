@@ -7,6 +7,14 @@ namespace BiologicalWarfare
 {
     public class PathogenGas : Gas
     {
+        private int _infectedTimes = 0;
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref _infectedTimes, "USH_InfectedTimes", 0);
+        }
+
         public override void Tick()
         {
             base.Tick();
@@ -24,13 +32,21 @@ namespace BiologicalWarfare
 
             List<Thing> thingsInGas = Position.GetThingList(Map);
 
-            if (thingsInGas.Count <= 0)
-                return;
-
             for (int i = 0; i < thingsInGas.Count; i++)
             {
-                if (thingsInGas[i] is Pawn pawnInGas)
-                    BiologicalUtils.DoPathogenInfection(this, pawnInGas);
+                if (!(thingsInGas[i] is Pawn pawnInGas))
+                    continue;
+
+                if (BiologicalUtils.AddInfectionSeverity(this, pawnInGas) > 0)
+                    _infectedTimes++;
+
+                int maxCount = BiologicalWarfareMod.Settings.MaxGasInfectionCount;
+
+                if (maxCount != -1 && _infectedTimes >= maxCount)
+                {
+                    Destroy();
+                    break;
+                }
             }
         }
     }
