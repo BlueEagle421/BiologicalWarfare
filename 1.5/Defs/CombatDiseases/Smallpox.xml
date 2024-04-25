@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
+    <defName>USH_Smallpox</defName>
+    <label>smallpox</label>
+    <samplableHediffDefs>
+      <li>USH_Smallpox</li>
+    </samplableHediffDefs>
+    <giveHediffDef>USH_Smallpox</giveHediffDef>
+    <diseaseType>Virus</diseaseType>
+    <colorInt>(80, 76, 80, 255)</colorInt>
+
+    <!-- formats {0} to label and {1} to disease type -->
+    <!-- also sets color in graphicData -->
+    <thingDefsToFormatAndColor>
+      <li>USH_SmallpoxSample</li>
+      <li>USH_SmallpoxPathogen</li>
+      <li>USH_SmallpoxVaccine</li>
+      <li>USH_SmallpoxAntiserum</li>
+      <li>USH_SmallpoxGas</li>
+      <li>USH_SmallpoxShell</li>
+      <li>USH_SmallpoxBarrel</li>
+      <li>USH_SmallpoxVent</li>
+      <li>USH_SmallpoxGrenadeLauncher</li>
+    </thingDefsToFormatAndColor>
+
+    <thingDefsToFormat>
+      <li>USH_SmallpoxShellBullet</li>
+      <li>USH_SmallpoxGrenadeBullet</li>
+    </thingDefsToFormat>
+
+    <researchProjectsDefsToFormat>
+      <li>USH_SmallpoxOperationRes</li>
+      <li>USH_SmallpoxVaccineRes</li>
+    </researchProjectsDefsToFormat>
+
+    <hediffDefsToFormat>
+      <li>USH_SmallpoxVaccineHediff</li>
+    </hediffDefsToFormat>
+
+    <vaccineResProjectDef>USH_SmallpoxVaccineRes</vaccineResProjectDef>
+
+    <!-- sample def is required for CombatDiseaseDef to work properly -->
+    <sampleDef>USH_SmallpoxSample</sampleDef>
+    <!-- pathogen def is optional -->
+    <pathogenDef>USH_SmallpoxPathogen</pathogenDef>
+
+  </BiologicalWarfare.CombatDiseaseDef>
+
+  <ThingDef ParentName="USH_VirusSampleBase">
+    <defName>USH_SmallpoxSample</defName>
+    <comps>
+      <li Class="BiologicalWarfare.CompProperties_DiseaseSample">
+        <combatDiseaseDef>USH_Smallpox</combatDiseaseDef>
+      </li>
+    </comps>
+    <costList>
+      <USH_SmallpoxPathogen>1</USH_SmallpoxPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_SmallpoxOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_VirusPathogenBase">
+    <defName>USH_SmallpoxPathogen</defName>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_DiseaseVaccineBase">
+    <defName>USH_SmallpoxVaccine</defName>
+    <descriptionHyperlinks>
+      <HediffDef>USH_SmallpoxVaccineHediff</HediffDef>
+    </descriptionHyperlinks>
+    <comps>
+      <li Class="BiologicalWarfare.CompProperties_TargetEffectVaccine">
+        <jobDef>USH_InjectVaccine</jobDef>
+        <hediffDefVaccine>USH_SmallpoxVaccineHediff</hediffDefVaccine>
+      </li>
+    </comps>
+    <costList>
+      <USH_SmallpoxPathogen>25</USH_SmallpoxPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_SmallpoxVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <HediffDef ParentName="USH_DiseaseVaccineHediffBase">
+    <defName>USH_SmallpoxVaccineHediff</defName>
+    <stages>
+      <li>
+        <makeImmuneTo>
+          <li>USH_Smallpox</li>
+        </makeImmuneTo>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThingDef ParentName="USH_DiseaseAntiserum">
+    <defName>USH_SmallpoxAntiserum</defName>
+    <ingestible>
+      <outcomeDoers>
+        <li Class="BiologicalWarfare.IngestionOutcomeDoer_RemoveHediff">
+          <hediffDefToRemove>USH_Smallpox</hediffDefToRemove>
+          <sendMessage>true</sendMessage>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <costList>
+      <USH_SmallpoxPathogen>25</USH_SmallpoxPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_SmallpoxVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <DamageDef ParentName="USH_BiologicalDamageBase">
+    <defName>USH_SmallpoxDamage</defName>
+  </DamageDef>
+
+  <ThingDef ParentName="USH_BiologicalGasBase">
+    <defName>USH_SmallpoxGas</defName>
+    <modExtensions>
+      <li Class="OPToxic.OPToxicDefs">
+        <OPToxicHediff>USH_Smallpox</OPToxicHediff>
+        <OPToxicSeverity>0.12</OPToxicSeverity>
+        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalShellBase">
+    <defName>USH_SmallpoxShell</defName>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>4.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_SmallpoxDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_SmallpoxGas</postExplosionSpawnThingDef>
+        <explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>
+        <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
+    <projectileWhenLoaded>USH_SmallpoxShellBullet</projectileWhenLoaded>
+    <costList>
+      <USH_SmallpoxPathogen>15</USH_SmallpoxPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_SmallpoxOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalShellBulletBase">
+    <defName>USH_SmallpoxShellBullet</defName>
+    <projectile>
+      <damageDef>USH_SmallpoxDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_SmallpoxGas</postExplosionSpawnThingDef>
+      <explosionRadius>4.9</explosionRadius>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalBarrelBase">
+    <defName>USH_SmallpoxBarrel</defName>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>6.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_SmallpoxDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_SmallpoxGas</postExplosionSpawnThingDef>
+        <startWickHitPointsPercent>0.95</startWickHitPointsPercent>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
+    <costList>
+      <USH_SmallpoxPathogen>75</USH_SmallpoxPathogen>
+    </costList>
+    <researchPrerequisites>
+      <li>USH_SmallpoxOperationRes</li>
+    </researchPrerequisites>
+    <specialDisplayRadius>6.9</specialDisplayRadius>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalVentBase">
+    <defName>USH_SmallpoxVent</defName>
+    <comps>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>0</fuelConsumptionRate>
+        <initialFuelPercent>1</initialFuelPercent>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <initialConfigurableTargetFuelLevel>25</initialConfigurableTargetFuelLevel>
+        <fuelCapacity>50</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>USH_SmallpoxPathogen</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="BiologicalWarfare.CompProperties_GasVent">
+        <gasDef>USH_SmallpoxGas</gasDef>
+        <pathogensPerCell>0.5</pathogensPerCell>
+        <activeTicks>1</activeTicks>
+        <cooldownTicks>0</cooldownTicks>
+        <ticksToActivate>60</ticksToActivate>
+        <jobString>activate</jobString>
+        <onCooldownString>cooling off</onCooldownString>
+        <activateTexPath>UI/Gizmo/ActivateGasVent</activateTexPath>
+        <soundActivate>USH_GasVentActivated</soundActivate>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
+    </comps>
+    <costList>
+      <USH_SmallpoxPathogen>50</USH_SmallpoxPathogen>
+    </costList>
+    <researchPrerequisites>
+      <li>USH_SmallpoxOperationRes</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">
+    <defName>USH_SmallpoxGrenadeLauncher</defName>
+    <costList>
+      <USH_SmallpoxPathogen>50</USH_SmallpoxPathogen>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>USH_SmallpoxGrenadeBullet</defaultProjectile>
+        <warmupTime>3.5</warmupTime>
+        <range>23.9</range>
+        <forcedMissRadius>2.9</forcedMissRadius>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>USH_GasLauncherShot</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>14</muzzleFlashScale>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbs>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_SmallpoxOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalGrenadeBulletBase">
+    <defName>USH_SmallpoxGrenadeBullet</defName>
+    <projectile>
+      <damageDef>USH_SmallpoxDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_SmallpoxGas</postExplosionSpawnThingDef>
+      <explosionRadius>4.9</explosionRadius>
+    </projectile>
+  </ThingDef>
+
+  <ResearchProjectDef ParentName="USH_DiseaseOprationResBase">
+    <defName>USH_SmallpoxOperationRes</defName>
+    <researchViewX>1.50</researchViewX>
+    <researchViewY>4.20</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase">
+    <defName>USH_SmallpoxVaccineRes</defName>
+    <prerequisites>
+      <li>USH_SmallpoxOperationRes</li>
+    </prerequisites>
+    <researchViewX>2.50</researchViewX>
+    <researchViewY>4.20</researchViewY>
+  </ResearchProjectDef>
+
+</Defs>

@@ -100,6 +100,9 @@ namespace BiologicalWarfare
         {
             await Task.Delay(GAS_CELL_DELAY);
 
+            while (Find.TickManager.CurTimeSpeed == 0f)
+                await Task.Delay(0);
+
             if (_compRefuelable.Fuel < PropsVent.pathogensPerCell)
                 return;
 

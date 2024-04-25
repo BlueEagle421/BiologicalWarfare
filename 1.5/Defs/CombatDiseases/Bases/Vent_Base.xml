@@ -47,9 +47,16 @@
     <designationCategory>Security</designationCategory>
     <building>
       <canPlaceOverWall>true</canPlaceOverWall>
+      <relatedBuildCommands>
+        <li>USH_GasVentsController</li>
+      </relatedBuildCommands>
     </building>
     <comps>
       <li Class="CompProperties_Breakdownable" />
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTransmitter</compClass>
+        <transmitsPower>true</transmitsPower>
+      </li>
     </comps>
   </ThingDef>
 

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>USH_GasVentsController</defName>
+    <label>gas vents controller</label>
+    <description>Placeholder.</description>
+    <rotatable>true</rotatable>
+    <graphicData>
+      <texPath>Things/Building/Furniture/WallLamp/WallLamp</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawOffsetNorth>(0,0,0.9)</drawOffsetNorth>
+      <drawOffsetSouth>(0,0,-0.9)</drawOffsetSouth>
+      <drawOffsetWest>(-0.9,0,0)</drawOffsetWest>
+      <drawOffsetEast>(0.9,0,0)</drawOffsetEast>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>Things/Building/Furniture/WallLamp/WallLamp_MenuIcon</uiIconPath>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <designationCategory>Misc</designationCategory>
+    <costList>
+      <Steel>15</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <WorkToBuild>560</WorkToBuild>
+      <MaxHitPoints>35</MaxHitPoints>
+      <Mass>2</Mass>
+    </statBases>
+    <uiOrder>2991</uiOrder>
+    <passability>Standable</passability>
+    <terrainAffordanceNeeded IsNull="True" />
+    <pathCost>0</pathCost>
+    <overrideMinifiedRot>North</overrideMinifiedRot>
+    <minifiedDrawOffset>(0, 0, 0.2)</minifiedDrawOffset>
+    <building>
+      <isEdifice>false</isEdifice>
+      <isAttachment>true</isAttachment>
+    </building>
+    <tickerType>Normal</tickerType>
+    <placeWorkers>
+      <li>Placeworker_AttachedToWall</li>
+    </placeWorkers>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>30</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="BiologicalWarfare.CompProperties_GasVentsController">
+        <activeTicks>1</activeTicks>
+        <cooldownTicks>0</cooldownTicks>
+        <ticksToActivate>60</ticksToActivate>
+        <jobString>activate</jobString>
+        <onCooldownString>cooling off</onCooldownString>
+        <activateTexPath>UI/Gizmo/ActivateGasVent</activateTexPath>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

@@ -67,6 +67,7 @@
     <Compile Include="CompBacteriaIncubator.cs" />
     <Compile Include="CompDiseaseSample.cs" />
     <Compile Include="CompGasVent.cs" />
+    <Compile Include="CompGasVentsController.cs" />
     <Compile Include="DefFormatter.cs" />
     <Compile Include="CompDiseaseSampler.cs" />
     <Compile Include="CompDiseaseSampleContainer.cs" />
