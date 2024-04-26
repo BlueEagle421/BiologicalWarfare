@@ -178,7 +178,7 @@
           </thingDefs>
         </fuelFilter>
         <fuelCapacity>7</fuelCapacity>
-        <fuelMultiplier>0.04667</fuelMultiplier>
+        <fuelMultiplier>0.23335</fuelMultiplier>
         <initialFuelPercent>1</initialFuelPercent>
         <autoRefuelPercent>1</autoRefuelPercent>
         <showFuelGizmo>true</showFuelGizmo>
@@ -210,7 +210,7 @@
       <turretGunDef>USH_FleshBreakerMissileLauncherTurret</turretGunDef>
     </building>
     <costList>
-      <USH_FleshBreaker>225</USH_FleshBreaker>
+      <USH_FleshBreaker>45</USH_FleshBreaker>
     </costList>
     <researchPrerequisites>
       <li>USH_FleshBreakerOperationRes</li>
