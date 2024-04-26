@@ -7,7 +7,7 @@
     <description>Placeholder.</description>
     <rotatable>true</rotatable>
     <graphicData>
-      <texPath>Things/Building/Furniture/WallLamp/WallLamp</texPath>
+      <texPath>Things/Building/GasVentsController/GasVentsController</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <drawOffsetNorth>(0,0,0.9)</drawOffsetNorth>
       <drawOffsetSouth>(0,0,-0.9)</drawOffsetSouth>
@@ -16,11 +16,13 @@
       <damageData>
         <enabled>false</enabled>
       </damageData>
+      <drawSize>(2, 2)</drawSize>
     </graphicData>
-    <uiIconPath>Things/Building/Furniture/WallLamp/WallLamp_MenuIcon</uiIconPath>
+    <uiIconPath>Things/Building/GasVentsController/GasVentsControllerMenuIcon</uiIconPath>
     <altitudeLayer>BuildingOnTop</altitudeLayer>
     <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
     <designationCategory>Misc</designationCategory>
+    <size>(1, 1)</size>
     <costList>
       <Steel>15</Steel>
       <ComponentIndustrial>3</ComponentIndustrial>
@@ -65,6 +67,9 @@
         </targetingParameters>
       </li>
     </comps>
+    <researchPrerequisites>
+      <li>Electricity</li>
+    </researchPrerequisites>
   </ThingDef>
 
 </Defs>
