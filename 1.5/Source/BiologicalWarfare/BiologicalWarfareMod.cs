@@ -35,6 +35,11 @@ namespace BiologicalWarfare
             listingStandard.Label("USH_GasInfectionCountSettingDesc".Translate(countSliderValue.ToString()));
             Settings.MaxGasInfectionCount = countSliderValue;
 
+            //Reset button
+            listingStandard.Label("\n");
+            bool shouldReset = listingStandard.ButtonText("USH_ResetSettings".Translate());
+            if (shouldReset) Settings.ResetAll();
+
             //End
             listingStandard.End();
             base.DoSettingsWindowContents(inRect);
@@ -54,6 +59,13 @@ namespace BiologicalWarfare
     {
         public float GasSeverityMultiplier = 1f;
         public int MaxGasInfectionCount = 2;
+
+        public void ResetAll()
+        {
+            GasSeverityMultiplier = 1f;
+            MaxGasInfectionCount = 2;
+        }
+
         public override void ExposeData()
         {
             Scribe_Values.Look(ref GasSeverityMultiplier, "USH_GasSeverityMultiplier", 1f);
