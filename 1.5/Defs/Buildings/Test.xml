@@ -57,12 +57,12 @@
             <li>USH_FluPathogen</li>
           </thingDefs>
         </fuelFilter>
-        <fuelCapacity>175</fuelCapacity>
-        <fuelMultiplier>0.06667</fuelMultiplier>
+        <fuelCapacity>7</fuelCapacity>
+        <fuelMultiplier>0.04667</fuelMultiplier>
         <initialFuelPercent>1</initialFuelPercent>
         <autoRefuelPercent>1</autoRefuelPercent>
         <showFuelGizmo>true</showFuelGizmo>
-        <minimumFueledThreshold>12</minimumFueledThreshold>
+        <minimumFueledThreshold>7</minimumFueledThreshold>
         <factorByDifficulty>false</factorByDifficulty>
         <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
         <fuelIconPath>Things/Item/Resource/Chemfuel</fuelIconPath>
@@ -160,7 +160,7 @@
         <verbClass>Verb_Shoot</verbClass>
         <defaultProjectile>Proj_RocketTest</defaultProjectile>
         <range>80.9</range>
-        <consumeFuelPerShot>25</consumeFuelPerShot>
+        <consumeFuelPerShot>1</consumeFuelPerShot>
         <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
         <burstShotCount>7</burstShotCount>
         <forcedMissRadius>9</forcedMissRadius>
