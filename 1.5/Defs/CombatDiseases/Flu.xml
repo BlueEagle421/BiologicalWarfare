@@ -30,9 +30,9 @@
       <li>USH_FluGrenadeLauncher</li>
     </thingDefsToFormatAndColor>
 
-    <ColorThingDefIcon>
+    <thingDefsToColorIcons>
       <li>USH_FluMissileLauncher</li>
-    </ColorThingDefIcon>
+    </thingDefsToColorIcons>
 
     <thingDefsToFormat>
       <li>USH_FluMissileLauncher</li>
