@@ -12,27 +12,11 @@ namespace BiologicalWarfare
         {
             base.SpawnSetup(map, respawningAfterLoad);
 
-            CreateFullMat();
-            CreateEmptyMat();
-        }
-        private void CreateFullMat()
-        {
-            Color colorFull = def.building.turretGunDef.graphicData.color;
+            GraphicData graphicDataFull = def.building.turretGunDef.building.turretTopLoadedGraphic;
+            CreateMat(ref _cachedMaterialFull, graphicDataFull.texPath, graphicDataFull.maskPath, graphicDataFull.color);
 
-            string pathTexFull = def.building.turretGunDef.building.turretTopLoadedGraphic.texPath;
-            string pathMaskFull = def.building.turretGunDef.building.turretTopLoadedGraphic.maskPath;
-
-            CreateMat(ref _cachedMaterialFull, pathTexFull, pathMaskFull, colorFull);
-        }
-
-        private void CreateEmptyMat()
-        {
-            Color colorEmpty = def.building.turretGunDef.graphicData.color;
-
-            string pathTexEmpty = def.building.turretGunDef.graphicData.texPath;
-            string pathMaskEmpty = def.building.turretGunDef.graphicData.maskPath;
-
-            CreateMat(ref _cachedMaterialEmpty, pathTexEmpty, pathMaskEmpty, colorEmpty);
+            GraphicData graphicDataEmpty = def.building.turretGunDef.graphicData;
+            CreateMat(ref _cachedMaterialEmpty, graphicDataEmpty.texPath, graphicDataEmpty.maskPath, graphicDataEmpty.color);
         }
 
         private void CreateMat(ref Material material, string texPath, string maskPath, Color color)
