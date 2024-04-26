@@ -5,7 +5,7 @@
     <defName>USH_BiologicalWarfare</defName>
     <label>Biological Warfare</label>
     <generalTitle>Pathogen research projects</generalTitle>
-    <generalDescription>Develop lethal pathogens, craft long-range devastating weapons, and study antigens for vaccines production.</generalDescription>
+    <generalDescription>Develop lethal pathogens, craft long-range devastating weapons, and study antigens for vaccines production.\n\nThere's no need to rush all research projects in this tab. Wait until you discover new diseases before researching weapons available in your colony's biome.</generalDescription>
   </ResearchTabDef>
 
   <ResearchProjectDef Name="USH_BiologicalProjectBase" Abstract="True">
