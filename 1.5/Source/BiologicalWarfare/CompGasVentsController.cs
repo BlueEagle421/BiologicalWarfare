@@ -85,7 +85,7 @@ namespace BiologicalWarfare
 
                 if (!report.Accepted)
                 {
-                    Messages.Message(report.Reason, t.Thing, MessageTypeDefOf.CautionInput);
+                    Messages.Message("USH_GasVentCantActivate".Translate(t.Thing.LabelShort.UncapitalizeFirst(), report.Reason), t.Thing, MessageTypeDefOf.RejectInput);
                     BeginVentTargeting(caster);
                     return;
                 }
@@ -100,7 +100,7 @@ namespace BiologicalWarfare
 
         private void OnVentTargetingGUI(LocalTargetInfo target)
         {
-            Widgets.MouseAttachedLabel("Choose a vent in the same power net.");
+            Widgets.MouseAttachedLabel("USH_GasVentChoose".Translate());
 
             if (IsValidVentTarget(target.Thing))
                 GenUI.DrawMouseAttachment(UIIcon);
