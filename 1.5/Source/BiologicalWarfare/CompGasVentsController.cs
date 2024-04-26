@@ -100,6 +100,7 @@ namespace BiologicalWarfare
 
         private void OnVentTargetingGUI(LocalTargetInfo target)
         {
+            OverlayDrawHandler.DrawPowerGridOverlayThisFrame();
             Widgets.MouseAttachedLabel("USH_GasVentChoose".Translate());
 
             if (IsValidVentTarget(target.Thing))
