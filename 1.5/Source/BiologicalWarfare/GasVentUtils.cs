@@ -4,7 +4,7 @@ using Verse;
 
 namespace BiologicalWarfare
 {
-    public static class GenGas
+    public static class GasVentUtils
     {
         public const float DEFAULT_GAS_RADIUS = 5.4f;
         public static Queue<IntVec3> _queue = new Queue<IntVec3>();

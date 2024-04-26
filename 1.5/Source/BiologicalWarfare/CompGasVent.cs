@@ -21,12 +21,12 @@ namespace BiologicalWarfare
 
         public override void DrawGhost(ThingDef def, IntVec3 pos, Rot4 rot, Color ghostCol, Thing thing = null)
         {
-            var ventingPos = GenGas.VentingPosition(pos, rot);
+            var ventingPos = GasVentUtils.VentingPosition(pos, rot);
 
             GenDraw.DrawFieldEdges(new List<IntVec3> { ventingPos }, Color.white);
 
             var map = Find.CurrentMap;
-            var affectedArea = GenGas.GetGasVentArea(ventingPos, map, def.GetCompProperties<CompProperties_GasVent>()?.ventingRadius ?? 0);
+            var affectedArea = GasVentUtils.GetGasVentArea(ventingPos, map, def.GetCompProperties<CompProperties_GasVent>()?.ventingRadius ?? 0);
             if (affectedArea.NullOrEmpty())
                 return;
 
@@ -38,7 +38,7 @@ namespace BiologicalWarfare
     {
         public ThingDef gasDef;
         public float pathogensPerCell;
-        public float ventingRadius = GenGas.DEFAULT_GAS_RADIUS;
+        public float ventingRadius = GasVentUtils.DEFAULT_GAS_RADIUS;
 
         public CompProperties_GasVent() => compClass = typeof(CompGasVent);
     }
@@ -58,7 +58,7 @@ namespace BiologicalWarfare
             base.PostSpawnSetup(respawningAfterLoad);
 
             _compRefuelable = parent.GetComp<CompRefuelable>();
-            _ventPos = GenGas.VentingPosition(parent);
+            _ventPos = GasVentUtils.VentingPosition(parent);
         }
 
         protected override void OnInteracted(Pawn caster)
@@ -86,7 +86,7 @@ namespace BiologicalWarfare
             Map map = parent.Map;
             Room room = parent.GetRoom();
 
-            List<IntVec3> cellsToFlood = GenGas.GetGasVentArea(_ventPos, map, PropsVent?.ventingRadius ?? 0);
+            List<IntVec3> cellsToFlood = GasVentUtils.GetGasVentArea(_ventPos, map, PropsVent?.ventingRadius ?? 0);
 
             cellsToFlood.OrderBy(x => x.DistanceTo(parent.Position)).ToList();
 
