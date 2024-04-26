@@ -66,7 +66,6 @@
         <minimumFueledThreshold>7</minimumFueledThreshold>
         <factorByDifficulty>false</factorByDifficulty>
         <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
-        <fuelIconPath>Things/Item/Resource/Chemfuel</fuelIconPath>
       </li>
       <li Class="CompProperties_Interactable">
         <compClass>CompInteractableRocketswarmLauncher</compClass>
@@ -111,7 +110,7 @@
       <combatPower>5</combatPower>
       <ai_combatDangerous>true</ai_combatDangerous>
       <turretGunDef>Gun_RocketswarmLauncherTest</turretGunDef>
-      <turretTopDrawSize>2.2</turretTopDrawSize>
+      <turretTopDrawSize>1.8</turretTopDrawSize>
       <turretBurstCooldownTime>0.1</turretBurstCooldownTime>
       <playTargetAcquiredSound>false</playTargetAcquiredSound>
       <turretBurstWarmupTime>0</turretBurstWarmupTime>
