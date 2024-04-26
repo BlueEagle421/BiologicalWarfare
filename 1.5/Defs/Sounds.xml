@@ -92,6 +92,21 @@
   </SoundDef>
 
   <SoundDef>
+    <defName>USH_MissileLauncherFired</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Misc/MissileLauncher</clipFolderPath>
+          </li>
+        </grains>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
     <defName>USH_BacteriaIncubatorActivated</defName>
     <context>MapOnly</context>
     <maxSimultaneous>1</maxSimultaneous>
