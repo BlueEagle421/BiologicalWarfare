@@ -12,6 +12,7 @@ namespace BiologicalWarfare
 
         public List<ThingDef> thingDefsToFormat = new List<ThingDef>();
         public List<ThingDef> thingDefsToColor = new List<ThingDef>();
+        public List<ThingDef> thingDefsToColorIcons = new List<ThingDef>();
         public List<ThingDef> thingDefsToFormatAndColor = new List<ThingDef>();
 
         public List<ResearchProjectDef> researchProjectsDefsToFormat = new List<ResearchProjectDef>();
@@ -58,6 +59,9 @@ namespace BiologicalWarfare
 
             foreach (ThingDef thingDef in thingDefsToFormatAndColor)
                 ColorThingDef(thingDef);
+
+            foreach (ThingDef thingDef in thingDefsToColorIcons)
+                ColorThingDefIcon(thingDef);
         }
 
         private void ColorThingDef(ThingDef thingDef)
@@ -65,7 +69,18 @@ namespace BiologicalWarfare
             if (thingDef == null)
                 return;
 
+            if (thingDef.building != null && thingDef.building.turretTopLoadedGraphic != null)
+                thingDef.building.turretTopLoadedGraphic.color = colorInt.ToColor;
+
             thingDef.graphicData.color = colorInt.ToColor;
+        }
+
+        private void ColorThingDefIcon(ThingDef thingDef)
+        {
+            if (thingDef == null)
+                return;
+
+            thingDef.uiIconColor = colorInt.ToColor;
         }
 
         public bool CanBeSampled => samplableHediffDefs.Count != 0;
