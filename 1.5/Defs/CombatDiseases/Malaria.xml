@@ -23,12 +23,19 @@
       <li>USH_MalariaShell</li>
       <li>USH_MalariaBarrel</li>
       <li>USH_MalariaVent</li>
+      <li>USH_MalariaMissileLauncherTurret</li>
+      <li>USH_MalariaShellBullet</li>
+      <li>USH_MalariaMissileBullet</li>
+      <li>USH_MalariaGrenadeBullet</li>
       <li>USH_MalariaGrenadeLauncher</li>
     </thingDefsToFormatAndColor>
 
+    <thingDefsToColorIcons>
+      <li>USH_MalariaMissileLauncher</li>
+    </thingDefsToColorIcons>
+
     <thingDefsToFormat>
-      <li>USH_MalariaShellBullet</li>
-      <li>USH_MalariaGrenadeBullet</li>
+      <li>USH_MalariaMissileLauncher</li>
     </thingDefsToFormat>
 
     <researchProjectsDefsToFormat>
@@ -272,6 +279,103 @@
     <researchPrerequisites>
       <li>USH_MalariaOperationRes</li>
     </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalMissileLauncherBase">
+    <defName>USH_MalariaMissileLauncher</defName>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>240</wickTicks>
+        <explosiveRadius>6.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_MalariaDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_MalariaGas</postExplosionSpawnThingDef>
+        <chanceNeverExplodeFromDamage>0.8</chanceNeverExplodeFromDamage>
+      </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelLabel>Missiles</fuelLabel>
+        <fuelGizmoLabel>Missiles</fuelGizmoLabel>
+        <outOfFuelMessage>Missing missiles</outOfFuelMessage>
+        <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <fuelFilter>
+          <thingDefs>
+            <li>USH_MalariaPathogen</li>
+          </thingDefs>
+        </fuelFilter>
+        <fuelCapacity>7</fuelCapacity>
+        <fuelMultiplier>0.04667</fuelMultiplier>
+        <initialFuelPercent>1</initialFuelPercent>
+        <autoRefuelPercent>1</autoRefuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <minimumFueledThreshold>7</minimumFueledThreshold>
+        <factorByDifficulty>false</factorByDifficulty>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+      </li>
+      <li Class="CompProperties_Interactable">
+        <compClass>CompInteractableRocketswarmLauncher</compClass>
+        <activeTicks>1</activeTicks>
+        <cooldownTicks>7500</cooldownTicks>
+        <ticksToActivate>60</ticksToActivate>
+        <jobString>activate</jobString>
+        <onCooldownString>cooling off</onCooldownString>
+        <cooldownFleck>FlashRed</cooldownFleck>
+        <cooldownFleckSpawnIntervalTicks>60</cooldownFleckSpawnIntervalTicks>
+        <cooldownFleckScale>0.7</cooldownFleckScale>
+        <cooldownPreventsRefuel>true</cooldownPreventsRefuel>
+        <activateTexPath>UI/Commands/ActivateTurret</activateTexPath>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
+    </comps>
+    <building>
+      <turretGunDef>USH_MalariaMissileLauncherTurret</turretGunDef>
+    </building>
+    <costList>
+      <USH_MalariaPathogen>225</USH_MalariaPathogen>
+    </costList>
+    <researchPrerequisites>
+      <li>USH_MalariaOperationRes</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalMissileLauncherTurretBase">
+    <defName>USH_MalariaMissileLauncherTurret</defName>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>USH_MalariaMissileBullet</defaultProjectile>
+        <range>80.9</range>
+        <consumeFuelPerShot>1</consumeFuelPerShot>
+        <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+        <burstShotCount>7</burstShotCount>
+        <forcedMissRadius>9</forcedMissRadius>
+        <forcedMissEvenDispersal>true</forcedMissEvenDispersal>
+        <requireLineOfSight>false</requireLineOfSight>
+        <minRange>29.9</minRange>
+        <targetParams>
+          <canTargetPawns>false</canTargetPawns>
+          <canTargetLocations>true</canTargetLocations>
+          <canTargetBuildings>false</canTargetBuildings>
+        </targetParams>
+        <soundCast>USH_MissileLauncherFired</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>14</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalMissileBulletBase">
+    <defName>USH_MalariaMissileBullet</defName>
+    <projectile>
+      <damageDef>USH_MalariaDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_MalariaGas</postExplosionSpawnThingDef>
+    </projectile>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">

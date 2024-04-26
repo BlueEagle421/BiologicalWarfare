@@ -22,12 +22,19 @@
       <li>USH_SmallpoxShell</li>
       <li>USH_SmallpoxBarrel</li>
       <li>USH_SmallpoxVent</li>
+      <li>USH_SmallpoxMissileLauncherTurret</li>
+      <li>USH_SmallpoxShellBullet</li>
+      <li>USH_SmallpoxMissileBullet</li>
+      <li>USH_SmallpoxGrenadeBullet</li>
       <li>USH_SmallpoxGrenadeLauncher</li>
     </thingDefsToFormatAndColor>
 
+    <thingDefsToColorIcons>
+      <li>USH_SmallpoxMissileLauncher</li>
+    </thingDefsToColorIcons>
+
     <thingDefsToFormat>
-      <li>USH_SmallpoxShellBullet</li>
-      <li>USH_SmallpoxGrenadeBullet</li>
+      <li>USH_SmallpoxMissileLauncher</li>
     </thingDefsToFormat>
 
     <researchProjectsDefsToFormat>
@@ -236,6 +243,103 @@
     <researchPrerequisites>
       <li>USH_SmallpoxOperationRes</li>
     </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalMissileLauncherBase">
+    <defName>USH_SmallpoxMissileLauncher</defName>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>240</wickTicks>
+        <explosiveRadius>6.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_SmallpoxDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_SmallpoxGas</postExplosionSpawnThingDef>
+        <chanceNeverExplodeFromDamage>0.8</chanceNeverExplodeFromDamage>
+      </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelLabel>Missiles</fuelLabel>
+        <fuelGizmoLabel>Missiles</fuelGizmoLabel>
+        <outOfFuelMessage>Missing missiles</outOfFuelMessage>
+        <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <fuelFilter>
+          <thingDefs>
+            <li>USH_SmallpoxPathogen</li>
+          </thingDefs>
+        </fuelFilter>
+        <fuelCapacity>7</fuelCapacity>
+        <fuelMultiplier>0.04667</fuelMultiplier>
+        <initialFuelPercent>1</initialFuelPercent>
+        <autoRefuelPercent>1</autoRefuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <minimumFueledThreshold>7</minimumFueledThreshold>
+        <factorByDifficulty>false</factorByDifficulty>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+      </li>
+      <li Class="CompProperties_Interactable">
+        <compClass>CompInteractableRocketswarmLauncher</compClass>
+        <activeTicks>1</activeTicks>
+        <cooldownTicks>7500</cooldownTicks>
+        <ticksToActivate>60</ticksToActivate>
+        <jobString>activate</jobString>
+        <onCooldownString>cooling off</onCooldownString>
+        <cooldownFleck>FlashRed</cooldownFleck>
+        <cooldownFleckSpawnIntervalTicks>60</cooldownFleckSpawnIntervalTicks>
+        <cooldownFleckScale>0.7</cooldownFleckScale>
+        <cooldownPreventsRefuel>true</cooldownPreventsRefuel>
+        <activateTexPath>UI/Commands/ActivateTurret</activateTexPath>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
+    </comps>
+    <building>
+      <turretGunDef>USH_SmallpoxMissileLauncherTurret</turretGunDef>
+    </building>
+    <costList>
+      <USH_SmallpoxPathogen>225</USH_SmallpoxPathogen>
+    </costList>
+    <researchPrerequisites>
+      <li>USH_SmallpoxOperationRes</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalMissileLauncherTurretBase">
+    <defName>USH_SmallpoxMissileLauncherTurret</defName>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>USH_SmallpoxMissileBullet</defaultProjectile>
+        <range>80.9</range>
+        <consumeFuelPerShot>1</consumeFuelPerShot>
+        <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+        <burstShotCount>7</burstShotCount>
+        <forcedMissRadius>9</forcedMissRadius>
+        <forcedMissEvenDispersal>true</forcedMissEvenDispersal>
+        <requireLineOfSight>false</requireLineOfSight>
+        <minRange>29.9</minRange>
+        <targetParams>
+          <canTargetPawns>false</canTargetPawns>
+          <canTargetLocations>true</canTargetLocations>
+          <canTargetBuildings>false</canTargetBuildings>
+        </targetParams>
+        <soundCast>USH_MissileLauncherFired</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>14</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalMissileBulletBase">
+    <defName>USH_SmallpoxMissileBullet</defName>
+    <projectile>
+      <damageDef>USH_SmallpoxDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_SmallpoxGas</postExplosionSpawnThingDef>
+    </projectile>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">

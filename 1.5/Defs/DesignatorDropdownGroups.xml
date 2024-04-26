@@ -11,4 +11,9 @@
     <label>gas vents</label>
   </DesignatorDropdownGroupDef>
 
+  <DesignatorDropdownGroupDef>
+    <defName>USH_BiologicalMissileLaunchers</defName>
+    <label>gas missile launchers</label>
+  </DesignatorDropdownGroupDef>
+
 </Defs>

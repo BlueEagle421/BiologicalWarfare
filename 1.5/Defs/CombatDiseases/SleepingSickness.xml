@@ -23,12 +23,19 @@
       <li>USH_SleepingSicknessShell</li>
       <li>USH_SleepingSicknessBarrel</li>
       <li>USH_SleepingSicknessVent</li>
+      <li>USH_SleepingSicknessMissileLauncherTurret</li>
+      <li>USH_SleepingSicknessShellBullet</li>
+      <li>USH_SleepingSicknessMissileBullet</li>
+      <li>USH_SleepingSicknessGrenadeBullet</li>
       <li>USH_SleepingSicknessGrenadeLauncher</li>
     </thingDefsToFormatAndColor>
 
+    <thingDefsToColorIcons>
+      <li>USH_SleepingSicknessMissileLauncher</li>
+    </thingDefsToColorIcons>
+
     <thingDefsToFormat>
-      <li>USH_SleepingSicknessShellBullet</li>
-      <li>USH_SleepingSicknessGrenadeBullet</li>
+      <li>USH_SleepingSicknessMissileLauncher</li>
     </thingDefsToFormat>
 
     <researchProjectsDefsToFormat>
@@ -272,6 +279,103 @@
     <researchPrerequisites>
       <li>USH_SleepingSicknessOperationRes</li>
     </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalMissileLauncherBase">
+    <defName>USH_SleepingSicknessMissileLauncher</defName>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>240</wickTicks>
+        <explosiveRadius>6.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_SleepingSicknessDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_SleepingSicknessGas</postExplosionSpawnThingDef>
+        <chanceNeverExplodeFromDamage>0.8</chanceNeverExplodeFromDamage>
+      </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelLabel>Missiles</fuelLabel>
+        <fuelGizmoLabel>Missiles</fuelGizmoLabel>
+        <outOfFuelMessage>Missing missiles</outOfFuelMessage>
+        <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <fuelFilter>
+          <thingDefs>
+            <li>USH_SleepingSicknessPathogen</li>
+          </thingDefs>
+        </fuelFilter>
+        <fuelCapacity>7</fuelCapacity>
+        <fuelMultiplier>0.04667</fuelMultiplier>
+        <initialFuelPercent>1</initialFuelPercent>
+        <autoRefuelPercent>1</autoRefuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <minimumFueledThreshold>7</minimumFueledThreshold>
+        <factorByDifficulty>false</factorByDifficulty>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+      </li>
+      <li Class="CompProperties_Interactable">
+        <compClass>CompInteractableRocketswarmLauncher</compClass>
+        <activeTicks>1</activeTicks>
+        <cooldownTicks>7500</cooldownTicks>
+        <ticksToActivate>60</ticksToActivate>
+        <jobString>activate</jobString>
+        <onCooldownString>cooling off</onCooldownString>
+        <cooldownFleck>FlashRed</cooldownFleck>
+        <cooldownFleckSpawnIntervalTicks>60</cooldownFleckSpawnIntervalTicks>
+        <cooldownFleckScale>0.7</cooldownFleckScale>
+        <cooldownPreventsRefuel>true</cooldownPreventsRefuel>
+        <activateTexPath>UI/Commands/ActivateTurret</activateTexPath>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
+    </comps>
+    <building>
+      <turretGunDef>USH_SleepingSicknessMissileLauncherTurret</turretGunDef>
+    </building>
+    <costList>
+      <USH_SleepingSicknessPathogen>225</USH_SleepingSicknessPathogen>
+    </costList>
+    <researchPrerequisites>
+      <li>USH_SleepingSicknessOperationRes</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalMissileLauncherTurretBase">
+    <defName>USH_SleepingSicknessMissileLauncherTurret</defName>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>USH_SleepingSicknessMissileBullet</defaultProjectile>
+        <range>80.9</range>
+        <consumeFuelPerShot>1</consumeFuelPerShot>
+        <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+        <burstShotCount>7</burstShotCount>
+        <forcedMissRadius>9</forcedMissRadius>
+        <forcedMissEvenDispersal>true</forcedMissEvenDispersal>
+        <requireLineOfSight>false</requireLineOfSight>
+        <minRange>29.9</minRange>
+        <targetParams>
+          <canTargetPawns>false</canTargetPawns>
+          <canTargetLocations>true</canTargetLocations>
+          <canTargetBuildings>false</canTargetBuildings>
+        </targetParams>
+        <soundCast>USH_MissileLauncherFired</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>14</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalMissileBulletBase">
+    <defName>USH_SleepingSicknessMissileBullet</defName>
+    <projectile>
+      <damageDef>USH_SleepingSicknessDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_SleepingSicknessGas</postExplosionSpawnThingDef>
+    </projectile>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">

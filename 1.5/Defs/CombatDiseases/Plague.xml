@@ -23,12 +23,19 @@
       <li>USH_PlagueShell</li>
       <li>USH_PlagueBarrel</li>
       <li>USH_PlagueVent</li>
+      <li>USH_PlagueMissileLauncherTurret</li>
+      <li>USH_PlagueShellBullet</li>
+      <li>USH_PlagueMissileBullet</li>
+      <li>USH_PlagueGrenadeBullet</li>
       <li>USH_PlagueGrenadeLauncher</li>
     </thingDefsToFormatAndColor>
 
+    <thingDefsToColorIcons>
+      <li>USH_PlagueMissileLauncher</li>
+    </thingDefsToColorIcons>
+
     <thingDefsToFormat>
-      <li>USH_PlagueShellBullet</li>
-      <li>USH_PlagueGrenadeBullet</li>
+      <li>USH_PlagueMissileLauncher</li>
     </thingDefsToFormat>
 
     <researchProjectsDefsToFormat>
@@ -237,6 +244,103 @@
     <researchPrerequisites>
       <li>USH_PlagueOperationRes</li>
     </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalMissileLauncherBase">
+    <defName>USH_PlagueMissileLauncher</defName>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>240</wickTicks>
+        <explosiveRadius>6.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_PlagueDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_PlagueGas</postExplosionSpawnThingDef>
+        <chanceNeverExplodeFromDamage>0.8</chanceNeverExplodeFromDamage>
+      </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelLabel>Missiles</fuelLabel>
+        <fuelGizmoLabel>Missiles</fuelGizmoLabel>
+        <outOfFuelMessage>Missing missiles</outOfFuelMessage>
+        <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <fuelFilter>
+          <thingDefs>
+            <li>USH_PlaguePathogen</li>
+          </thingDefs>
+        </fuelFilter>
+        <fuelCapacity>7</fuelCapacity>
+        <fuelMultiplier>0.04667</fuelMultiplier>
+        <initialFuelPercent>1</initialFuelPercent>
+        <autoRefuelPercent>1</autoRefuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <minimumFueledThreshold>7</minimumFueledThreshold>
+        <factorByDifficulty>false</factorByDifficulty>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+      </li>
+      <li Class="CompProperties_Interactable">
+        <compClass>CompInteractableRocketswarmLauncher</compClass>
+        <activeTicks>1</activeTicks>
+        <cooldownTicks>7500</cooldownTicks>
+        <ticksToActivate>60</ticksToActivate>
+        <jobString>activate</jobString>
+        <onCooldownString>cooling off</onCooldownString>
+        <cooldownFleck>FlashRed</cooldownFleck>
+        <cooldownFleckSpawnIntervalTicks>60</cooldownFleckSpawnIntervalTicks>
+        <cooldownFleckScale>0.7</cooldownFleckScale>
+        <cooldownPreventsRefuel>true</cooldownPreventsRefuel>
+        <activateTexPath>UI/Commands/ActivateTurret</activateTexPath>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
+    </comps>
+    <building>
+      <turretGunDef>USH_PlagueMissileLauncherTurret</turretGunDef>
+    </building>
+    <costList>
+      <USH_PlaguePathogen>225</USH_PlaguePathogen>
+    </costList>
+    <researchPrerequisites>
+      <li>USH_PlagueOperationRes</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalMissileLauncherTurretBase">
+    <defName>USH_PlagueMissileLauncherTurret</defName>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>USH_PlagueMissileBullet</defaultProjectile>
+        <range>80.9</range>
+        <consumeFuelPerShot>1</consumeFuelPerShot>
+        <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+        <burstShotCount>7</burstShotCount>
+        <forcedMissRadius>9</forcedMissRadius>
+        <forcedMissEvenDispersal>true</forcedMissEvenDispersal>
+        <requireLineOfSight>false</requireLineOfSight>
+        <minRange>29.9</minRange>
+        <targetParams>
+          <canTargetPawns>false</canTargetPawns>
+          <canTargetLocations>true</canTargetLocations>
+          <canTargetBuildings>false</canTargetBuildings>
+        </targetParams>
+        <soundCast>USH_MissileLauncherFired</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>14</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalMissileBulletBase">
+    <defName>USH_PlagueMissileBullet</defName>
+    <projectile>
+      <damageDef>USH_PlagueDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_PlagueGas</postExplosionSpawnThingDef>
+    </projectile>
   </ThingDef>
 
   <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">

@@ -58,6 +58,7 @@
     </costList>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <designationCategory>Security</designationCategory>
+    <designatorDropdown>USH_BiologicalMissileLaunchers</designatorDropdown>
     <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
     <building>
       <combatPower>5</combatPower>
@@ -115,7 +116,7 @@
     <graphicData>
       <texPath>Things/Projectile/Missile</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>1</drawSize>
+      <drawSize>0.8</drawSize>
     </graphicData>
     <projectile>
       <explosionRadius>3.5</explosionRadius>
