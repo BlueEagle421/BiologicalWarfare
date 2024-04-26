@@ -78,9 +78,10 @@
     <Compile Include="JobDrivers.cs" />
     <Compile Include="Patch_FloatMenuMakerMap.cs" />
     <Compile Include="PathogenGas.cs" />
+    <Compile Include="Projectile_ExplosiveSmoke.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CompVirusReplicator.cs" />
-    <Compile Include="Building_TurretCutoutComplex.cs" />
+    <Compile Include="Building_TurretRocketCutoutComplex.cs" />
     <Compile Include="USHDefOf.cs" />
     <Compile Include="CompVaccine.cs" />
     <Compile Include="BuildingAntigensAnalyzer.cs" />
