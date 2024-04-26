@@ -104,7 +104,10 @@ namespace BiologicalWarfare
                 await Task.Delay(0);
 
             if (_compRefuelable.Fuel < PropsVent.pathogensPerCell)
+            {
+                _compRefuelable.ConsumeFuel(_compRefuelable.Fuel);
                 return;
+            }
 
             if (!cell.Walkable(map))
                 return;
