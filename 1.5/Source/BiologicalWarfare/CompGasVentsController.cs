@@ -83,17 +83,29 @@ namespace BiologicalWarfare
 
                 AcceptanceReport report = compGasVent.CanInteract();
 
-                if (report.Accepted)
+                if (!report.Accepted)
                 {
-                    _targetedGasVent = compGasVent;
-
-                    Job job = JobMaker.MakeJob(JobDefOf.InteractThing, parent);
-                    caster.jobs.TryTakeOrderedJob(job, new JobTag?(JobTag.Misc), false);
+                    Messages.Message(report.Reason, t.Thing, MessageTypeDefOf.CautionInput);
+                    BeginVentTargeting(caster);
                     return;
                 }
 
-                Messages.Message(report.Reason, t.Thing, MessageTypeDefOf.CautionInput);
-            }, null, null, UIIcon);
+                _targetedGasVent = compGasVent;
+
+                Job job = JobMaker.MakeJob(JobDefOf.InteractThing, parent);
+                caster.jobs.TryTakeOrderedJob(job, new JobTag?(JobTag.Misc), false);
+
+            }, delegate (LocalTargetInfo t) { OnVentTargetingGUI(t); });
+        }
+
+        private void OnVentTargetingGUI(LocalTargetInfo target)
+        {
+            Widgets.MouseAttachedLabel("Choose a vent in the same power net.");
+
+            if (IsValidVentTarget(target.Thing))
+                GenUI.DrawMouseAttachment(UIIcon);
+            else
+                GenUI.DrawMouseAttachment(TexCommand.CannotShoot);
         }
 
         private TargetingParameters VentTargetingParams()
@@ -112,6 +124,9 @@ namespace BiologicalWarfare
 
         private bool IsValidVentTarget(Thing thing)
         {
+            if (thing == null)
+                return false;
+
             if (thing.TryGetComp<CompGasVent>() == null)
                 return false;
 
