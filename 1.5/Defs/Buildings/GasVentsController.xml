@@ -4,7 +4,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>USH_GasVentsController</defName>
     <label>gas vents controller</label>
-    <description>Placeholder.</description>
+    <description>An interactive panel used for remote pathogen gas vents activation. To trigger it, the targeted vent must be connected to the same power network as the controller.</description>
     <rotatable>true</rotatable>
     <graphicData>
       <texPath>Things/Building/GasVentsController/GasVentsController</texPath>
