@@ -34,7 +34,7 @@
     <thingClass>Projectile_Explosive</thingClass>
     <projectile>
       <speed>41</speed>
-      <explosionRadius>7.9</explosionRadius>
+      <explosionRadius>5.5</explosionRadius>
       <postExplosionSpawnChance>1</postExplosionSpawnChance>
       <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
       <flyOverhead>true</flyOverhead>

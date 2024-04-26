@@ -202,7 +202,6 @@
     <projectile>
       <damageDef>USH_MalariaDamage</damageDef>
       <postExplosionSpawnThingDef>USH_MalariaGas</postExplosionSpawnThingDef>
-      <explosionRadius>4.9</explosionRadius>
     </projectile>
   </ThingDef>
 

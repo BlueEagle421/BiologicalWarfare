@@ -74,7 +74,6 @@
     <projectile>
       <damageDef>USH_FleshBreakerDamage</damageDef>
       <postExplosionSpawnThingDef>USH_FleshBreakerGas</postExplosionSpawnThingDef>
-      <explosionRadius>4.9</explosionRadius>
     </projectile>
   </ThingDef>
 

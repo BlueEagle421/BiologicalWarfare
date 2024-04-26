@@ -167,7 +167,6 @@
     <projectile>
       <damageDef>USH_PlagueDamage</damageDef>
       <postExplosionSpawnThingDef>USH_PlagueGas</postExplosionSpawnThingDef>
-      <explosionRadius>4.9</explosionRadius>
     </projectile>
   </ThingDef>
 

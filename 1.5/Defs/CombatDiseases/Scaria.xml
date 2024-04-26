@@ -167,7 +167,6 @@
     <projectile>
       <damageDef>USH_ScariaDamage</damageDef>
       <postExplosionSpawnThingDef>USH_ScariaGas</postExplosionSpawnThingDef>
-      <explosionRadius>4.9</explosionRadius>
     </projectile>
   </ThingDef>
 

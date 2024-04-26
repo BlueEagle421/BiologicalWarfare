@@ -202,7 +202,6 @@
     <projectile>
       <damageDef>USH_SleepingSicknessDamage</damageDef>
       <postExplosionSpawnThingDef>USH_SleepingSicknessGas</postExplosionSpawnThingDef>
-      <explosionRadius>4.9</explosionRadius>
     </projectile>
   </ThingDef>
 

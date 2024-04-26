@@ -166,7 +166,6 @@
     <projectile>
       <damageDef>USH_SmallpoxDamage</damageDef>
       <postExplosionSpawnThingDef>USH_SmallpoxGas</postExplosionSpawnThingDef>
-      <explosionRadius>4.9</explosionRadius>
     </projectile>
   </ThingDef>
 

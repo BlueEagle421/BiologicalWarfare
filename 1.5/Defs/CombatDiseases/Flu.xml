@@ -167,7 +167,6 @@
     <projectile>
       <damageDef>USH_FluDamage</damageDef>
       <postExplosionSpawnThingDef>USH_FluGas</postExplosionSpawnThingDef>
-      <explosionRadius>4.9</explosionRadius>
     </projectile>
   </ThingDef>
 
