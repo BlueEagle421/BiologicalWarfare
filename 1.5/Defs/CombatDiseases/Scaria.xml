@@ -213,9 +213,13 @@
         <gasDef>USH_ScariaGas</gasDef>
         <pathogensPerCell>0.5</pathogensPerCell>
         <activeTicks>1</activeTicks>
-        <cooldownTicks>0</cooldownTicks>
         <ticksToActivate>60</ticksToActivate>
         <jobString>activate</jobString>
+        <cooldownTicks>2500</cooldownTicks>
+        <cooldownFleck>USH_FlashWhite</cooldownFleck>
+        <cooldownFleckSpawnIntervalTicks>60</cooldownFleckSpawnIntervalTicks>
+        <cooldownFleckScale>0.7</cooldownFleckScale>
+        <cooldownPreventsRefuel>false</cooldownPreventsRefuel>
         <onCooldownString>cooling off</onCooldownString>
         <activateTexPath>UI/Gizmo/ActivateGasVent</activateTexPath>
         <soundActivate>USH_GasVentActivated</soundActivate>

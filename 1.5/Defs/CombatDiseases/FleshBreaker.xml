@@ -120,10 +120,14 @@
         <gasDef>USH_FleshBreakerGas</gasDef>
         <pathogensPerCell>0.1</pathogensPerCell>
         <activeTicks>1</activeTicks>
-        <cooldownTicks>0</cooldownTicks>
         <ticksToActivate>60</ticksToActivate>
         <jobString>activate</jobString>
         <onCooldownString>cooling off</onCooldownString>
+        <cooldownTicks>2500</cooldownTicks>
+        <cooldownFleck>USH_FlashWhite</cooldownFleck>
+        <cooldownFleckSpawnIntervalTicks>60</cooldownFleckSpawnIntervalTicks>
+        <cooldownFleckScale>0.7</cooldownFleckScale>
+        <cooldownPreventsRefuel>false</cooldownPreventsRefuel>
         <activateTexPath>UI/Gizmo/ActivateGasVent</activateTexPath>
         <soundActivate>USH_GasVentActivated</soundActivate>
         <targetingParameters>
