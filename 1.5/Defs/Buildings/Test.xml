@@ -20,7 +20,8 @@
         <offset>(0,0,-0.05)</offset>
       </shadowData>
     </graphicData>
-    <uiIconPath>Things/Building/Security/TurretRocket_MenuIcon</uiIconPath>
+    <uiIconPath>Things/Building/MissileLauncher/TurretMissileMenuIcon</uiIconPath>
+    <uiIconColor>(0.94, 0.78, 0.09)</uiIconColor>
     <altitudeLayer>Building</altitudeLayer>
     <stealable>false</stealable>
     <rotatable>false</rotatable>

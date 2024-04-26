@@ -8,15 +8,32 @@ namespace BiologicalWarfare
     {
         private Material _cachedMaterialFull, _cachedMaterialEmpty;
 
-        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        public Material MaterialFull
         {
-            base.SpawnSetup(map, respawningAfterLoad);
+            get
+            {
+                if (_cachedMaterialFull == null)
+                {
+                    GraphicData graphicDataFull = def.building.turretGunDef.building.turretTopLoadedGraphic;
+                    CreateMat(ref _cachedMaterialFull, graphicDataFull.texPath, graphicDataFull.maskPath, graphicDataFull.color);
+                }
 
-            GraphicData graphicDataFull = def.building.turretGunDef.building.turretTopLoadedGraphic;
-            CreateMat(ref _cachedMaterialFull, graphicDataFull.texPath, graphicDataFull.maskPath, graphicDataFull.color);
+                return _cachedMaterialFull;
+            }
+        }
 
-            GraphicData graphicDataEmpty = def.building.turretGunDef.graphicData;
-            CreateMat(ref _cachedMaterialEmpty, graphicDataEmpty.texPath, graphicDataEmpty.maskPath, graphicDataEmpty.color);
+        public Material MaterialEmpty
+        {
+            get
+            {
+                if (_cachedMaterialEmpty == null)
+                {
+                    GraphicData graphicDataEmpty = def.building.turretGunDef.graphicData;
+                    CreateMat(ref _cachedMaterialEmpty, graphicDataEmpty.texPath, graphicDataEmpty.maskPath, graphicDataEmpty.color);
+                }
+
+                return _cachedMaterialEmpty;
+            }
         }
 
         private void CreateMat(ref Material material, string texPath, string maskPath, Color color)
@@ -30,9 +47,9 @@ namespace BiologicalWarfare
             get
             {
                 if (refuelableComp.IsFull)
-                    return _cachedMaterialFull;
+                    return MaterialFull;
 
-                return _cachedMaterialEmpty;
+                return MaterialEmpty;
             }
         }
     }
