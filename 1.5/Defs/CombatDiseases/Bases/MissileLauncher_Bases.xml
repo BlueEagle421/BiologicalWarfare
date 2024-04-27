@@ -4,6 +4,7 @@
   <ThingDef Name="USH_BiologicalMissileLauncherBase" ParentName="BuildingBase" Abstract="True">
     <label>{0} gas missile launcher</label>
     <description>A military-grade {0} gas missile launcher that fires a single barrage of rockets covering a large area with {0} gas. The turret does not fire until someone activates it. It is very effective against sieges, but less effective against moving targets. A single burst of missiles can severely weaken any siege, potentially killing raiders.\nAn integrated targeting system makes it effective over long distances.\n\nOnce fired, it must cool off for hours and be reloaded to fire again. It's refueled with large quantities of {0} {1} pathogens.</description>
+    <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     <thingClass>BiologicalWarfare.Building_TurretRocketCutoutComplex</thingClass>
     <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>
@@ -81,6 +82,7 @@
   <ThingDef Name="USH_BiologicalMissileLauncherTurretBase" ParentName="BaseWeaponTurret" Abstract="True">
     <label>missile tube</label>
     <description>A missile tube of the type usually mounted on a {0} gas missile launcher turret.</description>
+    <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     <graphicData>
       <texPath>Things/Building/MissileLauncher/TurretMissileEmptyTop</texPath>
       <maskPath>Things/Building/MissileLauncher/TurretMissileEmptyTopm</maskPath>
@@ -107,6 +109,7 @@
 
   <ThingDef Name="USH_BiologicalMissileBulletBase" Abstract="True">
     <label>{0} gas missile</label>
+    <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     <thingClass>BiologicalWarfare.Projectile_ExplosiveSmoke</thingClass>
     <category>Projectile</category>
     <tickerType>Normal</tickerType>

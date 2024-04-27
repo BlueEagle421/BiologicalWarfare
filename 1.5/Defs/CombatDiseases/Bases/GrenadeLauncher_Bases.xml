@@ -4,6 +4,7 @@
   <ThingDef Name="USH_BiologicalGrenadeLauncherBase" ParentName="BaseHumanMakeableGun" Abstract="True">
     <label>{0} gas grenade launcher</label>
     <description>A military-grade {0} gas grenade launcher intended for anti-infantry use.</description>
+    <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     <graphicData>
       <texPath>Things/Item/GasLauncher/GasLauncher</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -56,6 +57,7 @@
   <ThingDef Name="USH_BiologicalGrenadeBulletBase" ParentName="BaseBullet" Abstract="True">
     <label>{0} gas grenade</label>
     <description>A {0} gas grenade</description>
+    <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     <graphicData>
       <texPath>Things/Projectile/GasGrenadeProjectile</texPath>
       <graphicClass>Graphic_Single</graphicClass>

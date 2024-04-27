@@ -4,6 +4,7 @@
   <ThingDef Name="USH_DiseaseVaccineBase" ParentName="ResourceBase" Abstract="True">
     <label>{0} vaccine</label>
     <description>A syringe contaning a carefully prepared mixture of antigens. It prevents getting sick from {0} for 8 days and provides full protection from {0} pathogen gas.\n\nNote that it does not cure existing infections.</description>
+    <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     <thingClass>ThingWithComps</thingClass>
     <graphicData>
       <texPath>Things/Item/Vaccine/Vaccine</texPath>
@@ -73,6 +74,7 @@
     <label>{0} immunity</label>
     <labelNoun>a {0} immunity</labelNoun>
     <description>{0} antigens in the bloodstream. Comes from {0} vaccine.</description>
+    <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     <initialSeverity>1</initialSeverity>
     <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
     <comps>
