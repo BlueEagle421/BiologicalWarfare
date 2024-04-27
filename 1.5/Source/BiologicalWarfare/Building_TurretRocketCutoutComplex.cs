@@ -15,7 +15,7 @@ namespace BiologicalWarfare
                 if (_cachedMaterialFull == null)
                 {
                     GraphicData graphicDataFull = def.building.turretGunDef.building.turretTopLoadedGraphic;
-                    CreateMat(ref _cachedMaterialFull, graphicDataFull.texPath, graphicDataFull.maskPath, graphicDataFull.color);
+                    _cachedMaterialFull = CreateMaterial(graphicDataFull.texPath, graphicDataFull.maskPath, graphicDataFull.color);
                 }
 
                 return _cachedMaterialFull;
@@ -29,17 +29,19 @@ namespace BiologicalWarfare
                 if (_cachedMaterialEmpty == null)
                 {
                     GraphicData graphicDataEmpty = def.building.turretGunDef.graphicData;
-                    CreateMat(ref _cachedMaterialEmpty, graphicDataEmpty.texPath, graphicDataEmpty.maskPath, graphicDataEmpty.color);
+                    _cachedMaterialEmpty = CreateMaterial(graphicDataEmpty.texPath, graphicDataEmpty.maskPath, graphicDataEmpty.color);
                 }
 
                 return _cachedMaterialEmpty;
             }
         }
 
-        private void CreateMat(ref Material material, string texPath, string maskPath, Color color)
+        private Material CreateMaterial(string texPath, string maskPath, Color color)
         {
-            material = MaterialPool.MatFrom(texPath, ShaderDatabase.CutoutComplex, color);
-            material.SetTexture(ShaderPropertyIDs.MaskTex, ContentFinder<Texture2D>.Get(maskPath, true));
+            Material result = MaterialPool.MatFrom(texPath, ShaderDatabase.CutoutComplex, color);
+            result.SetTexture(ShaderPropertyIDs.MaskTex, ContentFinder<Texture2D>.Get(maskPath, true));
+
+            return result;
         }
 
         public override Material TurretTopMaterial
