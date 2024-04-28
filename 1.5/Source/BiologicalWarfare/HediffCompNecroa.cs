@@ -4,16 +4,8 @@ using Verse;
 
 namespace BiologicalWarfare
 {
-    public class HediffCompProperties_Necroa : HediffCompProperties
-    {
-
-        public HediffCompProperties_Necroa() => compClass = typeof(HediffCompNecroa);
-    }
-
     public class HediffCompNecroa : HediffComp
     {
-        public HediffCompProperties_Necroa PropsNecroa => (HediffCompProperties_Necroa)props;
-
         public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
         {
             base.Notify_PawnDied(dinfo, culprit);
