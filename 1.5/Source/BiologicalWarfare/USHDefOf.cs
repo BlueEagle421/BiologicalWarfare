@@ -27,5 +27,8 @@ namespace BiologicalWarfare
         public static SoundDef USH_SampleDisease;
 
         public static SoundDef USH_VaccineInjected;
+
+        [MayRequireAnomaly]
+        public static HediffDef USH_Necroa;
     }
 }

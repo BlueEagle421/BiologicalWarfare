@@ -138,6 +138,9 @@ namespace BiologicalWarfare
             if (AnyHediffMakesFullyImmuneTo(pawn, hediffDef))
                 return true;
 
+            if (pawn.IsShambler && hediffDef == USHDefOf.USH_Necroa)
+                return true;
+
             return false;
         }
 

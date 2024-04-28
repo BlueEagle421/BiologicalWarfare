@@ -72,6 +72,7 @@
     <Compile Include="CompDiseaseSampler.cs" />
     <Compile Include="CompDiseaseSampleContainer.cs" />
     <Compile Include="GasVentUtils.cs" />
+    <Compile Include="HediffNecroa.cs" />
     <Compile Include="HediffParasiteReproduction.cs" />
     <Compile Include="HediffCompVirusExtraction.cs" />
     <Compile Include="IngestionOutcomeDoer_RemoveHediff.cs" />
