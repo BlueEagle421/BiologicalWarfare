@@ -92,8 +92,8 @@ namespace BiologicalWarfare
 
             cellsToFlood.Shuffle(SHUFFLE_STEPS);
 
-            await MakeGasAt(new IntVec3(), map, room);
-
+            foreach (IntVec3 cell in cellsToFlood)
+                await MakeGasAt(cell, map, room);
         }
 
         private async Task MakeGasAt(IntVec3 cell, Map map, Room room)
