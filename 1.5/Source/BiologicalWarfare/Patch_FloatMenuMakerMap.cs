@@ -108,7 +108,7 @@ namespace BiologicalWarfare
 
                 if (!canInsert)
                 {
-                    Messages.Message(canInsert.Reason, target.Thing, MessageTypeDefOf.CautionInput);
+                    Messages.Message(canInsert.Reason, target.Thing, MessageTypeDefOf.RejectInput);
                     return;
                 }
 

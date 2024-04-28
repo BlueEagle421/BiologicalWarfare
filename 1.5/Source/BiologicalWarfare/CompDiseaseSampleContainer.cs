@@ -25,11 +25,20 @@ namespace BiologicalWarfare
             foreach (FloatMenuOption option in base.CompFloatMenuOptions(selPawn))
                 yield return option;
 
-
-            yield return new FloatMenuOption("USH_ExtractSample".Translate(), delegate ()
+            FloatMenuOption extractOption = new FloatMenuOption("USH_ExtractSample".Translate(), delegate ()
             {
                 OrderExtractionJob(selPawn);
             }, MenuOptionPriority.Default, null, null, 0f, null, null, true, 0);
+
+            AcceptanceReport report = CanExtract(selPawn);
+
+            if (!report.Accepted)
+            {
+                extractOption.Label += string.Format(" ({0})", report.Reason.UncapitalizeFirst());
+                extractOption.Disabled = true;
+            }
+
+            yield return extractOption;
 
             yield break;
         }
@@ -39,7 +48,7 @@ namespace BiologicalWarfare
             AcceptanceReport canExtract = CanExtract(pawn);
             if (!canExtract)
             {
-                Messages.Message(canExtract.Reason, parent, MessageTypeDefOf.CautionInput);
+                Messages.Message(canExtract.Reason, parent, MessageTypeDefOf.RejectInput);
                 return;
             }
 
@@ -66,7 +75,7 @@ namespace BiologicalWarfare
         public virtual AcceptanceReport CanExtract(Pawn pawn)
         {
             if (Empty)
-                return "USH_SampleContainerEmpty".Translate(parent.Named("BUILDING"));
+                return "USH_SampleContainerEmpty".Translate();
 
             return true;
         }

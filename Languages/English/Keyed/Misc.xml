@@ -9,7 +9,7 @@
     <USH_NoSample>Missing {TYPE} sample.</USH_NoSample>
 
     <USH_SampleContainerFull>{BUILDING} already contains disease sample.</USH_SampleContainerFull>
-    <USH_SampleContainerEmpty>{BUILDING} is already empty.</USH_SampleContainerEmpty>
+    <USH_SampleContainerEmpty>already empty</USH_SampleContainerEmpty>
     <USH_SampleContainerTypeMismatch>{BUILDING} only accepts {TYPE} samples.</USH_SampleContainerTypeMismatch>
 
     <USH_ReplicatorNoRoom>Not placed in a room.</USH_ReplicatorNoRoom>
