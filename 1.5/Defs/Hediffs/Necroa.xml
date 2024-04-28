@@ -5,7 +5,7 @@
     <defName>USH_Necroa</defName>
     <hediffClass>HediffWithComps</hediffClass>
     <label>necroa</label>
-    <description>An infectious disease caused by the necroa virus. It progresses rapidly but can be easily treated with good healthcare. If the host isn't fully immune, they will turn into a shambler post-mortem.</description>
+    <description>An infectious disease caused by the necroa archovirus. It progresses rapidly but can be easily treated with good healthcare. If the host isn't fully immune, they will turn into a shambler post-mortem.</description>
     <makesSickThought>true</makesSickThought>
     <lethalSeverity>1</lethalSeverity>
     <tendable>true</tendable>

@@ -10,6 +10,7 @@
     </samplableHediffDefs>
     <giveHediffDef>USH_Necroa</giveHediffDef>
     <diseaseType>Virus</diseaseType>
+    <overrideDiseaseTypeLabel>archovirus</overrideDiseaseTypeLabel>
     <colorInt>(123, 124, 99, 255)</colorInt>
 
     <!-- formats {0} to label and {1} to disease type -->
@@ -383,7 +384,7 @@
 
   <ResearchProjectDef ParentName="USH_DiseaseOprationResBase" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_NecroaOperationRes</defName>
-    <description>Craft {0} {1} pythogen gas grenade launchers, explosive gas barrels and devastating mortar shells. This virus turns pawns into shamblers post-mortem.\n\nNecroa virus can be sampled from shamblers or pawns infected with necroa.</description>
+    <description>Craft {0} {1} pythogen gas grenade launchers, explosive gas barrels and devastating mortar shells. This archovirus turns pawns into shamblers post-mortem.\n\nNecroa archovirus can be sampled from shamblers or pawns infected with necroa.</description>
     <researchViewX>1.50</researchViewX>
     <researchViewY>4.20</researchViewY>
   </ResearchProjectDef>
