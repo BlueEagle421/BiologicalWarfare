@@ -12,6 +12,8 @@
       <HediffDef>Plague</HediffDef>
       <HediffDef>Scaria</HediffDef>
       <HediffDef>SleepingSickness</HediffDef>
+      <HediffDef MayRequire="Ludeon.RimWorld.Anomaly">USH_Necroa</HediffDef>
+      <HediffDef MayRequire="Ludeon.RimWorld.Anomaly">Shambler</HediffDef>
     </descriptionHyperlinks>
     <graphicData>
       <texPath>Things/Item/DiseaseSampler</texPath>

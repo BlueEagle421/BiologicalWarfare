@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
+    <defName>USH_Necroa</defName>
+    <label>necroa</label>
+    <samplableHediffDefs>
+      <li>USH_Necroa</li>
+      <li>Shambler</li>
+    </samplableHediffDefs>
+    <giveHediffDef>USH_Necroa</giveHediffDef>
+    <diseaseType>Virus</diseaseType>
+    <colorInt>(123, 124, 99, 255)</colorInt>
+
+    <!-- formats {0} to label and {1} to disease type -->
+    <!-- also sets color in graphicData -->
+    <thingDefsToFormatAndColor>
+      <li>USH_NecroaSample</li>
+      <li>USH_NecroaPathogen</li>
+      <li>USH_NecroaVaccine</li>
+      <li>USH_NecroaAntiserum</li>
+      <li>USH_NecroaGas</li>
+      <li>USH_NecroaShell</li>
+      <li>USH_NecroaBarrel</li>
+      <li>USH_NecroaVent</li>
+      <li>USH_NecroaMissileLauncherTurret</li>
+      <li>USH_NecroaShellBullet</li>
+      <li>USH_NecroaMissileBullet</li>
+      <li>USH_NecroaGrenadeBullet</li>
+      <li>USH_NecroaGrenadeLauncher</li>
+    </thingDefsToFormatAndColor>
+
+    <thingDefsToColorIcons>
+      <li>USH_NecroaMissileLauncher</li>
+    </thingDefsToColorIcons>
+
+    <thingDefsToFormat>
+      <li>USH_NecroaMissileLauncher</li>
+    </thingDefsToFormat>
+
+    <researchProjectsDefsToFormat>
+      <li>USH_NecroaOperationRes</li>
+      <li>USH_NecroaVaccineRes</li>
+    </researchProjectsDefsToFormat>
+
+    <hediffDefsToFormat>
+      <li>USH_NecroaVaccineHediff</li>
+    </hediffDefsToFormat>
+
+    <vaccineResProjectDef>USH_NecroaVaccineRes</vaccineResProjectDef>
+
+    <!-- sample def is required for CombatDiseaseDef to work properly -->
+    <sampleDef>USH_NecroaSample</sampleDef>
+    <!-- pathogen def is optional -->
+    <pathogenDef>USH_NecroaPathogen</pathogenDef>
+
+  </BiologicalWarfare.CombatDiseaseDef>
+
+  <ThingDef ParentName="USH_VirusSampleBase">
+    <defName>USH_NecroaSample</defName>
+    <comps>
+      <li Class="BiologicalWarfare.CompProperties_DiseaseSample">
+        <combatDiseaseDef>USH_Necroa</combatDiseaseDef>
+      </li>
+    </comps>
+    <costList>
+      <USH_NecroaPathogen>1</USH_NecroaPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_NecroaOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_VirusPathogenBase">
+    <defName>USH_NecroaPathogen</defName>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_DiseaseVaccineBase">
+    <defName>USH_NecroaVaccine</defName>
+    <descriptionHyperlinks>
+      <HediffDef>USH_NecroaVaccineHediff</HediffDef>
+    </descriptionHyperlinks>
+    <comps>
+      <li Class="BiologicalWarfare.CompProperties_TargetEffectVaccine">
+        <jobDef>USH_InjectVaccine</jobDef>
+        <hediffDefVaccine>USH_NecroaVaccineHediff</hediffDefVaccine>
+      </li>
+    </comps>
+    <costList>
+      <USH_NecroaPathogen>25</USH_NecroaPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_NecroaVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <HediffDef ParentName="USH_DiseaseVaccineHediffBase">
+    <defName>USH_NecroaVaccineHediff</defName>
+    <stages>
+      <li>
+        <makeImmuneTo>
+          <li>USH_Necroa</li>
+        </makeImmuneTo>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThingDef ParentName="USH_DiseaseAntiserum">
+    <defName>USH_NecroaAntiserum</defName>
+    <ingestible>
+      <outcomeDoers>
+        <li Class="BiologicalWarfare.IngestionOutcomeDoer_RemoveHediff">
+          <hediffDefToRemove>USH_Necroa</hediffDefToRemove>
+          <sendMessage>true</sendMessage>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <costList>
+      <USH_NecroaPathogen>25</USH_NecroaPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_NecroaVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <DamageDef ParentName="USH_BiologicalDamageBase">
+    <defName>USH_NecroaDamage</defName>
+  </DamageDef>
+
+  <ThingDef ParentName="USH_BiologicalGasBase">
+    <defName>USH_NecroaGas</defName>
+    <modExtensions>
+      <li Class="OPToxic.OPToxicDefs">
+        <OPToxicHediff>USH_Necroa</OPToxicHediff>
+        <OPToxicSeverity>0.07</OPToxicSeverity>
+        <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalShellBase">
+    <defName>USH_NecroaShell</defName>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>4.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_NecroaDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_NecroaGas</postExplosionSpawnThingDef>
+        <explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>
+        <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
+    <projectileWhenLoaded>USH_NecroaShellBullet</projectileWhenLoaded>
+    <costList>
+      <USH_NecroaPathogen>15</USH_NecroaPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_NecroaOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalShellBulletBase">
+    <defName>USH_NecroaShellBullet</defName>
+    <projectile>
+      <damageDef>USH_NecroaDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_NecroaGas</postExplosionSpawnThingDef>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalBarrelBase">
+    <defName>USH_NecroaBarrel</defName>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>6.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_NecroaDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_NecroaGas</postExplosionSpawnThingDef>
+        <startWickHitPointsPercent>0.95</startWickHitPointsPercent>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
+    <costList>
+      <USH_NecroaPathogen>75</USH_NecroaPathogen>
+    </costList>
+    <researchPrerequisites>
+      <li>USH_NecroaOperationRes</li>
+    </researchPrerequisites>
+    <specialDisplayRadius>6.9</specialDisplayRadius>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalVentBase">
+    <defName>USH_NecroaVent</defName>
+    <comps>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>0</fuelConsumptionRate>
+        <initialFuelPercent>1</initialFuelPercent>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <initialConfigurableTargetFuelLevel>25</initialConfigurableTargetFuelLevel>
+        <fuelCapacity>50</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>USH_NecroaPathogen</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="BiologicalWarfare.CompProperties_GasVent">
+        <gasDef>USH_NecroaGas</gasDef>
+        <pathogensPerCell>0.5</pathogensPerCell>
+        <activeTicks>1</activeTicks>
+        <ticksToActivate>60</ticksToActivate>
+        <jobString>activate</jobString>
+        <onCooldownString>cooling off</onCooldownString>
+        <cooldownTicks>2500</cooldownTicks>
+        <cooldownFleck>FlashRed</cooldownFleck>
+        <cooldownFleckSpawnIntervalTicks>60</cooldownFleckSpawnIntervalTicks>
+        <cooldownFleckScale>0.7</cooldownFleckScale>
+        <cooldownPreventsRefuel>false</cooldownPreventsRefuel>
+        <activateTexPath>UI/Gizmo/ActivateGasVent</activateTexPath>
+        <soundActivate>USH_GasVentActivated</soundActivate>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
+    </comps>
+    <costList>
+      <USH_NecroaPathogen>50</USH_NecroaPathogen>
+    </costList>
+    <researchPrerequisites>
+      <li>USH_NecroaOperationRes</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalMissileLauncherBase">
+    <defName>USH_NecroaMissileLauncher</defName>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>240</wickTicks>
+        <explosiveRadius>6.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_NecroaDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_NecroaGas</postExplosionSpawnThingDef>
+        <chanceNeverExplodeFromDamage>0.8</chanceNeverExplodeFromDamage>
+      </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelLabel>Missiles</fuelLabel>
+        <fuelGizmoLabel>Missiles</fuelGizmoLabel>
+        <outOfFuelMessage>Missing missiles</outOfFuelMessage>
+        <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <fuelFilter>
+          <thingDefs>
+            <li>USH_NecroaPathogen</li>
+          </thingDefs>
+        </fuelFilter>
+        <fuelCapacity>7</fuelCapacity>
+        <fuelMultiplier>0.04667</fuelMultiplier>
+        <initialFuelPercent>1</initialFuelPercent>
+        <autoRefuelPercent>1</autoRefuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <minimumFueledThreshold>7</minimumFueledThreshold>
+        <factorByDifficulty>false</factorByDifficulty>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+      </li>
+      <li Class="CompProperties_Interactable">
+        <compClass>CompInteractableRocketswarmLauncher</compClass>
+        <activeTicks>1</activeTicks>
+        <cooldownTicks>7500</cooldownTicks>
+        <ticksToActivate>60</ticksToActivate>
+        <jobString>activate</jobString>
+        <onCooldownString>cooling off</onCooldownString>
+        <cooldownFleck>FlashRed</cooldownFleck>
+        <cooldownFleckSpawnIntervalTicks>60</cooldownFleckSpawnIntervalTicks>
+        <cooldownFleckScale>0.7</cooldownFleckScale>
+        <cooldownPreventsRefuel>true</cooldownPreventsRefuel>
+        <activateTexPath>UI/Commands/ActivateTurret</activateTexPath>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
+    </comps>
+    <building>
+      <turretGunDef>USH_NecroaMissileLauncherTurret</turretGunDef>
+    </building>
+    <costList>
+      <USH_NecroaPathogen>225</USH_NecroaPathogen>
+    </costList>
+    <researchPrerequisites>
+      <li>USH_NecroaOperationRes</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalMissileLauncherTurretBase">
+    <defName>USH_NecroaMissileLauncherTurret</defName>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>USH_NecroaMissileBullet</defaultProjectile>
+        <range>80.9</range>
+        <consumeFuelPerShot>1</consumeFuelPerShot>
+        <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+        <burstShotCount>7</burstShotCount>
+        <forcedMissRadius>9</forcedMissRadius>
+        <forcedMissEvenDispersal>true</forcedMissEvenDispersal>
+        <requireLineOfSight>false</requireLineOfSight>
+        <minRange>29.9</minRange>
+        <targetParams>
+          <canTargetPawns>false</canTargetPawns>
+          <canTargetLocations>true</canTargetLocations>
+          <canTargetBuildings>false</canTargetBuildings>
+        </targetParams>
+        <soundCast>USH_MissileLauncherFired</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>14</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalMissileBulletBase">
+    <defName>USH_NecroaMissileBullet</defName>
+    <projectile>
+      <damageDef>USH_NecroaDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_NecroaGas</postExplosionSpawnThingDef>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">
+    <defName>USH_NecroaGrenadeLauncher</defName>
+    <costList>
+      <USH_NecroaPathogen>50</USH_NecroaPathogen>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>USH_NecroaGrenadeBullet</defaultProjectile>
+        <warmupTime>3.5</warmupTime>
+        <range>23.9</range>
+        <forcedMissRadius>2.9</forcedMissRadius>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>USH_GasLauncherShot</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>14</muzzleFlashScale>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbs>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_NecroaOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalGrenadeBulletBase">
+    <defName>USH_NecroaGrenadeBullet</defName>
+    <projectile>
+      <damageDef>USH_NecroaDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_NecroaGas</postExplosionSpawnThingDef>
+      <explosionRadius>4.9</explosionRadius>
+    </projectile>
+  </ThingDef>
+
+  <ResearchProjectDef ParentName="USH_DiseaseOprationResBase">
+    <defName>USH_NecroaOperationRes</defName>
+    <description>Craft {0} {1} pythogen gas grenade launchers, explosive gas barrels and devastating mortar shells.\n\nNecroa virus can be sampled from shamblers or pawns infected with necroa.</description>
+    <researchViewX>1.50</researchViewX>
+    <researchViewY>4.20</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase">
+    <defName>USH_NecroaVaccineRes</defName>
+    <prerequisites>
+      <li>USH_NecroaOperationRes</li>
+    </prerequisites>
+    <researchViewX>2.50</researchViewX>
+    <researchViewY>4.20</researchViewY>
+  </ResearchProjectDef>
+
+</Defs>
