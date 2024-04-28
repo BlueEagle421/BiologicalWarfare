@@ -20,7 +20,7 @@
         <severityPerDayImmune>-0.4976</severityPerDayImmune>
         <immunityPerDayNotSick>-0.06</immunityPerDayNotSick>
       </li>
-      <li Class="BiologicalWarfare.HediffCompProperties">
+      <li Class="HediffCompProperties">
         <compClass>BiologicalWarfare.HediffCompNecroa</compClass>
       </li>
     </comps>
