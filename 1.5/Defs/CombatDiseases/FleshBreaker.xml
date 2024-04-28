@@ -132,7 +132,7 @@
         <jobString>activate</jobString>
         <onCooldownString>cooling off</onCooldownString>
         <cooldownTicks>2500</cooldownTicks>
-        <cooldownFleck>USH_FlashWhite</cooldownFleck>
+        <cooldownFleck>FlashRed</cooldownFleck>
         <cooldownFleckSpawnIntervalTicks>60</cooldownFleckSpawnIntervalTicks>
         <cooldownFleckScale>0.7</cooldownFleckScale>
         <cooldownPreventsRefuel>false</cooldownPreventsRefuel>
