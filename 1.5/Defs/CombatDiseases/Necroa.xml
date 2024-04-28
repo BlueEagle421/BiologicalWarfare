@@ -383,7 +383,7 @@
 
   <ResearchProjectDef ParentName="USH_DiseaseOprationResBase">
     <defName>USH_NecroaOperationRes</defName>
-    <description>Craft {0} {1} pythogen gas grenade launchers, explosive gas barrels and devastating mortar shells. This virus turn pawns into shamblers.\n\nNecroa virus can be sampled from shamblers or pawns infected with necroa.</description>
+    <description>Craft {0} {1} pythogen gas grenade launchers, explosive gas barrels and devastating mortar shells. This virus turns pawns into shamblers.\n\nNecroa virus can be sampled from shamblers or pawns infected with necroa.</description>
     <researchViewX>1.50</researchViewX>
     <researchViewY>4.20</researchViewY>
   </ResearchProjectDef>
