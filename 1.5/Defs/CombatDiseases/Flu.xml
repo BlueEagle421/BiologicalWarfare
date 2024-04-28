@@ -138,7 +138,7 @@
     <modExtensions>
       <li Class="OPToxic.OPToxicDefs">
         <OPToxicHediff>Flu</OPToxicHediff>
-        <OPToxicSeverity>0.09</OPToxicSeverity>
+        <OPToxicSeverity>0.07</OPToxicSeverity>
         <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
       </li>
     </modExtensions>
