@@ -9,6 +9,7 @@ namespace BiologicalWarfare
         public HediffDef giveHediffDef;
         public DiseaseType diseaseType;
         public ColorInt colorInt;
+        public string overrideDiseaseTypeLabel;
 
         public List<ThingDef> thingDefsToFormat = new List<ThingDef>();
         public List<ThingDef> thingDefsToColor = new List<ThingDef>();
@@ -45,7 +46,7 @@ namespace BiologicalWarfare
         {
             base.ResolveReferences();
 
-            _defFormatter = new DefFormatter(new List<Def>(), new List<object> { label, diseaseType.ToStringUncapitalized() });
+            _defFormatter = new DefFormatter(new List<Def>(), new List<object> { label, DiseaseTypeLabel() });
 
             _defFormatter.AddDefsToFormat(thingDefsToFormat.ConvertAll(x => (Def)x));
             _defFormatter.AddDefsToFormat(thingDefsToFormatAndColor.ConvertAll(x => (Def)x));
@@ -62,6 +63,14 @@ namespace BiologicalWarfare
 
             foreach (ThingDef thingDef in thingDefsToColorIcons)
                 ColorThingDefIcon(thingDef);
+        }
+
+        private string DiseaseTypeLabel()
+        {
+            if (!string.IsNullOrEmpty(overrideDiseaseTypeLabel))
+                return overrideDiseaseTypeLabel;
+
+            return diseaseType.ToStringUncapitalized();
         }
 
         private void ColorThingDef(ThingDef thingDef)
