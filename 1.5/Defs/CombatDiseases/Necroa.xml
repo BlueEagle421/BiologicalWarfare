@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
+  <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_Necroa</defName>
     <label>necroa</label>
     <samplableHediffDefs>
@@ -56,7 +56,7 @@
 
   </BiologicalWarfare.CombatDiseaseDef>
 
-  <ThingDef ParentName="USH_VirusSampleBase">
+  <ThingDef ParentName="USH_VirusSampleBase" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_NecroaSample</defName>
     <comps>
       <li Class="BiologicalWarfare.CompProperties_DiseaseSample">
@@ -73,11 +73,11 @@
     </recipeMaker>
   </ThingDef>
 
-  <ThingDef ParentName="USH_VirusPathogenBase">
+  <ThingDef ParentName="USH_VirusPathogenBase" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_NecroaPathogen</defName>
   </ThingDef>
 
-  <ThingDef ParentName="USH_DiseaseVaccineBase">
+  <ThingDef ParentName="USH_DiseaseVaccineBase" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_NecroaVaccine</defName>
     <descriptionHyperlinks>
       <HediffDef>USH_NecroaVaccineHediff</HediffDef>
@@ -98,7 +98,7 @@
     </recipeMaker>
   </ThingDef>
 
-  <HediffDef ParentName="USH_DiseaseVaccineHediffBase">
+  <HediffDef ParentName="USH_DiseaseVaccineHediffBase" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_NecroaVaccineHediff</defName>
     <stages>
       <li>
@@ -109,7 +109,7 @@
     </stages>
   </HediffDef>
 
-  <ThingDef ParentName="USH_DiseaseAntiserum">
+  <ThingDef ParentName="USH_DiseaseAntiserum" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_NecroaAntiserum</defName>
     <ingestible>
       <outcomeDoers>
@@ -129,11 +129,11 @@
     </recipeMaker>
   </ThingDef>
 
-  <DamageDef ParentName="USH_BiologicalDamageBase">
+  <DamageDef ParentName="USH_BiologicalDamageBase" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_NecroaDamage</defName>
   </DamageDef>
 
-  <ThingDef ParentName="USH_BiologicalGasBase">
+  <ThingDef ParentName="USH_BiologicalGasBase" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_NecroaGas</defName>
     <modExtensions>
       <li Class="OPToxic.OPToxicDefs">
@@ -144,7 +144,7 @@
     </modExtensions>
   </ThingDef>
 
-  <ThingDef ParentName="USH_BiologicalShellBase">
+  <ThingDef ParentName="USH_BiologicalShellBase" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_NecroaShell</defName>
     <comps>
       <li Class="CompProperties_Explosive">
@@ -169,7 +169,7 @@
     </recipeMaker>
   </ThingDef>
 
-  <ThingDef ParentName="USH_BiologicalShellBulletBase">
+  <ThingDef ParentName="USH_BiologicalShellBulletBase" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_NecroaShellBullet</defName>
     <projectile>
       <damageDef>USH_NecroaDamage</damageDef>
@@ -177,7 +177,7 @@
     </projectile>
   </ThingDef>
 
-  <ThingDef ParentName="USH_BiologicalBarrelBase">
+  <ThingDef ParentName="USH_BiologicalBarrelBase" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_NecroaBarrel</defName>
     <comps>
       <li Class="CompProperties_Explosive">
@@ -199,7 +199,7 @@
     <specialDisplayRadius>6.9</specialDisplayRadius>
   </ThingDef>
 
-  <ThingDef ParentName="USH_BiologicalVentBase">
+  <ThingDef ParentName="USH_BiologicalVentBase" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_NecroaVent</defName>
     <comps>
       <li Class="CompProperties_Refuelable">
@@ -246,7 +246,7 @@
     </researchPrerequisites>
   </ThingDef>
 
-  <ThingDef ParentName="USH_BiologicalMissileLauncherBase">
+  <ThingDef ParentName="USH_BiologicalMissileLauncherBase" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_NecroaMissileLauncher</defName>
     <comps>
       <li Class="CompProperties_Explosive">
@@ -309,7 +309,7 @@
     </researchPrerequisites>
   </ThingDef>
 
-  <ThingDef ParentName="USH_BiologicalMissileLauncherTurretBase">
+  <ThingDef ParentName="USH_BiologicalMissileLauncherTurretBase" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_NecroaMissileLauncherTurret</defName>
     <verbs>
       <li>
@@ -335,7 +335,7 @@
     </verbs>
   </ThingDef>
 
-  <ThingDef ParentName="USH_BiologicalMissileBulletBase">
+  <ThingDef ParentName="USH_BiologicalMissileBulletBase" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_NecroaMissileBullet</defName>
     <projectile>
       <damageDef>USH_NecroaDamage</damageDef>
@@ -343,7 +343,7 @@
     </projectile>
   </ThingDef>
 
-  <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">
+  <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_NecroaGrenadeLauncher</defName>
     <costList>
       <USH_NecroaPathogen>50</USH_NecroaPathogen>
@@ -372,7 +372,7 @@
     </recipeMaker>
   </ThingDef>
 
-  <ThingDef ParentName="USH_BiologicalGrenadeBulletBase">
+  <ThingDef ParentName="USH_BiologicalGrenadeBulletBase" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_NecroaGrenadeBullet</defName>
     <projectile>
       <damageDef>USH_NecroaDamage</damageDef>
@@ -381,14 +381,14 @@
     </projectile>
   </ThingDef>
 
-  <ResearchProjectDef ParentName="USH_DiseaseOprationResBase">
+  <ResearchProjectDef ParentName="USH_DiseaseOprationResBase" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_NecroaOperationRes</defName>
     <description>Craft {0} {1} pythogen gas grenade launchers, explosive gas barrels and devastating mortar shells. This virus turns pawns into shamblers.\n\nNecroa virus can be sampled from shamblers or pawns infected with necroa.</description>
     <researchViewX>1.50</researchViewX>
     <researchViewY>4.20</researchViewY>
   </ResearchProjectDef>
 
-  <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase">
+  <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_NecroaVaccineRes</defName>
     <prerequisites>
       <li>USH_NecroaOperationRes</li>
