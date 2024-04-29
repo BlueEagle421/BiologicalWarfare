@@ -38,6 +38,9 @@
     <USH_GasInfectionCountSetting>Max gas infections before disappearing</USH_GasInfectionCountSetting>
     <USH_GasInfectionCountSettingDesc>Pathogen gas will infect pawns {0} times before disappearing.\nIf set to -1 the setting will be ignored.</USH_GasInfectionCountSettingDesc>
 
+    <USH_ShamblerInfectionSetting>Shamblers spread necroa archovirus</USH_ShamblerInfectionSetting>
+    <USH_ShamblerInfectionSettingDesc>When enabled shamblers will infect damaged pawns with necroa virus.</USH_ShamblerInfectionSettingDesc>
+
     <USH_ResetSettings>Reset options to default</USH_ResetSettings>
 
 </LanguageData>
