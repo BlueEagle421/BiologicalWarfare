@@ -72,6 +72,14 @@ namespace BiologicalWarfare
             return 1f;
         }
 
+        public static float AddInfectionSeverity(Pawn pawn, Thing thingInfecter)
+        {
+            HediffDef hediffDefToAdd = DefDatabase<HediffDef>.GetNamedSilentFail(OPToxicDefGetValue.OPToxicGetHediff(thingInfecter.def));
+            float baseSeverity = OPToxicDefGetValue.OPToxicGetSev(thingInfecter.def);
+
+            return AddInfectionSeverity(pawn, hediffDefToAdd, baseSeverity);
+        }
+
         public static float AddInfectionSeverity(Pawn pawn, HediffDef hediffDefToAdd, float baseSeverity)
         {
             if (pawn == null)
@@ -106,14 +114,6 @@ namespace BiologicalWarfare
             hediffMade.Severity = severityToSet;
             pawn.health.AddHediff(hediffMade);
             return severityToSet;
-        }
-
-        public static float AddInfectionSeverity(Thing thingInfecter, Pawn pawn)
-        {
-            HediffDef hediffDefToAdd = DefDatabase<HediffDef>.GetNamedSilentFail(OPToxicDefGetValue.OPToxicGetHediff(thingInfecter.def));
-            float baseSeverity = OPToxicDefGetValue.OPToxicGetSev(thingInfecter.def);
-
-            return AddInfectionSeverity(pawn, hediffDefToAdd, baseSeverity);
         }
 
         public static bool CanPathogenInfect(Pawn pawn)
