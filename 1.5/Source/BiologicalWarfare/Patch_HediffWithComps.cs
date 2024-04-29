@@ -19,6 +19,9 @@ namespace BiologicalWarfare
             if (!(target.Pawn is Pawn attackedPawn))
                 return;
 
+            if (!BiologicalWarfareMod.Settings.ShamblersSpreadNecroa)
+                return;
+
             BiologicalUtils.AddInfectionSeverity(attackedPawn, USHDefOf.USH_Necroa, 0.02f);
         }
     }
