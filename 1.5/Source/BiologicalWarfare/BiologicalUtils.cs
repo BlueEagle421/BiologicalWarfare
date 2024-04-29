@@ -89,7 +89,7 @@ namespace BiologicalWarfare
             HediffSet hediffSet = pawn.health.hediffSet;
             Hediff hediffFound = (hediffSet?.GetFirstHediffOfDef(hediffDefToAdd, false));
 
-            float statValue = 1 - pawn.GetStatValue(StatDefOf.ToxicResistance, true);
+            float statValue = 1 - pawn.GetStatValue(StatDefOf.ToxicEnvironmentResistance, true);
             float severityToSet = Mathf.Max(baseSeverity, hediffDefToAdd.minSeverity);
 
             severityToSet = Rand.Range(severityToSet / 2f, severityToSet) * statValue;
