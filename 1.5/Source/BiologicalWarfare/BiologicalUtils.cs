@@ -72,7 +72,7 @@ namespace BiologicalWarfare
             return 1f;
         }
 
-        public static float AddInfectionSeverity(Thing thingInfecter, Pawn pawn)
+        public static float AddInfectionSeverity(Pawn pawn, HediffDef hediffDefToAdd, float baseSeverity)
         {
             if (pawn == null)
                 return 0f;
@@ -80,19 +80,17 @@ namespace BiologicalWarfare
             if (!CanPathogenInfect(pawn))
                 return 0f;
 
-            HediffDef hediffToAdd = DefDatabase<HediffDef>.GetNamedSilentFail(OPToxicDefGetValue.OPToxicGetHediff(thingInfecter.def));
-
-            if (hediffToAdd == null)
+            if (hediffDefToAdd == null)
                 return 0f;
 
-            if (IsImmuneTo(pawn, hediffToAdd))
+            if (IsImmuneTo(pawn, hediffDefToAdd))
                 return 0f;
 
             HediffSet hediffSet = pawn.health.hediffSet;
-            Hediff hediffFound = (hediffSet?.GetFirstHediffOfDef(hediffToAdd, false));
+            Hediff hediffFound = (hediffSet?.GetFirstHediffOfDef(hediffDefToAdd, false));
 
             float statValue = 1 - pawn.GetStatValue(StatDefOf.ToxicResistance, true);
-            float severityToSet = Mathf.Max(OPToxicDefGetValue.OPToxicGetSev(thingInfecter.def), hediffToAdd.minSeverity);
+            float severityToSet = Mathf.Max(baseSeverity, hediffDefToAdd.minSeverity);
 
             severityToSet = Rand.Range(severityToSet / 2f, severityToSet) * statValue;
 
@@ -104,10 +102,18 @@ namespace BiologicalWarfare
                 return severityToSet;
             }
 
-            Hediff hediffMade = HediffMaker.MakeHediff(hediffToAdd, pawn);
+            Hediff hediffMade = HediffMaker.MakeHediff(hediffDefToAdd, pawn);
             hediffMade.Severity = severityToSet;
             pawn.health.AddHediff(hediffMade);
             return severityToSet;
+        }
+
+        public static float AddInfectionSeverity(Thing thingInfecter, Pawn pawn)
+        {
+            HediffDef hediffDefToAdd = DefDatabase<HediffDef>.GetNamedSilentFail(OPToxicDefGetValue.OPToxicGetHediff(thingInfecter.def));
+            float baseSeverity = OPToxicDefGetValue.OPToxicGetSev(thingInfecter.def);
+
+            return AddInfectionSeverity(pawn, hediffDefToAdd, baseSeverity);
         }
 
         public static bool CanPathogenInfect(Pawn pawn)

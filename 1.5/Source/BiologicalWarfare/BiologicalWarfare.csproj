@@ -77,6 +77,7 @@
     <Compile Include="HediffCompVirusExtraction.cs" />
     <Compile Include="IngestionOutcomeDoer_RemoveHediff.cs" />
     <Compile Include="JobDrivers.cs" />
+    <Compile Include="Patch_Hediff_Shambler.cs" />
     <Compile Include="Patch_FloatMenuMakerMap.cs" />
     <Compile Include="PathogenGas.cs" />
     <Compile Include="Projectile_ExplosiveSmoke.cs" />
