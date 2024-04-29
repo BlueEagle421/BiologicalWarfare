@@ -24,7 +24,7 @@ namespace BiologicalWarfare
             Listing_Standard listingStandard = new Listing_Standard();
             listingStandard.Begin(inRect);
             listingStandard.Label("USH_GasMultplierSetting".Translate());
-            float severitySliderValue = listingStandard.Slider(Settings.GasSeverityMultiplier, 0.01f, 1f);
+            float severitySliderValue = listingStandard.Slider(Settings.GasSeverityMultiplier, 0.01f, 1.5f);
             listingStandard.Label("USH_GasMultplierSettingDesc".Translate(severitySliderValue.ToStringPercent()));
             Settings.GasSeverityMultiplier = severitySliderValue;
 
