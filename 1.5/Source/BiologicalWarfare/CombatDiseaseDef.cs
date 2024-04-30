@@ -26,6 +26,8 @@ namespace BiologicalWarfare
 
         private DefFormatter _defFormatter;
 
+        private const float GAS_ALPHA = 0.75f;
+
         public override string ToString() => string.Format("{0} ({1})", defName, diseaseType.ToStringUncapitalized());
 
         public override IEnumerable<string> ConfigErrors()
@@ -81,7 +83,15 @@ namespace BiologicalWarfare
             if (thingDef.building != null && thingDef.building.turretTopLoadedGraphic != null)
                 thingDef.building.turretTopLoadedGraphic.color = colorInt.ToColor;
 
-            thingDef.graphicData.color = colorInt.ToColor;
+            thingDef.graphicData.color = NewThingColor(thingDef, colorInt.ToColor);
+        }
+
+        private UnityEngine.Color NewThingColor(ThingDef thingDef, UnityEngine.Color color)
+        {
+            if (thingDef.thingClass == typeof(PathogenGas))
+                return color.ToTransparent(GAS_ALPHA);
+
+            return color;
         }
 
         private void ColorThingDefIcon(ThingDef thingDef)
