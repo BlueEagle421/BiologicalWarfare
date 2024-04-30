@@ -75,7 +75,7 @@
     <Compile Include="HediffCompNecroa.cs" />
     <Compile Include="HediffParasiteReproduction.cs" />
     <Compile Include="HediffCompVirusExtraction.cs" />
-    <Compile Include="IngestionOutcomeDoer_RemoveHediff.cs" />
+    <Compile Include="IngestionOutcomeDoer_RemoveHediffs.cs" />
     <Compile Include="JobDrivers.cs" />
     <Compile Include="Patch_HediffWithComps.cs" />
     <Compile Include="Patch_FloatMenuMakerMap.cs" />
