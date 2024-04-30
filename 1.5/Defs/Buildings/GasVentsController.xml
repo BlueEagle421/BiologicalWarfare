@@ -53,7 +53,7 @@
       </li>
       <li Class="CompProperties_Flickable" />
       <li Class="CompProperties_Interactable">
-        <compClass>BiologicalWarfare.GasVentsController</compClass>
+        <compClass>BiologicalWarfare.CompGasVentsController</compClass>
         <activeTicks>1</activeTicks>
         <cooldownTicks>0</cooldownTicks>
         <ticksToActivate>60</ticksToActivate>
