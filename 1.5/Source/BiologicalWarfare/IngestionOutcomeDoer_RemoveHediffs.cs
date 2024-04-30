@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace BiologicalWarfare
@@ -35,10 +36,13 @@ namespace BiologicalWarfare
             if (!sendMessage)
                 return;
 
-            string content = (string)"USH_ThingHealed"
-                .Translate(ingested.Named("THING"), string.Join(", ", removed).Named("HEDIFF"), pawn.LabelShort.Named("PAWN"));
+            string thingArg = ingested.def.label.UncapitalizeFirst();
+            string hediffsArg = string.Join(", ", removed.Select(x => x.Label.UncapitalizeFirst()));
+            string pawnArg = pawn.LabelShort;
 
-            Messages.Message(content, pawn, MessageTypeDefOf.PositiveEvent, true);
+            string content = (string)"USH_ThingHealed".Translate(thingArg.Named("THING"), hediffsArg.Named("HEDIFF"), pawnArg.Named("PAWN"));
+
+            Messages.Message(content, pawn, MessageTypeDefOf.PositiveEvent);
         }
     }
 }
