@@ -52,7 +52,8 @@
         <basePowerConsumption>30</basePowerConsumption>
       </li>
       <li Class="CompProperties_Flickable" />
-      <li Class="BiologicalWarfare.CompProperties_GasVentsController">
+      <li Class="CompProperties_Interactable">
+        <compClass>BiologicalWarfare.GasVentsController</compClass>
         <activeTicks>1</activeTicks>
         <cooldownTicks>0</cooldownTicks>
         <ticksToActivate>60</ticksToActivate>

@@ -5,17 +5,10 @@ using Verse.AI;
 
 namespace BiologicalWarfare
 {
-    public class CompProperties_GasVentsController : CompProperties_Interactable
-    {
-        public VerbProperties VentTargetingVerb;
-        public CompProperties_GasVentsController() => compClass = typeof(CompGasVentsController);
-    }
-
     public class CompGasVentsController : CompInteractable
     {
         private CompPower _compPower;
         private CompGasVent _targetedGasVent;
-        public CompProperties_GasVentsController PropsController => props as CompProperties_GasVentsController;
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
@@ -54,7 +47,7 @@ namespace BiologicalWarfare
 
             if (!report.Accepted)
             {
-                interactOption.Label += string.Format(" ({0})", report.Reason.UncapitalizeFirst());
+                interactOption.Label += string.Format(" ({0})", report.Reason);
                 interactOption.Disabled = true;
             }
 
