@@ -116,6 +116,7 @@ namespace BiologicalWarfare
 
             result *= statMultiplier;
             result *= BiologicalWarfareMod.Settings.GasSeverityMultiplier;
+            result /= pawn.def.Size.Area;
 
             return result;
         }
