@@ -80,7 +80,7 @@ namespace BiologicalWarfare
                     {
                         void action() => CreateInsertJobTargeter(thing);
 
-                        string label = "USH_InsertSample".Translate(thing.Named("ITEM"));
+                        string label = "USH_InsertSample".Translate(thing.def.label.Named("ITEM"));
                         cachedOptions.Add(new FloatMenuOption(label, action, MenuOptionPriority.Default, null, null, 0f, null, null, true, 0));
                     }
                 }
