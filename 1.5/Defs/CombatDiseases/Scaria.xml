@@ -6,9 +6,10 @@
     <label>scaria</label>
     <samplableHediffDefs>
       <li>Scaria</li>
+      <li>USH_DevelopingScaria</li>
       <li MayRequire="VanillaExpanded.VGeneticsE">GR_GreaterScaria</li>
     </samplableHediffDefs>
-    <giveHediffDef>Scaria</giveHediffDef>
+    <giveHediffDef>USH_DevelopingScaria</giveHediffDef>
     <diseaseType>Virus</diseaseType>
     <colorInt>(181, 45, 61, 255)</colorInt>
 
@@ -104,6 +105,7 @@
       <li>
         <makeImmuneTo>
           <li>Scaria</li>
+          <li>USH_DevelopingScaria</li>
         </makeImmuneTo>
       </li>
     </stages>
@@ -116,6 +118,7 @@
         <li Class="BiologicalWarfare.IngestionOutcomeDoer_RemoveHediffs">
           <hediffDefsToRemove>
             <li>Scaria</li>
+            <li>USH_DevelopingScaria</li>
           </hediffDefsToRemove>
           <sendMessage>true</sendMessage>
         </li>
@@ -139,8 +142,8 @@
     <defName>USH_ScariaGas</defName>
     <modExtensions>
       <li Class="OPToxic.OPToxicDefs">
-        <OPToxicHediff>Scaria</OPToxicHediff>
-        <OPToxicSeverity>0.07</OPToxicSeverity>
+        <OPToxicHediff>USH_DevelopingScaria</OPToxicHediff>
+        <OPToxicSeverity>0.1</OPToxicSeverity>
         <OPSevUpTickPeriod>60</OPSevUpTickPeriod>
       </li>
     </modExtensions>

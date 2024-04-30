@@ -28,6 +28,8 @@ namespace BiologicalWarfare
 
         public static SoundDef USH_VaccineInjected;
 
+        public static HediffDef USH_DevelopingScaria;
+
         [MayRequireAnomaly]
         public static HediffDef USH_Necroa;
     }

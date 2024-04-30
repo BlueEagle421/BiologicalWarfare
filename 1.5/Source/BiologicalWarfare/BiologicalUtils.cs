@@ -152,6 +152,10 @@ namespace BiologicalWarfare
             if (pawn.IsShambler && hediffDef == USHDefOf.USH_Necroa)
                 return true;
 
+            if (pawn.health.hediffSet.HasHediff(HediffDefOf.Scaria)
+                && hediffDef == USHDefOf.USH_DevelopingScaria)
+                return true;
+
             return false;
         }
 
