@@ -95,7 +95,7 @@ namespace BiologicalWarfare
                 return 0f;
 
             Hediff hediffFound = pawn.health?.hediffSet?.GetFirstHediffOfDef(hediffDefToAdd, false);
-            float severityToSet = NewSeverity(pawn, hediffDefToAdd, baseSeverity);
+            float severityToSet = InfectionSeverity(pawn, hediffDefToAdd, baseSeverity);
 
             if (hediffFound != null)
             {
@@ -109,7 +109,7 @@ namespace BiologicalWarfare
             return severityToSet;
         }
 
-        private static float NewSeverity(Pawn pawn, HediffDef hediffDef, float baseSeverity)
+        private static float InfectionSeverity(Pawn pawn, HediffDef hediffDef, float baseSeverity)
         {
             float statMultiplier = 1 - pawn.GetStatValue(StatDefOf.ToxicEnvironmentResistance, true);
             float result = Mathf.Max(hediffDef.minSeverity, Rand.Range(baseSeverity / 2f, baseSeverity));
