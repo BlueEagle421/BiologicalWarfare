@@ -6,6 +6,7 @@ namespace BiologicalWarfare
     [HarmonyPatch(typeof(HediffWithComps), nameof(HediffWithComps.Notify_PawnUsedVerb))]
     public static class Patch_HediffWithComps
     {
+        private const float INFECTION_SEVERITY = 0.02f;
 
         [HarmonyPostfix]
         public static void AddNecroaInfection(HediffWithComps __instance, Verb verb, LocalTargetInfo target)
@@ -22,7 +23,7 @@ namespace BiologicalWarfare
             if (!BiologicalWarfareMod.Settings.ShamblersSpreadNecroa)
                 return;
 
-            BiologicalUtils.AddInfectionSeverity(attackedPawn, USHDefOf.USH_Necroa, 0.02f);
+            BiologicalUtils.AddInfectionSeverity(attackedPawn, USHDefOf.USH_Necroa, INFECTION_SEVERITY);
         }
     }
 }
