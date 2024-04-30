@@ -125,7 +125,7 @@ namespace BiologicalWarfare
             if (pawn == null)
                 return false;
 
-            if (pawn.RaceProps.IsMechanoid)
+            if (!pawn.RaceProps.IsFlesh)
                 return false;
 
             if (pawn.IsGhoul)
