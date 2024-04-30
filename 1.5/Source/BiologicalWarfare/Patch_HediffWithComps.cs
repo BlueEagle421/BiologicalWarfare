@@ -24,6 +24,9 @@ namespace BiologicalWarfare
                 return;
 
             BiologicalUtils.AddInfectionSeverity(attackedPawn, USHDefOf.USH_Necroa, INFECTION_SEVERITY);
+
+            (attackedPawn.health?.hediffSet?.GetFirstHediffOfDef(USHDefOf.USH_Necroa)
+                .TryGetComp<HediffCompNecroa>()).PostMortemFaction = __instance.pawn.Faction;
         }
     }
 }
