@@ -48,6 +48,9 @@
     </products>
     <workSkill>Crafting</workSkill>
     <researchPrerequisite>USH_PathogenProductionRes</researchPrerequisite>
+    <recipeUsers>
+      <li>DrugLab</li>
+    </recipeUsers>
   </RecipeDef>
 
 </Defs>

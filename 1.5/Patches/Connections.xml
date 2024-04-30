@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
 
-  <Operation Class="PatchOperationConditional">
-    <xpath>*/ThingDef[defName = "DrugLab"]/recipes</xpath>
-    <nomatch Class="PatchOperationAdd">
-      <xpath>*/ThingDef[defName = "DrugLab"]</xpath>
-      <value>
-        <recipes>
-          <li>USH_MakeDiseaseSampler</li>
-        </recipes>
-      </value>
-    </nomatch>
-    <match Class="PatchOperationAdd">
-      <xpath>*/ThingDef[defName = "DrugLab"]/recipes</xpath>
-      <value>
-        <li>USH_MakeDiseaseSampler</li>
-      </value>
-    </match>
-  </Operation>
-
   <Operation Class="PatchOperationFindMod">
     <mods>
       <li>Biotech</li>
