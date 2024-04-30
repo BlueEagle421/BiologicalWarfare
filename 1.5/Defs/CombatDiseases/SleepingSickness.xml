@@ -116,8 +116,10 @@
     <defName>USH_SleepingSicknessAntiserum</defName>
     <ingestible>
       <outcomeDoers>
-        <li Class="BiologicalWarfare.IngestionOutcomeDoer_RemoveHediff">
-          <hediffDefToRemove>SleepingSickness</hediffDefToRemove>
+        <li Class="BiologicalWarfare.IngestionOutcomeDoer_RemoveHediffs">
+          <hediffDefsToRemove>
+            <li>SleepingSickness</li>
+          </hediffDefsToRemove>
           <sendMessage>true</sendMessage>
         </li>
       </outcomeDoers>

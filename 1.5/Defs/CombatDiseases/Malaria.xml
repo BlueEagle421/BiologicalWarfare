@@ -116,8 +116,10 @@
     <defName>USH_MalariaAntiserum</defName>
     <ingestible>
       <outcomeDoers>
-        <li Class="BiologicalWarfare.IngestionOutcomeDoer_RemoveHediff">
-          <hediffDefToRemove>Malaria</hediffDefToRemove>
+        <li Class="BiologicalWarfare.IngestionOutcomeDoer_RemoveHediffs">
+          <hediffDefsToRemove>
+            <li>Malaria</li>
+          </hediffDefsToRemove>
           <sendMessage>true</sendMessage>
         </li>
       </outcomeDoers>

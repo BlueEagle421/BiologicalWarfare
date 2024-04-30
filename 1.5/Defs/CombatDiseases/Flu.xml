@@ -113,8 +113,10 @@
     <defName>USH_FluAntiserum</defName>
     <ingestible>
       <outcomeDoers>
-        <li Class="BiologicalWarfare.IngestionOutcomeDoer_RemoveHediff">
-          <hediffDefToRemove>Flu</hediffDefToRemove>
+        <li Class="BiologicalWarfare.IngestionOutcomeDoer_RemoveHediffs">
+          <hediffDefsToRemove>
+            <li>Flu</li>
+          </hediffDefsToRemove>
           <sendMessage>true</sendMessage>
         </li>
       </outcomeDoers>

@@ -113,8 +113,10 @@
     <defName>USH_ScariaAntiserum</defName>
     <ingestible>
       <outcomeDoers>
-        <li Class="BiologicalWarfare.IngestionOutcomeDoer_RemoveHediff">
-          <hediffDefToRemove>Scaria</hediffDefToRemove>
+        <li Class="BiologicalWarfare.IngestionOutcomeDoer_RemoveHediffs">
+          <hediffDefsToRemove>
+            <li>Scaria</li>
+          </hediffDefsToRemove>
           <sendMessage>true</sendMessage>
         </li>
       </outcomeDoers>
