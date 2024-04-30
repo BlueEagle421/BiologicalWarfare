@@ -94,17 +94,10 @@ namespace BiologicalWarfare
             if (IsImmuneTo(pawn, hediffDefToAdd))
                 return 0f;
 
-            HediffSet hediffSet = pawn.health.hediffSet;
-            Hediff hediffFound = (hediffSet?.GetFirstHediffOfDef(hediffDefToAdd, false));
+            Hediff hediffFound = pawn.health?.hediffSet?.GetFirstHediffOfDef(hediffDefToAdd, false);
+            float severityToSet = NewSeverity(pawn, hediffDefToAdd, baseSeverity);
 
-            float statValue = 1 - pawn.GetStatValue(StatDefOf.ToxicEnvironmentResistance, true);
-            float severityToSet = Mathf.Max(baseSeverity, hediffDefToAdd.minSeverity);
-
-            severityToSet = Rand.Range(severityToSet / 2f, severityToSet) * statValue;
-
-            severityToSet *= BiologicalWarfareMod.Settings.GasSeverityMultiplier;
-
-            if (hediffFound != null && severityToSet > 0f)
+            if (hediffFound != null)
             {
                 hediffFound.Severity += severityToSet;
                 return severityToSet;
@@ -114,6 +107,17 @@ namespace BiologicalWarfare
             hediffMade.Severity = severityToSet;
             pawn.health.AddHediff(hediffMade);
             return severityToSet;
+        }
+
+        private static float NewSeverity(Pawn pawn, HediffDef hediffDef, float baseSeverity)
+        {
+            float statMultiplier = 1 - pawn.GetStatValue(StatDefOf.ToxicEnvironmentResistance, true);
+            float result = Mathf.Max(hediffDef.minSeverity, Rand.Range(baseSeverity / 2f, baseSeverity));
+
+            result *= statMultiplier;
+            result *= BiologicalWarfareMod.Settings.GasSeverityMultiplier;
+
+            return result;
         }
 
         public static bool CanPathogenInfect(Pawn pawn)
