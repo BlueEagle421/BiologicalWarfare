@@ -106,6 +106,7 @@
         <makeImmuneTo>
           <li>Scaria</li>
           <li>USH_DevelopingScaria</li>
+          <li MayRequire="VanillaExpanded.VGeneticsE">GR_GreaterScaria</li>
         </makeImmuneTo>
       </li>
     </stages>
@@ -119,6 +120,7 @@
           <hediffDefsToRemove>
             <li>Scaria</li>
             <li>USH_DevelopingScaria</li>
+            <li MayRequire="VanillaExpanded.VGeneticsE">GR_GreaterScaria</li>
           </hediffDefsToRemove>
           <sendMessage>true</sendMessage>
         </li>
