@@ -12,12 +12,12 @@
     <comps>
       <li Class="HediffCompProperties_TendDuration">
         <baseTendDurationHours>12</baseTendDurationHours>
-        <severityPerDayTended>-0.4638</severityPerDayTended>
+        <severityPerDayTended>-0.3145</severityPerDayTended>
       </li>
       <li Class="HediffCompProperties_Immunizable">
         <severityPerDayNotImmune>0.4976</severityPerDayNotImmune>
         <severityPerDayImmune>-0.4976</severityPerDayImmune>
-        <immunityPerDaySick>0.4776</immunityPerDaySick>
+        <immunityPerDaySick>0.4226</immunityPerDaySick>
         <immunityPerDayNotSick>-0.06</immunityPerDayNotSick>
       </li>
       <li Class="HediffCompProperties">
