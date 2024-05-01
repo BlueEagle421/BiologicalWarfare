@@ -31,7 +31,7 @@ namespace BiologicalWarfare
             //MaxGasInfectionCount
             listingStandard.Label("\n");
             listingStandard.Label("USH_GasInfectionCountSetting".Translate());
-            int countSliderValue = MaxCountFormatted(listingStandard.Slider(Settings.MaxGasInfectionCount, 0f, 6f));
+            int countSliderValue = MaxCountFormatted(listingStandard.Slider(Settings.MaxGasInfectionCount, 0f, 12f));
             listingStandard.Label("USH_GasInfectionCountSettingDesc".Translate(countSliderValue.ToString()));
             Settings.MaxGasInfectionCount = countSliderValue;
 
@@ -66,20 +66,20 @@ namespace BiologicalWarfare
     public class BiologicalWarfareSettings : ModSettings
     {
         public float GasSeverityMultiplier = 1f;
-        public int MaxGasInfectionCount = 2;
+        public int MaxGasInfectionCount = 4;
         public bool ShamblersSpreadNecroa = true;
 
         public void ResetAll()
         {
             GasSeverityMultiplier = 1f;
-            MaxGasInfectionCount = 2;
+            MaxGasInfectionCount = 4;
             ShamblersSpreadNecroa = true;
         }
 
         public override void ExposeData()
         {
             Scribe_Values.Look(ref GasSeverityMultiplier, "USH_GasSeverityMultiplier", 1f);
-            Scribe_Values.Look(ref MaxGasInfectionCount, "USH_MaxGasInfectionCount", 2);
+            Scribe_Values.Look(ref MaxGasInfectionCount, "USH_MaxGasInfectionCount", 4);
             Scribe_Values.Look(ref ShamblersSpreadNecroa, "USH_ShamblersSpreadNecroa", true);
             base.ExposeData();
         }
