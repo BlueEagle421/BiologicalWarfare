@@ -12,29 +12,32 @@ namespace BiologicalWarfare
         [HarmonyPostfix]
         public static void AddNecroaInfection(HediffWithComps __instance, LocalTargetInfo target)
         {
+            if (!BiologicalWarfareMod.Settings.ShamblersSpreadNecroa)
+                return;
+
             if (__instance as Hediff_Shambler == null)
+                return;
+
+            if (__instance.pawn == null)
                 return;
 
             if (!__instance.pawn.IsShambler)
                 return;
 
-            if (!(target.Pawn is Pawn attackedPawn))
+            if (target == null)
                 return;
 
-            if (!BiologicalWarfareMod.Settings.ShamblersSpreadNecroa)
+            if (target.Pawn == null)
                 return;
 
-            BiologicalUtils.AddInfectionSeverity(attackedPawn, USHDefOf.USH_Necroa, INFECTION_SEVERITY);
+            BiologicalUtils.AddInfectionSeverity(target.Pawn, USHDefOf.USH_Necroa, INFECTION_SEVERITY);
 
-            SetNecroaFaction(attackedPawn, __instance.pawn.Faction);
+            SetNecroaFaction(target.Pawn, __instance.pawn.Faction);
         }
 
         private static void SetNecroaFaction(Pawn pawn, Faction faction)
         {
             if (faction == null)
-                return;
-
-            if (pawn == null)
                 return;
 
             Hediff necroaHediff = pawn.health?.hediffSet?.GetFirstHediffOfDef(USHDefOf.USH_Necroa);
