@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using RimWorld;
 using Verse;
 
 namespace BiologicalWarfare
@@ -9,7 +10,7 @@ namespace BiologicalWarfare
         private const float INFECTION_SEVERITY = 0.02f;
 
         [HarmonyPostfix]
-        public static void AddNecroaInfection(HediffWithComps __instance, Verb verb, LocalTargetInfo target)
+        public static void AddNecroaInfection(HediffWithComps __instance, LocalTargetInfo target)
         {
             if (__instance as Hediff_Shambler == null)
                 return;
@@ -25,8 +26,23 @@ namespace BiologicalWarfare
 
             BiologicalUtils.AddInfectionSeverity(attackedPawn, USHDefOf.USH_Necroa, INFECTION_SEVERITY);
 
-            (attackedPawn.health?.hediffSet?.GetFirstHediffOfDef(USHDefOf.USH_Necroa)
-                .TryGetComp<HediffCompNecroa>()).PostMortemFaction = __instance.pawn.Faction;
+            SetNecroaFaction(attackedPawn, __instance.pawn.Faction);
+        }
+
+        private static void SetNecroaFaction(Pawn pawn, Faction faction)
+        {
+            if (faction == null)
+                return;
+
+            if (pawn == null)
+                return;
+
+            Hediff necroaHediff = pawn.health?.hediffSet?.GetFirstHediffOfDef(USHDefOf.USH_Necroa);
+
+            if (necroaHediff == null)
+                return;
+
+            necroaHediff.TryGetComp<HediffCompNecroa>().PostMortemFaction = faction;
         }
     }
 }
