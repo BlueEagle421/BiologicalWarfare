@@ -11,6 +11,7 @@
       <HediffDef>Malaria</HediffDef>
       <HediffDef>Plague</HediffDef>
       <HediffDef>Scaria</HediffDef>
+      <li MayRequire="VanillaExpanded.VGeneticsE">GR_GreaterScaria</li>
       <HediffDef>SleepingSickness</HediffDef>
       <HediffDef MayRequire="Ludeon.RimWorld.Anomaly">USH_Necroa</HediffDef>
     </descriptionHyperlinks>
