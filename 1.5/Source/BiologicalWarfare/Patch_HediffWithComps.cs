@@ -12,7 +12,7 @@ namespace BiologicalWarfare
         [HarmonyPostfix]
         public static void AddNecroaInfection(HediffWithComps __instance, LocalTargetInfo target)
         {
-            if (!BiologicalWarfareMod.Settings.ShamblersSpreadNecroa)
+            if (!BiologicalWarfareMod.Settings.ShamblersSpreadNecroa.Value)
                 return;
 
             if (__instance as Hediff_Shambler == null)

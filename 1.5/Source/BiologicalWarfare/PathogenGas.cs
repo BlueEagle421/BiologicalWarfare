@@ -40,7 +40,7 @@ namespace BiologicalWarfare
                 if (BiologicalUtils.AddInfectionSeverity(pawnInGas, this) > 0)
                     _infectedTimes++;
 
-                int maxCount = BiologicalWarfareMod.Settings.MaxGasInfectionCount;
+                int maxCount = BiologicalWarfareMod.Settings.MaxGasInfectionCount.Value;
 
                 if (maxCount != -1 && _infectedTimes >= maxCount)
                 {

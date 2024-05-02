@@ -20,26 +20,27 @@ namespace BiologicalWarfare
 
         public override void DoSettingsWindowContents(Rect inRect)
         {
-            //GasSeverityMultiplier
             Listing_Standard listingStandard = new Listing_Standard();
             listingStandard.Begin(inRect);
+
+            //GasSeverityMultiplier
             listingStandard.Label("USH_GasMultplierSetting".Translate());
-            float severitySliderValue = listingStandard.Slider(Settings.GasSeverityMultiplier, 0.01f, 1.5f);
+            float severitySliderValue = listingStandard.Slider(Settings.GasSeverityMultiplier.Value, 0.01f, 1.5f);
             listingStandard.Label("USH_GasMultplierSettingDesc".Translate(severitySliderValue.ToStringPercent()));
-            Settings.GasSeverityMultiplier = severitySliderValue;
+            Settings.GasSeverityMultiplier.Value = severitySliderValue;
 
             //MaxGasInfectionCount
             listingStandard.Label("\n");
             listingStandard.Label("USH_GasInfectionCountSetting".Translate());
-            int countSliderValue = MaxCountFormatted(listingStandard.Slider(Settings.MaxGasInfectionCount, 0f, 12f));
+            int countSliderValue = MaxCountFormatted(listingStandard.Slider(Settings.MaxGasInfectionCount.Value, 0f, 12f));
             listingStandard.Label("USH_GasInfectionCountSettingDesc".Translate(countSliderValue.ToString()));
-            Settings.MaxGasInfectionCount = countSliderValue;
+            Settings.MaxGasInfectionCount.Value = countSliderValue;
 
             //ShamblersSpreadNecroa
             if (ModsConfig.AnomalyActive)
             {
                 listingStandard.Label("\n");
-                listingStandard.CheckboxLabeled("USH_ShamblerInfectionSetting".Translate(), ref Settings.ShamblersSpreadNecroa);
+                listingStandard.CheckboxLabeled("USH_ShamblerInfectionSetting".Translate(), ref Settings.ShamblersSpreadNecroa.Value);
                 listingStandard.Label("USH_ShamblerInfectionSettingDesc".Translate());
             }
 
@@ -65,23 +66,32 @@ namespace BiologicalWarfare
     }
     public class BiologicalWarfareSettings : ModSettings
     {
-        public float GasSeverityMultiplier = 1f;
-        public int MaxGasInfectionCount = 4;
-        public bool ShamblersSpreadNecroa = true;
+        public Setting<float> GasSeverityMultiplier = new Setting<float>(1f);
+        public Setting<int> MaxGasInfectionCount = new Setting<int>(4);
+        public Setting<bool> ShamblersSpreadNecroa = new Setting<bool>(true);
 
         public void ResetAll()
         {
-            GasSeverityMultiplier = 1f;
-            MaxGasInfectionCount = 4;
-            ShamblersSpreadNecroa = true;
+            GasSeverityMultiplier.ToDefault();
+            MaxGasInfectionCount.ToDefault();
+            ShamblersSpreadNecroa.ToDefault();
         }
 
         public override void ExposeData()
         {
-            Scribe_Values.Look(ref GasSeverityMultiplier, "USH_GasSeverityMultiplier", 1f);
-            Scribe_Values.Look(ref MaxGasInfectionCount, "USH_MaxGasInfectionCount", 4);
-            Scribe_Values.Look(ref ShamblersSpreadNecroa, "USH_ShamblersSpreadNecroa", true);
             base.ExposeData();
+            GasSeverityMultiplier.ExposeData(nameof(GasSeverityMultiplier));
+            MaxGasInfectionCount.ExposeData(nameof(MaxGasInfectionCount));
+            ShamblersSpreadNecroa.ExposeData(nameof(ShamblersSpreadNecroa));
+        }
+
+        public class Setting<T>
+        {
+            public T Value;
+            public T DefaultValue { get; private set; }
+            public Setting(T defaultValue) => DefaultValue = defaultValue;
+            public void ToDefault() => Value = DefaultValue;
+            public void ExposeData(string key) => Scribe_Values.Look(ref Value, key, DefaultValue);
         }
     }
 }

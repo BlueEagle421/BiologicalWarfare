@@ -115,7 +115,7 @@ namespace BiologicalWarfare
             float result = Mathf.Max(hediffDef.minSeverity, Rand.Range(baseSeverity / 2f, baseSeverity));
 
             result *= statMultiplier;
-            result *= BiologicalWarfareMod.Settings.GasSeverityMultiplier;
+            result *= BiologicalWarfareMod.Settings.GasSeverityMultiplier.Value;
             result /= pawn.def.Size.Area;
 
             return result;
