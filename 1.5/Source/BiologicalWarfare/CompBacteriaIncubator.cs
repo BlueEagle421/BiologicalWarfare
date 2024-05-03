@@ -1,6 +1,7 @@
 ﻿using RimWorld;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 using Verse;
 
 namespace BiologicalWarfare
@@ -44,6 +45,9 @@ namespace BiologicalWarfare
         private int _incubationTicks;
         private int _patogensToProduce;
         private bool _isIncubating;
+
+        private const int SMOKE_INTERVAL = 8;
+
         public bool IsIncubating => _isIncubating;
         public CompProperties_BacteriaIncubator PropsBacteriaIncubator => (CompProperties_BacteriaIncubator)props;
 
@@ -65,6 +69,9 @@ namespace BiologicalWarfare
                 return;
 
             _incubationTicks++;
+
+            if (_incubationTicks % SMOKE_INTERVAL == 0)
+                ThrowSmoke(parent.DrawPos, parent.Map, 1f, LidColor());
 
             if (_incubationTicks >= PropsBacteriaIncubator.incubationTicks)
                 IncubationEnded(true);
@@ -172,5 +179,60 @@ namespace BiologicalWarfare
 
             return baseResult;
         }
+
+        public override void PostDraw()
+        {
+            base.PostDraw();
+
+            if (parent.Rotation != Rot4.South)
+                return;
+
+            if (!_isIncubating)
+                return;
+
+            if (!CanIncubate().Accepted)
+                return;
+
+            Vector3 position = parent.DrawPos + new Vector3(0, 1, -0.10f);
+            Vector3 scale = new Vector3(0.4f, 1f, 0.22f);
+
+            string path = "Things/Building/BacteriaIncubator/BacteriaIncubatorLid";
+            Material mat = MaterialPool.MatFrom(path);
+            mat.shader = ShaderDatabase.SolidColor;
+            mat.SetColor("_Color", LidColor());
+
+            Graphics.DrawMesh(MeshPool.plane10, Matrix4x4.TRS(position, Quaternion.identity, scale), mat, 0);
+        }
+
+        private Color LidColor()
+        {
+            if (_sampleContainer.Empty)
+                return Color.clear;
+
+            float pulseSpeed = 40f;
+            float alphaMultiplier = 0.6f;
+
+
+            Color result = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.colorInt.ToColor;
+            result = result.ToTransparent(Mathf.Abs(Mathf.Sin(Find.TickManager.TicksGame / pulseSpeed)) * alphaMultiplier);
+
+            return result;
+        }
+
+        public static void ThrowSmoke(Vector3 loc, Map map, float size, Color color)
+        {
+            if (loc.ShouldSpawnMotesAt(map))
+            {
+                FleckCreationData dataStatic = FleckMaker.GetDataStatic(loc, map, FleckDefOf.Smoke, Rand.Range(1.5f, 2.5f) * size);
+                dataStatic.rotationRate = Rand.Range(-30f, 30f);
+                dataStatic.velocityAngle = Rand.Range(30, 40);
+                dataStatic.velocitySpeed = Rand.Range(0.5f, 0.7f);
+                dataStatic.airTimeLeft = 6;
+                dataStatic.solidTimeOverride = 2;
+                dataStatic.instanceColor = color;
+                map.flecks.CreateFleck(dataStatic);
+            }
+        }
+
     }
 }
