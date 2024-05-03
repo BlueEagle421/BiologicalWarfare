@@ -19,6 +19,7 @@
       <drawRotated>true</drawRotated>
       <allowFlip>true</allowFlip>
     </graphicData>
+    <drawerType>MapMeshAndRealTime</drawerType>
     <size>(1, 1)</size>
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
@@ -66,6 +67,7 @@
         <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
         <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
         <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
         <initialConfigurableTargetFuelLevel>30</initialConfigurableTargetFuelLevel>
         <fuelCapacity>60</fuelCapacity>
         <fuelFilter>
