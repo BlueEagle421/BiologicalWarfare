@@ -67,18 +67,27 @@ namespace BiologicalWarfare
             _incubationTicks++;
 
             if (_incubationTicks >= PropsBacteriaIncubator.incubationTicks)
-                IncubationEnded();
+                IncubationEnded(true);
         }
 
-        private void IncubationEnded()
+        private void IncubationEnded(bool produceResult)
         {
-            ThingDef toSpawn = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.pathogenDef;
-            BiologicalUtils.SpawnThingAt(parent.Map, parent.CellsAdjacent8WayAndInside().ToList(), toSpawn, _patogensToProduce);
+            if (produceResult)
+            {
+                ThingDef toSpawn = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.pathogenDef;
+                BiologicalUtils.SpawnThingAt(parent.Map, parent.CellsAdjacent8WayAndInside().ToList(), toSpawn, _patogensToProduce);
+            }
 
             _sampleContainer.innerContainer.ClearAndDestroyContents();
             _incubationTicks = 0;
             _patogensToProduce = 0;
             _isIncubating = false;
+        }
+
+        public override void PostDeSpawn(Map map)
+        {
+            base.PostDeSpawn(map);
+            IncubationEnded(false);
         }
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -107,6 +116,9 @@ namespace BiologicalWarfare
 
         public override string CompInspectStringExtra()
         {
+            if (!parent.Spawned)
+                return base.CompInspectStringExtra();
+
             if (!_isIncubating)
                 return base.CompInspectStringExtra();
 
@@ -142,9 +154,6 @@ namespace BiologicalWarfare
 
             return true;
         }
-
-
-
         public override AcceptanceReport CanInteract(Pawn activateBy = null, bool checkOptionalItems = true)
         {
             AcceptanceReport baseResult = base.CanInteract(activateBy, checkOptionalItems);

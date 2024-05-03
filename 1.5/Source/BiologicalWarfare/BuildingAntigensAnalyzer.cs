@@ -54,6 +54,9 @@ namespace BiologicalWarfare
         {
             string baseString = base.GetInspectString();
 
+            if (!Spawned)
+                return baseString;
+
             CompDiseaseSample diseaseSample = _compDiseaseContainer.ContainedSampleComp();
 
             ResearchProjectDef vaccineProj = CurrentVaccineProject();
