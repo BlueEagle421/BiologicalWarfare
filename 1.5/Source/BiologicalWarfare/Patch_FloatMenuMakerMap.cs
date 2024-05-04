@@ -98,7 +98,7 @@ namespace BiologicalWarfare
 
                 if (sampleContainer.Full)
                 {
-                    Messages.Message("USH_SampleContainerFull".Translate(target.Thing.Named("BUILDING")), cachedPawn, MessageTypeDefOf.CautionInput);
+                    Messages.Message("USH_SampleContainerFull".Translate(target.Thing.Named("BUILDING")), cachedPawn, MessageTypeDefOf.RejectInput);
                     return;
                 }
 
