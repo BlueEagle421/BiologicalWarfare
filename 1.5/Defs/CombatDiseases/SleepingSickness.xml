@@ -69,11 +69,6 @@
     <costList>
       <USH_SleepingSicknessPathogen>1</USH_SleepingSicknessPathogen>
     </costList>
-    <recipeMaker>
-      <researchPrerequisites>
-        <li>USH_SleepingSicknessOperationRes</li>
-      </researchPrerequisites>
-    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_ParasitePathogenBase">

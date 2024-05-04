@@ -66,11 +66,6 @@
     <costList>
       <USH_FluPathogen>1</USH_FluPathogen>
     </costList>
-    <recipeMaker>
-      <researchPrerequisites>
-        <li>USH_FluOperationRes</li>
-      </researchPrerequisites>
-    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_VirusPathogenBase">

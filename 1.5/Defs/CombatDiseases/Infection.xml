@@ -47,15 +47,11 @@
     <costList>
       <USH_InfectionPathogen>1</USH_InfectionPathogen>
     </costList>
-    <recipeMaker>
-      <researchPrerequisites>
-        <li>USH_InfectionVaccineRes</li>
-      </researchPrerequisites>
-    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_BacteriaPathogenBase">
     <defName>USH_InfectionPathogen</defName>
+    <description>A {0} {1} pathogen that's a crucial ingredient in producing vaccines and antiserums. No weapons can be crafted from this pathogen. It must be kept indoors at freezing temperatures to stay fresh and usable.</description>
   </ThingDef>
 
   <ThingDef ParentName="USH_DiseaseVaccineBase">
@@ -69,6 +65,7 @@
         <hediffDefVaccine>USH_InfectionVaccineHediff</hediffDefVaccine>
       </li>
     </comps>
+    <tradeability>Sellable</tradeability>
     <costList>
       <USH_InfectionPathogen>25</USH_InfectionPathogen>
     </costList>
@@ -92,6 +89,7 @@
 
   <ThingDef ParentName="USH_DiseaseAntiserum">
     <defName>USH_InfectionAntiserum</defName>
+    <description>A syringe contaning a carefully prepared mixture of antigens. It prevents getting sick from {0} for 8 days.\n\nNote that it does not cure existing infections.</description>
     <ingestible>
       <outcomeDoers>
         <li Class="BiologicalWarfare.IngestionOutcomeDoer_RemoveHediffs">
@@ -102,6 +100,7 @@
         </li>
       </outcomeDoers>
     </ingestible>
+    <tradeability>Sellable</tradeability>
     <costList>
       <USH_InfectionPathogen>25</USH_InfectionPathogen>
     </costList>

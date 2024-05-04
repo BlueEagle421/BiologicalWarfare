@@ -67,11 +67,6 @@
     <costList>
       <USH_ScariaPathogen>1</USH_ScariaPathogen>
     </costList>
-    <recipeMaker>
-      <researchPrerequisites>
-        <li>USH_ScariaOperationRes</li>
-      </researchPrerequisites>
-    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_VirusPathogenBase">
