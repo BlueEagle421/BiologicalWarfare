@@ -16,7 +16,7 @@
     <socialPropernessMatters>false</socialPropernessMatters>
     <rotatable>false</rotatable>
     <statBases>
-      <WorkToMake>1200</WorkToMake>
+      <WorkToMake>1800</WorkToMake>
       <Mass>0.007</Mass>
       <Flammability>1.0</Flammability>
     </statBases>

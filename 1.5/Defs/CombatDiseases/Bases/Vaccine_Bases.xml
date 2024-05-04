@@ -16,6 +16,7 @@
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
     <useHitPoints>true</useHitPoints>
     <statBases>
+      <WorkToMake>2600</WorkToMake>
       <MaxHitPoints>50</MaxHitPoints>
       <Mass>0.015</Mass>
       <DeteriorationRate>2.0</DeteriorationRate>
