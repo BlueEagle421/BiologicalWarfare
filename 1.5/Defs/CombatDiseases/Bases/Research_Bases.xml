@@ -3,7 +3,7 @@
 
   <ResearchProjectDef Name="USH_DiseaseOprationResBase" ParentName="USH_BiologicalProjectBase" Abstract="True">
     <label>{0} {1}</label>
-    <description>Craft {0} {1} pythogen gas grenade launchers, explosive gas barrels and devastating mortar shells.</description>
+    <description>Craft {0} {1} gas grenade launchers, explosive barrels and devastating mortar shells.</description>
     <baseCost>400</baseCost>
     <prerequisites>
       <li>USH_PathogenProductionRes</li>
