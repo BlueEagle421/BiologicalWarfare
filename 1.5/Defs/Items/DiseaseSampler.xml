@@ -13,6 +13,7 @@
       <HediffDef>Scaria</HediffDef>
       <HediffDef MayRequire="VanillaExpanded.VGeneticsE">GR_GreaterScaria</HediffDef>
       <HediffDef>SleepingSickness</HediffDef>
+      <HediffDef>WoundInfection</HediffDef>
       <HediffDef MayRequire="Ludeon.RimWorld.Anomaly">USH_Necroa</HediffDef>
     </descriptionHyperlinks>
     <graphicData>
