@@ -17,7 +17,7 @@
     <tradeability>Sellable</tradeability>
     <statBases>
       <MaxHitPoints>30</MaxHitPoints>
-      <MarketValue>3.2</MarketValue>
+      <MarketValue>1.8</MarketValue>
       <Mass>0.02</Mass>
       <Flammability>0.5</Flammability>
       <DeteriorationRate>2.0</DeteriorationRate>
