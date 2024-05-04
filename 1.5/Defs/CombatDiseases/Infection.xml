@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
+    <defName>USH_Infection</defName>
+    <label>wound infection</label>
+    <samplableHediffDefs>
+      <li>WoundInfection</li>
+    </samplableHediffDefs>
+    <giveHediffDef>WoundInfection</giveHediffDef>
+    <diseaseType>Bacteria</diseaseType>
+    <colorInt>(138, 160, 92, 255)</colorInt>
+
+    <!-- formats {0} to label and {1} to disease type -->
+    <!-- also sets color in graphicData -->
+    <thingDefsToFormatAndColor>
+      <li>USH_InfectionSample</li>
+      <li>USH_InfectionPathogen</li>
+      <li>USH_InfectionVaccine</li>
+      <li>USH_InfectionAntiserum</li>
+    </thingDefsToFormatAndColor>
+
+    <researchProjectsDefsToFormat>
+      <li>USH_InfectionVaccineRes</li>
+    </researchProjectsDefsToFormat>
+
+    <hediffDefsToFormat>
+      <li>USH_InfectionVaccineHediff</li>
+    </hediffDefsToFormat>
+
+    <vaccineResProjectDef>USH_InfectionVaccineRes</vaccineResProjectDef>
+
+    <!-- sample def is required for CombatDiseaseDef to work properly -->
+    <sampleDef>USH_InfectionSample</sampleDef>
+    <!-- pathogen def is optional -->
+    <pathogenDef>USH_InfectionPathogen</pathogenDef>
+
+  </BiologicalWarfare.CombatDiseaseDef>
+
+  <ThingDef ParentName="USH_BacteriaSampleBase">
+    <defName>USH_InfectionSample</defName>
+    <comps>
+      <li Class="BiologicalWarfare.CompProperties_DiseaseSample">
+        <combatDiseaseDef>USH_Infection</combatDiseaseDef>
+      </li>
+    </comps>
+    <costList>
+      <USH_InfectionPathogen>1</USH_InfectionPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_InfectionVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BacteriaPathogenBase">
+    <defName>USH_InfectionPathogen</defName>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_DiseaseVaccineBase">
+    <defName>USH_InfectionVaccine</defName>
+    <descriptionHyperlinks>
+      <HediffDef>USH_InfectionVaccineHediff</HediffDef>
+    </descriptionHyperlinks>
+    <comps>
+      <li Class="BiologicalWarfare.CompProperties_TargetEffectVaccine">
+        <jobDef>USH_InjectVaccine</jobDef>
+        <hediffDefVaccine>USH_InfectionVaccineHediff</hediffDefVaccine>
+      </li>
+    </comps>
+    <costList>
+      <USH_InfectionPathogen>25</USH_InfectionPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_InfectionVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <HediffDef ParentName="USH_DiseaseVaccineHediffBase">
+    <defName>USH_InfectionVaccineHediff</defName>
+    <stages>
+      <li>
+        <makeImmuneTo>
+          <li>WoundInfection</li>
+        </makeImmuneTo>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThingDef ParentName="USH_DiseaseAntiserum">
+    <defName>USH_InfectionAntiserum</defName>
+    <ingestible>
+      <outcomeDoers>
+        <li Class="BiologicalWarfare.IngestionOutcomeDoer_RemoveHediffs">
+          <hediffDefsToRemove>
+            <li>WoundInfection</li>
+          </hediffDefsToRemove>
+          <sendMessage>true</sendMessage>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <costList>
+      <USH_InfectionPathogen>25</USH_InfectionPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_InfectionVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase">
+    <defName>USH_InfectionVaccineRes</defName>
+    <prerequisites>
+      <li>USH_PathogenProductionRes</li>
+    </prerequisites>
+    <researchViewX>2.50</researchViewX>
+    <researchViewY>3.40</researchViewY>
+  </ResearchProjectDef>
+
+</Defs>
