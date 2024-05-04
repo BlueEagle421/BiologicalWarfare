@@ -66,6 +66,11 @@
     <costList>
       <USH_PlaguePathogen>1</USH_PlaguePathogen>
     </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_PlagueOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_BacteriaPathogenBase">

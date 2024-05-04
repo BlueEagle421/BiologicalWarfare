@@ -69,6 +69,11 @@
     <costList>
       <USH_MalariaPathogen>1</USH_MalariaPathogen>
     </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_MalariaOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_ParasitePathogenBase">

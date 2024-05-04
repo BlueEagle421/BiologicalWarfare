@@ -67,6 +67,11 @@
     <costList>
       <USH_NecroaPathogen>1</USH_NecroaPathogen>
     </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_NecroaOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
   </ThingDef>
 
   <ThingDef ParentName="USH_VirusPathogenBase" MayRequire="Ludeon.RimWorld.Anomaly">
