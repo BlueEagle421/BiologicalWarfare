@@ -81,6 +81,16 @@ namespace BiologicalWarfare
             return base.CanInteract(activateBy, checkOptionalItems);
         }
 
+        public virtual AcceptanceReport CanInteractRemotely(Pawn activateBy = null, bool checkOptionalItems = true)
+        {
+            AcceptanceReport result = CanInteract(activateBy, checkOptionalItems);
+
+            if (result.Reason == "CannotReach".Translate())
+                return true;
+
+            return result;
+        }
+
         private async void FloodAreaWithGas()
         {
             Map map = parent.Map;
