@@ -85,6 +85,7 @@ namespace BiologicalWarfare
         {
             AcceptanceReport result = CanInteract(activateBy, checkOptionalItems);
 
+            //fortunately CannotReach is in the end of all checks so it can be easily skipped
             if (result.Reason == "CannotReach".Translate())
                 return true;
 
