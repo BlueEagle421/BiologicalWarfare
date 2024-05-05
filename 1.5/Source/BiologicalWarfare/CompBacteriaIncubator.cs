@@ -37,6 +37,7 @@ namespace BiologicalWarfare
         }
     }
 
+
     public class CompBacteriaIncubator : CompInteractable
     {
         private CompDiseaseSampleContainer _sampleContainer;
@@ -46,6 +47,7 @@ namespace BiologicalWarfare
         private int _patogensToProduce;
         private bool _isIncubating;
 
+        private readonly MaterialPropertyBlock _materialPropertyBlock = new MaterialPropertyBlock();
         private Material _cachedLidMaterial;
         public Material LidMaterial
         {
@@ -230,8 +232,6 @@ namespace BiologicalWarfare
 
             return result;
         }
-
-        private static readonly MaterialPropertyBlock _materialPropertyBlock = new MaterialPropertyBlock();
 
         private void ThrowBacterialSmoke(Vector3 loc, Map map, float size, Color color)
         {
