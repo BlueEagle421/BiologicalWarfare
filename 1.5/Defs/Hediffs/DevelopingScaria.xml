@@ -14,6 +14,10 @@
     <tendable>true</tendable>
     <scenarioCanAdd>false</scenarioCanAdd>
     <comps>
+      <li Class="HediffCompProperties_TendDuration">
+        <baseTendDurationHours>48</baseTendDurationHours>
+        <severityPerDayTended>-0.1105</severityPerDayTended>
+      </li>
       <li Class="HediffCompProperties_Immunizable">
         <severityPerDayNotImmune>0.2488</severityPerDayNotImmune>
         <immunityPerDaySick>0.2388</immunityPerDaySick>
