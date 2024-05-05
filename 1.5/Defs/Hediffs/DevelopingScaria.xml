@@ -15,7 +15,7 @@
     <scenarioCanAdd>false</scenarioCanAdd>
     <comps>
       <li Class="HediffCompProperties_TendDuration">
-        <baseTendDurationHours>48</baseTendDurationHours>
+        <baseTendDurationHours>24</baseTendDurationHours>
         <severityPerDayTended>-0.1105</severityPerDayTended>
       </li>
       <li Class="HediffCompProperties_Immunizable">
