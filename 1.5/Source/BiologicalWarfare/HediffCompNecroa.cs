@@ -9,6 +9,8 @@ namespace BiologicalWarfare
         private Faction _postMortemFaction;
         public Faction PostMortemFaction { get { return _postMortemFaction; } set { _postMortemFaction = value; } }
 
+        private const int LIFESPAN_TICKS = 6 * 2500;
+
         public override void CompExposeData()
         {
             base.CompExposeData();
@@ -29,7 +31,7 @@ namespace BiologicalWarfare
             //needs a very small delay to avoid in-game errors
             //looks like the game needs to calulate rot stage before resurrecting
             await Task.Delay(10);
-            MutantUtility.ResurrectAsShambler(Pawn);
+            MutantUtility.ResurrectAsShambler(Pawn, LIFESPAN_TICKS);
 
             if (_postMortemFaction != null)
                 Pawn.SetFactionDirect(_postMortemFaction);
