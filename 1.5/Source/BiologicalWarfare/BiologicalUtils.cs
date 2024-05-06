@@ -129,7 +129,10 @@ namespace BiologicalWarfare
             if (!pawn.RaceProps.IsFlesh)
                 return false;
 
-            if (pawn.IsGhoul)
+            if (pawn.RaceProps.isImmuneToInfections)
+                return false;
+
+            if (pawn.IsMutant && (pawn.mutant.Def.isImmuneToInfections || pawn.mutant.Def.preventIllnesses))
                 return false;
 
             if (pawn.GetStatValue(StatDefOf.ToxicEnvironmentResistance) >= 0.8f)
