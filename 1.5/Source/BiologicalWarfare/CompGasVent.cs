@@ -1,5 +1,4 @@
 using RimWorld;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -48,7 +47,7 @@ namespace BiologicalWarfare
         private CompRefuelable _compRefuelable;
         protected IntVec3 _ventPos;
 
-        private List<DelayedTask<IntVec3>> _gasSpreadTasks = new List<DelayedTask<IntVec3>>();
+        private List<GasSpreadTask> _gasSpreadTasks = new List<GasSpreadTask>();
 
         private const int GAS_CELL_DELAY = 2;
         private const int SHUFFLE_STEPS = 12;
@@ -75,7 +74,7 @@ namespace BiologicalWarfare
         {
             base.PostExposeData();
 
-            //Scribe_Collections.Look(ref _gasSpreadTasks, "USH_GasSpreadTasks", LookMode.Deep);
+            Scribe_Collections.Look(ref _gasSpreadTasks, "USH_GasSpreadTasks", LookMode.Deep);
         }
 
         public override string CompInspectStringExtra()
@@ -110,11 +109,14 @@ namespace BiologicalWarfare
             cellsToFlood.Shuffle(SHUFFLE_STEPS);
 
             for (int i = 0; i < cellsToFlood.Count; i++)
-                _gasSpreadTasks.Add(new DelayedTask<IntVec3>(cellsToFlood[i], (x) => MakeGasAt(x, parent.Map, room), i * GAS_CELL_DELAY));
+                _gasSpreadTasks.Add(new GasSpreadTask(cellsToFlood[i], parent, i * GAS_CELL_DELAY));
         }
 
-        private void MakeGasAt(IntVec3 cell, Map map, Room room)
+        public void MakeGasAt(IntVec3 cell)
         {
+            Map map = parent.Map;
+            Room room = parent.GetRoom();
+
             if (_compRefuelable.Fuel < PropsVent.pathogensPerCell)
             {
                 _compRefuelable.ConsumeFuel(_compRefuelable.Fuel);
@@ -137,23 +139,25 @@ namespace BiologicalWarfare
             _compRefuelable.ConsumeFuel(PropsVent.pathogensPerCell);
         }
 
-        private class DelayedTask<T> : IExposable
+        private class GasSpreadTask : IExposable
         {
-            private T _arg;
-            private Action<T> _task;
+            private IntVec3 _cell;
+            private ThingWithComps _buildingVent;
             private int _ticksDelay;
             private bool _isFinished;
             public bool IsFinished { get { return _isFinished; } }
 
-            public DelayedTask(T arg, Action<T> task, int ticksDelay)
+            public GasSpreadTask() { } //empty constructor for IExposable
+            public GasSpreadTask(IntVec3 arg, ThingWithComps buildingVent, int ticksDelay)
             {
-                _arg = arg;
-                _task = task;
+                _cell = arg;
+                _buildingVent = buildingVent;
                 _ticksDelay = ticksDelay;
             }
             public void ExposeData()
             {
-                Scribe_Values.Look(ref _arg, "USH_Arg");
+                Scribe_Values.Look(ref _cell, "USH_Cell");
+                Scribe_References.Look(ref _buildingVent, "USH_BuildingVent");
                 Scribe_Values.Look(ref _ticksDelay, "USH_TicksDelay");
                 Scribe_Values.Look(ref _isFinished, "USH_IsFinished");
             }
@@ -167,7 +171,7 @@ namespace BiologicalWarfare
 
                 if (_ticksDelay <= 0)
                 {
-                    _task.Invoke(_arg);
+                    _buildingVent.TryGetComp<CompGasVent>().MakeGasAt(_cell);
                     _isFinished = true;
                 }
             }
