@@ -58,6 +58,9 @@ namespace BiologicalWarfare
         {
             base.PostSpawnSetup(respawningAfterLoad);
 
+            if (_gasSpreadTasks == null)
+                _gasSpreadTasks = new List<GasSpreadTask>();
+
             _compRefuelable = parent.GetComp<CompRefuelable>();
             _ventPos = GasVentUtils.VentingPosition(parent);
         }
