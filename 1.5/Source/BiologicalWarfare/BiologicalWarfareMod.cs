@@ -89,9 +89,9 @@ namespace BiologicalWarfare
         {
             public T Value;
             public T DefaultValue { get; private set; }
-            public Setting(T defaultValue) => DefaultValue = defaultValue;
+            public Setting(T defaultValue) { DefaultValue = defaultValue; Value = defaultValue; }
             public void ToDefault() => Value = DefaultValue;
-            public void ExposeData(string key) => Scribe_Values.Look(ref Value, key, DefaultValue);
+            public void ExposeData(string key) => Scribe_Values.Look(ref Value, $"USH_{key}", DefaultValue);
         }
     }
 }
