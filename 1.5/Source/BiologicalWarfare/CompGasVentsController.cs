@@ -8,7 +8,7 @@ namespace BiologicalWarfare
     public class CompGasVentsController : CompInteractable
     {
         private CompPower _compPower;
-        private CompGasVent _targetedGasVent;
+        private Building _targetedGasVent;
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
@@ -19,7 +19,7 @@ namespace BiologicalWarfare
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Deep.Look(ref _targetedGasVent, "USH_TargetedGasVent");
+            Scribe_References.Look(ref _targetedGasVent, "USH_TargetedGasVent");
         }
 
         public override void OrderForceTarget(LocalTargetInfo target)
@@ -32,7 +32,7 @@ namespace BiologicalWarfare
         {
             base.OnInteracted(caster);
 
-            _targetedGasVent.Interact(caster, true);
+            _targetedGasVent.TryGetComp<CompGasVent>().Interact(caster, true);
         }
 
         public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
@@ -81,7 +81,7 @@ namespace BiologicalWarfare
                     return;
                 }
 
-                _targetedGasVent = compGasVent;
+                _targetedGasVent = compGasVent.parent as Building;
 
                 Job job = JobMaker.MakeJob(JobDefOf.InteractThing, parent);
                 caster.jobs.TryTakeOrderedJob(job, new JobTag?(JobTag.Misc), false);
