@@ -32,7 +32,7 @@ namespace BiologicalWarfare
         {
             base.OnInteracted(caster);
 
-            _targetedGasVent.Interact(caster);
+            _targetedGasVent.Interact(caster, true);
         }
 
         public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
@@ -52,8 +52,6 @@ namespace BiologicalWarfare
             }
 
             yield return interactOption;
-
-            yield break;
         }
 
         public override AcceptanceReport CanInteract(Pawn activateBy = null, bool checkOptionalItems = true)
@@ -74,7 +72,7 @@ namespace BiologicalWarfare
             {
                 CompGasVent compGasVent = t.Thing.TryGetComp<CompGasVent>();
 
-                AcceptanceReport report = compGasVent.CanInteract(caster);
+                AcceptanceReport report = compGasVent.CanInteractRemotely(caster);
 
                 if (!report.Accepted)
                 {

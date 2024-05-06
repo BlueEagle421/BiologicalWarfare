@@ -90,6 +90,17 @@ namespace BiologicalWarfare
             return base.CanInteract(activateBy, checkOptionalItems);
         }
 
+        public AcceptanceReport CanInteractRemotely(Pawn activateBy = null, bool checkOptionalItems = true)
+        {
+            AcceptanceReport baseResult = base.CanInteract(activateBy, checkOptionalItems);
+
+            //this check can be safely skipped because it's the last one
+            if (baseResult.Reason == "CannotReach".Translate())
+                return true;
+
+            return baseResult;
+        }
+
         protected override void OnInteracted(Pawn caster)
         {
             base.OnInteracted(caster);
