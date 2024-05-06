@@ -9,7 +9,7 @@ namespace BiologicalWarfare
         private Faction _postMortemFaction;
         public Faction PostMortemFaction { get { return _postMortemFaction; } set { _postMortemFaction = value; } }
 
-        private const int LIFESPAN_TICKS = 6 * 2500;
+        private const int LIFESPAN_TICKS = 3 * 60000; //3 days
 
         public override void CompExposeData()
         {
