@@ -1,7 +1,7 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
 
@@ -48,7 +48,9 @@ namespace BiologicalWarfare
         private CompRefuelable _compRefuelable;
         protected IntVec3 _ventPos;
 
-        private const int GAS_CELL_DELAY = 25;
+        private List<DelayedTask<IntVec3>> _gasSpreadTasks = new List<DelayedTask<IntVec3>>();
+
+        private const int GAS_CELL_DELAY = 2;
         private const int SHUFFLE_STEPS = 12;
 
         public CompProperties_GasVent PropsVent => props as CompProperties_GasVent;
@@ -61,11 +63,19 @@ namespace BiologicalWarfare
             _ventPos = GasVentUtils.VentingPosition(parent);
         }
 
-        protected override void OnInteracted(Pawn caster)
+        public override void CompTick()
         {
-            base.OnInteracted(caster);
+            base.CompTick();
 
-            FloodAreaWithGas();
+            _gasSpreadTasks.ForEach(task => task.TickPassed());
+            _gasSpreadTasks.RemoveAll(task => task.IsFinished);
+        }
+
+        public override void PostExposeData()
+        {
+            base.PostExposeData();
+
+            //Scribe_Collections.Look(ref _gasSpreadTasks, "USH_GasSpreadTasks", LookMode.Deep);
         }
 
         public override string CompInspectStringExtra()
@@ -85,14 +95,21 @@ namespace BiologicalWarfare
         {
             AcceptanceReport result = CanInteract(activateBy, checkOptionalItems);
 
-            //fortunately CannotReach is in the end of all checks so it can be easily skipped
+            //CannotReach is in the end of all checks so it can be skipped
             if (result.Reason == "CannotReach".Translate())
                 return true;
 
             return result;
         }
 
-        private async void FloodAreaWithGas()
+        protected override void OnInteracted(Pawn caster)
+        {
+            base.OnInteracted(caster);
+
+            FloodAreaWithGas();
+        }
+
+        private void FloodAreaWithGas()
         {
             Map map = parent.Map;
             Room room = parent.GetRoom();
@@ -103,14 +120,12 @@ namespace BiologicalWarfare
 
             cellsToFlood.Shuffle(SHUFFLE_STEPS);
 
-            foreach (IntVec3 cell in cellsToFlood)
-                await MakeGasAt(cell, map, room);
+            for (int i = 0; i < cellsToFlood.Count; i++)
+                _gasSpreadTasks.Add(new DelayedTask<IntVec3>(cellsToFlood[i], (x) => MakeGasAt(x, parent.Map, room), i * GAS_CELL_DELAY));
         }
 
-        private async Task MakeGasAt(IntVec3 cell, Map map, Room room)
+        private void MakeGasAt(IntVec3 cell, Map map, Room room)
         {
-            await Task.Delay(GAS_CELL_DELAY);
-
             if (_compRefuelable.Fuel < PropsVent.pathogensPerCell)
             {
                 _compRefuelable.ConsumeFuel(_compRefuelable.Fuel);
@@ -129,8 +144,44 @@ namespace BiologicalWarfare
 
             Thing madeGas = ThingMaker.MakeThing(PropsVent.gasDef);
 
-            GenPlace.TryPlaceThing(madeGas, cell, map, ThingPlaceMode.Near);
+            GenPlace.TryPlaceThing(madeGas, cell, parent.Map, ThingPlaceMode.Near);
             _compRefuelable.ConsumeFuel(PropsVent.pathogensPerCell);
+        }
+
+        private class DelayedTask<T> : IExposable
+        {
+            private T _arg;
+            private Action<T> _task;
+            private int _ticksDelay;
+            private bool _isFinished;
+            public bool IsFinished { get { return _isFinished; } }
+
+            public DelayedTask(T arg, Action<T> task, int ticksDelay)
+            {
+                _arg = arg;
+                _task = task;
+                _ticksDelay = ticksDelay;
+            }
+            public void ExposeData()
+            {
+                Scribe_Values.Look(ref _arg, "USH_Arg");
+                Scribe_Values.Look(ref _ticksDelay, "USH_TicksDelay");
+                Scribe_Values.Look(ref _isFinished, "USH_IsFinished");
+            }
+
+            public void TickPassed()
+            {
+                if (_isFinished)
+                    return;
+
+                _ticksDelay--;
+
+                if (_ticksDelay <= 0)
+                {
+                    _task.Invoke(_arg);
+                    _isFinished = true;
+                }
+            }
         }
     }
 }
