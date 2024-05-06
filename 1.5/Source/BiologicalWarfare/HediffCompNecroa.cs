@@ -15,7 +15,7 @@ namespace BiologicalWarfare
         {
             base.CompExposeData();
 
-            Scribe_Deep.Look(ref _postMortemFaction, "USH_PostMortemFaction");
+            Scribe_References.Look(ref _postMortemFaction, "USH_PostMortemFaction");
         }
 
         public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
