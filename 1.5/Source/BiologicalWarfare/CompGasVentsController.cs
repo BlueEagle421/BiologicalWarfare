@@ -74,7 +74,7 @@ namespace BiologicalWarfare
             {
                 CompGasVent compGasVent = t.Thing.TryGetComp<CompGasVent>();
 
-                AcceptanceReport report = compGasVent.CanInteractRemotely(caster);
+                AcceptanceReport report = compGasVent.CanInteract(caster);
 
                 if (!report.Accepted)
                 {
