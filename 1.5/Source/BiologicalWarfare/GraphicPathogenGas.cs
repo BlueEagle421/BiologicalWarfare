@@ -14,10 +14,10 @@ namespace BiologicalWarfare
         {
             Rand.PushState();
             Rand.Seed = thing.thingIDNumber.GetHashCode();
+
             PathogenGas gas = thing as PathogenGas;
 
             float angle = Rand.Range(0, 360) + ((gas == null) ? 0f : gas.graphicRotation);
-
             Vector3 position = thing.TrueCenter() + new Vector3(RandPosOffset(), 0f, RandPosOffset());
             Vector3 scale = new Vector3(RandScaleOffset() * drawSize.x, 0f, RandScaleOffset() * drawSize.y);
             Matrix4x4 matrix = Matrix4x4.TRS(position, Quaternion.AngleAxis(angle, Vector3.up), scale);
