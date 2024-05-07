@@ -72,12 +72,12 @@ namespace BiologicalWarfare
             return 1f;
         }
 
-        public static float AddInfectionSeverity(Pawn pawn, Thing thingInfecter)
+        public static float AddInfectionSeverity(Pawn pawn, Thing thingInfecter, float severityMultiplier = 1f)
         {
             HediffDef hediffDefToAdd = DefDatabase<HediffDef>.GetNamedSilentFail(OPToxicDefGetValue.OPToxicGetHediff(thingInfecter.def));
             float baseSeverity = OPToxicDefGetValue.OPToxicGetSev(thingInfecter.def);
 
-            return AddInfectionSeverity(pawn, hediffDefToAdd, baseSeverity);
+            return AddInfectionSeverity(pawn, hediffDefToAdd, baseSeverity * severityMultiplier);
         }
 
         public static float AddInfectionSeverity(Pawn pawn, HediffDef hediffDefToAdd, float baseSeverity)

@@ -143,10 +143,6 @@ namespace BiologicalWarfare
             if (room != null && cell.GetRoom(map) != room)
                 return;
 
-            Thing firstThing = cell.GetFirstThing(map, PropsVent.gasDef);
-            if (firstThing != null)
-                return;
-
             Thing madeGas = ThingMaker.MakeThing(PropsVent.gasDef);
 
             GenPlace.TryPlaceThing(madeGas, cell, parent.Map, ThingPlaceMode.Near);

@@ -26,13 +26,13 @@
     <graphicData>
       <texPath>Things/Gas/ThickSmoke</texPath>
       <drawSize>2.6</drawSize>
-      <graphicClass>Graphic_Gas</graphicClass>
+      <graphicClass>BiologicalWarfare.GraphicPathogenGas</graphicClass>
       <shaderType>Transparent</shaderType>
     </graphicData>
     <gas>
       <expireSeconds>
-        <min>20</min>
-        <max>30</max>
+        <min>26</min>
+        <max>40</max>
       </expireSeconds>
       <rotationSpeed>20</rotationSpeed>
     </gas>
