@@ -78,6 +78,11 @@
         <severityPerDay>-0.5</severityPerDay>
         <showHoursToRecover>true</showHoursToRecover>
       </li>
+      <li Class="HediffCompProperties_Disorientation">
+        <wanderMtbHours>0.12</wanderMtbHours>
+        <singleWanderDurationTicks>360</singleWanderDurationTicks>
+        <wanderRadius>4.9</wanderRadius>
+      </li>
     </comps>
     <stages>
       <li>
