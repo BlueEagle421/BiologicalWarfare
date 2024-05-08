@@ -14,7 +14,7 @@
 
   <ResearchProjectDef Name="USH_DiseaseVaccineResBase" ParentName="USH_BiologicalProjectBase" Abstract="True">
     <label>{0} antibodies</label>
-    <description>Craft {0} vaccines and antiserums that can heal and protect pawns from getting infected. This reasearch project must be studied using vaccine reseach station with an iserted {0} {1} sample.\n\nThis project in always locked in research tab.</description>
+    <description>Craft {0} vaccines and antiserums that can heal and protect from getting infected. This reasearch project must be studied using vaccine reseach station with an iserted {0} {1} sample.\n\nThis project in always locked in research tab.</description>
     <baseCost>1200</baseCost>
     <requiredResearchBuilding>USH_AntigensAnalyzer</requiredResearchBuilding>
     <researchViewX>1.00</researchViewX>

@@ -5,7 +5,7 @@
     <thingClass>Building</thingClass>
     <defName>USH_VirusReplicator</defName>
     <label>virus replicator</label>
-    <description>A specialized lab-grade machine is designed to modify virus DNA from provided disease samples. Upon activation, it infects all living creatures in an enclosed, fully roofed room with mutated viruses and provides a way to extract their pathogens. The number of pathogens that can be yielded from an organism depends on its size and infection severity. The bigger the species, the more pathogens drop from it.\n\nAll pawns in the same room will get infected unless they remain in a small safe zone around the replicator or possess environmental toxic resistance exceeding 80%.\n\nNote that large, tamed creatures in their pens are optimal targets for virus replication.</description>
+    <description>A specialized lab-grade machine is designed to modify virus DNA from provided disease samples. Upon activation, it infects all living creatures in an enclosed, fully roofed room with mutated viruses and provides a way to extract their pathogens. The number of pathogens that can be yielded from an organism depends on its size and infection severity. The bigger the species, the more pathogens drop from it.\n\nAll creatures in the same room will get infected unless they remain in a small safe zone around the replicator or possess environmental toxic resistance exceeding 80%.\n\nNote that large, tamed creatures in their pens are optimal targets for virus replication.</description>
     <graphicData>
       <texPath>Things/Building/VirusReplicator/VirusReplicator</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
