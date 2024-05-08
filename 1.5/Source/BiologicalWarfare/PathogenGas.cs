@@ -8,6 +8,8 @@ namespace BiologicalWarfare
 {
     public class PathogenGas : Gas
     {
+        private const float ALPHA_MULTIPLIER = 0.75f;
+        private AnimationCurve _lifespanDensityCurve;
         private int _infectedTimes = 0;
         private int _duration;
         private float _density = 1f;
@@ -28,9 +30,7 @@ namespace BiologicalWarfare
             }
         }
 
-        private AnimationCurve _lifespanDensityCurve;
-
-        private const float ALPHA_MULTIPLIER = 0.75f;
+        public override string Label => $"{base.Label} ({Density.ToStringPercent()})";
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -81,7 +81,6 @@ namespace BiologicalWarfare
             }
         }
 
-        public override string Label => $"{base.Label} ({Density.ToStringPercent()})";
 
         public float Alpha() => Density * ALPHA_MULTIPLIER;
 
