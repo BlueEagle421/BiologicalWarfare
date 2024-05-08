@@ -108,7 +108,7 @@
         <minSeverity>0.6</minSeverity>
         <hungerRateFactor>1.5</hungerRateFactor>
         <restFallFactor>1.5</restFallFactor>
-        <vomitMtbDays>2</vomitMtbDays>
+        <vomitMtbDays>0.75</vomitMtbDays>
         <painFactor>1.15</painFactor>
         <capMods>
           <li>
