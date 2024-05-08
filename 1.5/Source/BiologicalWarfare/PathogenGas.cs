@@ -12,12 +12,12 @@ namespace BiologicalWarfare
         private AnimationCurve _lifespanDensityCurve;
         private int _infectedTimes = 0;
         private int _duration;
-        private float _density = 1f;
+        private float _baseDensity = 1f;
         public float Density
         {
             get
             {
-                float result = _density;
+                float result = _baseDensity;
 
                 result *= MaxInfectionsMultiplier();
                 result *= LifespanMultiplier();
@@ -26,7 +26,7 @@ namespace BiologicalWarfare
             }
             set
             {
-                _density = value;
+                _baseDensity = value;
             }
         }
 
@@ -36,7 +36,7 @@ namespace BiologicalWarfare
         {
             base.SpawnSetup(map, respawningAfterLoad);
 
-            _density = 1f;
+            _baseDensity = 1f;
 
             _duration = destroyTick - Find.TickManager.TicksGame;
 
@@ -51,11 +51,20 @@ namespace BiologicalWarfare
             base.ExposeData();
             Scribe_Values.Look(ref _infectedTimes, "USH_InfectedTimes", 0);
             Scribe_Values.Look(ref _duration, "USH_Duration");
-            Scribe_Values.Look(ref _density, "USH_Density");
+            Scribe_Values.Look(ref _baseDensity, "USH_Density");
         }
 
         public override void Tick()
         {
+            if (Destroyed)
+                return;
+
+            if (Density <= 0)
+            {
+                Destroy();
+                return;
+            }
+
             base.Tick();
 
             InfectionTick();
