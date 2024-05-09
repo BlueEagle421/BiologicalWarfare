@@ -76,7 +76,7 @@
     <Compile Include="HediffCompNecroa.cs" />
     <Compile Include="HediffCompDevelopingScaria.cs" />
     <Compile Include="HediffCompDisorientationSeverity.cs" />
-    <Compile Include="HediffParasiteReproduction.cs" />
+    <Compile Include="HediffCompParasiteReproduction.cs" />
     <Compile Include="HediffCompVirusExtraction.cs" />
     <Compile Include="IngestionOutcomeDoerRemoveHediffs.cs" />
     <Compile Include="JobDrivers.cs" />

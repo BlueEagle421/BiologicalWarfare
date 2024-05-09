@@ -3,7 +3,7 @@
 
   <!-- unlike virus reproduction hediff, the parasite hediff is unique to every disease def-->
   <HediffDef Name="USH_ParasiteReproductionBase" Abstract="True">
-    <hediffClass>BiologicalWarfare.HediffParasiteReproduction</hediffClass>
+    <hediffClass>HediffWithComps</hediffClass>
     <defName>USH_ParasiteReproduction</defName>
     <label>rapid parasite reproduction</label>
     <labelNoun>a rapid parasite reproduction</labelNoun>
