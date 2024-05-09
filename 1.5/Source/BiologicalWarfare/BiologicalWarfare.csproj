@@ -75,6 +75,7 @@
     <Compile Include="GraphicPathogenGas.cs" />
     <Compile Include="HediffCompNecroa.cs" />
     <Compile Include="HediffCompDevelopingScaria.cs" />
+    <Compile Include="HediffCompDisorientationSeverity.cs" />
     <Compile Include="HediffParasiteReproduction.cs" />
     <Compile Include="HediffCompVirusExtraction.cs" />
     <Compile Include="IngestionOutcomeDoerRemoveHediffs.cs" />
