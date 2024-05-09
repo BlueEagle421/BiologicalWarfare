@@ -110,7 +110,7 @@
   <ThingDef Name="USH_BiologicalMissileBulletBase" Abstract="True">
     <label>{0} gas missile</label>
     <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
-    <thingClass>BiologicalWarfare.Projectile_ExplosiveSmoke</thingClass>
+    <thingClass>BiologicalWarfare.ProjectileExplosiveSmoke</thingClass>
     <category>Projectile</category>
     <tickerType>Normal</tickerType>
     <altitudeLayer>Projectile</altitudeLayer>
