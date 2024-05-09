@@ -80,8 +80,8 @@
     <Compile Include="HediffCompVirusExtraction.cs" />
     <Compile Include="IngestionOutcomeDoerRemoveHediffs.cs" />
     <Compile Include="JobDrivers.cs" />
-    <Compile Include="Patch_HediffWithComps.cs" />
-    <Compile Include="Patch_FloatMenuMakerMap.cs" />
+    <Compile Include="PatchHediffWithComps.cs" />
+    <Compile Include="PatchFloatMenuMakerMap.cs" />
     <Compile Include="PathogenGas.cs" />
     <Compile Include="ProjectileExplosiveSmoke.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

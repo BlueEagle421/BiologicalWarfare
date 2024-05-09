@@ -9,7 +9,7 @@ using Verse.AI;
 namespace BiologicalWarfare
 {
     [HarmonyPatch(typeof(FloatMenuMakerMap), "AddHumanlikeOrders")]
-    public static class Patch_FloatMenuMakerMap
+    public static class PatchFloatMenuMakerMap
     {
         private static TargetingParameters targetingParameters;
 
@@ -23,7 +23,7 @@ namespace BiologicalWarfare
 
         private static List<FloatMenuOption> cachedOptions = new List<FloatMenuOption>();
 
-        static Patch_FloatMenuMakerMap()
+        static PatchFloatMenuMakerMap()
         {
             targetingParameters = new TargetingParameters
             {

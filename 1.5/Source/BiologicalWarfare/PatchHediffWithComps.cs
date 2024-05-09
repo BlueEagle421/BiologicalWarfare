@@ -5,7 +5,7 @@ using Verse;
 namespace BiologicalWarfare
 {
     [HarmonyPatch(typeof(HediffWithComps), nameof(HediffWithComps.Notify_PawnUsedVerb))]
-    public static class Patch_HediffWithComps
+    public static class PatchHediffWithComps
     {
         private const float INFECTION_SEVERITY = 0.02f;
 
