@@ -4,7 +4,7 @@ using Verse;
 
 namespace BiologicalWarfare
 {
-    public class Projectile_ExplosiveSmoke : Projectile_Explosive
+    public class ProjectileExplosiveSmoke : Projectile_Explosive
     {
         private int _ticksUntilSmoke;
         private int _smokeSpawned;

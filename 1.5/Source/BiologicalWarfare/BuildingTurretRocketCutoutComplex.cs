@@ -4,7 +4,7 @@ using Verse;
 
 namespace BiologicalWarfare
 {
-    public class Building_TurretRocketCutoutComplex : Building_TurretRocket
+    public class BuildingTurretRocketCutoutComplex : Building_TurretRocket
     {
         private Material _cachedMaterialFull, _cachedMaterialEmpty;
 

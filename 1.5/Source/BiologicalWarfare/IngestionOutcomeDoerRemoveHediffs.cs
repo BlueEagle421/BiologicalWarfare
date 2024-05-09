@@ -5,7 +5,7 @@ using Verse;
 
 namespace BiologicalWarfare
 {
-    public class IngestionOutcomeDoer_RemoveHediffs : IngestionOutcomeDoer
+    public class IngestionOutcomeDoerRemoveHediffs : IngestionOutcomeDoer
     {
         public List<HediffDef> hediffDefsToRemove;
         public bool sendMessage;

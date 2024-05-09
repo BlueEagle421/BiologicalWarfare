@@ -5,7 +5,7 @@
     <label>{0} gas missile launcher</label>
     <description>A military-grade {0} gas missile launcher that fires a single barrage of rockets covering a large area with {0} gas. The turret does not fire until someone activates it. It is very effective against sieges, but less effective against moving targets. A single burst of missiles can severely weaken any siege, potentially killing raiders.\nAn integrated targeting system makes it effective over long distances.\n\nOnce fired, it must cool off for hours and be reloaded to fire again. It's refueled with large quantities of {0} {1} pathogens.</description>
     <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
-    <thingClass>BiologicalWarfare.Building_TurretRocketCutoutComplex</thingClass>
+    <thingClass>BiologicalWarfare.BuildingTurretRocketCutoutComplex</thingClass>
     <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>
       <texPath>Things/Building/Security/TurretHeavy_Base</texPath>

@@ -114,7 +114,7 @@
     <defName>USH_NecroaAntiserum</defName>
     <ingestible>
       <outcomeDoers>
-        <li Class="BiologicalWarfare.IngestionOutcomeDoer_RemoveHediffs">
+        <li Class="BiologicalWarfare.IngestionOutcomeDoerRemoveHediffs">
           <hediffDefsToRemove>
             <li>USH_Necroa</li>
           </hediffDefsToRemove>
