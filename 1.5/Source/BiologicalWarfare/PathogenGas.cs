@@ -30,7 +30,7 @@ namespace BiologicalWarfare
             }
         }
 
-        public override string Label => $"{base.Label} ({Density.ToStringPercent()})";
+        public override string Label => $"{base.Label} ({Density.ToStringPercent("0")})";
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
