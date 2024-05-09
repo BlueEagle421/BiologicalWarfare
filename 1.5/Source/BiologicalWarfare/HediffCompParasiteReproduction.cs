@@ -20,6 +20,13 @@ namespace BiologicalWarfare
 
         public HediffCompProperties_ParasiteReproduction Props => (HediffCompProperties_ParasiteReproduction)props;
 
+        public override void CompExposeData()
+        {
+            base.CompExposeData();
+
+            Scribe_Values.Look(ref _reproductionTicks, "USH_ReproductionTicks");
+        }
+
         public override void CompPostTick(ref float severityAdjustment)
         {
             base.CompPostTick(ref severityAdjustment);

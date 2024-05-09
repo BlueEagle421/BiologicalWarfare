@@ -26,6 +26,13 @@ namespace BiologicalWarfare
             Scribe_Values.Look(ref _smokeSpawned, "USH_SmokeSpawned", 0);
         }
 
+        private Vector3 LookTowards =>
+            new Vector3(
+                destination.x - origin.x,
+                def.Altitude,
+                destination.z - origin.z + ArcHeightFactor * (4 - 8 * DistanceCoveredFraction));
+        public override Quaternion ExactRotation => Quaternion.LookRotation(LookTowards);
+
         private float ArcHeightFactor
         {
             get
