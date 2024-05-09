@@ -92,7 +92,7 @@ namespace BiologicalWarfare
             foreach (IntVec3 cell in parent.GetRoom().Cells.ToList())
                 foreach (Thing thing in parent.Map.thingGrid.ThingsAt(cell))
                 {
-                    HediffDef toAdd = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.giveHediffDef;
+                    HediffDef diseaseToAdd = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.giveHediffDef;
 
                     if (!(thing is Pawn pawn))
                         continue;
@@ -100,16 +100,17 @@ namespace BiologicalWarfare
                     if (!BiologicalUtils.CanPathogenInfect(pawn))
                         continue;
 
-                    if (BiologicalUtils.IsImmuneTo(pawn, toAdd))
+                    if (BiologicalUtils.IsImmuneTo(pawn, diseaseToAdd))
                         continue;
 
                     if (pawn.Position.DistanceTo(parent.Position) <= parent.def.specialDisplayRadius)
                         continue;
 
-                    pawn.health.AddHediff(toAdd);
+                    pawn.health.AddHediff(diseaseToAdd);
 
-                    Hediff extractionHediff = pawn.health.AddHediff(USHDefOf.USH_VirusExtraction);
-                    extractionHediff.TryGetComp<HediffCompVirusExtraction>().CombatDiseaseDef = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef;
+                    HediffCompVirusExtraction virusExtraction = pawn.health.AddHediff(USHDefOf.USH_VirusExtraction).TryGetComp<HediffCompVirusExtraction>();
+                    virusExtraction.CombatDiseaseDef = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef;
+                    virusExtraction.RecacheHediffInfo();
                 }
 
             _sampleContainer.innerContainer.ClearAndDestroyContents();
