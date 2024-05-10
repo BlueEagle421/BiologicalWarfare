@@ -9,6 +9,7 @@
     <description>A specilized DNA modification that allows the extraction of virus pathogens post mortem. The more advanced the disease becomes, the greater the number of pathogens will drop.</description>
     <initialSeverity>1</initialSeverity>
     <defaultLabelColor>(0.9, 1.0, 0.35)</defaultLabelColor>
+    <duplicationAllowed>false</duplicationAllowed>
     <comps>
       <li Class="BiologicalWarfare.HediffCompProperties_VirusExtraction">
         <basePathogenCount>25</basePathogenCount>
