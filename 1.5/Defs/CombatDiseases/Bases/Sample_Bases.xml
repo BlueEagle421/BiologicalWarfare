@@ -36,21 +36,21 @@
   </ThingDef>
 
   <ThingDef Name="USH_BacteriaSampleBase" Abstract="True" ParentName="USH_DiseaseSampleBase">
-    <description>A sample of {0} {1}. When placed in a bacteria incubator, it will grow into multiple {0} pathogen colonies that can later be harvested and used in the production of a biological arsenal.\n\nCan be obtained by using disease sampler on a creature infected with {0} or crafted from {0} pathogens.</description>
+    <description>A sample of {0} {1}. When placed in a bacteria incubator, it will grow into multiple {0} pathogen colonies that can later be harvested and used in the production of a biological arsenal.\n\nCan be obtained by using disease sampler on a living creature infected with {0} or crafted from {0} pathogens.</description>
     <descriptionHyperlinks>
       <ThingDef>USH_BacteriaIncubator</ThingDef>
     </descriptionHyperlinks>
   </ThingDef>
 
   <ThingDef Name="USH_VirusSampleBase" Abstract="True" ParentName="USH_DiseaseSampleBase">
-    <description>A sample of {0} {1}. Can be used as fuel for virus replicator to produce valuable {0} pathogens.\n\nCan be obtained by using disease sampler on a creature infected with {0} or crafted from {0} pathogens.</description>
+    <description>A sample of {0} {1}. Can be used as fuel for virus replicator to produce valuable {0} pathogens.\n\nCan be obtained by using disease sampler on a living creature infected with {0} or crafted from {0} pathogens.</description>
     <descriptionHyperlinks>
       <ThingDef>USH_VirusReplicator</ThingDef>
     </descriptionHyperlinks>
   </ThingDef>
 
   <ThingDef Name="USH_ParasiteSampleBase" Abstract="True" ParentName="USH_DiseaseSampleBase">
-    <description>A sample of {0} {1}. Can be used in production of special reproduction pills that will produce {0} pathogens after consumption.\n\nCan be obtained by using disease sampler on a creature infected with {0} or crafted from {0} pathogens.</description>
+    <description>A sample of {0} {1}. Can be used in production of special reproduction pills that will produce {0} pathogens after consumption.\n\nCan be obtained by using disease sampler on a living creature infected with {0} or crafted from {0} pathogens.</description>
     <graphicData>
       <texPath>Things/Item/Samples/SampleParasite</texPath>
     </graphicData>

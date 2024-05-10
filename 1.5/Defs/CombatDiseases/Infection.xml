@@ -39,7 +39,7 @@
 
   <ThingDef ParentName="USH_BacteriaSampleBase">
     <defName>USH_InfectionSample</defName>
-    <description>A sample of {0} {1}. When placed in a bacteria incubator, it will grow into multiple {0} pathogen colonies that can later be harvested and used in the production of vaccines and antiserums. No weapons can be crafted from {0} pathogens.\n\nCan be obtained by using disease sampler on a creature with {0} or crafted from {0} pathogens.</description>
+    <description>A sample of {0} {1}. When placed in a bacteria incubator, it will grow into multiple {0} pathogen colonies that can later be harvested and used in the production of vaccines and antiserums. No weapons can be crafted from {0} pathogens.\n\nCan be obtained by using disease sampler on a living creature with {0} or crafted from {0} pathogens.</description>
     <comps>
       <li Class="BiologicalWarfare.CompProperties_DiseaseSample">
         <combatDiseaseDef>USH_Infection</combatDiseaseDef>
