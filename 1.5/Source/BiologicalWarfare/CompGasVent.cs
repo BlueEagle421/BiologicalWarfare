@@ -52,6 +52,8 @@ namespace BiologicalWarfare
         private const int GAS_CELL_DELAY = 2;
         private const int SHUFFLE_STEPS = 12;
 
+        private const int GOODWILL_HARM = -2;
+
         public CompProperties_GasVent PropsVent => props as CompProperties_GasVent;
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -108,10 +110,10 @@ namespace BiologicalWarfare
         {
             base.OnInteracted(caster);
 
-            FloodAreaWithGas();
+            FloodAreaWithGas(caster);
         }
 
-        private void FloodAreaWithGas()
+        private void FloodAreaWithGas(Pawn caster)
         {
             Map map = parent.Map;
             Room room = parent.GetRoom();
@@ -123,10 +125,10 @@ namespace BiologicalWarfare
             cellsToFlood.Shuffle(SHUFFLE_STEPS);
 
             for (int i = 0; i < cellsToFlood.Count; i++)
-                _gasSpreadTasks.Add(new GasSpreadTask(cellsToFlood[i], parent, i * GAS_CELL_DELAY));
+                _gasSpreadTasks.Add(new GasSpreadTask(cellsToFlood[i], caster, parent, i * GAS_CELL_DELAY));
         }
 
-        public void MakeGasAt(IntVec3 cell)
+        public void MakeGasAt(Pawn caster, IntVec3 cell)
         {
             Map map = parent.Map;
             Room room = parent.GetRoom();
@@ -145,28 +147,47 @@ namespace BiologicalWarfare
 
             Thing madeGas = ThingMaker.MakeThing(PropsVent.gasDef);
 
-            GenPlace.TryPlaceThing(madeGas, cell, parent.Map, ThingPlaceMode.Near);
+            if (GenPlace.TryPlaceThing(madeGas, cell, parent.Map, ThingPlaceMode.Near))
+                DamageGoodwill(caster, cell);
+
             _compRefuelable.ConsumeFuel(PropsVent.pathogensPerCell);
+        }
+
+        private void DamageGoodwill(Pawn caster, IntVec3 cell)
+        {
+            Pawn pawnInGas = cell.GetFirstPawn(parent.Map);
+
+            if (pawnInGas != null)
+                caster?.HomeFaction.TryAffectGoodwillWith(
+                    pawnInGas.HomeFaction,
+                    GOODWILL_HARM,
+                    true,
+                    true,
+                    HistoryEventDefOf.UsedHarmfulItem,
+                    pawnInGas);
         }
 
         private class GasSpreadTask : IExposable
         {
             private IntVec3 _cell;
+            private Pawn _caster;
             private ThingWithComps _buildingVent;
             private int _ticksDelay;
             private bool _isFinished;
             public bool IsFinished { get { return _isFinished; } }
 
             public GasSpreadTask() { } //empty constructor for IExposable
-            public GasSpreadTask(IntVec3 arg, ThingWithComps buildingVent, int ticksDelay)
+            public GasSpreadTask(IntVec3 arg, Pawn caster, ThingWithComps buildingVent, int ticksDelay)
             {
                 _cell = arg;
+                _caster = caster;
                 _buildingVent = buildingVent;
                 _ticksDelay = ticksDelay;
             }
             public void ExposeData()
             {
                 Scribe_Values.Look(ref _cell, "USH_Cell");
+                Scribe_References.Look(ref _caster, "USH_Caster");
                 Scribe_References.Look(ref _buildingVent, "USH_BuildingVent");
                 Scribe_Values.Look(ref _ticksDelay, "USH_TicksDelay");
                 Scribe_Values.Look(ref _isFinished, "USH_IsFinished");
@@ -181,7 +202,7 @@ namespace BiologicalWarfare
 
                 if (_ticksDelay <= 0)
                 {
-                    _buildingVent.TryGetComp<CompGasVent>().MakeGasAt(_cell);
+                    _buildingVent.TryGetComp<CompGasVent>().MakeGasAt(_caster, _cell);
                     _isFinished = true;
                 }
             }
