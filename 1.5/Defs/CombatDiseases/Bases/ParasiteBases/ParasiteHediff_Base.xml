@@ -10,6 +10,7 @@
     <description>An enhanced parasitic infection tweaked to reproduce pathogens at much faster rate. An overload of parasites will lead to internal body damage.</description>
     <initialSeverity>1</initialSeverity>
     <defaultLabelColor>(0.9, 1.0, 0.35)</defaultLabelColor>
+    <duplicationAllowed>false</duplicationAllowed>
     <comps>
       <li Class="HediffCompProperties">
         <compClass>HediffComp_DisappearsOnDeath</compClass>

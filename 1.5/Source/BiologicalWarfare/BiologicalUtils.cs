@@ -14,6 +14,15 @@ namespace BiologicalWarfare
 
         public static void SpawnThingAt(Map map, List<IntVec3> cells, ThingDef thingDef, int count)
         {
+            if (map == null)
+                return;
+
+            if (thingDef == null)
+                return;
+
+            if (count == 0)
+                return;
+
             foreach (IntVec3 cell in cells)
             {
                 if (!cell.Walkable(map))
