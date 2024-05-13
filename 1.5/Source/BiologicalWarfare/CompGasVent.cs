@@ -157,14 +157,16 @@ namespace BiologicalWarfare
         {
             Pawn pawnInGas = cell.GetFirstPawn(parent.Map);
 
-            if (pawnInGas != null)
-                caster?.HomeFaction.TryAffectGoodwillWith(
-                    pawnInGas.HomeFaction,
-                    GOODWILL_CHANGE,
-                    true,
-                    true,
-                    HistoryEventDefOf.UsedHarmfulItem,
-                    pawnInGas);
+            if (caster?.HomeFaction == null || pawnInGas?.HomeFaction == null)
+                return;
+
+            caster.HomeFaction.TryAffectGoodwillWith(
+                pawnInGas.HomeFaction,
+                GOODWILL_CHANGE,
+                true,
+                true,
+                HistoryEventDefOf.UsedHarmfulItem,
+                pawnInGas);
         }
 
         private class GasSpreadTask : IExposable
