@@ -52,7 +52,7 @@ namespace BiologicalWarfare
         private const int GAS_CELL_DELAY = 2;
         private const int SHUFFLE_STEPS = 12;
 
-        private const int GOODWILL_HARM = -2;
+        private const int GOODWILL_CHANGE = -2;
 
         public CompProperties_GasVent PropsVent => props as CompProperties_GasVent;
 
@@ -160,7 +160,7 @@ namespace BiologicalWarfare
             if (pawnInGas != null)
                 caster?.HomeFaction.TryAffectGoodwillWith(
                     pawnInGas.HomeFaction,
-                    GOODWILL_HARM,
+                    GOODWILL_CHANGE,
                     true,
                     true,
                     HistoryEventDefOf.UsedHarmfulItem,
