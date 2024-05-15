@@ -9,7 +9,7 @@
       <xpath>*/GeneDef[defName = "PerfectImmunity"]/makeImmuneTo</xpath>
       <value>
         <li>USH_DevelopingScaria</li>
-        <li>USH_Necroa</li>
+        <li MayRequire="Ludeon.RimWorld.Anomaly">USH_Necroa</li>
       </value>
     </match>
   </Operation>
