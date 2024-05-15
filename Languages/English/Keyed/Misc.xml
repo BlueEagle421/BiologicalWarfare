@@ -29,6 +29,7 @@
     <USH_GasVentConsumtion>Consumes {0} fuel per gas spread.</USH_GasVentConsumtion>
     <USH_GasVentChoose>Choose a vent to activate in the same power network.</USH_GasVentChoose>
     <USH_GasVentCantActivate>Can't activate {0}: {1}.</USH_GasVentCantActivate>
+    <USH_GasVentActivateAll>Activate all</USH_GasVentActivateAll>
 
     <USH_VirusReplicationRelated>Related condition: {0}.</USH_VirusReplicationRelated>
     <USH_VirusReplicationCount>Will yield: {0} pathogens.</USH_VirusReplicationCount>

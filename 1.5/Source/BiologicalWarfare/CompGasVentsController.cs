@@ -1,5 +1,7 @@
 ﻿using RimWorld;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 using Verse.AI;
 
@@ -7,19 +9,12 @@ namespace BiologicalWarfare
 {
     public class CompGasVentsController : CompInteractable
     {
-        private CompPower _compPower;
-        private Building _targetedGasVent;
-
-        public override void PostSpawnSetup(bool respawningAfterLoad)
-        {
-            base.PostSpawnSetup(respawningAfterLoad);
-            _compPower = parent.GetComp<CompPower>();
-        }
+        private InteractParams _interactParams;
 
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_References.Look(ref _targetedGasVent, "USH_TargetedGasVent");
+            Scribe_Deep.Look(ref _interactParams, "USH_InteractParams");
         }
 
         public override void OrderForceTarget(LocalTargetInfo target)
@@ -32,27 +27,43 @@ namespace BiologicalWarfare
         {
             base.OnInteracted(caster);
 
-            _targetedGasVent.TryGetComp<CompGasVent>().Interact(caster, true);
+            _interactParams.OnInteracted(caster);
         }
 
         public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
         {
             AcceptanceReport report = CanInteract(selPawn, true);
-            string optionLabel = Props.jobString.CapitalizeFirst();
 
-            FloatMenuOption interactOption = FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(optionLabel, delegate ()
+            FloatMenuOption activateOption = CreateActivateOption(Props.jobString.CapitalizeFirst(), selPawn, () => BeginVentTargeting(selPawn));
+
+            FloatMenuOption activateAllOption = CreateActivateOption("USH_GasVentActivateAll".Translate(), selPawn, delegate ()
             {
-                BeginVentTargeting(selPawn);
-            }, MenuOptionPriority.Default, null, null, 0f, null, null, true, 0), selPawn, parent);
+                _interactParams = new InteractParams(InteractParams.InteractType.All, this, null);
+                OrderPawnToInteract(selPawn);
+            });
 
             if (!report.Accepted)
             {
-                interactOption.Label += string.Format(" ({0})", report.Reason);
-                interactOption.Disabled = true;
+                DisableOption(activateOption, report.Reason);
+                DisableOption(activateAllOption, report.Reason);
             }
 
-            yield return interactOption;
+            yield return activateOption;
+            yield return activateAllOption;
         }
+
+        private FloatMenuOption CreateActivateOption(string label, Pawn pawn, Action action)
+        {
+            return FloatMenuUtility.DecoratePrioritizedTask(
+            new FloatMenuOption(label, action, MenuOptionPriority.Default, null, null, 0f, null, null, true, 0), pawn, parent);
+        }
+
+        private void DisableOption(FloatMenuOption option, string reason)
+        {
+            option.Label += string.Format(" ({0})", reason);
+            option.Disabled = true;
+        }
+
 
         public override AcceptanceReport CanInteract(Pawn activateBy = null, bool checkOptionalItems = true)
         {
@@ -81,12 +92,16 @@ namespace BiologicalWarfare
                     return;
                 }
 
-                _targetedGasVent = compGasVent.parent as Building;
-
-                Job job = JobMaker.MakeJob(JobDefOf.InteractThing, parent);
-                caster.jobs.TryTakeOrderedJob(job, new JobTag?(JobTag.Misc), false);
+                _interactParams = new InteractParams(InteractParams.InteractType.Single, this, compGasVent);
+                OrderPawnToInteract(caster);
 
             }, delegate (LocalTargetInfo t) { OnVentTargetingGUI(t); });
+        }
+
+        private void OrderPawnToInteract(Pawn pawn)
+        {
+            Job job = JobMaker.MakeJob(JobDefOf.InteractThing, parent);
+            pawn.jobs.TryTakeOrderedJob(job, new JobTag?(JobTag.Misc), false);
         }
 
         private void OnVentTargetingGUI(LocalTargetInfo target)
@@ -114,7 +129,7 @@ namespace BiologicalWarfare
             };
         }
 
-        private bool IsValidVentTarget(Thing thing)
+        public bool IsValidVentTarget(Thing thing)
         {
             if (thing == null)
                 return false;
@@ -122,13 +137,13 @@ namespace BiologicalWarfare
             if (thing.TryGetComp<CompGasVent>() == null)
                 return false;
 
-            if (!InTheSamePowerNet(_compPower, thing.TryGetComp<CompPower>()))
+            if (!InTheSamePowerNet(power, thing.TryGetComp<CompPower>()))
                 return false;
 
             return true;
         }
 
-        private bool InTheSamePowerNet(CompPower compPower1, CompPower compPower2)
+        public bool InTheSamePowerNet(CompPower compPower1, CompPower compPower2)
         {
             if (compPower1 == null)
                 return false;
@@ -137,6 +152,52 @@ namespace BiologicalWarfare
                 return false;
 
             return compPower1.PowerNet == compPower2.PowerNet;
+        }
+
+        private class InteractParams : IExposable
+        {
+            private InteractType _interactType;
+            private ThingWithComps _controller;
+            private ThingWithComps _targetedGasVent;
+            public InteractParams() { } //empty constructor for IExposable
+            public InteractParams(InteractType interactType, CompGasVentsController controller, CompGasVent targetedGasVent)
+            {
+                _interactType = interactType;
+                _controller = controller?.parent;
+                _targetedGasVent = targetedGasVent?.parent;
+            }
+            public void ExposeData()
+            {
+                Scribe_Values.Look(ref _interactType, "USH_InteractType");
+                Scribe_References.Look(ref _controller, "USH_Controller");
+                Scribe_References.Look(ref _targetedGasVent, "USH_TargetedGasVent");
+            }
+
+            public void OnInteracted(Pawn caster)
+            {
+                switch (_interactType)
+                {
+                    case InteractType.Single:
+                        _targetedGasVent?.GetComp<CompGasVent>().Interact(caster, true);
+                        break;
+                    case InteractType.All:
+                        PowerNet powerNet = _controller.GetComp<CompPowerTrader>().PowerNet;
+                        AllVentsInPowerNet(powerNet).Where(x => x.CanInteractRemotely(caster)).ToList().ForEach(x => x.Interact(caster, true));
+                        break;
+                }
+            }
+            private List<CompGasVent> AllVentsInPowerNet(PowerNet powerNet)
+            {
+                return powerNet.transmitters
+                    .Where(x => x.parent.GetComp<CompGasVent>() != null)
+                    .Select(x => x.parent.GetComp<CompGasVent>()).ToList();
+            }
+
+            public enum InteractType
+            {
+                Single,
+                All
+            }
         }
     }
 }
