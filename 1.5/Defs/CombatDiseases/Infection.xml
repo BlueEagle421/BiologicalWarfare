@@ -122,6 +122,7 @@
     <prerequisites>
       <li>USH_PathogenProductionRes</li>
     </prerequisites>
+    <baseCost>2400</baseCost>
     <researchViewX>2.50</researchViewX>
     <researchViewY>3.40</researchViewY>
   </ResearchProjectDef>
