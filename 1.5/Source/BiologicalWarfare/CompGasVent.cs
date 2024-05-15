@@ -52,7 +52,7 @@ namespace BiologicalWarfare
         private const int GAS_CELL_DELAY = 2;
         private const int SHUFFLE_STEPS = 12;
 
-        private const int GOODWILL_CHANGE = -2;
+        private const int GOODWILL_CHANGE = -12;
 
         public CompProperties_GasVent PropsVent => props as CompProperties_GasVent;
 

@@ -49,7 +49,7 @@ namespace BiologicalWarfare
         public CompProperties_VirusReplicator ReplicatorProps => (CompProperties_VirusReplicator)props;
 
         private CompDiseaseSampleContainer _sampleContainer;
-        private const int GOODWILL_CHANGE = -4;
+        private const int GOODWILL_CHANGE = -18;
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
