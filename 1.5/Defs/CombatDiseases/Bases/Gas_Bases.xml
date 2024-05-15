@@ -7,9 +7,9 @@
     <workerClass>OPToxic.DamageWorker_OPToxic</workerClass>
     <canInterruptJobs>false</canInterruptJobs>
     <makesBlood>false</makesBlood>
-    <defaultDamage>1</defaultDamage>
+    <defaultDamage>0</defaultDamage>
     <defaultArmorPenetration>0</defaultArmorPenetration>
-    <externalViolence>true</externalViolence>
+    <externalViolence>false</externalViolence>
     <explosionCellFleck>BlastExtinguisher</explosionCellFleck>
     <explosionColorEdge>(134,144,22,0.05)</explosionColorEdge>
     <soundExplosion>USH_ExplosionBiologicalGas</soundExplosion>
