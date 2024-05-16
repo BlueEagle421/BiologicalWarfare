@@ -78,6 +78,7 @@
     <Compile Include="HediffCompDisorientationSeverity.cs" />
     <Compile Include="HediffCompParasiteReproduction.cs" />
     <Compile Include="HediffCompVirusExtraction.cs" />
+    <Compile Include="IngestionOutcomeDoerGainMemory.cs" />
     <Compile Include="IngestionOutcomeDoerRemoveHediffs.cs" />
     <Compile Include="JobDrivers.cs" />
     <Compile Include="PatchHediffWithComps.cs" />

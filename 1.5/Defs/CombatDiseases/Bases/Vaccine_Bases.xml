@@ -39,11 +39,8 @@
       <chairSearchRadius>0</chairSearchRadius>
       <!--add thought giver-->
       <outcomeDoers>
-        <li Class="BiologicalWarfare.IngestionOutcomeDoerRemoveHediffs">
-          <hediffDefsToRemove>
-            <li>WoundInfection</li>
-          </hediffDefsToRemove>
-          <sendMessage>true</sendMessage>
+        <li Class="BiologicalWarfare.IngestionOutcomeGainMemory">
+          <thoughtDef>USH_VaccineWoozy</thoughtDef>
         </li>
       </outcomeDoers>
     </ingestible>

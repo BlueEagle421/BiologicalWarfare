@@ -22,11 +22,7 @@ namespace BiologicalWarfare
 
         public static JobDef USH_ResearchVaccine;
 
-        public static ThoughtDef USH_VaccineWoozy;
-
         public static SoundDef USH_SampleDisease;
-
-        public static SoundDef USH_VaccineInjected;
 
         public static HediffDef USH_DevelopingScaria;
 
