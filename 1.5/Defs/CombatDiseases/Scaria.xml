@@ -83,12 +83,14 @@
     <descriptionHyperlinks>
       <HediffDef>USH_ScariaVaccineHediff</HediffDef>
     </descriptionHyperlinks>
-    <comps>
-      <li Class="BiologicalWarfare.CompProperties_TargetEffectVaccine">
-        <jobDef>USH_InjectVaccine</jobDef>
-        <hediffDefVaccine>USH_ScariaVaccineHediff</hediffDefVaccine>
-      </li>
-    </comps>
+    <ingestible>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>USH_ScariaVaccineHediff</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
     <costList>
       <USH_ScariaPathogen>25</USH_ScariaPathogen>
     </costList>

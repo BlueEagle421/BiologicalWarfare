@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <ThingDef Name="USH_DiseaseVaccineBase" ParentName="ResourceBase" Abstract="True">
+  <ThingDef Name="USH_DiseaseVaccineBase" ParentName="MakeableDrugBase" Abstract="True">
     <label>{0} vaccine</label>
     <description>A syringe contaning a carefully prepared mixture of antigens. It prevents getting sick from {0} for 8 days and provides full protection from {0} pathogen gas.\n\nNote that it does not cure existing infections.</description>
     <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
-    <thingClass>ThingWithComps</thingClass>
+    <possessionCount>2</possessionCount>
     <graphicData>
       <texPath>Things/Item/Vaccine/Vaccine</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -13,8 +13,8 @@
       <drawSize>0.75</drawSize>
     </graphicData>
     <uiIconScale>1.2</uiIconScale>
-    <resourceReadoutPriority>Middle</resourceReadoutPriority>
-    <useHitPoints>true</useHitPoints>
+    <socialPropernessMatters>false</socialPropernessMatters>
+    <rotatable>false</rotatable>
     <statBases>
       <WorkToMake>2600</WorkToMake>
       <MaxHitPoints>50</MaxHitPoints>
@@ -23,19 +23,31 @@
       <Flammability>1.0</Flammability>
     </statBases>
     <techLevel>Industrial</techLevel>
-    <stackLimit>10</stackLimit>
-    <thingCategories>
-      <li>ItemsMisc</li>
-    </thingCategories>
+    <ingestible>
+      <drugCategory>Medical</drugCategory>
+      <foodType>Processed, Fluid</foodType>
+      <baseIngestTicks>80</baseIngestTicks>
+      <ingestSound>USH_VaccineInjected</ingestSound>
+      <ingestHoldOffsetStanding>
+        <northDefault>
+          <offset>(0.18,0,0)</offset>
+        </northDefault>
+      </ingestHoldOffsetStanding>
+      <ingestCommandString>Inject {0}</ingestCommandString>
+      <ingestReportString>Injecting {0}.</ingestReportString>
+      <useEatingSpeedStat>false</useEatingSpeedStat>
+      <chairSearchRadius>0</chairSearchRadius>
+      <!--add thought giver-->
+      <outcomeDoers>
+        <li Class="BiologicalWarfare.IngestionOutcomeDoerRemoveHediffs">
+          <hediffDefsToRemove>
+            <li>WoundInfection</li>
+          </hediffDefsToRemove>
+          <sendMessage>true</sendMessage>
+        </li>
+      </outcomeDoers>
+    </ingestible>
     <recipeMaker>
-      <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
-      <workSkill>Intellectual</workSkill>
-      <effectWorking>Cook</effectWorking>
-      <soundWorking>Recipe_CookMeal</soundWorking>
-      <skillRequirements>
-        <Crafting>4</Crafting>
-        <Intellectual>6</Intellectual>
-      </skillRequirements>
       <recipeUsers>
         <li>DrugLab</li>
       </recipeUsers>
@@ -45,30 +57,12 @@
       <Penoxycyline>1</Penoxycyline>
     </costList>
     <comps>
-      <li Class="CompProperties_Usable">
-        <useJob>USH_UseVaccine</useJob>
-        <useLabel>Inject {0_label}</useLabel>
-        <useDuration>0</useDuration>
-      </li>
-      <li Class="CompProperties_Targetable">
-        <compClass>CompTargetable_SinglePawn</compClass>
+      <li Class="CompProperties_Drug">
+        <listOrder>1000</listOrder>
+        <overdoseSeverityOffset>0.08~0.14</overdoseSeverityOffset>
       </li>
     </comps>
   </ThingDef>
-
-  <JobDef>
-    <defName>USH_UseVaccine</defName>
-    <driverClass>JobDriver_UseItem</driverClass>
-    <reportString>injecting TargetA to TargetB.</reportString>
-    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
-  </JobDef>
-
-  <JobDef>
-    <defName>USH_InjectVaccine</defName>
-    <driverClass>BiologicalWarfare.JobDriver_InjectVaccine</driverClass>
-    <reportString>injecting TargetB to TargetA.</reportString>
-    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
-  </JobDef>
 
   <HediffDef Name="USH_DiseaseVaccineHediffBase" Abstract="True">
     <hediffClass>HediffWithComps</hediffClass>

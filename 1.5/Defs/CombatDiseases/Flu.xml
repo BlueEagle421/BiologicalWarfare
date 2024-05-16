@@ -82,12 +82,14 @@
     <descriptionHyperlinks>
       <HediffDef>USH_FluVaccineHediff</HediffDef>
     </descriptionHyperlinks>
-    <comps>
-      <li Class="BiologicalWarfare.CompProperties_TargetEffectVaccine">
-        <jobDef>USH_InjectVaccine</jobDef>
-        <hediffDefVaccine>USH_FluVaccineHediff</hediffDefVaccine>
-      </li>
-    </comps>
+    <ingestible>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>USH_FluVaccineHediff</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
     <costList>
       <USH_FluPathogen>25</USH_FluPathogen>
     </costList>

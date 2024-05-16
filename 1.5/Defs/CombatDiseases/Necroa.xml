@@ -83,12 +83,14 @@
     <descriptionHyperlinks>
       <HediffDef>USH_NecroaVaccineHediff</HediffDef>
     </descriptionHyperlinks>
-    <comps>
-      <li Class="BiologicalWarfare.CompProperties_TargetEffectVaccine">
-        <jobDef>USH_InjectVaccine</jobDef>
-        <hediffDefVaccine>USH_NecroaVaccineHediff</hediffDefVaccine>
-      </li>
-    </comps>
+    <ingestible>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>USH_NecroaVaccineHediff</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
     <costList>
       <USH_NecroaPathogen>25</USH_NecroaPathogen>
     </costList>

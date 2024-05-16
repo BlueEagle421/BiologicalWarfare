@@ -85,12 +85,14 @@
     <descriptionHyperlinks>
       <HediffDef>USH_SleepingSicknessVaccineHediff</HediffDef>
     </descriptionHyperlinks>
-    <comps>
-      <li Class="BiologicalWarfare.CompProperties_TargetEffectVaccine">
-        <jobDef>USH_InjectVaccine</jobDef>
-        <hediffDefVaccine>USH_SleepingSicknessVaccineHediff</hediffDefVaccine>
-      </li>
-    </comps>
+    <ingestible>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>USH_SleepingSicknessVaccineHediff</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
     <costList>
       <USH_SleepingSicknessPathogen>25</USH_SleepingSicknessPathogen>
     </costList>
