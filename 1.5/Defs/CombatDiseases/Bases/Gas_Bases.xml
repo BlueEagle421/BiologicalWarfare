@@ -7,6 +7,8 @@
     <workerClass>BiologicalWarfare.DamageWorkerPathogenGas</workerClass>
     <canInterruptJobs>false</canInterruptJobs>
     <makesBlood>false</makesBlood>
+    <!-- damage must be greater then 0 for goodwill related code to work properly -->
+    <!-- it doesnt deal any damage except for infections -->
     <defaultDamage>1</defaultDamage>
     <defaultArmorPenetration>0</defaultArmorPenetration>
     <externalViolence>false</externalViolence>
