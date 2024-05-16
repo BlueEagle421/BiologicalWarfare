@@ -100,7 +100,7 @@ namespace BiologicalWarfare
             if (hediffDefToAdd == null)
                 return 0f;
 
-            if (IsImmuneTo(pawn, hediffDefToAdd))
+            if (pawn.IsImmuneTo(hediffDefToAdd))
                 return 0f;
 
             Hediff hediffFound = pawn.health?.hediffSet?.GetFirstHediffOfDef(hediffDefToAdd, false);
@@ -153,7 +153,7 @@ namespace BiologicalWarfare
             return true;
         }
 
-        public static bool IsImmuneTo(Pawn pawn, HediffDef hediffDef)
+        public static bool IsImmuneTo(this Pawn pawn, HediffDef hediffDef)
         {
             if (pawn.health.immunity.AnyGeneMakesFullyImmuneTo(hediffDef))
                 return true;

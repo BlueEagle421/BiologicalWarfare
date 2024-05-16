@@ -100,7 +100,7 @@ namespace BiologicalWarfare
                     if (!BiologicalUtils.CanPathogenInfect(pawn))
                         continue;
 
-                    if (BiologicalUtils.IsImmuneTo(pawn, diseaseToAdd))
+                    if (pawn.IsImmuneTo(diseaseToAdd))
                         continue;
 
                     if (pawn.Position.DistanceTo(parent.Position) <= parent.def.specialDisplayRadius)
