@@ -32,15 +32,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>..\..\..\..\..\..\..\..\..\..\Users\Joachim\Desktop\Moje twórczości\Mody\RimworldDevKit\Dependencies\1.5\Harmony\0Harmony.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\RimworldDevKit\Dependencies\1.5\Harmony\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\..\..\..\..\..\..\Users\Joachim\Desktop\Moje twórczości\Mody\RimworldDevKit\Dependencies\1.5\BaseGameManaged\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\RimworldDevKit\Dependencies\1.5\BaseManaged\Used\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="OPToxic">
-      <HintPath>..\..\..\..\..\..\..\..\..\..\Users\Joachim\Desktop\Moje twórczości\Mody\RimworldDevKit\Dependencies\1.5\VanillaFrameworkExpanded\Used\OPToxic.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\RimworldDevKit\Dependencies\1.5\Vanilla Framwork Expanded\Used\OPToxic.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -52,15 +52,11 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\..\..\..\..\..\..\Users\Joachim\Desktop\Moje twórczości\Mody\RimworldDevKit\Dependencies\1.5\BaseGameManaged\UnityEngine.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\RimworldDevKit\Dependencies\1.5\BaseManaged\Used\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\..\..\..\..\..\..\Users\Joachim\Desktop\Moje twórczości\Mody\RimworldDevKit\Dependencies\1.5\BaseGameManaged\UnityEngine.CoreModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>..\..\..\..\..\..\..\..\..\..\Users\Joachim\Desktop\Moje twórczości\Mody\RimworldDevKit\Dependencies\1.5\BaseGameManaged\UnityEngine.IMGUIModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\RimworldDevKit\Dependencies\1.5\BaseManaged\Used\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -82,6 +78,7 @@
     <Compile Include="HediffCompDisorientationSeverity.cs" />
     <Compile Include="HediffCompParasiteReproduction.cs" />
     <Compile Include="HediffCompVirusExtraction.cs" />
+    <Compile Include="IngestionOutcomeDoerGainMemory.cs" />
     <Compile Include="IngestionOutcomeDoerRemoveHediffs.cs" />
     <Compile Include="JobDrivers.cs" />
     <Compile Include="PatchHediffWithComps.cs" />
@@ -91,6 +88,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CompVirusReplicator.cs" />
     <Compile Include="BuildingTurretRocketCutoutComplex.cs" />
+    <Compile Include="DamageWorkerPathogenGas.cs" />
     <Compile Include="USHDefOf.cs" />
     <Compile Include="CompVaccine.cs" />
     <Compile Include="BuildingAntigensAnalyzer.cs" />

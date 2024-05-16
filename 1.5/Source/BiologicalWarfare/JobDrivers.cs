@@ -168,47 +168,4 @@ namespace BiologicalWarfare
             yield break;
         }
     }
-
-    public class JobDriver_InjectVaccine : JobDriver
-    {
-        private Pawn PawnToInjectTo => job.GetTarget(TargetIndex.A).Pawn;
-        private Thing Item => job.GetTarget(TargetIndex.B).Thing;
-        private HediffDef HediffDefToGive => Item.TryGetComp<CompTargetEffect_Vaccine>().PropsVaccine.hediffDefVaccine;
-
-        public override bool TryMakePreToilReservations(bool errorOnFailed)
-        {
-            if (pawn.Reserve(PawnToInjectTo, job))
-                return pawn.Reserve(Item, job);
-
-            return false;
-        }
-
-        protected override IEnumerable<Toil> MakeNewToils()
-        {
-            yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.Touch).FailOnDespawnedOrNull(TargetIndex.B).FailOnDespawnedOrNull(TargetIndex.A);
-            yield return Toils_Haul.StartCarryThing(TargetIndex.B);
-            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch).FailOnDespawnedOrNull(TargetIndex.A);
-            Toil toil = Toils_General.Wait(80);
-            toil.WithProgressBarToilDelay(TargetIndex.A);
-            toil.FailOnDespawnedOrNull(TargetIndex.A);
-            toil.FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch);
-            yield return toil;
-            yield return Toils_General.Do(() => GiveVaccineHediff(PawnToInjectTo));
-        }
-
-        private void GiveVaccineHediff(Pawn pawn)
-        {
-            if (HediffDefToGive == null)
-            {
-                Log.Error(nameof(JobDriver_InjectVaccine) + " tried to add null hediff");
-                return;
-            }
-
-            USHDefOf.USH_VaccineInjected.PlayOneShot(SoundInfo.InMap(pawn));
-
-            pawn.needs.mood.thoughts.memories.TryGainMemory(USHDefOf.USH_VaccineWoozy);
-            pawn.health.AddHediff(HediffDefToGive);
-            Item.SplitOff(1).Destroy(DestroyMode.Vanish);
-        }
-    }
 }

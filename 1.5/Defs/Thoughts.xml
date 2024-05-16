@@ -10,7 +10,7 @@
     <requiredTraitsDegree>2</requiredTraitsDegree>
     <stages>
       <li>
-        <label>woozy</label>
+        <label>got vaccine shot</label>
         <description>I feel woozy from the recent vaccine shot.</description>
         <baseMoodEffect>-3</baseMoodEffect>
       </li>

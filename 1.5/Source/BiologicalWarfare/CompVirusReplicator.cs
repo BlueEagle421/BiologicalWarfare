@@ -49,7 +49,7 @@ namespace BiologicalWarfare
         public CompProperties_VirusReplicator ReplicatorProps => (CompProperties_VirusReplicator)props;
 
         private CompDiseaseSampleContainer _sampleContainer;
-
+        private const int GOODWILL_CHANGE = -18;
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
@@ -111,9 +111,25 @@ namespace BiologicalWarfare
                     HediffCompVirusExtraction virusExtraction = pawn.health.AddHediff(USHDefOf.USH_VirusExtraction).TryGetComp<HediffCompVirusExtraction>();
                     virusExtraction.CombatDiseaseDef = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef;
                     virusExtraction.RecacheHediffInfo();
+
+                    DamageGoodwill(caster, pawn);
                 }
 
             _sampleContainer.innerContainer.ClearAndDestroyContents();
+        }
+
+        private void DamageGoodwill(Pawn caster, Pawn damaged)
+        {
+            if (caster?.HomeFaction == null || damaged?.HomeFaction == null)
+                return;
+
+            caster.HomeFaction.TryAffectGoodwillWith(
+                damaged.HomeFaction,
+                GOODWILL_CHANGE,
+                true,
+                true,
+                HistoryEventDefOf.UsedHarmfulItem,
+                damaged);
         }
     }
 
