@@ -7,7 +7,7 @@
     <workerClass>BiologicalWarfare.DamageWorkerPathogenGas</workerClass>
     <canInterruptJobs>false</canInterruptJobs>
     <makesBlood>false</makesBlood>
-    <defaultDamage>0</defaultDamage>
+    <defaultDamage>1</defaultDamage>
     <defaultArmorPenetration>0</defaultArmorPenetration>
     <externalViolence>false</externalViolence>
     <explosionCellFleck>BlastExtinguisher</explosionCellFleck>
