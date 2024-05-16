@@ -4,7 +4,7 @@
   <DamageDef Name="USH_BiologicalDamageBase" Abstract="True">
     <label>pathogen damage</label>
     <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
-    <workerClass>OPToxic.DamageWorker_OPToxic</workerClass>
+    <workerClass>BiologicalWarfare.DamageWorkerPathogenGas</workerClass>
     <canInterruptJobs>false</canInterruptJobs>
     <makesBlood>false</makesBlood>
     <defaultDamage>0</defaultDamage>

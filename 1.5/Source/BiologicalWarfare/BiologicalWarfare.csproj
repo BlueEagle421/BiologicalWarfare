@@ -87,6 +87,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CompVirusReplicator.cs" />
     <Compile Include="BuildingTurretRocketCutoutComplex.cs" />
+    <Compile Include="DamageWorkerPathogenGas.cs" />
     <Compile Include="USHDefOf.cs" />
     <Compile Include="CompVaccine.cs" />
     <Compile Include="BuildingAntigensAnalyzer.cs" />
