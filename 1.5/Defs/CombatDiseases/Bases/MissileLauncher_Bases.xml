@@ -29,9 +29,9 @@
       <MaxHitPoints>200</MaxHitPoints>
       <Flammability>0.7</Flammability>
       <WorkToBuild>10000</WorkToBuild>
-      <Mass>8</Mass>
+      <Mass>35</Mass>
       <Beauty>-20</Beauty>
-      <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+      <ShootingAccuracyTurret>0.85</ShootingAccuracyTurret>
     </statBases>
     <tickerType>Normal</tickerType>
     <comps>
