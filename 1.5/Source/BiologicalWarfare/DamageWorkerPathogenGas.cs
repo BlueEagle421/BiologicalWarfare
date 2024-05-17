@@ -22,8 +22,8 @@ namespace BiologicalWarfare
             if (victim.Faction == null)
                 return baseResult;
 
-            dinfo.Instigator?.Faction?.TryAffectGoodwillWith(
-                victim?.Faction,
+            dinfo.Instigator.Faction.TryAffectGoodwillWith(
+                victim.Faction,
                 GOODWILL_CHANGE,
                 true,
                 true,

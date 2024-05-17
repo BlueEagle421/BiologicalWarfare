@@ -35,16 +35,16 @@ namespace BiologicalWarfare
 
         private void SampleDisease()
         {
-            ThingDef pathogenToSpawn = BiologicalUtils.FirstSampleDefFrom(PawnToSampleFrom.health.hediffSet.hediffs);
+            ThingDef sampleToSpawn = BiologicalUtils.FirstSampleDefFrom(PawnToSampleFrom.health.hediffSet.hediffs);
 
-            if (pathogenToSpawn == null)
+            if (sampleToSpawn == null)
             {
                 Messages.Message("USH_NoDisease".Translate(PawnToSampleFrom.Named("PAWN")), PawnToSampleFrom, MessageTypeDefOf.NeutralEvent);
                 return;
             }
 
             USHDefOf.USH_SampleDisease.PlayOneShot(SoundInfo.InMap(PawnToSampleFrom));
-            BiologicalUtils.SpawnThingAt(PawnToSampleFrom.Map, PawnToSampleFrom.CellsAdjacent8WayAndInside().ToList(), pathogenToSpawn, 1);
+            BiologicalUtils.SpawnThingAt(PawnToSampleFrom.Map, PawnToSampleFrom.CellsAdjacent8WayAndInside().ToList(), sampleToSpawn, 1);
             Item.SplitOff(1).Destroy(DestroyMode.Vanish);
         }
     }
