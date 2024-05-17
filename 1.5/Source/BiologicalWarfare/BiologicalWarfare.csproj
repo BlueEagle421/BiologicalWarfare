@@ -64,6 +64,7 @@
     <Compile Include="BiologicalUtils.cs" />
     <Compile Include="BiologicalWarfareMod.cs" />
     <Compile Include="CombatDiseaseDef.cs" />
+    <Compile Include="CompAssignableToPawnGatherer.cs" />
     <Compile Include="CompBacteriaIncubator.cs" />
     <Compile Include="CompDiseaseSample.cs" />
     <Compile Include="CompGasVent.cs" />
