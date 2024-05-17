@@ -12,7 +12,7 @@ namespace BiologicalWarfare
                 return "USH_User".Translate() + ": " + "Nobody".Translate();
 
             if (AssignedPawnsForReading.Count == 1)
-                return "USH_User".Translate() + ": " + AssignedPawnsForReading[0].Label;
+                return "USH_User".Translate() + ": " + AssignedPawnsForReading[0].LabelShortCap;
 
             return "USH_Users".Translate() + ": " + string.Join(", ", AssignedPawnsForReading.Select(x => x.LabelShortCap));
         }
