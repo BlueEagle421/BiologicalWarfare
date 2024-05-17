@@ -19,7 +19,7 @@ namespace BiologicalWarfare
             if (_compDiseaseContainer.Empty)
                 return null;
 
-            return _compDiseaseContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.vaccineResProjectDef;
+            return _compDiseaseContainer.ContainedCombatDiseaseDef.vaccineResProjectDef;
         }
 
         public bool CanPerformResearch(Pawn pawn)
@@ -57,7 +57,7 @@ namespace BiologicalWarfare
             if (!Spawned)
                 return baseString;
 
-            CompDiseaseSample diseaseSample = _compDiseaseContainer.ContainedSampleComp();
+            CompDiseaseSample diseaseSample = _compDiseaseContainer.ContainedSampleComp;
 
             ResearchProjectDef vaccineProj = CurrentVaccineProject();
 

@@ -17,8 +17,16 @@ namespace BiologicalWarfare
     public class CompDiseaseSampleContainer : CompThingContainer
     {
         public CompProperties_DiseaseSampleContainer PropsSampleContainer => (CompProperties_DiseaseSampleContainer)props;
+        public CompDiseaseSample ContainedSampleComp => _containedSampleComp;
+        public CombatDiseaseDef ContainedCombatDiseaseDef => _containedSampleComp?.PropsDiseaseSample.combatDiseaseDef;
+        private CompDiseaseSample _containedSampleComp;
 
-        public CompDiseaseSample ContainedSampleComp() => ContainedThing.TryGetComp<CompDiseaseSample>();
+        public override void PostSpawnSetup(bool respawningAfterLoad)
+        {
+            base.PostSpawnSetup(respawningAfterLoad);
+
+            _containedSampleComp = ContainedThing?.TryGetComp<CompDiseaseSample>();
+        }
 
         public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
         {
@@ -39,8 +47,6 @@ namespace BiologicalWarfare
             }
 
             yield return extractOption;
-
-            yield break;
         }
 
         private void OrderExtractionJob(Pawn pawn)
@@ -82,6 +88,8 @@ namespace BiologicalWarfare
 
         public virtual void OnInserted(Pawn pawn)
         {
+            _containedSampleComp = ContainedThing?.TryGetComp<CompDiseaseSample>();
+
             SoundDef insertedSoundDef = PropsSampleContainer.insertedSoundDef;
             insertedSoundDef?.PlayOneShot(SoundInfo.InMap(parent));
         }
@@ -97,7 +105,7 @@ namespace BiologicalWarfare
             if (Empty)
                 return (string)"Nothing".Translate();
 
-            return ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.label;
+            return ContainedCombatDiseaseDef.label;
         }
     }
 }

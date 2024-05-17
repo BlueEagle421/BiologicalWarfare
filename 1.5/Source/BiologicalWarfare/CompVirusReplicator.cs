@@ -92,7 +92,7 @@ namespace BiologicalWarfare
             foreach (IntVec3 cell in parent.GetRoom().Cells.ToList())
                 foreach (Thing thing in parent.Map.thingGrid.ThingsAt(cell))
                 {
-                    HediffDef diseaseToAdd = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.giveHediffDef;
+                    HediffDef diseaseToAdd = _sampleContainer.ContainedCombatDiseaseDef.giveHediffDef;
 
                     if (!(thing is Pawn pawn))
                         continue;
@@ -109,7 +109,7 @@ namespace BiologicalWarfare
                     pawn.health.AddHediff(diseaseToAdd);
 
                     HediffCompVirusExtraction virusExtraction = pawn.health.AddHediff(USHDefOf.USH_VirusExtraction).TryGetComp<HediffCompVirusExtraction>();
-                    virusExtraction.CombatDiseaseDef = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef;
+                    virusExtraction.CombatDiseaseDef = _sampleContainer.ContainedCombatDiseaseDef;
                     virusExtraction.RecacheHediffInfo();
 
                     DamageGoodwill(caster, pawn);

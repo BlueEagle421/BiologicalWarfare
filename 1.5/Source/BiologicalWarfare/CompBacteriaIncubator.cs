@@ -99,7 +99,7 @@ namespace BiologicalWarfare
         {
             if (produceResult)
             {
-                ThingDef toSpawn = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.pathogenDef;
+                ThingDef toSpawn = _sampleContainer.ContainedCombatDiseaseDef.pathogenDef;
                 BiologicalUtils.SpawnThingAt(parent.Map, parent.CellsAdjacent8WayAndInside().ToList(), toSpawn, _patogensToProduce);
             }
 
@@ -152,7 +152,7 @@ namespace BiologicalWarfare
             string timeLeft = GenDate.ToStringTicksToPeriod(PropsBacteriaIncubator.incubationTicks - _incubationTicks);
             stringBuilder.AppendLine("USH_IncubatorTimeLeft".Translate(timeLeft));
 
-            string diseaseLabel = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.label;
+            string diseaseLabel = _sampleContainer.ContainedCombatDiseaseDef.label;
             stringBuilder.AppendLine("USH_IncubatorWillProduce".Translate(_patogensToProduce, diseaseLabel));
 
             return stringBuilder.ToString().Trim();
@@ -227,7 +227,7 @@ namespace BiologicalWarfare
             float pulseSpeed = 40f;
             float alphaMultiplier = 0.6f;
 
-            Color result = _sampleContainer.ContainedSampleComp().PropsDiseaseSample.combatDiseaseDef.colorInt.ToColor;
+            Color result = _sampleContainer.ContainedCombatDiseaseDef.colorInt.ToColor;
             result = result.ToTransparent(Mathf.Abs(Mathf.Sin(Find.TickManager.TicksGame / pulseSpeed)) * alphaMultiplier);
 
             return result;
