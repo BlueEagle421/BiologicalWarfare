@@ -13,6 +13,7 @@
       <drawSize>0.8</drawSize>
     </graphicData>
     <uiIconScale>1.2</uiIconScale>
+    <stackLimit>15</stackLimit>
     <socialPropernessMatters>false</socialPropernessMatters>
     <rotatable>false</rotatable>
     <statBases>
