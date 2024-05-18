@@ -3,7 +3,7 @@
 
   <DesignationDef>
     <defName>USH_GathererInteraction</defName>
-    <texturePath>UI/Gizmo/Activate</texturePath>
+    <texturePath>UI/UseGathererOverlay</texturePath>
     <targetType>Thing</targetType>
     <designateCancelable>false</designateCancelable>
   </DesignationDef>

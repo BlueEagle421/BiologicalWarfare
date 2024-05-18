@@ -23,7 +23,6 @@ namespace BiologicalWarfare
     public class WorkGiver_InteractWithMarkedGatherer : WorkGiver_Scanner
     {
         public override PathEndMode PathEndMode => PathEndMode.Touch;
-
         public override Danger MaxPathDanger(Pawn pawn) => Danger.Deadly;
 
         public override IEnumerable<Thing> PotentialWorkThingsGlobal(Pawn pawn)
@@ -31,9 +30,9 @@ namespace BiologicalWarfare
             List<Designation> desList = pawn.Map.designationManager.AllDesignations;
             for (int i = 0; i < desList.Count; i++)
             {
-                var des = desList[i];
-                if (des.def == USHDefOf.USH_GathererInteraction)
-                    yield return des.target.Thing;
+                var designation = desList[i];
+                if (designation.def == USHDefOf.USH_GathererInteraction)
+                    yield return designation.target.Thing;
             }
         }
 
