@@ -15,15 +15,4 @@
     <canBeDoneByMechs>false</canBeDoneByMechs>
   </WorkGiverDef>
 
-  <WorkGiverDef>
-    <defName>USH_InteractWithGatherer</defName>
-    <label>use mechanites gatherer</label>
-    <giverClass>BiologicalWarfare.WorkGiver_InteractWithMarkedGatherer</giverClass>
-    <workType>Patient</workType>
-    <verb>use</verb>
-    <gerund>using</gerund>
-    <canBeDoneWhileDrafted>true</canBeDoneWhileDrafted>
-    <priorityInType>100</priorityInType>
-  </WorkGiverDef>
-
 </Defs>
