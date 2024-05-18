@@ -36,7 +36,7 @@
     <minifiedDef>MinifiedThing</minifiedDef>
     <tickerType>Normal</tickerType>
     <costList>
-      <Steel>120</Steel>
+      <Steel>250</Steel>
       <Silver>80</Silver>
       <Plasteel>55</Plasteel>
       <Neutroamine>18</Neutroamine>
@@ -58,12 +58,29 @@
         <maxAssignedPawnsCount>-1</maxAssignedPawnsCount>
       </li>
       <li Class="BiologicalWarfare.CompProperties_DiseaseSampleContainer">
-        <acceptableDiseaseType>Mechanites</acceptableDiseaseType>
+        <compClass>BiologicalWarfare.CompMechanitesGathererContainer</compClass>
+        <acceptAllDiseaseTypes>true</acceptAllDiseaseTypes>
         <stackLimit>1</stackLimit>
         <insertedSoundDef>USH_SampleInserted</insertedSoundDef>
         <extractedSoundDef>USH_SampleExtracted</extractedSoundDef>
         <drawStackLabel>true</drawStackLabel>
         <drawContainedThing>false</drawContainedThing>
+      </li>
+      <li Class="BiologicalWarfare.CompProperties_MechanitesGatherer">
+        <ticksToGather>6000</ticksToGather>
+        <activeTicks>1</activeTicks>
+        <cooldownTicks>0</cooldownTicks>
+        <ticksToActivate>60</ticksToActivate>
+        <jobString>activate</jobString>
+        <onCooldownString>cooling off</onCooldownString>
+        <activateTexPath>UI/Gizmo/Activate</activateTexPath>
+        <soundActivate>USH_VirusReplicatorActivated</soundActivate>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
       </li>
     </comps>
     <researchPrerequisites>

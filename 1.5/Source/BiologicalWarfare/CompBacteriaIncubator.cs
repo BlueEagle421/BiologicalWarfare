@@ -247,6 +247,5 @@ namespace BiologicalWarfare
             dataStatic.instanceColor = color;
             map.flecks.CreateFleck(dataStatic);
         }
-
     }
 }
