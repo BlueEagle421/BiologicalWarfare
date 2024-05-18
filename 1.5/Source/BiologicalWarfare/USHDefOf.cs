@@ -12,6 +12,8 @@ namespace BiologicalWarfare
 
         public static JobDef USH_ExtractSample;
 
+        public static DesignationDef USH_GathererInteraction;
+
         public static HediffDef USH_VirusExtraction;
 
         public static HediffDef USH_ParasiticPerforation;

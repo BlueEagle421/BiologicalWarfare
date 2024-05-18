@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <DesignationDef>
+    <defName>USH_GathererInteraction</defName>
+    <texturePath>UI/Gizmo/Activate</texturePath>
+    <targetType>Thing</targetType>
+    <designateCancelable>false</designateCancelable>
+  </DesignationDef>
+
+</Defs>

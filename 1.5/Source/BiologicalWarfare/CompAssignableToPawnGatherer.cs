@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Verse;
-using Verse.AI;
 
 namespace BiologicalWarfare
 {
@@ -60,16 +59,11 @@ namespace BiologicalWarfare
         private CompAssignableToPawn _compAssignableToPawn;
         private CompDiseaseSampleContainer _compSampleContainer;
 
-        private const int HIT_POINTS_DAMAGE = 1;
-
         public new CompProperties_MechanitesGatherer Props => (CompProperties_MechanitesGatherer)props;
 
         public override string CompInspectStringExtra()
         {
             StringBuilder stringBuilder = new StringBuilder();
-
-            if (!_compSampleContainer.Empty)
-                stringBuilder.AppendLine("USH_SampleIntegrity".Translate(SampleIntegrity().ToStringPercent()));
 
             if (IsGathering)
             {
@@ -87,7 +81,6 @@ namespace BiologicalWarfare
         }
 
         private float GatheringProgress() => _gatheringTicks / (float)Props.ticksToGather;
-        private float SampleIntegrity() => _compSampleContainer.ContainedThing.HitPoints / (float)_compSampleContainer.ContainedThing.MaxHitPoints;
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
@@ -115,8 +108,6 @@ namespace BiologicalWarfare
 
             _gatheringTicks += (int)(GenTicks.TickLongInterval * _currentBiomeInfo.SpeedMultiplier);
 
-            _compSampleContainer.ContainedThing.HitPoints -= HIT_POINTS_DAMAGE;
-
             if (_gatheringTicks >= Props.ticksToGather)
                 GatheringEnded();
         }
@@ -124,33 +115,59 @@ namespace BiologicalWarfare
         private void GatheringEnded()
         {
             _readyToInfect = true;
+            UpdateDesignation(true);
 
             _gatheringTicks = 0;
         }
 
-        private void TryToInfectAnyAssigned()
+        private void UpdateDesignation(bool add)
         {
-            List<Pawn> pawnsAvailable =
-                _compAssignableToPawn.AssignedPawnsForReading
-                .Where(x => !x.health.hediffSet
-                .HasHediff(_compSampleContainer
-                .ContainedCombatDiseaseDef.giveHediffDef))
-                .ToList();
-
-            if (pawnsAvailable != null && pawnsAvailable.Count > 0)
-                OrderPawnToInteract(pawnsAvailable[0]);
+            Designation designation = parent.Map.designationManager.DesignationOn(parent, USHDefOf.USH_GathererInteraction);
+            if (designation == null && add)
+                parent.Map.designationManager.AddDesignation(new Designation(parent, USHDefOf.USH_GathererInteraction));
+            else
+                designation.Delete();
         }
 
-        private void OrderPawnToInteract(Pawn pawn)
+        protected override void OnInteracted(Pawn caster)
         {
-            Job job = JobMaker.MakeJob(JobDefOf.InteractThing, parent);
-            pawn.jobs.TryTakeOrderedJob(job, new JobTag?(JobTag.Misc), false);
+            base.OnInteracted(caster);
+
+            caster.health.AddHediff(_compSampleContainer.ContainedCombatDiseaseDef.giveHediffDef);
+
+            _readyToInfect = false;
+            UpdateDesignation(false);
         }
 
         public void OnSampleInserted()
         {
             _currentBiomeInfo = new GatheringInfo(parent.Map.Biome,
                     _compSampleContainer.ContainedCombatDiseaseDef.giveHediffDef);
+        }
+
+        public override IEnumerable<Gizmo> CompGetGizmosExtra()
+        {
+            if (DebugSettings.ShowDevGizmos)
+            {
+                Command_Action commandAction = new Command_Action
+                {
+                    defaultLabel = "DEBUG: Gather now",
+                    action = () => _gatheringTicks = Props.ticksToGather
+                };
+                yield return commandAction;
+            }
+        }
+
+        public override AcceptanceReport CanInteract(Pawn activateBy = null, bool checkOptionalItems = true)
+        {
+            if (!_compAssignableToPawn.AssignedPawnsForReading.Contains(activateBy))
+                return "NotAssigned".Translate();
+
+            HediffDef diseaseDef = _compSampleContainer.ContainedCombatDiseaseDef.giveHediffDef;
+            if (activateBy.health.hediffSet.HasHediff(diseaseDef))
+                return "USH_AlreadyInfected".Translate(diseaseDef.label);
+
+            return base.CanInteract(activateBy, checkOptionalItems);
         }
 
         private AcceptanceReport CanGather()

@@ -67,11 +67,12 @@
         <drawContainedThing>false</drawContainedThing>
       </li>
       <li Class="BiologicalWarfare.CompProperties_MechanitesGatherer">
-        <ticksToGather>6000</ticksToGather>
+        <ticksToGather>240000</ticksToGather> <!-- 2 days -->
         <activeTicks>1</activeTicks>
         <cooldownTicks>0</cooldownTicks>
         <ticksToActivate>60</ticksToActivate>
-        <jobString>activate</jobString>
+        <jobString>use</jobString>
+        <activatingString>using</activatingString>
         <onCooldownString>cooling off</onCooldownString>
         <activateTexPath>UI/Gizmo/Activate</activateTexPath>
         <soundActivate>USH_VirusReplicatorActivated</soundActivate>
