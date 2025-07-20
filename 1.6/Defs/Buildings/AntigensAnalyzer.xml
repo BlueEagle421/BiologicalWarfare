@@ -2,7 +2,7 @@
 <Defs>
 
   <ThingDef ParentName="BuildingBase">
-    <thingClass>BiologicalWarfare.Building_AntigensAnalyzer</thingClass>
+    <thingClass>USH_BW.Building_AntigensAnalyzer</thingClass>
     <defName>USH_AntigensAnalyzer</defName>
     <label>antigens analyzer</label>
     <description>A lab-grade machine designed to analyze disease samples and develop antigens. It requires an inserted sample and a researcher to operate it. All previous antigens research requirements must be met for it to function properly.</description>
@@ -55,7 +55,7 @@
         <shortCircuitInRain>false</shortCircuitInRain>
       </li>
       <li Class="CompProperties_Flickable" />
-      <li Class="BiologicalWarfare.CompProperties_DiseaseSampleContainer">
+      <li Class="USH_BW.CompProperties_DiseaseSampleContainer">
         <acceptAllDiseaseTypes>true</acceptAllDiseaseTypes>
         <stackLimit>1</stackLimit>
         <insertedSoundDef>USH_SampleInserted</insertedSoundDef>

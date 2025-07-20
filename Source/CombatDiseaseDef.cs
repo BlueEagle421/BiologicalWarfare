@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Verse;
 
-namespace BiologicalWarfare
+namespace USH_BW
 {
     public class CombatDiseaseDef : Def
     {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase" MayRequire="Ludeon.RimWorld.Anomaly">
+  <USH_BW.CombatDiseaseDef ParentName="USH_CombatDiseaseBase" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_Necroa</defName>
     <label>necroa</label>
     <samplableHediffDefs>
@@ -55,12 +55,12 @@
     <!-- pathogen def is optional -->
     <pathogenDef>USH_NecroaPathogen</pathogenDef>
 
-  </BiologicalWarfare.CombatDiseaseDef>
+  </USH_BW.CombatDiseaseDef>
 
   <ThingDef ParentName="USH_VirusSampleBase" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_NecroaSample</defName>
     <comps>
-      <li Class="BiologicalWarfare.CompProperties_DiseaseSample">
+      <li Class="USH_BW.CompProperties_DiseaseSample">
         <combatDiseaseDef>USH_Necroa</combatDiseaseDef>
       </li>
     </comps>
@@ -116,7 +116,7 @@
     <defName>USH_NecroaAntiserum</defName>
     <ingestible>
       <outcomeDoers>
-        <li Class="BiologicalWarfare.IngestionOutcomeDoerRemoveHediffs">
+        <li Class="USH_BW.IngestionOutcomeDoerRemoveHediffs">
           <hediffDefsToRemove>
             <li>USH_Necroa</li>
           </hediffDefsToRemove>
@@ -141,7 +141,7 @@
   <ThingDef ParentName="USH_BiologicalGasBase" MayRequire="Ludeon.RimWorld.Anomaly">
     <defName>USH_NecroaGas</defName>
     <modExtensions>
-      <li Class="BiologicalWarfare.PathogenGasExtension">
+      <li Class="USH_BW.PathogenGasExtension">
         <HediffDef>USH_Necroa</HediffDef>
         <SeverityPerPeriod>0.09</SeverityPerPeriod>
         <PeriodTicks>60</PeriodTicks>
@@ -221,7 +221,7 @@
           </thingDefs>
         </fuelFilter>
       </li>
-      <li Class="BiologicalWarfare.CompProperties_GasVent">
+      <li Class="USH_BW.CompProperties_GasVent">
         <gasDef>USH_NecroaGas</gasDef>
         <pathogensPerCell>0.5</pathogensPerCell>
         <activeTicks>1</activeTicks>

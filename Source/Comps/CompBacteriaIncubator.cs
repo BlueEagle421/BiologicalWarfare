@@ -4,7 +4,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace BiologicalWarfare
+namespace USH_BW
 {
     public class CompProperties_BacteriaIncubator : CompProperties_Interactable
     {

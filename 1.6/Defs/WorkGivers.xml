@@ -4,7 +4,7 @@
   <WorkGiverDef>
     <defName>USH_VaccineResearch</defName>
     <label>do vaccine research</label>
-    <giverClass>BiologicalWarfare.WorkGiver_VaccineResearcher</giverClass>
+    <giverClass>USH_BW.WorkGiver_VaccineResearcher</giverClass>
     <workType>Research</workType>
     <verb>research</verb>
     <gerund>researching at</gerund>

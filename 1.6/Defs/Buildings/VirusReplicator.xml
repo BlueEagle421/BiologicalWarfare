@@ -53,7 +53,7 @@
         <shortCircuitInRain>true</shortCircuitInRain>
       </li>
       <li Class="CompProperties_Flickable" />
-      <li Class="BiologicalWarfare.CompProperties_DiseaseSampleContainer">
+      <li Class="USH_BW.CompProperties_DiseaseSampleContainer">
         <acceptableDiseaseType>Virus</acceptableDiseaseType>
         <stackLimit>1</stackLimit>
         <insertedSoundDef>USH_SampleInserted</insertedSoundDef>
@@ -61,7 +61,7 @@
         <drawStackLabel>true</drawStackLabel>
         <drawContainedThing>false</drawContainedThing>
       </li>
-      <li Class="BiologicalWarfare.CompProperties_VirusReplicator">
+      <li Class="USH_BW.CompProperties_VirusReplicator">
         <maxRoomCellSize>225</maxRoomCellSize>
         <activeTicks>1</activeTicks>
         <cooldownTicks>0</cooldownTicks>
@@ -84,7 +84,7 @@
     </researchPrerequisites>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
     <placeWorkers>
-      <li>BiologicalWarfare.PlaceWorker_VirusReplicator</li>
+      <li>USH_BW.PlaceWorker_VirusReplicator</li>
     </placeWorkers>
   </ThingDef>
 

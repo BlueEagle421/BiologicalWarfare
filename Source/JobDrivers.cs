@@ -5,7 +5,7 @@ using Verse;
 using Verse.AI;
 using Verse.Sound;
 
-namespace BiologicalWarfare
+namespace USH_BW
 {
     public class JobDriver_SampleDisease : JobDriver
     {

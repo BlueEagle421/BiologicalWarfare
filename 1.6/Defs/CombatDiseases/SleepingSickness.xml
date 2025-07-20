@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
+  <USH_BW.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
     <defName>USH_SleepingSickness</defName>
     <label>sleeping sickness</label>
     <samplableHediffDefs>
@@ -54,7 +54,7 @@
     <!-- pathogen def is optional -->
     <pathogenDef>USH_SleepingSicknessPathogen</pathogenDef>
 
-  </BiologicalWarfare.CombatDiseaseDef>
+  </USH_BW.CombatDiseaseDef>
 
   <ThingDef ParentName="USH_ParasiteSampleBase">
     <defName>USH_SleepingSicknessSample</defName>
@@ -62,7 +62,7 @@
       <ThingDef>USH_SleepingSicknessReproductionPills</ThingDef>
     </descriptionHyperlinks>
     <comps>
-      <li Class="BiologicalWarfare.CompProperties_DiseaseSample">
+      <li Class="USH_BW.CompProperties_DiseaseSample">
         <combatDiseaseDef>USH_SleepingSickness</combatDiseaseDef>
       </li>
     </comps>
@@ -118,7 +118,7 @@
     <defName>USH_SleepingSicknessAntiserum</defName>
     <ingestible>
       <outcomeDoers>
-        <li Class="BiologicalWarfare.IngestionOutcomeDoerRemoveHediffs">
+        <li Class="USH_BW.IngestionOutcomeDoerRemoveHediffs">
           <hediffDefsToRemove>
             <li>SleepingSickness</li>
           </hediffDefsToRemove>
@@ -159,7 +159,7 @@
   <HediffDef ParentName="USH_ParasiteReproductionBase">
     <defName>USH_SleepingSicknessReproduction</defName>
     <comps>
-      <li Class="BiologicalWarfare.HediffCompProperties_ParasiteReproduction">
+      <li Class="USH_BW.HediffCompProperties_ParasiteReproduction">
         <combatDiseaseDef>USH_SleepingSickness</combatDiseaseDef>
         <reproductionDurationTicks>10000</reproductionDurationTicks>
         <basePathogenCount>4</basePathogenCount>
@@ -175,7 +175,7 @@
   <ThingDef ParentName="USH_BiologicalGasBase">
     <defName>USH_SleepingSicknessGas</defName>
     <modExtensions>
-      <li Class="BiologicalWarfare.PathogenGasExtension">
+      <li Class="USH_BW.PathogenGasExtension">
         <HediffDef>SleepingSickness</HediffDef>
         <SeverityPerPeriod>0.07</SeverityPerPeriod>
         <PeriodTicks>60</PeriodTicks>
@@ -255,7 +255,7 @@
           </thingDefs>
         </fuelFilter>
       </li>
-      <li Class="BiologicalWarfare.CompProperties_GasVent">
+      <li Class="USH_BW.CompProperties_GasVent">
         <gasDef>USH_SleepingSicknessGas</gasDef>
         <pathogensPerCell>0.5</pathogensPerCell>
         <activeTicks>1</activeTicks>

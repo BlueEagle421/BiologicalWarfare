@@ -40,7 +40,7 @@
       <chairSearchRadius>0</chairSearchRadius>
       <!--add thought giver-->
       <outcomeDoers>
-        <li Class="BiologicalWarfare.IngestionOutcomeGainMemory">
+        <li Class="USH_BW.IngestionOutcomeGainMemory">
           <thoughtDef>USH_VaccineWoozy</thoughtDef>
         </li>
       </outcomeDoers>

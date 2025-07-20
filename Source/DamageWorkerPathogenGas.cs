@@ -2,7 +2,7 @@
 using VEF.Weapons;
 using Verse;
 
-namespace BiologicalWarfare
+namespace USH_BW
 {
     public class DamageWorkerPathogenGas : DamageWorker_OPToxic
     {

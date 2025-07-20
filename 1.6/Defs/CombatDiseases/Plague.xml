@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
+  <USH_BW.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
     <defName>USH_Plague</defName>
     <label>plague</label>
     <samplableHediffDefs>
@@ -54,12 +54,12 @@
     <!-- pathogen def is optional -->
     <pathogenDef>USH_PlaguePathogen</pathogenDef>
 
-  </BiologicalWarfare.CombatDiseaseDef>
+  </USH_BW.CombatDiseaseDef>
 
   <ThingDef ParentName="USH_BacteriaSampleBase">
     <defName>USH_PlagueSample</defName>
     <comps>
-      <li Class="BiologicalWarfare.CompProperties_DiseaseSample">
+      <li Class="USH_BW.CompProperties_DiseaseSample">
         <combatDiseaseDef>USH_Plague</combatDiseaseDef>
       </li>
     </comps>
@@ -115,7 +115,7 @@
     <defName>USH_PlagueAntiserum</defName>
     <ingestible>
       <outcomeDoers>
-        <li Class="BiologicalWarfare.IngestionOutcomeDoerRemoveHediffs">
+        <li Class="USH_BW.IngestionOutcomeDoerRemoveHediffs">
           <hediffDefsToRemove>
             <li>Plague</li>
           </hediffDefsToRemove>
@@ -140,7 +140,7 @@
   <ThingDef ParentName="USH_BiologicalGasBase">
     <defName>USH_PlagueGas</defName>
     <modExtensions>
-      <li Class="BiologicalWarfare.PathogenGasExtension">
+      <li Class="USH_BW.PathogenGasExtension">
         <HediffDef>Plague</HediffDef>
         <SeverityPerPeriod>0.07</SeverityPerPeriod>
         <PeriodTicks>60</PeriodTicks>
@@ -220,7 +220,7 @@
           </thingDefs>
         </fuelFilter>
       </li>
-      <li Class="BiologicalWarfare.CompProperties_GasVent">
+      <li Class="USH_BW.CompProperties_GasVent">
         <gasDef>USH_PlagueGas</gasDef>
         <pathogensPerCell>0.5</pathogensPerCell>
         <activeTicks>1</activeTicks>

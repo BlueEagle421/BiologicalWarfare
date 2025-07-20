@@ -11,7 +11,7 @@
     <defaultLabelColor>(0.9, 1.0, 0.35)</defaultLabelColor>
     <duplicationAllowed>false</duplicationAllowed>
     <comps>
-      <li Class="BiologicalWarfare.HediffCompProperties_VirusExtraction">
+      <li Class="USH_BW.HediffCompProperties_VirusExtraction">
         <basePathogenCount>25</basePathogenCount>
         <multiplyByBodySize>true</multiplyByBodySize>
         <multiplyBySeverity>true</multiplyBySeverity>

@@ -78,7 +78,7 @@
         <severityPerDay>-0.5</severityPerDay>
         <showHoursToRecover>true</showHoursToRecover>
       </li>
-      <li Class="BiologicalWarfare.HediffCompProperties_DisorientationSeverity">
+      <li Class="USH_BW.HediffCompProperties_DisorientationSeverity">
         <severityRange>0.8~1</severityRange>
         <wanderMtbHours>0.08</wanderMtbHours>
         <singleWanderDurationTicks>180</singleWanderDurationTicks>

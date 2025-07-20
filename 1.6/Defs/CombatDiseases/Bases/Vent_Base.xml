@@ -41,7 +41,7 @@
     </costList>
     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
     <placeWorkers>
-      <li>BiologicalWarfare.PlaceWorker_GasVent</li>
+      <li>USH_BW.PlaceWorker_GasVent</li>
     </placeWorkers>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
     <designationCategory>Security</designationCategory>

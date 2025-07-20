@@ -1,7 +1,7 @@
 ﻿using RimWorld;
 using Verse;
 
-namespace BiologicalWarfare
+namespace USH_BW
 {
     public class IngestionOutcomeGainMemory : IngestionOutcomeDoer
     {

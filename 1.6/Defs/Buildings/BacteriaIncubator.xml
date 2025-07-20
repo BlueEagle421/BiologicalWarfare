@@ -53,8 +53,8 @@
         <shortCircuitInRain>false</shortCircuitInRain>
       </li>
       <li Class="CompProperties_Flickable" />
-      <li Class="BiologicalWarfare.CompProperties_DiseaseSampleContainer">
-        <compClass>BiologicalWarfare.CompBateriaIncubatorContainer</compClass>
+      <li Class="USH_BW.CompProperties_DiseaseSampleContainer">
+        <compClass>USH_BW.CompBateriaIncubatorContainer</compClass>
         <acceptableDiseaseType>Bacteria</acceptableDiseaseType>
         <stackLimit>1</stackLimit>
         <insertedSoundDef>USH_SampleInserted</insertedSoundDef>
@@ -76,7 +76,7 @@
           </thingDefs>
         </fuelFilter>
       </li>
-      <li Class="BiologicalWarfare.CompProperties_BacteriaIncubator">
+      <li Class="USH_BW.CompProperties_BacteriaIncubator">
         <pathogensPerFuel>3</pathogensPerFuel>
         <incubationTicks>20000</incubationTicks>
         <activeTicks>1</activeTicks>

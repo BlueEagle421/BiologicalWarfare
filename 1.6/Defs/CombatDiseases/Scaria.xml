@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
+  <USH_BW.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
     <defName>USH_Scaria</defName>
     <label>scaria</label>
     <samplableHediffDefs>
@@ -55,12 +55,12 @@
     <!-- pathogen def is optional -->
     <pathogenDef>USH_ScariaPathogen</pathogenDef>
 
-  </BiologicalWarfare.CombatDiseaseDef>
+  </USH_BW.CombatDiseaseDef>
 
   <ThingDef ParentName="USH_VirusSampleBase">
     <defName>USH_ScariaSample</defName>
     <comps>
-      <li Class="BiologicalWarfare.CompProperties_DiseaseSample">
+      <li Class="USH_BW.CompProperties_DiseaseSample">
         <combatDiseaseDef>USH_Scaria</combatDiseaseDef>
       </li>
     </comps>
@@ -118,7 +118,7 @@
     <defName>USH_ScariaAntiserum</defName>
     <ingestible>
       <outcomeDoers>
-        <li Class="BiologicalWarfare.IngestionOutcomeDoerRemoveHediffs">
+        <li Class="USH_BW.IngestionOutcomeDoerRemoveHediffs">
           <hediffDefsToRemove>
             <li>Scaria</li>
             <li>USH_DevelopingScaria</li>
@@ -145,7 +145,7 @@
   <ThingDef ParentName="USH_BiologicalGasBase">
     <defName>USH_ScariaGas</defName>
     <modExtensions>
-      <li Class="BiologicalWarfare.PathogenGasExtension">
+      <li Class="USH_BW.PathogenGasExtension">
         <HediffDef>USH_DevelopingScaria</HediffDef>
         <SeverityPerPeriod>0.09</SeverityPerPeriod>
         <PeriodTicks>60</PeriodTicks>
@@ -225,7 +225,7 @@
           </thingDefs>
         </fuelFilter>
       </li>
-      <li Class="BiologicalWarfare.CompProperties_GasVent">
+      <li Class="USH_BW.CompProperties_GasVent">
         <gasDef>USH_ScariaGas</gasDef>
         <pathogensPerCell>0.5</pathogensPerCell>
         <activeTicks>1</activeTicks>

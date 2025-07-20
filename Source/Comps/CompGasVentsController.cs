@@ -5,7 +5,7 @@ using System.Linq;
 using Verse;
 using Verse.AI;
 
-namespace BiologicalWarfare
+namespace USH_BW
 {
     public class CompGasVentsController : CompInteractable
     {

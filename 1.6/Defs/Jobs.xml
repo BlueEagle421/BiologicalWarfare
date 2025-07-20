@@ -3,19 +3,19 @@
 
   <JobDef>
     <defName>USH_InsertSample</defName>
-    <driverClass>BiologicalWarfare.JobDriver_InsertSample</driverClass>
+    <driverClass>USH_BW.JobDriver_InsertSample</driverClass>
     <reportString>inserting TargetA to TargetB.</reportString>
   </JobDef>
 
   <JobDef>
     <defName>USH_ExtractSample</defName>
-    <driverClass>BiologicalWarfare.JobDriver_ExtractSample</driverClass>
+    <driverClass>USH_BW.JobDriver_ExtractSample</driverClass>
     <reportString>extracting sample from TargetA.</reportString>
   </JobDef>
 
   <JobDef>
     <defName>USH_ResearchVaccine</defName>
-    <driverClass>BiologicalWarfare.JobDriver_VaccineResearch</driverClass>
+    <driverClass>USH_BW.JobDriver_VaccineResearch</driverClass>
     <reportString>researching vaccine.</reportString>
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>

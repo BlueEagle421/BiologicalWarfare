@@ -21,7 +21,7 @@
         <immunityPerDayNotSick>-0.06</immunityPerDayNotSick>
       </li>
       <li Class="HediffCompProperties">
-        <compClass>BiologicalWarfare.HediffCompNecroa</compClass>
+        <compClass>USH_BW.HediffCompNecroa</compClass>
       </li>
     </comps>
     <stages>

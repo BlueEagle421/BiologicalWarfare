@@ -2,7 +2,7 @@
 using RimWorld;
 using Verse;
 
-namespace BiologicalWarfare
+namespace USH_BW
 {
     [HarmonyPatch(typeof(HediffWithComps), nameof(HediffWithComps.Notify_PawnUsedVerb))]
     public static class PatchHediffWithComps

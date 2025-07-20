@@ -24,7 +24,7 @@
         <severityPerDayImmune>-0.4947</severityPerDayImmune>
         <immunityPerDayNotSick>-0.06</immunityPerDayNotSick>
       </li>
-      <li Class="BiologicalWarfare.HediffCompProperties_DevelopingScaria">
+      <li Class="USH_BW.HediffCompProperties_DevelopingScaria">
         <severityToDevelop>1</severityToDevelop>
         <animalMentalState>ManhunterPermanent</animalMentalState>
         <animalMentalStateAlias>Manhunter</animalMentalStateAlias>

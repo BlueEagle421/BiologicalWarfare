@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Verse;
 
-namespace BiologicalWarfare
+namespace USH_BW
 {
     public class IngestionOutcomeDoerRemoveHediffs : IngestionOutcomeDoer
     {

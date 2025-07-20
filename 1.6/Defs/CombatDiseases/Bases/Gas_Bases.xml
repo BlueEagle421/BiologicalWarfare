@@ -4,7 +4,7 @@
   <DamageDef Name="USH_BiologicalDamageBase" Abstract="True">
     <label>pathogen damage</label>
     <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
-    <workerClass>BiologicalWarfare.DamageWorkerPathogenGas</workerClass>
+    <workerClass>USH_BW.DamageWorkerPathogenGas</workerClass>
     <canInterruptJobs>false</canInterruptJobs>
     <makesBlood>false</makesBlood>
     <!-- damage must be greater then 0 for goodwill related code to work properly -->
@@ -30,7 +30,7 @@
     <graphicData>
       <texPath>Things/Gas/ThickSmoke</texPath>
       <drawSize>2.6</drawSize>
-      <graphicClass>BiologicalWarfare.GraphicPathogenGas</graphicClass>
+      <graphicClass>USH_BW.GraphicPathogenGas</graphicClass>
       <shaderType>Transparent</shaderType>
     </graphicData>
     <gas>
@@ -40,7 +40,7 @@
       </expireSeconds>
       <rotationSpeed>20</rotationSpeed>
     </gas>
-    <thingClass>BiologicalWarfare.PathogenGas</thingClass>
+    <thingClass>USH_BW.PathogenGas</thingClass>
   </ThingDef>
 
 </Defs>

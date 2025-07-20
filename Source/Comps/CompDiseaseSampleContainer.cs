@@ -4,7 +4,7 @@ using Verse;
 using Verse.AI;
 using Verse.Sound;
 
-namespace BiologicalWarfare
+namespace USH_BW
 {
     public class CompProperties_DiseaseSampleContainer : CompProperties_ThingContainer
     {

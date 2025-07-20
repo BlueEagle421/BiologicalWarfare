@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Verse;
 
-namespace BiologicalWarfare
+namespace USH_BW
 {
     public class HediffCompNecroa : HediffComp
     {

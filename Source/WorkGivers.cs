@@ -2,7 +2,7 @@
 using Verse;
 using Verse.AI;
 
-namespace BiologicalWarfare
+namespace USH_BW
 {
     public class WorkGiver_VaccineResearcher : WorkGiver_Scanner
     {

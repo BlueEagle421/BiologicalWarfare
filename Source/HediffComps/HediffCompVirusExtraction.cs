@@ -2,7 +2,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace BiologicalWarfare
+namespace USH_BW
 {
     public class HediffCompProperties_VirusExtraction : HediffCompProperties
     {

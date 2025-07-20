@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <BiologicalWarfare.CombatDiseaseDef Name="USH_CombatDiseaseBase" Abstract="True">
+  <USH_BW.CombatDiseaseDef Name="USH_CombatDiseaseBase" Abstract="True">
     <!-- not much to see here :) -->
-  </BiologicalWarfare.CombatDiseaseDef>
+  </USH_BW.CombatDiseaseDef>
 
 </Defs>

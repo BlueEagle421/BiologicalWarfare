@@ -43,7 +43,7 @@
       <li Class="CompProperties_Targetable">
         <compClass>CompTargetable_SinglePawn</compClass>
       </li>
-      <li Class="BiologicalWarfare.CompProperties_TargetEffectSampleDisease">
+      <li Class="USH_BW.CompProperties_TargetEffectSampleDisease">
         <jobDef>USH_SampleDisease</jobDef>
       </li>
     </comps>
@@ -51,7 +51,7 @@
 
   <JobDef>
     <defName>USH_SampleDisease</defName>
-    <driverClass>BiologicalWarfare.JobDriver_SampleDisease</driverClass>
+    <driverClass>USH_BW.JobDriver_SampleDisease</driverClass>
     <reportString>sampling disease from TargetA.</reportString>
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>

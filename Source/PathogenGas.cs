@@ -4,7 +4,7 @@ using UnityEngine;
 using VEF;
 using Verse;
 
-namespace BiologicalWarfare
+namespace USH_BW
 {
     public class PathogenGas : Gas
     {
