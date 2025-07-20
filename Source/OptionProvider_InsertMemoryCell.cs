@@ -40,14 +40,13 @@ public class FloatMenuOptionProvider_InsertMemoryCell : FloatMenuOptionProvider
 
     public override IEnumerable<FloatMenuOption> GetOptionsFor(Thing clickedThing, FloatMenuContext context)
     {
-        if (!clickedThing.TryGetComp(out CompDiseaseSample memoryCell))
+        if (!clickedThing.TryGetComp(out CompDiseaseSample _))
             yield break;
 
-        yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("USH_GE_InsertMemoryCell".Translate(clickedThing.Label), delegate
+        yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("USH_InsertSample".Translate(clickedThing.Label.Named("ITEM")), delegate
             {
                 CreateInsertJobTargeter(context.FirstSelectedPawn, clickedThing);
             }), context.FirstSelectedPawn, new LocalTargetInfo(clickedThing));
-
     }
 
     private static void CreateInsertJobTargeter(Pawn p, Thing item)
@@ -72,6 +71,27 @@ public class FloatMenuOptionProvider_InsertMemoryCell : FloatMenuOptionProvider
     private static void GiveJobToPawn(Pawn p, LocalTargetInfo target, Thing item)
     {
         Building targetBuilding = target.Thing as Building;
+
+        CompDiseaseSampleContainer sampleContainer = (target.Thing as Building).GetComp<CompDiseaseSampleContainer>();
+
+        if (sampleContainer == null && sampleContainer.Full)
+            return;
+
+        if (sampleContainer.Full)
+        {
+            Messages.Message("USH_SampleContainerFull".Translate(target.Thing.Named("BUILDING")), p, MessageTypeDefOf.RejectInput);
+            return;
+        }
+
+        CompDiseaseSample compDiseaseSample = item.TryGetComp<CompDiseaseSample>();
+
+        AcceptanceReport canInsert = sampleContainer.CanInsert(p, compDiseaseSample);
+
+        if (!canInsert)
+        {
+            Messages.Message(canInsert.Reason, target.Thing, MessageTypeDefOf.RejectInput);
+            return;
+        }
 
         Job job = JobMaker.MakeJob(USHDefOf.USH_InsertSample, item, targetBuilding, targetBuilding.InteractionCell);
         job.count = 1;
