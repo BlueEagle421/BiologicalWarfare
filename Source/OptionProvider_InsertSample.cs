@@ -6,7 +6,7 @@ using Verse.AI;
 
 namespace BiologicalWarfare;
 
-public class FloatMenuOptionProvider_InsertMemoryCell : FloatMenuOptionProvider
+public class FloatMenuOptionProvider_InsertSample : FloatMenuOptionProvider
 {
     protected override bool Drafted => true;
     protected override bool Undrafted => true;
@@ -15,7 +15,7 @@ public class FloatMenuOptionProvider_InsertMemoryCell : FloatMenuOptionProvider
 
     private static readonly TargetingParameters targetingParameters;
 
-    static FloatMenuOptionProvider_InsertMemoryCell()
+    static FloatMenuOptionProvider_InsertSample()
     {
         targetingParameters = new TargetingParameters
         {
