@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
+    <defName>USH_Infection</defName>
+    <label>wound infection</label>
+    <samplableHediffDefs>
+      <li>WoundInfection</li>
+    </samplableHediffDefs>
+    <giveHediffDef>WoundInfection</giveHediffDef>
+    <diseaseType>Bacteria</diseaseType>
+    <colorInt>(138, 160, 92, 255)</colorInt>
+
+    <!-- formats {0} to label and {1} to disease type -->
+    <!-- also sets color in graphicData -->
+    <thingDefsToFormatAndColor>
+      <li>USH_InfectionSample</li>
+      <li>USH_InfectionPathogen</li>
+      <li>USH_InfectionVaccine</li>
+      <li>USH_InfectionAntiserum</li>
+    </thingDefsToFormatAndColor>
+
+    <researchProjectsDefsToFormat>
+      <li>USH_InfectionVaccineRes</li>
+    </researchProjectsDefsToFormat>
+
+    <hediffDefsToFormat>
+      <li>USH_InfectionVaccineHediff</li>
+    </hediffDefsToFormat>
+
+    <vaccineResProjectDef>USH_InfectionVaccineRes</vaccineResProjectDef>
+
+    <!-- sample def is required for CombatDiseaseDef to work properly -->
+    <sampleDef>USH_InfectionSample</sampleDef>
+    <!-- pathogen def is optional -->
+    <pathogenDef>USH_InfectionPathogen</pathogenDef>
+
+  </BiologicalWarfare.CombatDiseaseDef>
+
+  <ThingDef ParentName="USH_BacteriaSampleBase">
+    <defName>USH_InfectionSample</defName>
+    <description>A sample of {0} {1}. When placed in a bacteria incubator, it will grow into multiple {0} pathogen colonies that can later be harvested and used in the production of vaccines and antiserums. No weapons can be crafted from {0} pathogens.\n\nCan be obtained by using disease sampler on a living creature with {0} or crafted from {0} pathogens.</description>
+    <comps>
+      <li Class="BiologicalWarfare.CompProperties_DiseaseSample">
+        <combatDiseaseDef>USH_Infection</combatDiseaseDef>
+      </li>
+    </comps>
+    <costList>
+      <USH_InfectionPathogen>1</USH_InfectionPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_InfectionVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BacteriaPathogenBase">
+    <defName>USH_InfectionPathogen</defName>
+    <description>A {0} {1} pathogen that's a crucial ingredient in producing vaccines and antiserums. No weapons can be crafted from this pathogen. It must be kept indoors at freezing temperatures to stay fresh and usable.</description>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_DiseaseVaccineBase">
+    <defName>USH_InfectionVaccine</defName>
+    <description>A syringe contaning a carefully prepared mixture of antigens. It prevents getting sick from {0} for 8 days.\n\nNote that it does not cure existing infections.</description>
+    <descriptionHyperlinks>
+      <HediffDef>USH_InfectionVaccineHediff</HediffDef>
+    </descriptionHyperlinks>
+    <ingestible>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>USH_InfectionVaccineHediff</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <tradeability>Sellable</tradeability>
+    <costList>
+      <USH_InfectionPathogen>25</USH_InfectionPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_InfectionVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <HediffDef ParentName="USH_DiseaseVaccineHediffBase">
+    <defName>USH_InfectionVaccineHediff</defName>
+    <stages>
+      <li>
+        <makeImmuneTo>
+          <li>WoundInfection</li>
+        </makeImmuneTo>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThingDef ParentName="USH_DiseaseAntiserum">
+    <defName>USH_InfectionAntiserum</defName>
+    <ingestible>
+      <outcomeDoers>
+        <li Class="BiologicalWarfare.IngestionOutcomeDoerRemoveHediffs">
+          <hediffDefsToRemove>
+            <li>WoundInfection</li>
+          </hediffDefsToRemove>
+          <sendMessage>true</sendMessage>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <tradeability>Sellable</tradeability>
+    <costList>
+      <USH_InfectionPathogen>25</USH_InfectionPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_InfectionVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase">
+    <defName>USH_InfectionVaccineRes</defName>
+    <prerequisites>
+      <li>USH_PathogenProductionRes</li>
+    </prerequisites>
+    <baseCost>2400</baseCost>
+    <researchViewX>2.50</researchViewX>
+    <researchViewY>3.40</researchViewY>
+  </ResearchProjectDef>
+
+</Defs>

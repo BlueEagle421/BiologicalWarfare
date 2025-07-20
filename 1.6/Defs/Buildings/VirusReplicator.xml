@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <thingClass>Building</thingClass>
+    <defName>USH_VirusReplicator</defName>
+    <label>virus replicator</label>
+    <description>A specialized lab-grade machine is designed to modify virus DNA from provided disease samples. Upon activation, it infects all living creatures in an enclosed, fully roofed room with mutated viruses and provides a way to extract their pathogens. The number of pathogens that can be yielded from an organism depends on its size and infection severity. The bigger the species, the more pathogens drop from it.\n\nAll creatures in the same room will get infected unless they remain in a small safe zone around the replicator or possess environmental toxic resistance exceeding 80%.\n\nNote that large, tamed creatures in their pens are optimal targets for virus replication.</description>
+    <graphicData>
+      <texPath>Things/Building/VirusReplicator/VirusReplicator</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+      <drawSize>(2,2)</drawSize>
+      <drawRotated>true</drawRotated>
+      <allowFlip>true</allowFlip>
+    </graphicData>
+    <size>(1, 1)</size>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <rotatable>true</rotatable>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(0,0,1)</interactionCellOffset>
+    <fillPercent>0.2</fillPercent>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <WorkToBuild>1000</WorkToBuild>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Mass>30</Mass>
+      <Flammability>0.7</Flammability>
+    </statBases>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <tickerType>Normal</tickerType>
+    <costList>
+      <Steel>60</Steel>
+      <Silver>30</Silver>
+      <Neutroamine>10</Neutroamine>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <thingCategories>
+      <li>BuildingsProduction</li>
+    </thingCategories>
+    <designationCategory>Production</designationCategory>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>100</basePowerConsumption>
+        <shortCircuitInRain>true</shortCircuitInRain>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="BiologicalWarfare.CompProperties_DiseaseSampleContainer">
+        <acceptableDiseaseType>Virus</acceptableDiseaseType>
+        <stackLimit>1</stackLimit>
+        <insertedSoundDef>USH_SampleInserted</insertedSoundDef>
+        <extractedSoundDef>USH_SampleExtracted</extractedSoundDef>
+        <drawStackLabel>true</drawStackLabel>
+        <drawContainedThing>false</drawContainedThing>
+      </li>
+      <li Class="BiologicalWarfare.CompProperties_VirusReplicator">
+        <maxRoomCellSize>225</maxRoomCellSize>
+        <activeTicks>1</activeTicks>
+        <cooldownTicks>0</cooldownTicks>
+        <ticksToActivate>60</ticksToActivate>
+        <jobString>activate</jobString>
+        <onCooldownString>cooling off</onCooldownString>
+        <activateTexPath>UI/Gizmo/Activate</activateTexPath>
+        <soundActivate>USH_VirusReplicatorActivated</soundActivate>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
+    </comps>
+    <specialDisplayRadius>1.9</specialDisplayRadius>
+    <researchPrerequisites>
+      <li>USH_PathogenProductionRes</li>
+    </researchPrerequisites>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <placeWorkers>
+      <li>BiologicalWarfare.PlaceWorker_VirusReplicator</li>
+    </placeWorkers>
+  </ThingDef>
+
+</Defs>

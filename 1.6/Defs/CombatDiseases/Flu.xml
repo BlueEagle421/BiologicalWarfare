@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
+    <defName>USH_Flu</defName>
+    <label>flu</label>
+    <samplableHediffDefs>
+      <li>Flu</li>
+      <li>Animal_Flu</li>
+    </samplableHediffDefs>
+    <giveHediffDef>Flu</giveHediffDef>
+    <diseaseType>Virus</diseaseType>
+    <colorInt>(242, 200, 25, 255)</colorInt>
+
+    <!-- formats {0} to label and {1} to disease type -->
+    <!-- also sets color in graphicData -->
+    <thingDefsToFormatAndColor>
+      <li>USH_FluSample</li>
+      <li>USH_FluPathogen</li>
+      <li>USH_FluVaccine</li>
+      <li>USH_FluAntiserum</li>
+      <li>USH_FluGas</li>
+      <li>USH_FluShell</li>
+      <li>USH_FluBarrel</li>
+      <li>USH_FluVent</li>
+      <li>USH_FluMissileLauncherTurret</li>
+      <li>USH_FluShellBullet</li>
+      <li>USH_FluMissileBullet</li>
+      <li>USH_FluGrenadeBullet</li>
+      <li>USH_FluGrenadeLauncher</li>
+    </thingDefsToFormatAndColor>
+
+    <thingDefsToColorIcons>
+      <li>USH_FluMissileLauncher</li>
+    </thingDefsToColorIcons>
+
+    <thingDefsToFormat>
+      <li>USH_FluMissileLauncher</li>
+    </thingDefsToFormat>
+
+    <researchProjectsDefsToFormat>
+      <li>USH_FluOperationRes</li>
+      <li>USH_FluVaccineRes</li>
+    </researchProjectsDefsToFormat>
+
+    <hediffDefsToFormat>
+      <li>USH_FluVaccineHediff</li>
+    </hediffDefsToFormat>
+
+    <vaccineResProjectDef>USH_FluVaccineRes</vaccineResProjectDef>
+
+    <!-- sample def is required for CombatDiseaseDef to work properly -->
+    <sampleDef>USH_FluSample</sampleDef>
+    <!-- pathogen def is optional -->
+    <pathogenDef>USH_FluPathogen</pathogenDef>
+
+  </BiologicalWarfare.CombatDiseaseDef>
+
+  <ThingDef ParentName="USH_VirusSampleBase">
+    <defName>USH_FluSample</defName>
+    <comps>
+      <li Class="BiologicalWarfare.CompProperties_DiseaseSample">
+        <combatDiseaseDef>USH_Flu</combatDiseaseDef>
+      </li>
+    </comps>
+    <costList>
+      <USH_FluPathogen>1</USH_FluPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_FluOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_VirusPathogenBase">
+    <defName>USH_FluPathogen</defName>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_DiseaseVaccineBase">
+    <defName>USH_FluVaccine</defName>
+    <descriptionHyperlinks>
+      <HediffDef>USH_FluVaccineHediff</HediffDef>
+    </descriptionHyperlinks>
+    <ingestible>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>USH_FluVaccineHediff</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <costList>
+      <USH_FluPathogen>25</USH_FluPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_FluVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <HediffDef ParentName="USH_DiseaseVaccineHediffBase">
+    <defName>USH_FluVaccineHediff</defName>
+    <stages>
+      <li>
+        <makeImmuneTo>
+          <li>Flu</li>
+        </makeImmuneTo>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThingDef ParentName="USH_DiseaseAntiserum">
+    <defName>USH_FluAntiserum</defName>
+    <ingestible>
+      <outcomeDoers>
+        <li Class="BiologicalWarfare.IngestionOutcomeDoerRemoveHediffs">
+          <hediffDefsToRemove>
+            <li>Flu</li>
+          </hediffDefsToRemove>
+          <sendMessage>true</sendMessage>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <costList>
+      <USH_FluPathogen>25</USH_FluPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_FluVaccineRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <DamageDef ParentName="USH_BiologicalDamageBase">
+    <defName>USH_FluDamage</defName>
+  </DamageDef>
+
+  <ThingDef ParentName="USH_BiologicalGasBase">
+    <defName>USH_FluGas</defName>
+    <modExtensions>
+      <li Class="BiologicalWarfare.PathogenGasExtension">
+        <HediffDef>Flu</HediffDef>
+        <SeverityPerPeriod>0.07</SeverityPerPeriod>
+        <PeriodTicks>60</PeriodTicks>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalShellBase">
+    <defName>USH_FluShell</defName>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>4.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_FluDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_FluGas</postExplosionSpawnThingDef>
+        <explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>
+        <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
+    <projectileWhenLoaded>USH_FluShellBullet</projectileWhenLoaded>
+    <costList>
+      <USH_FluPathogen>15</USH_FluPathogen>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_FluOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalShellBulletBase">
+    <defName>USH_FluShellBullet</defName>
+    <projectile>
+      <damageDef>USH_FluDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_FluGas</postExplosionSpawnThingDef>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalBarrelBase">
+    <defName>USH_FluBarrel</defName>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>6.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_FluDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_FluGas</postExplosionSpawnThingDef>
+        <startWickHitPointsPercent>0.95</startWickHitPointsPercent>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
+    <costList>
+      <USH_FluPathogen>75</USH_FluPathogen>
+    </costList>
+    <researchPrerequisites>
+      <li>USH_FluOperationRes</li>
+    </researchPrerequisites>
+    <specialDisplayRadius>6.9</specialDisplayRadius>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalVentBase">
+    <defName>USH_FluVent</defName>
+    <comps>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>0</fuelConsumptionRate>
+        <initialFuelPercent>1</initialFuelPercent>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <initialConfigurableTargetFuelLevel>25</initialConfigurableTargetFuelLevel>
+        <fuelCapacity>50</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>USH_FluPathogen</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="BiologicalWarfare.CompProperties_GasVent">
+        <gasDef>USH_FluGas</gasDef>
+        <pathogensPerCell>0.5</pathogensPerCell>
+        <activeTicks>1</activeTicks>
+        <ticksToActivate>60</ticksToActivate>
+        <jobString>activate</jobString>
+        <onCooldownString>cooling off</onCooldownString>
+        <cooldownTicks>2500</cooldownTicks>
+        <cooldownFleck>FlashRed</cooldownFleck>
+        <cooldownFleckSpawnIntervalTicks>60</cooldownFleckSpawnIntervalTicks>
+        <cooldownFleckScale>0.7</cooldownFleckScale>
+        <cooldownPreventsRefuel>false</cooldownPreventsRefuel>
+        <activateTexPath>UI/Gizmo/ActivateGasVent</activateTexPath>
+        <soundActivate>USH_GasVentActivated</soundActivate>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
+    </comps>
+    <costList>
+      <USH_FluPathogen>50</USH_FluPathogen>
+    </costList>
+    <researchPrerequisites>
+      <li>USH_FluOperationRes</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalMissileLauncherBase">
+    <defName>USH_FluMissileLauncher</defName>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>240</wickTicks>
+        <explosiveRadius>6.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_FluDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_FluGas</postExplosionSpawnThingDef>
+        <chanceNeverExplodeFromDamage>0.8</chanceNeverExplodeFromDamage>
+      </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelLabel>Missiles</fuelLabel>
+        <fuelGizmoLabel>Missiles</fuelGizmoLabel>
+        <outOfFuelMessage>Missing missiles</outOfFuelMessage>
+        <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <fuelFilter>
+          <thingDefs>
+            <li>USH_FluPathogen</li>
+          </thingDefs>
+        </fuelFilter>
+        <fuelCapacity>7</fuelCapacity>
+        <fuelMultiplier>0.04667</fuelMultiplier>
+        <initialFuelPercent>1</initialFuelPercent>
+        <autoRefuelPercent>1</autoRefuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <minimumFueledThreshold>7</minimumFueledThreshold>
+        <factorByDifficulty>false</factorByDifficulty>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+      </li>
+      <li Class="CompProperties_Interactable">
+        <compClass>CompInteractableRocketswarmLauncher</compClass>
+        <activeTicks>1</activeTicks>
+        <cooldownTicks>7500</cooldownTicks>
+        <ticksToActivate>60</ticksToActivate>
+        <jobString>activate</jobString>
+        <onCooldownString>cooling off</onCooldownString>
+        <cooldownFleck>FlashRed</cooldownFleck>
+        <cooldownFleckSpawnIntervalTicks>60</cooldownFleckSpawnIntervalTicks>
+        <cooldownFleckScale>0.7</cooldownFleckScale>
+        <cooldownPreventsRefuel>true</cooldownPreventsRefuel>
+        <activateTexPath>UI/Commands/ActivateTurret</activateTexPath>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
+    </comps>
+    <building>
+      <turretGunDef>USH_FluMissileLauncherTurret</turretGunDef>
+    </building>
+    <costList>
+      <USH_FluPathogen>225</USH_FluPathogen>
+    </costList>
+    <researchPrerequisites>
+      <li>USH_FluOperationRes</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalMissileLauncherTurretBase">
+    <defName>USH_FluMissileLauncherTurret</defName>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>USH_FluMissileBullet</defaultProjectile>
+        <range>80.9</range>
+        <consumeFuelPerShot>1</consumeFuelPerShot>
+        <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+        <burstShotCount>7</burstShotCount>
+        <forcedMissRadius>9</forcedMissRadius>
+        <forcedMissEvenDispersal>true</forcedMissEvenDispersal>
+        <requireLineOfSight>false</requireLineOfSight>
+        <minRange>29.9</minRange>
+        <targetParams>
+          <canTargetPawns>false</canTargetPawns>
+          <canTargetLocations>true</canTargetLocations>
+          <canTargetBuildings>false</canTargetBuildings>
+        </targetParams>
+        <soundCast>USH_MissileLauncherFired</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>14</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalMissileBulletBase">
+    <defName>USH_FluMissileBullet</defName>
+    <projectile>
+      <damageDef>USH_FluDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_FluGas</postExplosionSpawnThingDef>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">
+    <defName>USH_FluGrenadeLauncher</defName>
+    <costList>
+      <USH_FluPathogen>50</USH_FluPathogen>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>USH_FluGrenadeBullet</defaultProjectile>
+        <warmupTime>3.5</warmupTime>
+        <range>23.9</range>
+        <forcedMissRadius>2.9</forcedMissRadius>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>USH_GasLauncherShot</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>14</muzzleFlashScale>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbs>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_FluOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalGrenadeBulletBase">
+    <defName>USH_FluGrenadeBullet</defName>
+    <projectile>
+      <damageDef>USH_FluDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_FluGas</postExplosionSpawnThingDef>
+      <explosionRadius>4.9</explosionRadius>
+    </projectile>
+  </ThingDef>
+
+  <ResearchProjectDef ParentName="USH_DiseaseOprationResBase">
+    <defName>USH_FluOperationRes</defName>
+    <researchViewX>1.50</researchViewX>
+    <researchViewY>0.20</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase">
+    <defName>USH_FluVaccineRes</defName>
+    <prerequisites>
+      <li>USH_FluOperationRes</li>
+    </prerequisites>
+    <researchViewX>2.50</researchViewX>
+    <researchViewY>0.20</researchViewY>
+  </ResearchProjectDef>
+
+</Defs>

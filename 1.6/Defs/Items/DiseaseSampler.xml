@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>USH_DiseaseSampler</defName>
+    <label>disease sampler</label>
+    <description>A medical tool intended for use on sick patients. It creates a sample of the disease that can later be utilized in the production of deadly pathogens. \n\nCan be crafted in drug lab.\n\nDiseases that can be sampled are listed below.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <descriptionHyperlinks>
+      <HediffDef>Flu</HediffDef>
+      <HediffDef>Malaria</HediffDef>
+      <HediffDef>Plague</HediffDef>
+      <HediffDef>Scaria</HediffDef>
+      <HediffDef MayRequire="VanillaExpanded.VGeneticsE">GR_GreaterScaria</HediffDef>
+      <HediffDef>SleepingSickness</HediffDef>
+      <HediffDef>WoundInfection</HediffDef>
+      <HediffDef MayRequire="Ludeon.RimWorld.Anomaly">USH_Necroa</HediffDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/DiseaseSampler</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <useHitPoints>true</useHitPoints>
+    <statBases>
+      <MaxHitPoints>80</MaxHitPoints>
+      <Mass>0.2</Mass>
+      <DeteriorationRate>2.0</DeteriorationRate>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <stackLimit>10</stackLimit>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseItem</useJob>
+        <useLabel>Use {0_label}</useLabel>
+        <useDuration>0</useDuration>
+        <warmupMote>Mote_ResurrectAbility</warmupMote>
+      </li>
+      <li Class="CompProperties_Targetable">
+        <compClass>CompTargetable_SinglePawn</compClass>
+      </li>
+      <li Class="BiologicalWarfare.CompProperties_TargetEffectSampleDisease">
+        <jobDef>USH_SampleDisease</jobDef>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <JobDef>
+    <defName>USH_SampleDisease</defName>
+    <driverClass>BiologicalWarfare.JobDriver_SampleDisease</driverClass>
+    <reportString>sampling disease from TargetA.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+</Defs>

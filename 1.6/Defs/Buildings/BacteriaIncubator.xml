@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <thingClass>Building</thingClass>
+    <defName>USH_BacteriaIncubator</defName>
+    <label>bacteria incubator</label>
+    <description>A lab machine designed to breed bacteria colonies. It's fueled by neutroamine and requires a sample of bacteria disease to operate. It will produce 3 bacteria pathogens for every unit of neutroamine. The entire process takes no more than 8 hours.</description>
+    <graphicData>
+      <texPath>Things/Building/BacteriaIncubator/BacteriaIncubator</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+      <drawSize>(2,2)</drawSize>
+      <drawRotated>true</drawRotated>
+      <allowFlip>true</allowFlip>
+    </graphicData>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <size>(1, 1)</size>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <rotatable>true</rotatable>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(0,0,1)</interactionCellOffset>
+    <fillPercent>0.35</fillPercent>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <WorkToBuild>1500</WorkToBuild>
+      <MaxHitPoints>120</MaxHitPoints>
+      <Mass>45</Mass>
+      <Flammability>0.7</Flammability>
+    </statBases>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <tickerType>Normal</tickerType>
+    <costList>
+      <Steel>80</Steel>
+      <Silver>50</Silver>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <thingCategories>
+      <li>BuildingsProduction</li>
+    </thingCategories>
+    <designationCategory>Production</designationCategory>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>100</basePowerConsumption>
+        <shortCircuitInRain>false</shortCircuitInRain>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="BiologicalWarfare.CompProperties_DiseaseSampleContainer">
+        <compClass>BiologicalWarfare.CompBateriaIncubatorContainer</compClass>
+        <acceptableDiseaseType>Bacteria</acceptableDiseaseType>
+        <stackLimit>1</stackLimit>
+        <insertedSoundDef>USH_SampleInserted</insertedSoundDef>
+        <extractedSoundDef>USH_SampleExtracted</extractedSoundDef>
+        <drawStackLabel>true</drawStackLabel>
+        <drawContainedThing>false</drawContainedThing>
+      </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>22</fuelConsumptionRate>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+        <initialConfigurableTargetFuelLevel>30</initialConfigurableTargetFuelLevel>
+        <fuelCapacity>60</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>Neutroamine</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="BiologicalWarfare.CompProperties_BacteriaIncubator">
+        <pathogensPerFuel>3</pathogensPerFuel>
+        <incubationTicks>20000</incubationTicks>
+        <activeTicks>1</activeTicks>
+        <cooldownTicks>0</cooldownTicks>
+        <ticksToActivate>60</ticksToActivate>
+        <jobString>activate</jobString>
+        <onCooldownString>cooling off</onCooldownString>
+        <activateTexPath>UI/Gizmo/Activate</activateTexPath>
+        <soundActivate>USH_BacteriaIncubatorActivated</soundActivate>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
+    </comps>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <researchPrerequisites>
+      <li>USH_PathogenProductionRes</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+</Defs>

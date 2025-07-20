@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Biotech</li>
+    </mods>
+    <match Class="PatchOperationAdd">
+      <xpath>*/GeneDef[defName = "PerfectImmunity"]/makeImmuneTo</xpath>
+      <value>
+        <li>USH_DevelopingScaria</li>
+        <li MayRequire="Ludeon.RimWorld.Anomaly">USH_Necroa</li>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

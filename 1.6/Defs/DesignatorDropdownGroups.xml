@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <DesignatorDropdownGroupDef>
+    <defName>USH_BiologicalBarrels</defName>
+    <label>gas barrels</label>
+  </DesignatorDropdownGroupDef>
+
+  <DesignatorDropdownGroupDef>
+    <defName>USH_BiologicalVents</defName>
+    <label>gas vents</label>
+  </DesignatorDropdownGroupDef>
+
+  <DesignatorDropdownGroupDef>
+    <defName>USH_BiologicalMissileLaunchers</defName>
+    <label>gas missile launchers</label>
+  </DesignatorDropdownGroupDef>
+
+</Defs>

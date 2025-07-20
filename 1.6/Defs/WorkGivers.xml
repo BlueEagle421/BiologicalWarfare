@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <WorkGiverDef>
+    <defName>USH_VaccineResearch</defName>
+    <label>do vaccine research</label>
+    <giverClass>BiologicalWarfare.WorkGiver_VaccineResearcher</giverClass>
+    <workType>Research</workType>
+    <verb>research</verb>
+    <gerund>researching at</gerund>
+    <priorityInType>100</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+  </WorkGiverDef>
+
+</Defs>

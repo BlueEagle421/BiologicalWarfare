@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef Name="USH_DiseaseAntiserum" ParentName="MakeableDrugBase" Abstract="True">
+    <label>{0} antiserum</label>
+    <description>A highly concentrated mixture of antibodies enhanced with spacer technology that rapidly spreads through the user's bloodstream. It can be ingested, granting instant immunity to {0}. Powerful glitterworld medicine makes it highly effective and capable of killing even parasites.</description>
+    <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    <possessionCount>2</possessionCount>
+    <graphicData>
+      <texPath>Things/Item/Antiserum/Antiserum</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>0.8</drawSize>
+    </graphicData>
+    <uiIconScale>1.2</uiIconScale>
+    <stackLimit>15</stackLimit>
+    <socialPropernessMatters>false</socialPropernessMatters>
+    <rotatable>false</rotatable>
+    <statBases>
+      <WorkToMake>1800</WorkToMake>
+      <Mass>0.007</Mass>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <techLevel>Ultra</techLevel>
+    <ingestible>
+      <drugCategory>Medical</drugCategory>
+      <foodType>Processed, Fluid</foodType>
+      <baseIngestTicks>80</baseIngestTicks>
+      <ingestSound>Ingest_Inject</ingestSound>
+      <ingestHoldOffsetStanding>
+        <northDefault>
+          <offset>(0.18,0,0)</offset>
+        </northDefault>
+      </ingestHoldOffsetStanding>
+      <ingestCommandString>Inject {0}</ingestCommandString>
+      <ingestReportString>Injecting {0}.</ingestReportString>
+      <useEatingSpeedStat>false</useEatingSpeedStat>
+      <chairSearchRadius>0</chairSearchRadius>
+    </ingestible>
+    <recipeMaker>
+      <recipeUsers>
+        <li>DrugLab</li>
+      </recipeUsers>
+    </recipeMaker>
+    <costList>
+      <Neutroamine>6</Neutroamine>
+      <MedicineUltratech>1</MedicineUltratech>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <listOrder>1000</listOrder>
+        <overdoseSeverityOffset>0.08~0.14</overdoseSeverityOffset>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

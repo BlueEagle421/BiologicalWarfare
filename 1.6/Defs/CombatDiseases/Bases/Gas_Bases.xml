@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <DamageDef Name="USH_BiologicalDamageBase" Abstract="True">
+    <label>pathogen damage</label>
+    <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    <workerClass>BiologicalWarfare.DamageWorkerPathogenGas</workerClass>
+    <canInterruptJobs>false</canInterruptJobs>
+    <makesBlood>false</makesBlood>
+    <!-- damage must be greater then 0 for goodwill related code to work properly -->
+    <!-- it doesnt deal any damage except for infections -->
+    <defaultDamage>1</defaultDamage>
+    <defaultArmorPenetration>0</defaultArmorPenetration>
+    <externalViolence>false</externalViolence>
+    <explosionCellFleck>BlastExtinguisher</explosionCellFleck>
+    <explosionColorEdge>(134,144,22,0.05)</explosionColorEdge>
+    <soundExplosion>USH_ExplosionBiologicalGas</soundExplosion>
+    <harmsHealth>false</harmsHealth>
+    <combatLogRules>Damage_Extinguish</combatLogRules>
+  </DamageDef>
+
+  <ThingDef Name="USH_BiologicalGasBase" Abstract="True">
+    <label>{0} {1} gas</label>
+    <description>A {0} pathogen gas</description>
+    <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
+    <category>Gas</category>
+    <altitudeLayer>Gas</altitudeLayer>
+    <useHitPoints>false</useHitPoints>
+    <tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/Gas/ThickSmoke</texPath>
+      <drawSize>2.6</drawSize>
+      <graphicClass>BiologicalWarfare.GraphicPathogenGas</graphicClass>
+      <shaderType>Transparent</shaderType>
+    </graphicData>
+    <gas>
+      <expireSeconds>
+        <min>26</min>
+        <max>40</max>
+      </expireSeconds>
+      <rotationSpeed>20</rotationSpeed>
+    </gas>
+    <thingClass>BiologicalWarfare.PathogenGas</thingClass>
+  </ThingDef>
+
+</Defs>

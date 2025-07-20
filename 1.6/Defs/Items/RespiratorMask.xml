@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="HatMakeableBase">
+    <defName>USH_RespiratorMask</defName>
+    <label>respirator mask</label>
+    <description>A military-grade tactical respirator mask designed for use on the battlefield. Provides full protection from toxic damage, rendering the user fully immune to pathogen gases.</description>
+    <possessionCount>1</possessionCount>
+    <graphicData>
+      <texPath>Things/Item/RespiratorMask/RespiratorMask</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+    </graphicData>
+    <uiIconScale>1.2</uiIconScale>
+    <statBases>
+      <MaxHitPoints>30</MaxHitPoints>
+      <WorkToMake>2000</WorkToMake>
+      <Mass>0.15</Mass>
+      <StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+      <StuffEffectMultiplierInsulation_Cold>0.50</StuffEffectMultiplierInsulation_Cold>
+      <StuffEffectMultiplierInsulation_Heat>0</StuffEffectMultiplierInsulation_Heat>
+      <EquipDelay>0.6</EquipDelay>
+    </statBases>
+    <generateCommonality>0.3</generateCommonality>
+    <generateAllowChance>0.15</generateAllowChance>
+    <equippedStatOffsets>
+      <ToxicEnvironmentResistance>0.8</ToxicEnvironmentResistance>
+    </equippedStatOffsets>
+    <recipeMaker>
+      <researchPrerequisite>Machining</researchPrerequisite>
+      <unfinishedThingDef>UnfinishedMask</unfinishedThingDef>
+      <recipeUsers Inherit="False">
+        <li>TableMachining</li>
+      </recipeUsers>
+      <displayPriority>215</displayPriority>
+    </recipeMaker>
+    <costList>
+      <Steel>10</Steel>
+      <Chemfuel>10</Chemfuel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <apparel>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+      <immuneToToxGasExposure>true</immuneToToxGasExposure>
+      <bodyPartGroups>
+        <li>Mouth</li>
+      </bodyPartGroups>
+      <drawData>
+        <scale>0.75</scale>
+      </drawData>
+      <wornGraphicPath>Things/Item/RespiratorMask/RespiratorMask</wornGraphicPath>
+      <layers>
+        <li>EyeCover</li>
+      </layers>
+      <tags>
+        <li>IndustrialBasic</li>
+      </tags>
+    </apparel>
+  </ThingDef>
+
+</Defs>

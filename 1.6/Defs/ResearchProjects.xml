@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ResearchTabDef>
+    <defName>USH_BiologicalWarfare</defName>
+    <label>Biological Warfare</label>
+    <generalTitle>Pathogen research projects</generalTitle>
+    <generalDescription>Develop lethal pathogens, craft long-range devastating weapons, and study antigens for vaccines production.\n\nThere's no need to rush all research projects in this tab. You can wait until you discover new diseases before researching weapons available in your colony's biome.</generalDescription>
+  </ResearchTabDef>
+
+  <ResearchProjectDef Name="USH_BiologicalProjectBase" Abstract="True">
+    <techLevel>Industrial</techLevel>
+    <tab>USH_BiologicalWarfare</tab>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="USH_BiologicalProjectBase">
+    <defName>USH_PathogenProductionRes</defName>
+    <label>Pathogen production</label>
+    <description>Acquire disease samples from sick colonists to initiate a production chain of powerful pathogens.</description>
+    <baseCost>800</baseCost>
+    <prerequisites>
+      <li>Electricity</li>
+      <li>DrugProduction</li>
+    </prerequisites>
+    <discoveredLetterTitle>About: Pathogen gas</discoveredLetterTitle>
+    <discoveredLetterText>You now have the technology to sample diseases and craft deadly pathogens.\n\nYou can make colonists immune to pathogen gas by boosting their toxic environment resistance to 80%. That means equipping them with gas masks, respiratory masks, or special bionics.\n\nNote that some species are naturally immune, insects being one of them.\n\nThis type of gas is most effective on average-sized target groups, but becomes less efficient on larger ones. A large number of targets quickly dilutes the gas, making it weaker.</discoveredLetterText>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>2.10</researchViewY>
+  </ResearchProjectDef>
+
+</Defs>

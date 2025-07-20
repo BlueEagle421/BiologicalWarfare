@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <HediffDef ParentName="InfectionBase">
+    <defName>USH_DevelopingScaria</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>developing scaria</label>
+    <description>A non-lethal early stage of the scaria virus. In its final stage, it will drive the host mad and evolve into mature scaria disease.</description>
+    <defaultLabelColor>(0.9, 1.0, 0.35)</defaultLabelColor>
+    <makesSickThought>true</makesSickThought>
+    <lethalSeverity>-1</lethalSeverity>
+    <minSeverity>0</minSeverity>
+    <alwaysShowSeverity>true</alwaysShowSeverity>
+    <tendable>true</tendable>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <comps>
+      <li Class="HediffCompProperties_TendDuration">
+        <baseTendDurationHours>24</baseTendDurationHours>
+        <severityPerDayTended>-0.1105</severityPerDayTended>
+      </li>
+      <li Class="HediffCompProperties_Immunizable">
+        <severityPerDayNotImmune>0.2488</severityPerDayNotImmune>
+        <immunityPerDaySick>0.2388</immunityPerDaySick>
+        <severityPerDayImmune>-0.4947</severityPerDayImmune>
+        <immunityPerDayNotSick>-0.06</immunityPerDayNotSick>
+      </li>
+      <li Class="BiologicalWarfare.HediffCompProperties_DevelopingScaria">
+        <severityToDevelop>1</severityToDevelop>
+        <animalMentalState>ManhunterPermanent</animalMentalState>
+        <animalMentalStateAlias>Manhunter</animalMentalStateAlias>
+        <humanMentalState>Berserk</humanMentalState>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>minor</label>
+      </li>
+      <li>
+        <minSeverity>0.666</minSeverity>
+        <label>major</label>
+      </li>
+      <li>
+        <minSeverity>0.833</minSeverity>
+        <label>extreme</label>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

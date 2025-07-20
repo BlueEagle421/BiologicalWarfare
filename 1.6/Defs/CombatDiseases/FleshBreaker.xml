@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <BiologicalWarfare.CombatDiseaseDef ParentName="USH_CombatDiseaseBase">
+    <defName>USH_FleshBreaker</defName>
+    <label>flesh-breaker</label>
+    <giveHediffDef>USH_FleshBreakerHigh</giveHediffDef>
+    <diseaseType>Chemical</diseaseType>
+    <colorInt>(148, 153, 49, 255)</colorInt>
+
+    <!-- formats {0} to label and {1} to disease type -->
+    <!-- also sets color in graphicData -->
+    <thingDefsToFormatAndColor>
+      <li>USH_FleshBreakerGas</li>
+      <li>USH_FleshBreakerShell</li>
+      <li>USH_FleshBreakerBarrel</li>
+      <li>USH_FleshBreakerVent</li>
+      <li>USH_FleshBreakerMissileLauncherTurret</li>
+      <li>USH_FleshBreakerShellBullet</li>
+      <li>USH_FleshBreakerMissileBullet</li>
+      <li>USH_FleshBreakerGrenadeBullet</li>
+      <li>USH_FleshBreakerGrenadeLauncher</li>
+      <li>USH_FleshBreakerGrenadeLauncher</li>
+    </thingDefsToFormatAndColor>
+
+    <thingDefsToColorIcons>
+      <li>USH_FleshBreakerMissileLauncher</li>
+    </thingDefsToColorIcons>
+
+    <thingDefsToFormat>
+      <li>USH_FleshBreakerMissileLauncher</li>
+    </thingDefsToFormat>
+
+    <researchProjectsDefsToFormat>
+      <li>USH_FleshBreakerOperationRes</li>
+    </researchProjectsDefsToFormat>
+
+  </BiologicalWarfare.CombatDiseaseDef>
+
+  <DamageDef ParentName="USH_BiologicalDamageBase">
+    <defName>USH_FleshBreakerDamage</defName>
+  </DamageDef>
+
+  <ThingDef ParentName="USH_BiologicalGasBase">
+    <defName>USH_FleshBreakerGas</defName>
+    <modExtensions>
+      <li Class="BiologicalWarfare.PathogenGasExtension">
+        <HediffDef>USH_FleshBreakerHigh</HediffDef>
+        <SeverityPerPeriod>0.07</SeverityPerPeriod>
+        <PeriodTicks>60</PeriodTicks>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalShellBase">
+    <defName>USH_FleshBreakerShell</defName>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>4.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_FleshBreakerDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_FleshBreakerGas</postExplosionSpawnThingDef>
+        <explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>
+        <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
+    <projectileWhenLoaded>USH_FleshBreakerShellBullet</projectileWhenLoaded>
+    <costList>
+      <USH_FleshBreaker>3</USH_FleshBreaker>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_FleshBreakerOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalShellBulletBase">
+    <defName>USH_FleshBreakerShellBullet</defName>
+    <projectile>
+      <damageDef>USH_FleshBreakerDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_FleshBreakerGas</postExplosionSpawnThingDef>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalBarrelBase">
+    <defName>USH_FleshBreakerBarrel</defName>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>6.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_FleshBreakerDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_FleshBreakerGas</postExplosionSpawnThingDef>
+        <startWickHitPointsPercent>0.95</startWickHitPointsPercent>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
+    <costList>
+      <USH_FleshBreaker>15</USH_FleshBreaker>
+    </costList>
+    <researchPrerequisites>
+      <li>USH_FleshBreakerOperationRes</li>
+    </researchPrerequisites>
+    <specialDisplayRadius>6.9</specialDisplayRadius>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalVentBase">
+    <defName>USH_FleshBreakerVent</defName>
+    <comps>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>0</fuelConsumptionRate>
+        <initialFuelPercent>1</initialFuelPercent>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <initialConfigurableTargetFuelLevel>5</initialConfigurableTargetFuelLevel>
+        <fuelCapacity>10</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>USH_FleshBreaker</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="BiologicalWarfare.CompProperties_GasVent">
+        <gasDef>USH_FleshBreakerGas</gasDef>
+        <pathogensPerCell>0.1</pathogensPerCell>
+        <activeTicks>1</activeTicks>
+        <ticksToActivate>60</ticksToActivate>
+        <jobString>activate</jobString>
+        <onCooldownString>cooling off</onCooldownString>
+        <cooldownTicks>2500</cooldownTicks>
+        <cooldownFleck>FlashRed</cooldownFleck>
+        <cooldownFleckSpawnIntervalTicks>60</cooldownFleckSpawnIntervalTicks>
+        <cooldownFleckScale>0.7</cooldownFleckScale>
+        <cooldownPreventsRefuel>false</cooldownPreventsRefuel>
+        <activateTexPath>UI/Gizmo/ActivateGasVent</activateTexPath>
+        <soundActivate>USH_GasVentActivated</soundActivate>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
+    </comps>
+    <costList>
+      <USH_FleshBreaker>10</USH_FleshBreaker>
+    </costList>
+    <researchPrerequisites>
+      <li>USH_FleshBreakerOperationRes</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalMissileLauncherBase">
+    <defName>USH_FleshBreakerMissileLauncher</defName>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>240</wickTicks>
+        <explosiveRadius>6.9</explosiveRadius>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <explosiveDamageType>USH_FleshBreakerDamage</explosiveDamageType>
+        <postExplosionSpawnThingDef>USH_FleshBreakerGas</postExplosionSpawnThingDef>
+        <chanceNeverExplodeFromDamage>0.8</chanceNeverExplodeFromDamage>
+      </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelLabel>Missiles</fuelLabel>
+        <fuelGizmoLabel>Missiles</fuelGizmoLabel>
+        <outOfFuelMessage>Missing missiles</outOfFuelMessage>
+        <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <fuelFilter>
+          <thingDefs>
+            <li>USH_FleshBreaker</li>
+          </thingDefs>
+        </fuelFilter>
+        <fuelCapacity>7</fuelCapacity>
+        <fuelMultiplier>0.23335</fuelMultiplier>
+        <initialFuelPercent>1</initialFuelPercent>
+        <autoRefuelPercent>1</autoRefuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <minimumFueledThreshold>7</minimumFueledThreshold>
+        <factorByDifficulty>false</factorByDifficulty>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+      </li>
+      <li Class="CompProperties_Interactable">
+        <compClass>CompInteractableRocketswarmLauncher</compClass>
+        <activeTicks>1</activeTicks>
+        <cooldownTicks>7500</cooldownTicks>
+        <ticksToActivate>60</ticksToActivate>
+        <jobString>activate</jobString>
+        <onCooldownString>cooling off</onCooldownString>
+        <cooldownFleck>FlashRed</cooldownFleck>
+        <cooldownFleckSpawnIntervalTicks>60</cooldownFleckSpawnIntervalTicks>
+        <cooldownFleckScale>0.7</cooldownFleckScale>
+        <cooldownPreventsRefuel>true</cooldownPreventsRefuel>
+        <activateTexPath>UI/Commands/ActivateTurret</activateTexPath>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
+    </comps>
+    <building>
+      <turretGunDef>USH_FleshBreakerMissileLauncherTurret</turretGunDef>
+    </building>
+    <costList>
+      <USH_FleshBreaker>45</USH_FleshBreaker>
+    </costList>
+    <researchPrerequisites>
+      <li>USH_FleshBreakerOperationRes</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalMissileLauncherTurretBase">
+    <defName>USH_FleshBreakerMissileLauncherTurret</defName>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>USH_FleshBreakerMissileBullet</defaultProjectile>
+        <range>80.9</range>
+        <consumeFuelPerShot>1</consumeFuelPerShot>
+        <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+        <burstShotCount>7</burstShotCount>
+        <forcedMissRadius>9</forcedMissRadius>
+        <forcedMissEvenDispersal>true</forcedMissEvenDispersal>
+        <requireLineOfSight>false</requireLineOfSight>
+        <minRange>29.9</minRange>
+        <targetParams>
+          <canTargetPawns>false</canTargetPawns>
+          <canTargetLocations>true</canTargetLocations>
+          <canTargetBuildings>false</canTargetBuildings>
+        </targetParams>
+        <soundCast>USH_MissileLauncherFired</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>14</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalMissileBulletBase">
+    <defName>USH_FleshBreakerMissileBullet</defName>
+    <projectile>
+      <damageDef>USH_FleshBreakerDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_FleshBreakerGas</postExplosionSpawnThingDef>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">
+    <defName>USH_FleshBreakerGrenadeLauncher</defName>
+    <costList>
+      <USH_FleshBreaker>15</USH_FleshBreaker>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>USH_FleshBreakerGrenadeBullet</defaultProjectile>
+        <warmupTime>3.5</warmupTime>
+        <range>23.9</range>
+        <forcedMissRadius>2.9</forcedMissRadius>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>USH_GasLauncherShot</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>14</muzzleFlashScale>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbs>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>USH_FleshBreakerOperationRes</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_BiologicalGrenadeBulletBase">
+    <defName>USH_FleshBreakerGrenadeBullet</defName>
+    <projectile>
+      <damageDef>USH_FleshBreakerDamage</damageDef>
+      <postExplosionSpawnThingDef>USH_FleshBreakerGas</postExplosionSpawnThingDef>
+      <explosionRadius>4.9</explosionRadius>
+    </projectile>
+  </ThingDef>
+
+  <ResearchProjectDef ParentName="USH_DiseaseOprationResBase">
+    <defName>USH_FleshBreakerOperationRes</defName>
+    <researchViewX>1.50</researchViewX>
+    <researchViewY>3.40</researchViewY>
+  </ResearchProjectDef>
+
+</Defs>
