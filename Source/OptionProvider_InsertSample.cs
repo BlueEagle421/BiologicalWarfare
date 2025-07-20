@@ -93,7 +93,7 @@ public class FloatMenuOptionProvider_InsertSample : FloatMenuOptionProvider
             return;
         }
 
-        Job job = JobMaker.MakeJob(USHDefOf.USH_InsertSample, item, targetBuilding, targetBuilding.InteractionCell);
+        Job job = JobMaker.MakeJob(USH_DefOf.USH_InsertSample, item, targetBuilding, targetBuilding.InteractionCell);
         job.count = 1;
         p.jobs.TryTakeOrderedJob(job, new JobTag?(JobTag.Misc), false);
     }

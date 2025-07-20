@@ -108,7 +108,7 @@ namespace USH_BW
 
                     pawn.health.AddHediff(diseaseToAdd);
 
-                    HediffCompVirusExtraction virusExtraction = pawn.health.AddHediff(USHDefOf.USH_VirusExtraction).TryGetComp<HediffCompVirusExtraction>();
+                    HediffCompVirusExtraction virusExtraction = pawn.health.AddHediff(USH_DefOf.USH_VirusExtraction).TryGetComp<HediffCompVirusExtraction>();
                     virusExtraction.CombatDiseaseDef = _sampleContainer.ContainedCombatDiseaseDef;
                     virusExtraction.RecacheHediffInfo();
 

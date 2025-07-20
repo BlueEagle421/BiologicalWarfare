@@ -48,7 +48,7 @@ namespace USH_BW
         private void Reproduce()
         {
             BiologicalUtils.SpawnThingAt(Pawn.Map, Pawn.CellsAdjacent8WayAndInside().ToList(), Props.combatDiseaseDef.pathogenDef, SpawnCount());
-            Pawn.health.AddHediff(USHDefOf.USH_ParasiticPerforation, RandomOrganicPart());
+            Pawn.health.AddHediff(USH_DefOf.USH_ParasiticPerforation, RandomOrganicPart());
             _reproductionTicks = 0;
         }
 

@@ -4,9 +4,9 @@ using Verse;
 namespace USH_BW
 {
     [DefOf]
-    public static class USHDefOf
+    public static class USH_DefOf
     {
-        static USHDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(USHDefOf));
+        static USH_DefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(USH_DefOf));
 
         public static JobDef USH_InsertSample;
 

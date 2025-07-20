@@ -162,11 +162,11 @@ namespace USH_BW
             if (AnyHediffMakesFullyImmuneTo(pawn, hediffDef))
                 return true;
 
-            if (pawn.IsShambler && hediffDef == USHDefOf.USH_Necroa)
+            if (pawn.IsShambler && hediffDef == USH_DefOf.USH_Necroa)
                 return true;
 
             if (pawn.health.hediffSet.HasHediff(HediffDefOf.Scaria)
-                && hediffDef == USHDefOf.USH_DevelopingScaria)
+                && hediffDef == USH_DefOf.USH_DevelopingScaria)
                 return true;
 
             return false;

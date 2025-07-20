@@ -43,7 +43,7 @@ namespace USH_BW
                 return;
             }
 
-            USHDefOf.USH_SampleDisease.PlayOneShot(SoundInfo.InMap(PawnToSampleFrom));
+            USH_DefOf.USH_SampleDisease.PlayOneShot(SoundInfo.InMap(PawnToSampleFrom));
             BiologicalUtils.SpawnThingAt(PawnToSampleFrom.Map, PawnToSampleFrom.CellsAdjacent8WayAndInside().ToList(), sampleToSpawn, 1);
             Item.SplitOff(1).Destroy(DestroyMode.Vanish);
         }

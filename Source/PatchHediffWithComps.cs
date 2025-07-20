@@ -30,7 +30,7 @@ namespace USH_BW
             if (target.Pawn == null)
                 return;
 
-            BiologicalUtils.AddInfectionSeverity(target.Pawn, USHDefOf.USH_Necroa, INFECTION_SEVERITY);
+            BiologicalUtils.AddInfectionSeverity(target.Pawn, USH_DefOf.USH_Necroa, INFECTION_SEVERITY);
 
             SetNecroaFaction(target.Pawn, __instance.pawn.Faction);
         }
@@ -40,7 +40,7 @@ namespace USH_BW
             if (faction == null)
                 return;
 
-            Hediff necroaHediff = pawn.health?.hediffSet?.GetFirstHediffOfDef(USHDefOf.USH_Necroa);
+            Hediff necroaHediff = pawn.health?.hediffSet?.GetFirstHediffOfDef(USH_DefOf.USH_Necroa);
 
             if (necroaHediff == null)
                 return;
