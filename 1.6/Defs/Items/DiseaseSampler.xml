@@ -14,7 +14,7 @@
       <HediffDef MayRequire="VanillaExpanded.VGeneticsE">GR_GreaterScaria</HediffDef>
       <HediffDef>SleepingSickness</HediffDef>
       <HediffDef>WoundInfection</HediffDef>
-      <HediffDef MayRequire="Ludeon.RimWorld.Anomaly">USH_Necroa</HediffDef>
+      <HediffDef MayRequire="Ushanka.NecroaArchovirus">USH_Necroa</HediffDef>
     </descriptionHyperlinks>
     <graphicData>
       <texPath>Things/Item/DiseaseSampler</texPath>

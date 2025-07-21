@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <USH_BW.CombatDiseaseDef ParentName="USH_CombatDiseaseBase" MayRequire="Ludeon.RimWorld.Anomaly">
+  <USH_BW.CombatDiseaseDef ParentName="USH_CombatDiseaseBase" MayRequire="Ushanka.NecroaArchovirus">
     <defName>USH_Necroa</defName>
     <label>necroa</label>
     <samplableHediffDefs>
@@ -57,7 +57,7 @@
 
   </USH_BW.CombatDiseaseDef>
 
-  <ThingDef ParentName="USH_VirusSampleBase" MayRequire="Ludeon.RimWorld.Anomaly">
+  <ThingDef ParentName="USH_VirusSampleBase" MayRequire="Ushanka.NecroaArchovirus">
     <defName>USH_NecroaSample</defName>
     <comps>
       <li Class="USH_BW.CompProperties_DiseaseSample">
@@ -74,11 +74,11 @@
     </recipeMaker>
   </ThingDef>
 
-  <ThingDef ParentName="USH_VirusPathogenBase" MayRequire="Ludeon.RimWorld.Anomaly">
+  <ThingDef ParentName="USH_VirusPathogenBase" MayRequire="Ushanka.NecroaArchovirus">
     <defName>USH_NecroaPathogen</defName>
   </ThingDef>
 
-  <ThingDef ParentName="USH_DiseaseVaccineBase" MayRequire="Ludeon.RimWorld.Anomaly">
+  <ThingDef ParentName="USH_DiseaseVaccineBase" MayRequire="Ushanka.NecroaArchovirus">
     <defName>USH_NecroaVaccine</defName>
     <descriptionHyperlinks>
       <HediffDef>USH_NecroaVaccineHediff</HediffDef>
@@ -101,7 +101,7 @@
     </recipeMaker>
   </ThingDef>
 
-  <HediffDef ParentName="USH_DiseaseVaccineHediffBase" MayRequire="Ludeon.RimWorld.Anomaly">
+  <HediffDef ParentName="USH_DiseaseVaccineHediffBase" MayRequire="Ushanka.NecroaArchovirus">
     <defName>USH_NecroaVaccineHediff</defName>
     <stages>
       <li>
@@ -112,7 +112,7 @@
     </stages>
   </HediffDef>
 
-  <ThingDef ParentName="USH_DiseaseAntiserum" MayRequire="Ludeon.RimWorld.Anomaly">
+  <ThingDef ParentName="USH_DiseaseAntiserum" MayRequire="Ushanka.NecroaArchovirus">
     <defName>USH_NecroaAntiserum</defName>
     <ingestible>
       <outcomeDoers>
@@ -134,11 +134,11 @@
     </recipeMaker>
   </ThingDef>
 
-  <DamageDef ParentName="USH_BiologicalDamageBase" MayRequire="Ludeon.RimWorld.Anomaly">
+  <DamageDef ParentName="USH_BiologicalDamageBase" MayRequire="Ushanka.NecroaArchovirus">
     <defName>USH_NecroaDamage</defName>
   </DamageDef>
 
-  <ThingDef ParentName="USH_BiologicalGasBase" MayRequire="Ludeon.RimWorld.Anomaly">
+  <ThingDef ParentName="USH_BiologicalGasBase" MayRequire="Ushanka.NecroaArchovirus">
     <defName>USH_NecroaGas</defName>
     <modExtensions>
       <li Class="USH_BW.PathogenGasExtension">
@@ -149,7 +149,7 @@
     </modExtensions>
   </ThingDef>
 
-  <ThingDef ParentName="USH_BiologicalShellBase" MayRequire="Ludeon.RimWorld.Anomaly">
+  <ThingDef ParentName="USH_BiologicalShellBase" MayRequire="Ushanka.NecroaArchovirus">
     <defName>USH_NecroaShell</defName>
     <comps>
       <li Class="CompProperties_Explosive">
@@ -174,7 +174,7 @@
     </recipeMaker>
   </ThingDef>
 
-  <ThingDef ParentName="USH_BiologicalShellBulletBase" MayRequire="Ludeon.RimWorld.Anomaly">
+  <ThingDef ParentName="USH_BiologicalShellBulletBase" MayRequire="Ushanka.NecroaArchovirus">
     <defName>USH_NecroaShellBullet</defName>
     <projectile>
       <damageDef>USH_NecroaDamage</damageDef>
@@ -182,7 +182,7 @@
     </projectile>
   </ThingDef>
 
-  <ThingDef ParentName="USH_BiologicalBarrelBase" MayRequire="Ludeon.RimWorld.Anomaly">
+  <ThingDef ParentName="USH_BiologicalBarrelBase" MayRequire="Ushanka.NecroaArchovirus">
     <defName>USH_NecroaBarrel</defName>
     <comps>
       <li Class="CompProperties_Explosive">
@@ -204,7 +204,7 @@
     <specialDisplayRadius>6.9</specialDisplayRadius>
   </ThingDef>
 
-  <ThingDef ParentName="USH_BiologicalVentBase" MayRequire="Ludeon.RimWorld.Anomaly">
+  <ThingDef ParentName="USH_BiologicalVentBase" MayRequire="Ushanka.NecroaArchovirus">
     <defName>USH_NecroaVent</defName>
     <comps>
       <li Class="CompProperties_Refuelable">
@@ -251,7 +251,7 @@
     </researchPrerequisites>
   </ThingDef>
 
-  <ThingDef ParentName="USH_BiologicalMissileLauncherBase" MayRequire="Ludeon.RimWorld.Anomaly">
+  <ThingDef ParentName="USH_BiologicalMissileLauncherBase" MayRequire="Ushanka.NecroaArchovirus">
     <defName>USH_NecroaMissileLauncher</defName>
     <comps>
       <li Class="CompProperties_Explosive">
@@ -314,7 +314,7 @@
     </researchPrerequisites>
   </ThingDef>
 
-  <ThingDef ParentName="USH_BiologicalMissileLauncherTurretBase" MayRequire="Ludeon.RimWorld.Anomaly">
+  <ThingDef ParentName="USH_BiologicalMissileLauncherTurretBase" MayRequire="Ushanka.NecroaArchovirus">
     <defName>USH_NecroaMissileLauncherTurret</defName>
     <verbs>
       <li>
@@ -340,7 +340,7 @@
     </verbs>
   </ThingDef>
 
-  <ThingDef ParentName="USH_BiologicalMissileBulletBase" MayRequire="Ludeon.RimWorld.Anomaly">
+  <ThingDef ParentName="USH_BiologicalMissileBulletBase" MayRequire="Ushanka.NecroaArchovirus">
     <defName>USH_NecroaMissileBullet</defName>
     <projectile>
       <damageDef>USH_NecroaDamage</damageDef>
@@ -348,7 +348,7 @@
     </projectile>
   </ThingDef>
 
-  <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase" MayRequire="Ludeon.RimWorld.Anomaly">
+  <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase" MayRequire="Ushanka.NecroaArchovirus">
     <defName>USH_NecroaGrenadeLauncher</defName>
     <costList>
       <USH_NecroaPathogen>50</USH_NecroaPathogen>
@@ -377,7 +377,7 @@
     </recipeMaker>
   </ThingDef>
 
-  <ThingDef ParentName="USH_BiologicalGrenadeBulletBase" MayRequire="Ludeon.RimWorld.Anomaly">
+  <ThingDef ParentName="USH_BiologicalGrenadeBulletBase" MayRequire="Ushanka.NecroaArchovirus">
     <defName>USH_NecroaGrenadeBullet</defName>
     <projectile>
       <damageDef>USH_NecroaDamage</damageDef>
@@ -386,14 +386,14 @@
     </projectile>
   </ThingDef>
 
-  <ResearchProjectDef ParentName="USH_DiseaseOprationResBase" MayRequire="Ludeon.RimWorld.Anomaly">
+  <ResearchProjectDef ParentName="USH_DiseaseOprationResBase" MayRequire="Ushanka.NecroaArchovirus">
     <defName>USH_NecroaOperationRes</defName>
     <description>Craft {0} {1} pythogen gas grenade launchers, explosive gas barrels and devastating mortar shells. This archovirus turns creatures into shamblers post-mortem. Shamblers raised by necroa gas are not affiliated with any faction.\n\nNecroa archovirus can be sampled from shamblers or creatures infected with necroa.</description>
     <researchViewX>1.50</researchViewX>
     <researchViewY>4.20</researchViewY>
   </ResearchProjectDef>
 
-  <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase" MayRequire="Ludeon.RimWorld.Anomaly">
+  <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase" MayRequire="Ushanka.NecroaArchovirus">
     <defName>USH_NecroaVaccineRes</defName>
     <prerequisites>
       <li>USH_NecroaOperationRes</li>

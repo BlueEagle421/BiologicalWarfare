@@ -36,14 +36,6 @@ namespace USH_BW
             listingStandard.Label("USH_GasInfectionCountSettingDesc".Translate(countSliderValue.ToString()));
             Settings.MaxGasInfectionCount.Value = countSliderValue;
 
-            //ShamblersSpreadNecroa
-            if (ModsConfig.AnomalyActive)
-            {
-                listingStandard.Label("\n");
-                listingStandard.CheckboxLabeled("USH_ShamblerInfectionSetting".Translate(), ref Settings.ShamblersSpreadNecroa.Value);
-                listingStandard.Label("USH_ShamblerInfectionSettingDesc".Translate());
-            }
-
             //Reset button
             listingStandard.Label("\n");
             bool shouldReset = listingStandard.ButtonText("USH_ResetSettings".Translate());
@@ -68,13 +60,11 @@ namespace USH_BW
     {
         public Setting<float> GasSeverityMultiplier = new Setting<float>(1f);
         public Setting<int> MaxGasInfectionCount = new Setting<int>(4);
-        public Setting<bool> ShamblersSpreadNecroa = new Setting<bool>(true);
 
         public void ResetAll()
         {
             GasSeverityMultiplier.ToDefault();
             MaxGasInfectionCount.ToDefault();
-            ShamblersSpreadNecroa.ToDefault();
         }
 
         public override void ExposeData()
@@ -82,7 +72,6 @@ namespace USH_BW
             base.ExposeData();
             GasSeverityMultiplier.ExposeData(nameof(GasSeverityMultiplier));
             MaxGasInfectionCount.ExposeData(nameof(MaxGasInfectionCount));
-            ShamblersSpreadNecroa.ExposeData(nameof(ShamblersSpreadNecroa));
         }
 
         public class Setting<T>
