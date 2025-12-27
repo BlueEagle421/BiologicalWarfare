@@ -84,7 +84,7 @@
   <ThingDef ParentName="USH_DiseaseVaccineBase">
     <defName>USH_ScariaVaccine</defName>
     <label>scaria vaccine</label>
-    <description>A syringe contaning a carefully prepared mixture of antigens. It prevents getting sick from scaria for 8 days and provides full protection from scaria pathogen gas.\n\nNote that it does not cure existing infections.</description>
+    <description>A syringe containing a carefully prepared mixture of antigens. It prevents getting sick from scaria for 8 days and provides full protection from scaria pathogen gas.\n\nNote that it does not cure existing infections.</description>
     <descriptionHyperlinks>
       <HediffDef>USH_ScariaVaccineHediff</HediffDef>
     </descriptionHyperlinks>
@@ -425,7 +425,7 @@
   <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase">
     <defName>USH_ScariaVaccineRes</defName>
     <label>scaria antibodies</label>
-    <description>Craft scaria vaccines and antiserums that can heal and protect from getting infected. This reasearch project must be studied using vaccine reseach station with an iserted scaria virus sample.\n\nThis project in always locked in research tab.</description>
+    <description>Craft scaria vaccines and antiserums that can heal and protect from getting infected. This research project must be studied using vaccine reseach station with an inserted scaria virus sample.\n\nThis project in always locked in research tab.</description>
     <prerequisites>
       <li>USH_ScariaOperationRes</li>
     </prerequisites>

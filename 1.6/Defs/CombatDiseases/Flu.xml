@@ -83,7 +83,7 @@
   <ThingDef ParentName="USH_DiseaseVaccineBase">
     <defName>USH_FluVaccine</defName>
     <label>flu vaccine</label>
-    <description>A syringe contaning a carefully prepared mixture of antigens. It prevents getting sick from flu for 8 days and provides full protection from flu pathogen gas.\n\nNote that it does not cure existing infections.</description>
+    <description>A syringe containing a carefully prepared mixture of antigens. It prevents getting sick from flu for 8 days and provides full protection from flu pathogen gas.\n\nNote that it does not cure existing infections.</description>
     <descriptionHyperlinks>
       <HediffDef>USH_FluVaccineHediff</HediffDef>
     </descriptionHyperlinks>
@@ -420,7 +420,7 @@
   <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase">
     <defName>USH_FluVaccineRes</defName>
     <label>flu antibodies</label>
-    <description>Craft flu vaccines and antiserums that can heal and protect from getting infected. This reasearch project must be studied using vaccine reseach station with an iserted flu virus sample.\n\nThis project in always locked in research tab.</description>
+    <description>Craft flu vaccines and antiserums that can heal and protect from getting infected. This research project must be studied using vaccine reseach station with an inserted flu virus sample.\n\nThis project in always locked in research tab.</description>
     <prerequisites>
       <li>USH_FluOperationRes</li>
     </prerequisites>

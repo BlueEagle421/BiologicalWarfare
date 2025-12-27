@@ -86,7 +86,7 @@
   <ThingDef ParentName="USH_DiseaseVaccineBase">
     <defName>USH_MalariaVaccine</defName>
     <label>malaria vaccine</label>
-    <description>A syringe contaning a carefully prepared mixture of antigens. It prevents getting sick from malaria for 8 days and provides full protection from malaria pathogen gas.\n\nNote that it does not cure existing infections.</description>
+    <description>A syringe containing a carefully prepared mixture of antigens. It prevents getting sick from malaria for 8 days and provides full protection from malaria pathogen gas.\n\nNote that it does not cure existing infections.</description>
     <descriptionHyperlinks>
       <HediffDef>USH_MalariaVaccineHediff</HediffDef>
     </descriptionHyperlinks>
@@ -457,7 +457,7 @@
   <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase">
     <defName>USH_MalariaVaccineRes</defName>
     <label>malaria antibodies</label>
-    <description>Craft malaria vaccines and antiserums that can heal and protect from getting infected. This reasearch project must be studied using vaccine reseach station with an iserted malaria parasite sample.\n\nThis project in always locked in research tab.</description>
+    <description>Craft malaria vaccines and antiserums that can heal and protect from getting infected. This research project must be studied using vaccine research station with an inserted malaria parasite sample.\n\nThis project in always locked in research tab.</description>
     <prerequisites>
       <li>USH_MalariaOperationRes</li>
     </prerequisites>

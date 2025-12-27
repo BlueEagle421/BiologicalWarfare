@@ -62,7 +62,7 @@
 
   <ThingDef ParentName="USH_DiseaseVaccineBase">
     <defName>USH_InfectionVaccine</defName>
-    <description>A syringe contaning a carefully prepared mixture of antigens. It prevents getting sick from {0} for 8 days.\n\nNote that it does not cure existing infections.</description>
+    <description>A syringe containing a carefully prepared mixture of antigens. It prevents getting sick from {0} for 8 days.\n\nNote that it does not cure existing infections.</description>
     <descriptionHyperlinks>
       <HediffDef>USH_InfectionVaccineHediff</HediffDef>
     </descriptionHyperlinks>

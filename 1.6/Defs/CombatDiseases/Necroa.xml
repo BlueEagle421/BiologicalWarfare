@@ -84,7 +84,7 @@
   <ThingDef ParentName="USH_DiseaseVaccineBase" MayRequire="Ushanka.NecroaArchovirus">
     <defName>USH_NecroaVaccine</defName>
     <label>necroa vaccine</label>
-    <description>A syringe contaning a carefully prepared mixture of antigens. It prevents getting sick from necroa for 8 days and provides full protection from necroa pathogen gas.\n\nNote that it does not cure existing infections.</description>
+    <description>A syringe containing a carefully prepared mixture of antigens. It prevents getting sick from necroa for 8 days and provides full protection from necroa pathogen gas.\n\nNote that it does not cure existing infections.</description>
     <descriptionHyperlinks>
       <HediffDef>USH_NecroaVaccineHediff</HediffDef>
     </descriptionHyperlinks>
@@ -421,7 +421,7 @@
   <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase" MayRequire="Ushanka.NecroaArchovirus">
     <defName>USH_NecroaVaccineRes</defName>
     <label>necroa antibodies</label>
-    <description>Craft necroa vaccines and antiserums that can heal and protect from getting infected. This reasearch project must be studied using vaccine reseach station with an iserted necroa archovirus sample.\n\nThis project in always locked in research tab.</description>
+    <description>Craft necroa vaccines and antiserums that can heal and protect from getting infected. This research project must be studied using vaccine reseach station with an inserted necroa archovirus sample.\n\nThis project in always locked in research tab.</description>
     <prerequisites>
       <li>USH_NecroaOperationRes</li>
     </prerequisites>

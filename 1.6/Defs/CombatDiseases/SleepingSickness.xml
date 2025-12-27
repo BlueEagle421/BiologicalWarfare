@@ -86,7 +86,7 @@
   <ThingDef ParentName="USH_DiseaseVaccineBase">
     <defName>USH_SleepingSicknessVaccine</defName>
     <label>sleeping sickness vaccine</label>
-    <description>A syringe contaning a carefully prepared mixture of antigens. It prevents getting sick from sleeping sickness for 8 days and provides full protection from sleeping sickness pathogen gas.\n\nNote that it does not cure existing infections.</description>
+    <description>A syringe containing a carefully prepared mixture of antigens. It prevents getting sick from sleeping sickness for 8 days and provides full protection from sleeping sickness pathogen gas.\n\nNote that it does not cure existing infections.</description>
     <descriptionHyperlinks>
       <HediffDef>USH_SleepingSicknessVaccineHediff</HediffDef>
     </descriptionHyperlinks>
@@ -457,7 +457,7 @@
   <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase">
     <defName>USH_SleepingSicknessVaccineRes</defName>
     <label>sleeping sickness antibodies</label>
-    <description>Craft sleeping sickness vaccines and antiserums that can heal and protect from getting infected. This reasearch project must be studied using vaccine reseach station with an iserted sleeping sickness parasite sample.\n\nThis project in always locked in research tab.</description>
+    <description>Craft sleeping sickness vaccines and antiserums that can heal and protect from getting infected. This research project must be studied using vaccine reseach station with an inserted sleeping sickness parasite sample.\n\nThis project in always locked in research tab.</description>
     <prerequisites>
       <li>USH_SleepingSicknessOperationRes</li>
     </prerequisites>
