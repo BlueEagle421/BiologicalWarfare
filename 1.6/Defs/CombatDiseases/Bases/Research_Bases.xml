@@ -2,8 +2,6 @@
 <Defs>
 
   <ResearchProjectDef Name="USH_DiseaseOprationResBase" ParentName="USH_BiologicalProjectBase" Abstract="True">
-    <label>{0} {1}</label>
-    <description>Craft {0} {1} gas grenade launchers, explosive barrels and devastating mortar shells.</description>
     <baseCost>400</baseCost>
     <prerequisites>
       <li>USH_PathogenProductionRes</li>
@@ -13,8 +11,6 @@
   </ResearchProjectDef>
 
   <ResearchProjectDef Name="USH_DiseaseVaccineResBase" ParentName="USH_BiologicalProjectBase" Abstract="True">
-    <label>{0} antibodies</label>
-    <description>Craft {0} vaccines and antiserums that can heal and protect from getting infected. This reasearch project must be studied using vaccine reseach station with an iserted {0} {1} sample.\n\nThis project in always locked in research tab.</description>
     <baseCost>1200</baseCost>
     <requiredResearchBuilding>USH_AntigensAnalyzer</requiredResearchBuilding>
     <researchViewX>1.00</researchViewX>

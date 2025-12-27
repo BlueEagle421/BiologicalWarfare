@@ -14,7 +14,6 @@ namespace USH_BW
         public List<ThingDef> thingDefsToFormat = new List<ThingDef>();
         public List<ThingDef> thingDefsToColor = new List<ThingDef>();
         public List<ThingDef> thingDefsToColorIcons = new List<ThingDef>();
-        public List<ThingDef> thingDefsToFormatAndColor = new List<ThingDef>();
 
         public List<ResearchProjectDef> researchProjectsDefsToFormat = new List<ResearchProjectDef>();
         public List<HediffDef> hediffDefsToFormat = new List<HediffDef>();
@@ -23,8 +22,6 @@ namespace USH_BW
         public ThingDef pathogenDef;
 
         public ResearchProjectDef vaccineResProjectDef;
-
-        private DefFormatter _defFormatter;
 
         private const float GAS_ALPHA = 0.75f;
 
@@ -48,19 +45,10 @@ namespace USH_BW
         {
             base.ResolveReferences();
 
-            _defFormatter = new DefFormatter(new List<Def>(), new List<object> { label, DiseaseTypeLabel() });
-
-            _defFormatter.AddDefsToFormat(thingDefsToFormat.ConvertAll(x => (Def)x));
-            _defFormatter.AddDefsToFormat(thingDefsToFormatAndColor.ConvertAll(x => (Def)x));
-            _defFormatter.AddDefsToFormat(researchProjectsDefsToFormat.ConvertAll(x => (Def)x));
-            _defFormatter.AddDefsToFormat(hediffDefsToFormat.ConvertAll(x => (Def)x));
-
-            _defFormatter.Format();
-
             foreach (ThingDef thingDef in thingDefsToColor)
                 ColorThingDef(thingDef);
 
-            foreach (ThingDef thingDef in thingDefsToFormatAndColor)
+            foreach (ThingDef thingDef in thingDefsToColor)
                 ColorThingDef(thingDef);
 
             foreach (ThingDef thingDef in thingDefsToColorIcons)

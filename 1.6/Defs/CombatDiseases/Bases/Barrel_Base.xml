@@ -2,8 +2,6 @@
 <Defs>
 
   <ThingDef Name="USH_BiologicalBarrelBase" ParentName="BuildingBase" Abstract="True">
-    <label>{0} gas barrel</label>
-    <description>A barrel full of {0} gas. Ignites upon getting shot, which results in a massive gas explosion infecting everyone around it.</description>
     <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     <graphicData>
       <texPath>Things/Building/GasBarrel/GasBarrel</texPath>

@@ -2,8 +2,6 @@
 <Defs>
 
   <ThingDef Name="USH_DiseasePathogenBase" Abstract="True" ParentName="ResourceBase">
-    <label>{0} {1} pathogen</label>
-    <description>A {0} {1} pathogen that's a crucial ingredient in producing biological weapons. It must be kept indoors at freezing temperatures to stay fresh and usable.</description>
     <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     <thingClass>ThingWithComps</thingClass>
     <graphicData>

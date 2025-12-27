@@ -11,9 +11,8 @@
     <diseaseType>Parasite</diseaseType>
     <colorInt>(22, 168, 119, 255)</colorInt>
 
-    <!-- formats {0} to label and {1} to disease type -->
     <!-- also sets color in graphicData -->
-    <thingDefsToFormatAndColor>
+    <thingDefsToColor>
       <li>USH_SleepingSicknessSample</li>
       <li>USH_SleepingSicknessPathogen</li>
       <li>USH_SleepingSicknessVaccine</li>
@@ -28,7 +27,7 @@
       <li>USH_SleepingSicknessMissileBullet</li>
       <li>USH_SleepingSicknessGrenadeBullet</li>
       <li>USH_SleepingSicknessGrenadeLauncher</li>
-    </thingDefsToFormatAndColor>
+    </thingDefsToColor>
 
     <thingDefsToColorIcons>
       <li>USH_SleepingSicknessMissileLauncher</li>
@@ -58,6 +57,8 @@
 
   <ThingDef ParentName="USH_ParasiteSampleBase">
     <defName>USH_SleepingSicknessSample</defName>
+    <label>sleeping sickness parasite sample</label>
+    <description>A sample of sleeping sickness parasite. Can be used in production of special reproduction pills that will produce sleeping sickness pathogens after consumption.\n\nCan be obtained by using disease sampler on a living creature infected with sleeping sickness or crafted from sleeping sickness pathogens.</description>
     <descriptionHyperlinks>
       <ThingDef>USH_SleepingSicknessReproductionPills</ThingDef>
     </descriptionHyperlinks>
@@ -78,10 +79,14 @@
 
   <ThingDef ParentName="USH_ParasitePathogenBase">
     <defName>USH_SleepingSicknessPathogen</defName>
+    <label>sleeping sickness parasite pathogen</label>
+    <description>A sleeping sickness parasite pathogen that's a crucial ingredient in producing biological weapons. It must be kept indoors at freezing temperatures to stay fresh and usable.</description>
   </ThingDef>
 
   <ThingDef ParentName="USH_DiseaseVaccineBase">
     <defName>USH_SleepingSicknessVaccine</defName>
+    <label>sleeping sickness vaccine</label>
+    <description>A syringe contaning a carefully prepared mixture of antigens. It prevents getting sick from sleeping sickness for 8 days and provides full protection from sleeping sickness pathogen gas.\n\nNote that it does not cure existing infections.</description>
     <descriptionHyperlinks>
       <HediffDef>USH_SleepingSicknessVaccineHediff</HediffDef>
     </descriptionHyperlinks>
@@ -105,6 +110,9 @@
 
   <HediffDef ParentName="USH_DiseaseVaccineHediffBase">
     <defName>USH_SleepingSicknessVaccineHediff</defName>
+    <label>sleeping sickness immunity</label>
+    <labelNoun>a sleeping sickness immunity</labelNoun>
+    <description>sleeping sickness antigens in the bloodstream. Comes from sleeping sickness vaccine.</description>
     <stages>
       <li>
         <makeImmuneTo>
@@ -116,6 +124,8 @@
 
   <ThingDef ParentName="USH_DiseaseAntiserum">
     <defName>USH_SleepingSicknessAntiserum</defName>
+    <label>sleeping sickness antiserum</label>
+    <description>A highly concentrated mixture of antibodies enhanced with spacer technology that rapidly spreads through the user's bloodstream. It can be ingested, granting instant immunity to sleeping sickness. Powerful glitterworld medicine makes it highly effective and capable of killing even parasites.</description>
     <ingestible>
       <outcomeDoers>
         <li Class="USH_BW.IngestionOutcomeDoerRemoveHediffs">
@@ -138,6 +148,8 @@
 
   <ThingDef ParentName="USH_ParasiteReproductionPills">
     <defName>USH_SleepingSicknessReproductionPills</defName>
+    <label>sleeping sickness pills</label>
+    <description>A drug containing sleeping sickness parasite embryos with enhanced reproduction capabilities. Whoever consumes it will turn into a living pathogen breeding machine. The host's body will continuously spew out sleeping sickness pathogens and receive internal damage in the process. If left untended, he will die and produce fewer pathogens. \n\nNote that large, tamed creatures in herds are best suited for being hosts.</description>
     <descriptionHyperlinks>
       <HediffDef>USH_SleepingSicknessReproduction</HediffDef>
     </descriptionHyperlinks>
@@ -174,6 +186,8 @@
 
   <ThingDef ParentName="USH_BiologicalGasBase">
     <defName>USH_SleepingSicknessGas</defName>
+    <label>sleeping sickness parasite gas</label>
+    <description>A sleeping sickness pathogen gas</description>
     <modExtensions>
       <li Class="USH_BW.PathogenGasExtension">
         <HediffDef>SleepingSickness</HediffDef>
@@ -185,6 +199,8 @@
 
   <ThingDef ParentName="USH_BiologicalShellBase">
     <defName>USH_SleepingSicknessShell</defName>
+    <label>sleeping sickness gas shell</label>
+    <description>A shell filled with sleeping sickness gas. Can be fired from mortars. Explodes when damaged infecting everyone nearby.</description>
     <comps>
       <li Class="CompProperties_Explosive">
         <explosiveRadius>4.9</explosiveRadius>
@@ -210,6 +226,8 @@
 
   <ThingDef ParentName="USH_BiologicalShellBulletBase">
     <defName>USH_SleepingSicknessShellBullet</defName>
+    <label>sleeping sickness gas shell</label>
+    <description>A sleeping sickness gas shell</description>
     <projectile>
       <damageDef>USH_SleepingSicknessDamage</damageDef>
       <postExplosionSpawnThingDef>USH_SleepingSicknessGas</postExplosionSpawnThingDef>
@@ -218,6 +236,8 @@
 
   <ThingDef ParentName="USH_BiologicalBarrelBase">
     <defName>USH_SleepingSicknessBarrel</defName>
+    <label>sleeping sickness gas barrel</label>
+    <description>A barrel full of sleeping sickness gas. Ignites upon getting shot, which results in a massive gas explosion infecting everyone around it.</description>
     <comps>
       <li Class="CompProperties_Explosive">
         <explosiveRadius>6.9</explosiveRadius>
@@ -240,6 +260,8 @@
 
   <ThingDef ParentName="USH_BiologicalVentBase">
     <defName>USH_SleepingSicknessVent</defName>
+    <label>sleeping sickness gas vent</label>
+    <description>A wall-mounted vent capable of releasing toxic compounds of sleeping sickness gas into the targeted area. Consumes pathogens per every gas release and requires activation by a colonist.</description>
     <comps>
       <li Class="CompProperties_Refuelable">
         <fuelConsumptionRate>0</fuelConsumptionRate>
@@ -287,6 +309,8 @@
 
   <ThingDef ParentName="USH_BiologicalMissileLauncherBase">
     <defName>USH_SleepingSicknessMissileLauncher</defName>
+    <label>sleeping sickness gas missile launcher</label>
+    <description>A military-grade sleeping sickness gas missile launcher that fires a single barrage of rockets covering a large area with sleeping sickness gas. The turret does not fire until someone activates it. It is very effective against sieges, but less effective against moving targets. A single burst of missiles can severely weaken any siege, potentially killing raiders.\nAn integrated targeting system makes it effective over long distances.\n\nOnce fired, it must cool off for hours and be reloaded to fire again. It's refueled with large quantities of sleeping sickness parasite pathogens.</description>
     <comps>
       <li Class="CompProperties_Explosive">
         <wickTicks>240</wickTicks>
@@ -384,6 +408,8 @@
 
   <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">
     <defName>USH_SleepingSicknessGrenadeLauncher</defName>
+    <label>sleeping sickness gas grenade launcher</label>
+    <description>A military-grade sleeping sickness gas grenade launcher intended for anti-infantry use.</description>
     <costList>
       <USH_SleepingSicknessPathogen>75</USH_SleepingSicknessPathogen>
     </costList>
@@ -422,12 +448,16 @@
 
   <ResearchProjectDef ParentName="USH_DiseaseOprationResBase">
     <defName>USH_SleepingSicknessOperationRes</defName>
+    <label>sleeping sickness parasite</label>
+    <description>Craft sleeping sickness parasite gas grenade launchers, explosive barrels and devastating mortar shells.</description>
     <researchViewX>1.50</researchViewX>
     <researchViewY>2.60</researchViewY>
   </ResearchProjectDef>
 
   <ResearchProjectDef ParentName="USH_DiseaseVaccineResBase">
     <defName>USH_SleepingSicknessVaccineRes</defName>
+    <label>sleeping sickness antibodies</label>
+    <description>Craft sleeping sickness vaccines and antiserums that can heal and protect from getting infected. This reasearch project must be studied using vaccine reseach station with an iserted sleeping sickness parasite sample.\n\nThis project in always locked in research tab.</description>
     <prerequisites>
       <li>USH_SleepingSicknessOperationRes</li>
     </prerequisites>

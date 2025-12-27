@@ -8,9 +8,8 @@
     <diseaseType>Chemical</diseaseType>
     <colorInt>(148, 153, 49, 255)</colorInt>
 
-    <!-- formats {0} to label and {1} to disease type -->
     <!-- also sets color in graphicData -->
-    <thingDefsToFormatAndColor>
+    <thingDefsToColor>
       <li>USH_FleshBreakerGas</li>
       <li>USH_FleshBreakerShell</li>
       <li>USH_FleshBreakerBarrel</li>
@@ -21,7 +20,7 @@
       <li>USH_FleshBreakerGrenadeBullet</li>
       <li>USH_FleshBreakerGrenadeLauncher</li>
       <li>USH_FleshBreakerGrenadeLauncher</li>
-    </thingDefsToFormatAndColor>
+    </thingDefsToColor>
 
     <thingDefsToColorIcons>
       <li>USH_FleshBreakerMissileLauncher</li>
@@ -43,6 +42,8 @@
 
   <ThingDef ParentName="USH_BiologicalGasBase">
     <defName>USH_FleshBreakerGas</defName>
+    <label>flesh-breaker chemical gas</label>
+    <description>A flesh-breaker pathogen gas</description>
     <modExtensions>
       <li Class="USH_BW.PathogenGasExtension">
         <HediffDef>USH_FleshBreakerHigh</HediffDef>
@@ -54,6 +55,8 @@
 
   <ThingDef ParentName="USH_BiologicalShellBase">
     <defName>USH_FleshBreakerShell</defName>
+    <label>flesh-breaker gas shell</label>
+    <description>A shell filled with flesh-breaker gas. Can be fired from mortars. Explodes when damaged infecting everyone nearby.</description>
     <comps>
       <li Class="CompProperties_Explosive">
         <explosiveRadius>4.9</explosiveRadius>
@@ -79,6 +82,8 @@
 
   <ThingDef ParentName="USH_BiologicalShellBulletBase">
     <defName>USH_FleshBreakerShellBullet</defName>
+    <label>flesh-breaker gas shell</label>
+    <description>A flesh-breaker gas shell</description>
     <projectile>
       <damageDef>USH_FleshBreakerDamage</damageDef>
       <postExplosionSpawnThingDef>USH_FleshBreakerGas</postExplosionSpawnThingDef>
@@ -87,6 +92,8 @@
 
   <ThingDef ParentName="USH_BiologicalBarrelBase">
     <defName>USH_FleshBreakerBarrel</defName>
+    <label>flesh-breaker gas barrel</label>
+    <description>A barrel full of flesh-breaker gas. Ignites upon getting shot, which results in a massive gas explosion infecting everyone around it.</description>
     <comps>
       <li Class="CompProperties_Explosive">
         <explosiveRadius>6.9</explosiveRadius>
@@ -109,6 +116,8 @@
 
   <ThingDef ParentName="USH_BiologicalVentBase">
     <defName>USH_FleshBreakerVent</defName>
+    <label>flesh-breaker gas vent</label>
+    <description>A wall-mounted vent capable of releasing toxic compounds of flesh-breaker gas into the targeted area. Consumes pathogens per every gas release and requires activation by a colonist.</description>
     <comps>
       <li Class="CompProperties_Refuelable">
         <fuelConsumptionRate>0</fuelConsumptionRate>
@@ -156,6 +165,8 @@
 
   <ThingDef ParentName="USH_BiologicalMissileLauncherBase">
     <defName>USH_FleshBreakerMissileLauncher</defName>
+    <label>flesh-breaker gas missile launcher</label>
+    <description>A military-grade flesh-breaker gas missile launcher that fires a single barrage of rockets covering a large area with flesh-breaker gas. The turret does not fire until someone activates it. It is very effective against sieges, but less effective against moving targets. A single burst of missiles can severely weaken any siege, potentially killing raiders.\nAn integrated targeting system makes it effective over long distances.\n\nOnce fired, it must cool off for hours and be reloaded to fire again. It's refueled with large quantities of flesh-breaker chemical pathogens.</description>
     <comps>
       <li Class="CompProperties_Explosive">
         <wickTicks>240</wickTicks>
@@ -253,6 +264,8 @@
 
   <ThingDef ParentName="USH_BiologicalGrenadeLauncherBase">
     <defName>USH_FleshBreakerGrenadeLauncher</defName>
+    <label>flesh-breaker gas grenade launcher</label>
+    <description>A military-grade flesh-breaker gas grenade launcher intended for anti-infantry use.</description>
     <costList>
       <USH_FleshBreaker>15</USH_FleshBreaker>
     </costList>
@@ -291,6 +304,8 @@
 
   <ResearchProjectDef ParentName="USH_DiseaseOprationResBase">
     <defName>USH_FleshBreakerOperationRes</defName>
+    <label>flesh-breaker chemical</label>
+    <description>Craft flesh-breaker chemical gas grenade launchers, explosive barrels and devastating mortar shells.</description>
     <researchViewX>1.50</researchViewX>
     <researchViewY>3.40</researchViewY>
   </ResearchProjectDef>

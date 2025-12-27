@@ -2,8 +2,6 @@
 <Defs>
 
   <ThingDef Name="USH_BiologicalVentBase" ParentName="BuildingBase" Abstract="True">
-    <label>{0} gas vent</label>
-    <description>A wall-mounted vent capable of releasing toxic compounds of {0} gas into the targeted area. Consumes pathogens per every gas release and requires activation by a colonist.</description>
     <thingClass>Building</thingClass>
     <graphicData>
       <texPath>Things/Building/GasVent/GasVent</texPath>

@@ -20,8 +20,6 @@
   </DamageDef>
 
   <ThingDef Name="USH_BiologicalGasBase" Abstract="True">
-    <label>{0} {1} gas</label>
-    <description>A {0} pathogen gas</description>
     <ignoreIllegalLabelCharacterConfigError>True</ignoreIllegalLabelCharacterConfigError>
     <category>Gas</category>
     <altitudeLayer>Gas</altitudeLayer>
