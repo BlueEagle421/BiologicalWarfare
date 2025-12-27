@@ -411,7 +411,7 @@
     <label>sleeping sickness gas grenade launcher</label>
     <description>A military-grade sleeping sickness gas grenade launcher intended for anti-infantry use.</description>
     <costList>
-      <USH_SleepingSicknessPathogen>75</USH_SleepingSicknessPathogen>
+      <USH_SleepingSicknessPathogen>325</USH_SleepingSicknessPathogen>
     </costList>
     <verbs>
       <li>

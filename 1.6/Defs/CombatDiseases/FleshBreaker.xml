@@ -267,7 +267,7 @@
     <label>flesh-breaker gas grenade launcher</label>
     <description>A military-grade flesh-breaker gas grenade launcher intended for anti-infantry use.</description>
     <costList>
-      <USH_FleshBreaker>15</USH_FleshBreaker>
+      <USH_FleshBreaker>65</USH_FleshBreaker>
     </costList>
     <verbs>
       <li>

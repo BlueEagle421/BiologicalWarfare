@@ -374,7 +374,7 @@
     <label>flu gas grenade launcher</label>
     <description>A military-grade flu gas grenade launcher intended for anti-infantry use.</description>
     <costList>
-      <USH_FluPathogen>50</USH_FluPathogen>
+      <USH_FluPathogen>325</USH_FluPathogen>
     </costList>
     <verbs>
       <li>

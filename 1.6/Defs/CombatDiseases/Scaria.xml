@@ -379,7 +379,7 @@
     <label>scaria gas grenade launcher</label>
     <description>A military-grade scaria gas grenade launcher intended for anti-infantry use.</description>
     <costList>
-      <USH_ScariaPathogen>75</USH_ScariaPathogen>
+      <USH_ScariaPathogen>325</USH_ScariaPathogen>
     </costList>
     <verbs>
       <li>

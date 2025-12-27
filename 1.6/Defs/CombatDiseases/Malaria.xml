@@ -411,7 +411,7 @@
     <label>malaria gas grenade launcher</label>
     <description>A military-grade malaria gas grenade launcher intended for anti-infantry use.</description>
     <costList>
-      <USH_MalariaPathogen>75</USH_MalariaPathogen>
+      <USH_MalariaPathogen>325</USH_MalariaPathogen>
     </costList>
     <verbs>
       <li>

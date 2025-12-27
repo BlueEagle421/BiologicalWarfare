@@ -374,7 +374,7 @@
     <label>plague gas grenade launcher</label>
     <description>A military-grade plague gas grenade launcher intended for anti-infantry use.</description>
     <costList>
-      <USH_PlaguePathogen>75</USH_PlaguePathogen>
+      <USH_PlaguePathogen>325</USH_PlaguePathogen>
     </costList>
     <verbs>
       <li>

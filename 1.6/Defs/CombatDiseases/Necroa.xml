@@ -375,7 +375,7 @@
     <label>necroa gas grenade launcher</label>
     <description>A military-grade necroa gas grenade launcher intended for anti-infantry use.</description>
     <costList>
-      <USH_NecroaPathogen>50</USH_NecroaPathogen>
+      <USH_NecroaPathogen>325</USH_NecroaPathogen>
     </costList>
     <verbs>
       <li>
