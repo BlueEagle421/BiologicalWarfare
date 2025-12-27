@@ -47,7 +47,7 @@ namespace USH_BW
         private int _patogensToProduce;
         private bool _isIncubating;
 
-        private readonly MaterialPropertyBlock _materialPropertyBlock = new MaterialPropertyBlock();
+        private readonly MaterialPropertyBlock _materialPropertyBlock = new();
         private Material _cachedLidMaterial;
         public Material LidMaterial
         {
@@ -147,7 +147,7 @@ namespace USH_BW
             if (!_isIncubating)
                 return base.CompInspectStringExtra();
 
-            StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder stringBuilder = new();
 
             string timeLeft = GenDate.ToStringTicksToPeriod(PropsBacteriaIncubator.incubationTicks - _incubationTicks);
             stringBuilder.AppendLine("USH_IncubatorTimeLeft".Translate(timeLeft));
@@ -212,7 +212,7 @@ namespace USH_BW
                 return;
 
             Vector3 position = parent.DrawPos + new Vector3(0, 1, -0.10f);
-            Vector3 scale = new Vector3(0.4f, 1f, 0.22f);
+            Vector3 scale = new(0.4f, 1f, 0.22f);
 
             _materialPropertyBlock.SetColor("_Color", LidColor());
 

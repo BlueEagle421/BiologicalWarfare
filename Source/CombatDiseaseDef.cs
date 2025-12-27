@@ -5,18 +5,18 @@ namespace USH_BW
 {
     public class CombatDiseaseDef : Def
     {
-        public List<HediffDef> samplableHediffDefs = new List<HediffDef>();
+        public List<HediffDef> samplableHediffDefs = [];
         public HediffDef giveHediffDef;
         public DiseaseType diseaseType;
         public ColorInt colorInt;
         public string overrideDiseaseTypeLabel;
 
-        public List<ThingDef> thingDefsToFormat = new List<ThingDef>();
-        public List<ThingDef> thingDefsToColor = new List<ThingDef>();
-        public List<ThingDef> thingDefsToColorIcons = new List<ThingDef>();
+        public List<ThingDef> thingDefsToFormat = [];
+        public List<ThingDef> thingDefsToColor = [];
+        public List<ThingDef> thingDefsToColorIcons = [];
 
-        public List<ResearchProjectDef> researchProjectsDefsToFormat = new List<ResearchProjectDef>();
-        public List<HediffDef> hediffDefsToFormat = new List<HediffDef>();
+        public List<ResearchProjectDef> researchProjectsDefsToFormat = [];
+        public List<HediffDef> hediffDefsToFormat = [];
 
         public ThingDef sampleDef;
         public ThingDef pathogenDef;
@@ -53,14 +53,6 @@ namespace USH_BW
 
             foreach (ThingDef thingDef in thingDefsToColorIcons)
                 ColorThingDefIcon(thingDef);
-        }
-
-        private string DiseaseTypeLabel()
-        {
-            if (!string.IsNullOrEmpty(overrideDiseaseTypeLabel))
-                return overrideDiseaseTypeLabel;
-
-            return diseaseType.ToStringUncapitalized();
         }
 
         private void ColorThingDef(ThingDef thingDef)

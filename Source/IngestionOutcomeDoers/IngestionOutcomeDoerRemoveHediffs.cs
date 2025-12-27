@@ -13,7 +13,7 @@ namespace USH_BW
 
         private void RemoveHediffsFrom(Pawn pawn, Thing ingested)
         {
-            List<Hediff> removedHediffs = new List<Hediff>();
+            List<Hediff> removedHediffs = [];
 
             foreach (HediffDef defToRemove in hediffDefsToRemove)
             {

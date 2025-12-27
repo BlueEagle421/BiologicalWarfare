@@ -7,9 +7,9 @@ namespace USH_BW
     public static class GasVentUtils
     {
         public const float DEFAULT_GAS_RADIUS = 5.4f;
-        public static Queue<IntVec3> _queue = new Queue<IntVec3>();
-        public static HashSet<IntVec3> _cells = new HashSet<IntVec3>();
-        public static HashSet<IntVec3> _checked = new HashSet<IntVec3>();
+        public static Queue<IntVec3> _queue = new();
+        public static HashSet<IntVec3> _cells = [];
+        public static HashSet<IntVec3> _checked = [];
 
         public static List<IntVec3> GetGasVentArea(IntVec3 ventPos, Map map, float radius)
         {

@@ -6,7 +6,7 @@ namespace USH_BW
 {
     public class GraphicPathogenGas : Graphic_Single
     {
-        private readonly MaterialPropertyBlock _materialPropertyBlock = new MaterialPropertyBlock();
+        private readonly MaterialPropertyBlock _materialPropertyBlock = new();
 
         private const float POSITION_VARIANCE = 0.45f;
         private const float SCALE_VARIANCE = 0.2f;
@@ -19,7 +19,7 @@ namespace USH_BW
 
             float angle = Rand.Range(0, 360) + ((gas == null) ? 0f : gas.graphicRotation);
             Vector3 position = thing.TrueCenter() + new Vector3(RandPosOffset(), 0f, RandPosOffset());
-            Vector3 scale = new Vector3(RandScaleOffset() * drawSize.x, 0f, RandScaleOffset() * drawSize.y);
+            Vector3 scale = new(RandScaleOffset() * drawSize.x, 0f, RandScaleOffset() * drawSize.y);
             Matrix4x4 matrix = Matrix4x4.TRS(position, Quaternion.AngleAxis(angle, Vector3.up), scale);
 
             _materialPropertyBlock.SetColor("_Color", Color.ToTransparent(gas.Alpha()));

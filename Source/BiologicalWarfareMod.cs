@@ -13,14 +13,14 @@ namespace USH_BW
             Settings = GetSettings<BiologicalWarfareSettings>();
 
             Harmony.DEBUG = false;
-            Harmony harmony = new Harmony("biologicalwarfare");
+            Harmony harmony = new("biologicalwarfare");
 
             harmony.PatchAll();
         }
 
         public override void DoSettingsWindowContents(Rect inRect)
         {
-            Listing_Standard listingStandard = new Listing_Standard();
+            Listing_Standard listingStandard = new();
             listingStandard.Begin(inRect);
 
             //GasSeverityMultiplier
@@ -58,8 +58,8 @@ namespace USH_BW
     }
     public class BiologicalWarfareSettings : ModSettings
     {
-        public Setting<float> GasSeverityMultiplier = new Setting<float>(1f);
-        public Setting<int> MaxGasInfectionCount = new Setting<int>(4);
+        public Setting<float> GasSeverityMultiplier = new(1f);
+        public Setting<int> MaxGasInfectionCount = new(4);
 
         public void ResetAll()
         {

@@ -133,7 +133,7 @@ namespace USH_BW
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell);
 
 
-            Toil researchToil = new Toil();
+            Toil researchToil = new();
             researchToil.tickIntervalAction = delegate (int delta)
             {
                 Pawn actor = researchToil.actor;

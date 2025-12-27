@@ -8,7 +8,7 @@ namespace USH_BW
     {
         private int _ticksToSmoke;
         private int _smokeSpawned;
-        private static readonly IntRange SMOKE_INTERVAL = new IntRange(1, 25);
+        private static readonly IntRange SMOKE_INTERVAL = new(1, 25);
         private static readonly int FIRE_CYCLE = 2;
 
         protected override void TickInterval(int delta)
@@ -29,7 +29,7 @@ namespace USH_BW
         }
 
         private Vector3 LookTowards =>
-            new Vector3(
+            new(
                 destination.x - origin.x,
                 def.Altitude,
                 destination.z - origin.z + ArcHeightFactor * (4 - 8 * DistanceCoveredFraction));

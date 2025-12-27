@@ -33,7 +33,7 @@ namespace USH_BW
             foreach (FloatMenuOption option in base.CompFloatMenuOptions(selPawn))
                 yield return option;
 
-            FloatMenuOption extractOption = new FloatMenuOption("USH_ExtractSample".Translate(), delegate ()
+            FloatMenuOption extractOption = new("USH_ExtractSample".Translate(), delegate ()
             {
                 OrderExtractionJob(selPawn);
             }, MenuOptionPriority.Default, null, null, 0f, null, null, true, 0);

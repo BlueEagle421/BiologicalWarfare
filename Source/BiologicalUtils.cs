@@ -196,7 +196,7 @@ namespace USH_BW
 
         public static void Shuffle<T>(this List<T> list, int shuffleSteps)
         {
-            System.Random rand = new System.Random();
+            System.Random rand = new();
 
             for (int i = 0; i < shuffleSteps; i++)
             {

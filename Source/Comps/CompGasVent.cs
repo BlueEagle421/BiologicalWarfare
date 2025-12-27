@@ -22,7 +22,7 @@ namespace USH_BW
         {
             var ventingPos = GasVentUtils.VentingPosition(pos, rot);
 
-            GenDraw.DrawFieldEdges(new List<IntVec3> { ventingPos }, Color.white);
+            GenDraw.DrawFieldEdges([ventingPos], Color.white);
 
             var map = Find.CurrentMap;
             var affectedArea = GasVentUtils.GetGasVentArea(ventingPos, map, def.GetCompProperties<CompProperties_GasVent>()?.ventingRadius ?? 0);
@@ -47,7 +47,7 @@ namespace USH_BW
         private CompRefuelable _compRefuelable;
         protected IntVec3 _ventPos;
 
-        private List<GasSpreadTask> _gasSpreadTasks = new List<GasSpreadTask>();
+        private List<GasSpreadTask> _gasSpreadTasks = [];
 
         private const int GAS_CELL_DELAY = 2;
         private const int SHUFFLE_STEPS = 12;
@@ -61,7 +61,7 @@ namespace USH_BW
             base.PostSpawnSetup(respawningAfterLoad);
 
             if (_gasSpreadTasks == null)
-                _gasSpreadTasks = new List<GasSpreadTask>();
+                _gasSpreadTasks = [];
 
             _compRefuelable = parent.GetComp<CompRefuelable>();
             _ventPos = GasVentUtils.VentingPosition(parent);

@@ -24,7 +24,7 @@ namespace USH_BW
         {
             get
             {
-                StringBuilder stringBuilder = new StringBuilder(base.CompDescriptionExtra);
+                StringBuilder stringBuilder = new(base.CompDescriptionExtra);
 
                 stringBuilder.AppendInNewLine('\n' + "USH_VirusReplicationRelated".Translate(_cashedHediffInfo.Label));
 
